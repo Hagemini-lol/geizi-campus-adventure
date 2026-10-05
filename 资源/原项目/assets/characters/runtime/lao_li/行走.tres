@@ -1,0 +1,148 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/characters/runtime/lao_li/四向.png" id="1_mmvro"]
+[ext_resource type="Texture2D" path="res://assets/characters/runtime/lao_li/行走.png" id="2_u41wo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwe8x"]
+atlas = ExtResource("1_mmvro")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq0ap"]
+atlas = ExtResource("1_mmvro")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nidx7"]
+atlas = ExtResource("1_mmvro")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwiu2"]
+atlas = ExtResource("1_mmvro")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t41g6"]
+atlas = ExtResource("2_u41wo")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is1wa"]
+atlas = ExtResource("2_u41wo")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmpn0"]
+atlas = ExtResource("2_u41wo")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkk53"]
+atlas = ExtResource("2_u41wo")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a2v4"]
+atlas = ExtResource("2_u41wo")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88o6i"]
+atlas = ExtResource("2_u41wo")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq5gi"]
+atlas = ExtResource("2_u41wo")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll6rd"]
+atlas = ExtResource("2_u41wo")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[resource]
+resource_name = "牢李 · 四向行走 · 两张迈步差分"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwe8x")
+}],
+"loop": 0,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq0ap")
+}],
+"loop": 0,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nidx7")
+}],
+"loop": 0,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwiu2")
+}],
+"loop": 0,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t41g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is1wa")
+}],
+"loop": 1,
+"name": &"walk_back",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmpn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkk53")
+}],
+"loop": 1,
+"name": &"walk_front",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a2v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88o6i")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq5gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll6rd")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 4.0
+}]
+metadata/character_name = "牢李"
+metadata/annotation = "班级技术担当，动手能力强，受老师器重，总能搞到神奇道具。"
+metadata/walk_cycle = "A→B；每向2张新增动作"
+metadata/foot_anchor = Vector2i(64, 120)

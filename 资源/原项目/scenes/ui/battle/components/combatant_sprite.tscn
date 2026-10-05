@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle/battle_combatant.gd" id="1"]
+
+[node name="UIBattleCombatantSprite" type="Control"]
+editor_description = "共用战场人物层：近景我方和远景敌方复用，可独立替换透明立绘。"
+metadata/asset_name = "战斗人物层"
+script = ExtResource("1")

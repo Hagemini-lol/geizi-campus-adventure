@@ -1,0 +1,20 @@
+{
+	"checks": 3094,
+	"failures": [],
+	"initial_elite_sample": 395,
+	"initial_normal_sample": 1605,
+	"named_copies": {
+		"fei_yan": 3,
+		"gou_ga": 3,
+		"la_jiao": 3,
+		"lao_ao": 3,
+		"lao_chou": 3,
+		"lao_dong": 3,
+		"lao_li": 3,
+		"lao_shuo": 3,
+		"wr": 3,
+		"yang_zi": 3
+	},
+	"pack": "",
+	"period_elite_sample": 388
+}

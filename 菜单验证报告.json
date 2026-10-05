@@ -1,0 +1,24 @@
+{
+  "checks": 40,
+  "escape_close": true,
+  "failures": [],
+  "inside_and_outside": true,
+  "passed": true,
+  "right_click_toggle": true,
+  "source_assets": [
+    "D:/Godot/Projects/赵慕gei的牙林冒险/assets/ui/菜单UI.png",
+    "D:/Godot/Projects/赵慕gei的牙林冒险/assets/ui/components/panels/panel.png",
+    "D:/Godot/Projects/赵慕gei的牙林冒险/assets/ui/components/buttons/option_normal.png",
+    "D:/Godot/Projects/赵慕gei的牙林冒险/assets/ui/components/buttons/option_hover.png",
+    "D:/Godot/Projects/赵慕gei的牙林冒险/assets/ui/components/buttons/option_selected.png"
+  ],
+  "source_images_external": true,
+  "tabs": [
+    "status",
+    "equipment",
+    "items",
+    "skills",
+    "saves",
+    "settings"
+  ]
+}

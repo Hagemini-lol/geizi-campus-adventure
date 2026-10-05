@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/settings_page.gd" id="1"]
+
+[node name="UISettingsPage" type="VBoxContainer"]
+editor_description = "“设置”页签对应的独立内容面板；仅在此页被选中时显示。"
+metadata/asset_name = "设置内容页"
+metadata/asset_category = "菜单内容页"
+metadata/asset_usage = "“设置”页签对应的独立内容面板；仅在此页被选中时显示。"
+script = ExtResource("1")

@@ -1,0 +1,148 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/characters/runtime/homeroom_teacher/四向.png" id="1_n3gx5"]
+[ext_resource type="Texture2D" path="res://assets/characters/runtime/homeroom_teacher/行走.png" id="2_oil5f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8axe"]
+atlas = ExtResource("1_n3gx5")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjh1i"]
+atlas = ExtResource("1_n3gx5")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvvp7"]
+atlas = ExtResource("1_n3gx5")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7bps"]
+atlas = ExtResource("1_n3gx5")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s10h1"]
+atlas = ExtResource("2_oil5f")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du7sm"]
+atlas = ExtResource("2_oil5f")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10sof"]
+atlas = ExtResource("2_oil5f")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkwmn"]
+atlas = ExtResource("2_oil5f")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8vwb"]
+atlas = ExtResource("2_oil5f")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6d7y"]
+atlas = ExtResource("2_oil5f")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbteu"]
+atlas = ExtResource("2_oil5f")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu645"]
+atlas = ExtResource("2_oil5f")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[resource]
+resource_name = "班主任 · 四向行走 · 两张迈步差分"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8axe")
+}],
+"loop": 0,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjh1i")
+}],
+"loop": 0,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvvp7")
+}],
+"loop": 0,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7bps")
+}],
+"loop": 0,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s10h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du7sm")
+}],
+"loop": 1,
+"name": &"walk_back",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10sof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkwmn")
+}],
+"loop": 1,
+"name": &"walk_front",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8vwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6d7y")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbteu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu645")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 4.0
+}]
+metadata/character_name = "班主任"
+metadata/annotation = "微胖、稍矮的中年女性，深色露耳短发、方圆脸、小眼睛与细框眼镜，灰蓝开衫、米白衬衫和深色长裤。"
+metadata/walk_cycle = "A→B；每向2张新增动作"
+metadata/foot_anchor = Vector2i(64, 120)

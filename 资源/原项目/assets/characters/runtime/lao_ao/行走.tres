@@ -1,0 +1,148 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/characters/runtime/lao_ao/四向.png" id="1_md2ah"]
+[ext_resource type="Texture2D" path="res://assets/characters/runtime/lao_ao/行走.png" id="2_fekua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21r76"]
+atlas = ExtResource("1_md2ah")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2dp3"]
+atlas = ExtResource("1_md2ah")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc4o8"]
+atlas = ExtResource("1_md2ah")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa580"]
+atlas = ExtResource("1_md2ah")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dufq0"]
+atlas = ExtResource("2_fekua")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obpi4"]
+atlas = ExtResource("2_fekua")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqq27"]
+atlas = ExtResource("2_fekua")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqub1"]
+atlas = ExtResource("2_fekua")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yei5h"]
+atlas = ExtResource("2_fekua")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ltww"]
+atlas = ExtResource("2_fekua")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aamm1"]
+atlas = ExtResource("2_fekua")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0alja"]
+atlas = ExtResource("2_fekua")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[resource]
+resource_name = "牢傲 · 四向行走 · 两张迈步差分"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21r76")
+}],
+"loop": 0,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2dp3")
+}],
+"loop": 0,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc4o8")
+}],
+"loop": 0,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa580")
+}],
+"loop": 0,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dufq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obpi4")
+}],
+"loop": 1,
+"name": &"walk_back",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqq27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqub1")
+}],
+"loop": 1,
+"name": &"walk_front",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yei5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ltww")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aamm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0alja")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 4.0
+}]
+metadata/character_name = "牢傲"
+metadata/annotation = "班级音游担当，性格平和但不能容忍不道德的事。"
+metadata/walk_cycle = "A→B；每向2张新增动作"
+metadata/foot_anchor = Vector2i(64, 120)

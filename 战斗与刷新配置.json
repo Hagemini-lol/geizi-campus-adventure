@@ -1,0 +1,470 @@
+{
+  "version": 2,
+  "level_cap": 60,
+  "monster_level_cap": 70,
+  "hero": {
+    "initial_level": 0,
+    "stats": {
+      "hp": {
+        "base": 1000,
+        "growth": 120,
+        "exponent": 1.2
+      },
+      "mp": {
+        "base": 100,
+        "growth": 20,
+        "exponent": 1.5
+      },
+      "energy": {
+        "base": 200,
+        "growth": 100,
+        "exponent": 1
+      },
+      "san": {
+        "base": 100,
+        "growth": 50,
+        "exponent": 0.8
+      },
+      "defense": {
+        "base": 10,
+        "growth": 2,
+        "exponent": 0.4
+      },
+      "magic_resistance": {
+        "base": 0,
+        "terms": [
+          {
+            "growth": 10,
+            "exponent": 1
+          },
+          {
+            "growth": 10,
+            "exponent": 1.2
+          }
+        ]
+      },
+      "attack": {
+        "base": 100,
+        "growth": 100
+      },
+      "penetration": {
+        "base": 0
+      }
+    }
+  },
+  "character_profiles": {},
+  "monster_base": {
+    "hp": {
+      "base": 100,
+      "growth": 100
+    },
+    "attack": {
+      "base": 100,
+      "growth": 100
+    },
+    "defense": {
+      "base": 10
+    },
+    "magic_resistance": {
+      "base": 20
+    }
+  },
+  "monsters": {
+    "ink_slime": {
+      "name": "墨泥怪",
+      "rarity": "normal",
+      "art": "assets/characters/monsters/墨泥怪.png",
+      "world_height": 24,
+      "multipliers": {
+        "hp": 1,
+        "attack": 1,
+        "defense": 2,
+        "magic_resistance": 0
+      },
+      "physical_reduction": 0.5,
+      "elemental_reductions": {
+        "lightning": -1
+      }
+    },
+    "book_eater": {
+      "name": "噬书怪",
+      "rarity": "normal",
+      "art": "assets/characters/monsters/噬书怪.png",
+      "world_height": 32,
+      "multipliers": {
+        "hp": 1,
+        "attack": 1.2,
+        "defense": 1,
+        "magic_resistance": 0
+      },
+      "elemental_reductions": {
+        "fire": -1
+      }
+    },
+    "empty_uniform": {
+      "name": "空壳校服",
+      "rarity": "elite",
+      "art": "assets/characters/monsters/空壳校服.png",
+      "world_height": 40.8,
+      "multipliers": {
+        "hp": 2,
+        "attack": 1.5,
+        "defense": 0.5,
+        "magic_resistance": 2
+      },
+      "elemental_reductions": {
+        "light": -0.5
+      }
+    },
+    "dry_branch": {
+      "name": "枯枝怪",
+      "rarity": "elite",
+      "art": "assets/characters/monsters/枯枝怪.png",
+      "world_height": 45.6,
+      "multipliers": {
+        "hp": 4,
+        "attack": 1,
+        "defense": 1.2,
+        "magic_resistance": 1
+      },
+      "physical_reduction": 0.2,
+      "magic_reduction": 0.2,
+      "elemental_reductions": {
+        "fire": -0.5
+      }
+    }
+  },
+  "spawning": {
+    "initial_normal_weight": 0.8,
+    "initial_elite_weight": 0.2,
+    "period_elite_probability": 0.2,
+    "level_offsets": {
+      "normal": -5,
+      "elite": 0
+    },
+    "boss_level_offset_min": 5,
+    "boss_level_offset_max": 10
+  },
+  "experience": {
+    "required_base": 100,
+    "required_exponent": 1.5
+  },
+  "spawn_regions": [
+    {
+      "id": "laboratory",
+      "building": "B02",
+      "kinds": [
+        "corridor",
+        "classroom"
+      ],
+      "enabled": true,
+      "level_mode": "hero_relative",
+      "initial_count": 1,
+      "floors": [],
+      "rooms": []
+    }
+  ],
+  "actions": [
+    {
+      "id": "physical",
+      "category": "attack",
+      "label": "普通攻击",
+      "description": "物理攻击，消耗 10 精力",
+      "damage_kind": "physical",
+      "energy_cost": 10
+    },
+    {
+      "id": "dodge",
+      "category": "dodge",
+      "label": "闪避",
+      "description": "消耗 20 精力，50% 概率躲避本次攻击",
+      "energy_cost": 20,
+      "dodge_chance": 0.5
+    },
+    {
+      "id": "guard",
+      "category": "dodge",
+      "label": "防守",
+      "description": "本次敌方攻击减伤 50%，恢复 15 精力",
+      "reduction": 0.5,
+      "energy_restore": 15
+    },
+    {
+      "id": "rest",
+      "category": "items",
+      "label": "休整",
+      "description": "恢复 20 MP、50 精力；敌方仍会行动",
+      "mp_restore": 20,
+      "energy_restore": 50
+    },
+    {
+      "id": "escape",
+      "category": "surrender",
+      "label": "撤离战斗",
+      "description": "确定撤离，双方剩余血量保留"
+    },
+    {
+      "id": "auto",
+      "category": "auto_battle",
+      "label": "开始 / 停止挂机",
+      "description": "自动选择攻击，精力不足时休整"
+    }
+  ],
+  "elite_damage_cap_ratio": 0.7,
+  "equipment": {
+    "special_uniform": {
+      "name": "特制校服",
+      "slot": "armor",
+      "bonuses": {
+        "defense": 20,
+        "magic_resistance": 20
+      }
+    },
+    "basic_amulet": {
+      "name": "基础护符",
+      "slot": "accessory",
+      "bonuses": {
+        "attack": 200
+      }
+    },
+    "tech_amulet": {
+      "name": "改装护符",
+      "slot": "accessory",
+      "bonuses": {
+        "attack": 240
+      }
+    },
+    "patrol_uniform": {
+      "name": "巡查校服",
+      "slot": "armor",
+      "bonuses": {
+        "defense": 30,
+        "magic_resistance": 20
+      }
+    }
+  },
+  "magic_tiers": {
+    "low": {
+      "base": 10,
+      "growth": 20,
+      "multiplier": 1,
+      "level": 1,
+      "price": 0
+    },
+    "medium": {
+      "base": 50,
+      "growth": 30,
+      "multiplier": 1.5,
+      "level": 5,
+      "price": 100
+    },
+    "high": {
+      "base": 100,
+      "growth": 50,
+      "multiplier": 3,
+      "level": 15,
+      "price": 200
+    },
+    "super": {
+      "base": 1000,
+      "growth": 50,
+      "multiplier": 5,
+      "level": 35,
+      "price": 400
+    }
+  },
+  "skills": {
+    "fire_low": {
+      "name": "烈焰弹",
+      "kind": "magic",
+      "element": "fire",
+      "tier": "low",
+      "effect": "fire_low",
+      "teacher": "fei_yan",
+      "level": 1,
+      "price": 0
+    },
+    "fire_medium": {
+      "name": "灼燃爆裂",
+      "kind": "magic",
+      "element": "fire",
+      "tier": "medium",
+      "effect": "fire_medium",
+      "teacher": "fei_yan",
+      "level": 5,
+      "price": 100
+    },
+    "fire_high": {
+      "name": "烈火燎原",
+      "kind": "magic",
+      "element": "fire",
+      "tier": "high",
+      "effect": "fire_high",
+      "teacher": "fei_yan",
+      "level": 15,
+      "price": 200
+    },
+    "fire_super": {
+      "name": "天火降临",
+      "kind": "magic",
+      "element": "fire",
+      "tier": "super",
+      "effect": "fire_high",
+      "teacher": "fei_yan",
+      "level": 35,
+      "price": 400
+    },
+    "lightning_low": {
+      "name": "闪电链",
+      "kind": "magic",
+      "element": "lightning",
+      "tier": "low",
+      "effect": "lightning_low",
+      "teacher": "fei_yan",
+      "level": 1,
+      "price": 0
+    },
+    "lightning_medium": {
+      "name": "电广束",
+      "kind": "magic",
+      "element": "lightning",
+      "tier": "medium",
+      "effect": "lightning_medium",
+      "teacher": "fei_yan",
+      "level": 5,
+      "price": 100
+    },
+    "lightning_high": {
+      "name": "雷霆万钧",
+      "kind": "magic",
+      "element": "lightning",
+      "tier": "high",
+      "effect": "lightning_high",
+      "teacher": "fei_yan",
+      "level": 15,
+      "price": 200
+    },
+    "lightning_super": {
+      "name": "终末雷霆",
+      "kind": "magic",
+      "element": "lightning",
+      "tier": "super",
+      "effect": "lightning_high",
+      "teacher": "fei_yan",
+      "level": 35,
+      "price": 400
+    },
+    "frost_low": {
+      "name": "冻结术",
+      "kind": "magic",
+      "element": "frost",
+      "tier": "low",
+      "effect": "frost_low",
+      "teacher": "fei_yan",
+      "level": 1,
+      "price": 0
+    },
+    "frost_medium": {
+      "name": "寒气流",
+      "kind": "magic",
+      "element": "frost",
+      "tier": "medium",
+      "effect": "frost_medium",
+      "teacher": "fei_yan",
+      "level": 5,
+      "price": 100
+    },
+    "frost_high": {
+      "name": "冷冰封",
+      "kind": "magic",
+      "element": "frost",
+      "tier": "high",
+      "effect": "frost_high",
+      "teacher": "fei_yan",
+      "level": 15,
+      "price": 200
+    },
+    "frost_super": {
+      "name": "永冻领域",
+      "kind": "magic",
+      "element": "frost",
+      "tier": "super",
+      "effect": "frost_high",
+      "teacher": "fei_yan",
+      "level": 35,
+      "price": 400
+    },
+    "light_low": {
+      "name": "光弹",
+      "kind": "magic",
+      "element": "light",
+      "tier": "low",
+      "effect": "light_low",
+      "teacher": "fei_yan",
+      "level": 1,
+      "price": 0
+    },
+    "light_medium": {
+      "name": "聚焦打击",
+      "kind": "magic",
+      "element": "light",
+      "tier": "medium",
+      "effect": "light_medium",
+      "teacher": "fei_yan",
+      "level": 5,
+      "price": 100
+    },
+    "light_high": {
+      "name": "光爆十字",
+      "kind": "magic",
+      "element": "light",
+      "tier": "high",
+      "effect": "light_high",
+      "teacher": "fei_yan",
+      "level": 15,
+      "price": 200
+    },
+    "light_super": {
+      "name": "极昼辉光",
+      "kind": "magic",
+      "element": "light",
+      "tier": "super",
+      "effect": "light_high",
+      "teacher": "fei_yan",
+      "level": 35,
+      "price": 400
+    },
+    "barrier": {
+      "name": "魔力屏障",
+      "kind": "support",
+      "teacher": "fei_yan",
+      "level": 1,
+      "price": 30,
+      "description": "消耗 20+5×等级 MP，连续两次敌方攻击减伤 50%，冷却 3 回合"
+    },
+    "focus": {
+      "name": "专注施法",
+      "kind": "support",
+      "teacher": "fei_yan",
+      "level": 1,
+      "price": 20,
+      "description": "消耗 20 精力，下一次法术伤害提高 25%，冷却 3 回合；本回合敌方行动"
+    },
+    "mana_cycle": {
+      "name": "魔力回流",
+      "kind": "support",
+      "teacher": "fei_yan",
+      "level": 1,
+      "price": 30,
+      "description": "消耗 30 精力，恢复 10+10×等级 MP，冷却 3 回合；本回合敌方行动"
+    },
+    "steady_guard": {
+      "name": "稳固防线",
+      "kind": "support",
+      "teacher": "lao_shuo",
+      "level": 1,
+      "price": 30,
+      "description": "消耗 30 精力，本次敌方攻击减伤 65%，冷却 3 回合"
+    }
+  }
+}

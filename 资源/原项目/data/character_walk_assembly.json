@@ -1,0 +1,1306 @@
+{
+  "characters": [
+    {
+      "id": "english_teacher",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/english_teacher-step-a.png",
+          "region": [
+            278,
+            16,
+            273,
+            617
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/english_teacher-step-a.png",
+          "region": [
+            700,
+            16,
+            272,
+            612
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/english_teacher-step-a.png",
+          "region": [
+            246,
+            639,
+            314,
+            577
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/english_teacher-step-a.png",
+          "region": [
+            697,
+            639,
+            307,
+            577
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/english_teacher-step-b.png",
+          "region": [
+            301,
+            14,
+            254,
+            624
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/english_teacher-step-b.png",
+          "region": [
+            676,
+            14,
+            258,
+            624
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/english_teacher-step-b.png",
+          "region": [
+            302,
+            637,
+            245,
+            586
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/english_teacher-step-b.png",
+          "region": [
+            700,
+            641,
+            242,
+            583
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fei_yan",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/fei_yan-step-a.png",
+          "region": [
+            219,
+            14,
+            221,
+            361
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/fei_yan-step-a.png",
+          "region": [
+            220,
+            385,
+            228,
+            360
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/fei_yan-step-a.png",
+          "region": [
+            220,
+            763,
+            219,
+            356
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/fei_yan-step-a.png",
+          "region": [
+            216,
+            1136,
+            219,
+            365
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/fei_yan-step-b.png",
+          "region": [
+            280,
+            38,
+            305,
+            583
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/fei_yan-step-b.png",
+          "region": [
+            680,
+            38,
+            296,
+            583
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/fei_yan-step-b.png",
+          "region": [
+            275,
+            633,
+            268,
+            577
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/fei_yan-step-b.png",
+          "region": [
+            728,
+            633,
+            263,
+            578
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gou_ga",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/gou_ga-step-a.png",
+          "region": [
+            242,
+            24,
+            329,
+            600
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/gou_ga-step-a.png",
+          "region": [
+            764,
+            47,
+            324,
+            564
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/gou_ga-step-a.png",
+          "region": [
+            236,
+            640,
+            325,
+            544
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/gou_ga-step-a.png",
+          "region": [
+            774,
+            651,
+            323,
+            533
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/gou_ga-step-b.png",
+          "region": [
+            230,
+            35,
+            315,
+            586
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/gou_ga-step-b.png",
+          "region": [
+            761,
+            56,
+            299,
+            563
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/gou_ga-step-b.png",
+          "region": [
+            249,
+            639,
+            278,
+            564
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/gou_ga-step-b.png",
+          "region": [
+            782,
+            646,
+            274,
+            557
+          ]
+        }
+      ]
+    },
+    {
+      "id": "homeroom_teacher",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/homeroom_teacher-step-a.png",
+          "region": [
+            272,
+            12,
+            277,
+            626
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/homeroom_teacher-step-a.png",
+          "region": [
+            688,
+            16,
+            263,
+            621
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/homeroom_teacher-step-a.png",
+          "region": [
+            247,
+            650,
+            322,
+            575
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/homeroom_teacher-step-a.png",
+          "region": [
+            702,
+            652,
+            323,
+            574
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/homeroom_teacher-step-b.png",
+          "region": [
+            301,
+            17,
+            261,
+            621
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/homeroom_teacher-step-b.png",
+          "region": [
+            692,
+            19,
+            260,
+            622
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/homeroom_teacher-step-b.png",
+          "region": [
+            276,
+            645,
+            284,
+            575
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/homeroom_teacher-step-b.png",
+          "region": [
+            701,
+            649,
+            229,
+            572
+          ]
+        }
+      ]
+    },
+    {
+      "id": "la_jiao",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/la_jiao-step-a.png",
+          "region": [
+            289,
+            11,
+            231,
+            618
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/la_jiao-step-a.png",
+          "region": [
+            755,
+            16,
+            212,
+            612
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/la_jiao-step-a.png",
+          "region": [
+            205,
+            630,
+            338,
+            594
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/la_jiao-step-a.png",
+          "region": [
+            729,
+            632,
+            340,
+            592
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/la_jiao-step-b.png",
+          "region": [
+            300,
+            11,
+            232,
+            611
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/la_jiao-step-b.png",
+          "region": [
+            719,
+            18,
+            212,
+            606
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/la_jiao-step-b.png",
+          "region": [
+            276,
+            620,
+            261,
+            607
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/la_jiao-step-b.png",
+          "region": [
+            723,
+            626,
+            257,
+            601
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lao_ao",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/lao_ao-step-a.png",
+          "region": [
+            331,
+            29,
+            208,
+            579
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/lao_ao-step-a.png",
+          "region": [
+            726,
+            35,
+            207,
+            573
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/lao_ao-step-a.png",
+          "region": [
+            274,
+            636,
+            285,
+            564
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/lao_ao-step-a.png",
+          "region": [
+            698,
+            634,
+            297,
+            566
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/lao_ao-step-b.png",
+          "region": [
+            339,
+            33,
+            202,
+            572
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/lao_ao-step-b.png",
+          "region": [
+            732,
+            36,
+            200,
+            569
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/lao_ao-step-b.png",
+          "region": [
+            341,
+            632,
+            192,
+            559
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/lao_ao-step-b.png",
+          "region": [
+            736,
+            634,
+            195,
+            556
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lao_chou",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/lao_chou-step-a.png",
+          "region": [
+            284,
+            11,
+            111,
+            362
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/lao_chou-step-a.png",
+          "region": [
+            283,
+            384,
+            126,
+            367
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/lao_chou-step-a.png",
+          "region": [
+            211,
+            757,
+            200,
+            355
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/lao_chou-step-a.png",
+          "region": [
+            252,
+            1121,
+            202,
+            363
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/lao_chou-step-b.png",
+          "region": [
+            359,
+            17,
+            165,
+            588
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/lao_chou-step-b.png",
+          "region": [
+            745,
+            18,
+            176,
+            587
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/lao_chou-step-b.png",
+          "region": [
+            354,
+            625,
+            162,
+            566
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/lao_chou-step-b.png",
+          "region": [
+            761,
+            631,
+            161,
+            560
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lao_dong",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/lao_dong-step-a.png",
+          "region": [
+            295,
+            13,
+            252,
+            604
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/lao_dong-step-a.png",
+          "region": [
+            703,
+            13,
+            252,
+            603
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/lao_dong-step-a.png",
+          "region": [
+            239,
+            636,
+            330,
+            569
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/lao_dong-step-a.png",
+          "region": [
+            678,
+            635,
+            331,
+            570
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/lao_dong-step-b.png",
+          "region": [
+            324,
+            21,
+            234,
+            588
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/lao_dong-step-b.png",
+          "region": [
+            702,
+            21,
+            240,
+            588
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/lao_dong-step-b.png",
+          "region": [
+            324,
+            628,
+            205,
+            578
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/lao_dong-step-b.png",
+          "region": [
+            741,
+            628,
+            205,
+            574
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lao_li",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/lao_li-step-a.png",
+          "region": [
+            271,
+            21,
+            184,
+            370
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/lao_li-step-a.png",
+          "region": [
+            272,
+            399,
+            188,
+            362
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/lao_li-step-a.png",
+          "region": [
+            243,
+            767,
+            205,
+            367
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/lao_li-step-a.png",
+          "region": [
+            256,
+            1147,
+            224,
+            366
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/lao_li-step-b.png",
+          "region": [
+            305,
+            27,
+            261,
+            596
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/lao_li-step-b.png",
+          "region": [
+            693,
+            24,
+            264,
+            596
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/lao_li-step-b.png",
+          "region": [
+            311,
+            638,
+            228,
+            572
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/lao_li-step-b.png",
+          "region": [
+            724,
+            636,
+            225,
+            574
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lao_shuo",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/lao_shuo-step-a.png",
+          "region": [
+            273,
+            27,
+            294,
+            605
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/lao_shuo-step-a.png",
+          "region": [
+            695,
+            25,
+            292,
+            609
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/lao_shuo-step-a.png",
+          "region": [
+            237,
+            644,
+            333,
+            568
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/lao_shuo-step-a.png",
+          "region": [
+            695,
+            644,
+            333,
+            568
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/lao_shuo-step-b.png",
+          "region": [
+            300,
+            24,
+            270,
+            599
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/lao_shuo-step-b.png",
+          "region": [
+            694,
+            24,
+            264,
+            599
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/lao_shuo-step-b.png",
+          "region": [
+            297,
+            636,
+            239,
+            576
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/lao_shuo-step-b.png",
+          "region": [
+            728,
+            636,
+            238,
+            576
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wen_cong",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/wen_cong-step-a.png",
+          "region": [
+            289,
+            58,
+            234,
+            581
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/wen_cong-step-a.png",
+          "region": [
+            735,
+            58,
+            222,
+            575
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/wen_cong-step-a.png",
+          "region": [
+            240,
+            659,
+            321,
+            552
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/wen_cong-step-a.png",
+          "region": [
+            702,
+            660,
+            314,
+            554
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/wen_cong-step-b.png",
+          "region": [
+            299,
+            51,
+            203,
+            578
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/wen_cong-step-b.png",
+          "region": [
+            722,
+            50,
+            196,
+            579
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/wen_cong-step-b.png",
+          "region": [
+            294,
+            655,
+            196,
+            542
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/wen_cong-step-b.png",
+          "region": [
+            744,
+            653,
+            189,
+            545
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wr",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/wr-step-a.png",
+          "region": [
+            270,
+            29,
+            241,
+            603
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/wr-step-a.png",
+          "region": [
+            735,
+            42,
+            248,
+            586
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/wr-step-a.png",
+          "region": [
+            241,
+            648,
+            308,
+            563
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/wr-step-a.png",
+          "region": [
+            722,
+            648,
+            311,
+            563
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/wr-step-b.png",
+          "region": [
+            304,
+            25,
+            243,
+            605
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/wr-step-b.png",
+          "region": [
+            681,
+            39,
+            252,
+            591
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/wr-step-b.png",
+          "region": [
+            304,
+            643,
+            236,
+            567
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/wr-step-b.png",
+          "region": [
+            706,
+            643,
+            229,
+            567
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yang_zi",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/yang_zi-step-a.png",
+          "region": [
+            311,
+            11,
+            229,
+            606
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/yang_zi-step-a.png",
+          "region": [
+            697,
+            11,
+            245,
+            602
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/yang_zi-step-a.png",
+          "region": [
+            251,
+            629,
+            310,
+            580
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/yang_zi-step-a.png",
+          "region": [
+            700,
+            626,
+            313,
+            583
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/yang_zi-step-b.png",
+          "region": [
+            325,
+            7,
+            236,
+            605
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/yang_zi-step-b.png",
+          "region": [
+            705,
+            10,
+            239,
+            602
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/yang_zi-step-b.png",
+          "region": [
+            324,
+            623,
+            202,
+            594
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/yang_zi-step-b.png",
+          "region": [
+            749,
+            623,
+            201,
+            594
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhao_mugei",
+      "frames": [
+        {
+          "phase": "a",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/zhao_mugei-step-a.png",
+          "region": [
+            280,
+            19,
+            196,
+            359
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/zhao_mugei-step-a.png",
+          "region": [
+            273,
+            386,
+            199,
+            351
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/zhao_mugei-step-a.png",
+          "region": [
+            262,
+            743,
+            200,
+            331
+          ]
+        },
+        {
+          "phase": "a",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/zhao_mugei-step-a.png",
+          "region": [
+            263,
+            1080,
+            209,
+            339
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "front",
+          "source": "res://assets/characters/walk_sources/zhao_mugei-step-b.png",
+          "region": [
+            299,
+            29,
+            274,
+            592
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "back",
+          "source": "res://assets/characters/walk_sources/zhao_mugei-step-b.png",
+          "region": [
+            680,
+            29,
+            274,
+            592
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "left",
+          "source": "res://assets/characters/walk_sources/zhao_mugei-step-b.png",
+          "region": [
+            283,
+            636,
+            243,
+            571
+          ]
+        },
+        {
+          "phase": "b",
+          "direction": "right",
+          "source": "res://assets/characters/walk_sources/zhao_mugei-step-b.png",
+          "region": [
+            730,
+            636,
+            241,
+            571
+          ]
+        }
+      ]
+    }
+  ]
+}

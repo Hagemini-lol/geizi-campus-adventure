@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<title>ABXY共用圆形按钮底板</title>
+<desc>半透明圆形底板；X/Y/A/B 字母由各自独立按钮组件显示。</desc>
+
+
+
+<circle cx="32" cy="32" r="31" fill="#11161d" fill-opacity=".24" stroke="#bbc2c9" stroke-opacity=".6"/></svg>

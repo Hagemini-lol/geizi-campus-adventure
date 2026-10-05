@@ -1,0 +1,641 @@
+{
+  "version": 2,
+  "name": "可复用UI组件库",
+  "style": "半透明灰黑简约，四色属性文字及填充，文字与底板分离",
+  "components": [
+    {
+      "id": "hp",
+      "name": "血量条",
+      "scene": "res://scenes/ui/components/hp_bar.tscn",
+      "fill": "res://assets/ui/components/bars/hp_fill.svg",
+      "color": "red",
+      "parameters": [
+        "value",
+        "maximum",
+        "font_size",
+        "bar_height",
+        "show_name",
+        "show_value"
+      ],
+      "methods": [
+        "set_value",
+        "set_display_size"
+      ],
+      "code_name": "UIHealthBar",
+      "category": "属性条",
+      "annotation": "红色血量文字、数值与进度条；同一组件可缩小用于 HUD，放大用于菜单。",
+      "reusable": true,
+      "parameter_notes": {
+        "value": "当前值，自动限制在 0 与 maximum 之间",
+        "maximum": "上限；零上限时仍能安全绘制",
+        "font_size": "名称和数值字号",
+        "bar_height": "条高；宽度由父容器分配",
+        "show_name": "是否显示名称",
+        "show_value": "是否显示数值"
+      }
+    },
+    {
+      "id": "mp",
+      "name": "蓝量条",
+      "scene": "res://scenes/ui/components/mp_bar.tscn",
+      "fill": "res://assets/ui/components/bars/mp_fill.svg",
+      "color": "blue",
+      "parameters": [
+        "value",
+        "maximum",
+        "font_size",
+        "bar_height",
+        "show_name",
+        "show_value"
+      ],
+      "methods": [
+        "set_value",
+        "set_display_size"
+      ],
+      "code_name": "UIManaBar",
+      "category": "属性条",
+      "annotation": "蓝色蓝量文字、数值与进度条；与血量条共用结构。",
+      "reusable": true,
+      "parameter_notes": {
+        "value": "当前值，自动限制在 0 与 maximum 之间",
+        "maximum": "上限；零上限时仍能安全绘制",
+        "font_size": "名称和数值字号",
+        "bar_height": "条高；宽度由父容器分配",
+        "show_name": "是否显示名称",
+        "show_value": "是否显示数值"
+      }
+    },
+    {
+      "id": "energy",
+      "name": "精力条",
+      "scene": "res://scenes/ui/components/energy_bar.tscn",
+      "fill": "res://assets/ui/components/bars/energy_fill.svg",
+      "color": "yellow",
+      "parameters": [
+        "value",
+        "maximum",
+        "font_size",
+        "bar_height",
+        "show_name",
+        "show_value"
+      ],
+      "methods": [
+        "set_value",
+        "set_display_size"
+      ],
+      "code_name": "UIEnergyBar",
+      "category": "属性条",
+      "annotation": "黄色精力文字、数值与进度条；独立调整当前值、上限和尺寸。",
+      "reusable": true,
+      "parameter_notes": {
+        "value": "当前值，自动限制在 0 与 maximum 之间",
+        "maximum": "上限；零上限时仍能安全绘制",
+        "font_size": "名称和数值字号",
+        "bar_height": "条高；宽度由父容器分配",
+        "show_name": "是否显示名称",
+        "show_value": "是否显示数值"
+      }
+    },
+    {
+      "id": "san",
+      "name": "SAN值条",
+      "scene": "res://scenes/ui/components/san_bar.tscn",
+      "fill": "res://assets/ui/components/bars/san_fill.svg",
+      "color": "green",
+      "parameters": [
+        "value",
+        "maximum",
+        "font_size",
+        "bar_height",
+        "show_name",
+        "show_value"
+      ],
+      "methods": [
+        "set_value",
+        "set_display_size"
+      ],
+      "code_name": "UISanityBar",
+      "category": "属性条",
+      "annotation": "绿色 SAN 文字、数值与进度条；表示角色 SAN 值。",
+      "reusable": true,
+      "parameter_notes": {
+        "value": "当前值，自动限制在 0 与 maximum 之间",
+        "maximum": "上限；零上限时仍能安全绘制",
+        "font_size": "名称和数值字号",
+        "bar_height": "条高；宽度由父容器分配",
+        "show_name": "是否显示名称",
+        "show_value": "是否显示数值"
+      }
+    },
+    {
+      "id": "option_status",
+      "name": "状态页签按钮",
+      "scene": "res://scenes/ui/options/status_button.tscn",
+      "parameters": [
+        "option_text",
+        "option_id",
+        "font_size"
+      ],
+      "code_name": "UIStatusTabButton",
+      "category": "菜单页签",
+      "annotation": "点击后切换到“状态”内容页；文字与标识可独立修改。",
+      "reusable": true,
+      "parameter_notes": {
+        "option_text": "显示文字",
+        "option_id": "稳定的逻辑标识",
+        "font_size": "文字字号"
+      }
+    },
+    {
+      "id": "option_equipment",
+      "name": "装备页签按钮",
+      "scene": "res://scenes/ui/options/equipment_button.tscn",
+      "parameters": [
+        "option_text",
+        "option_id",
+        "font_size"
+      ],
+      "code_name": "UIEquipmentTabButton",
+      "category": "菜单页签",
+      "annotation": "点击后切换到“装备”内容页；文字与标识可独立修改。",
+      "reusable": true,
+      "parameter_notes": {
+        "option_text": "显示文字",
+        "option_id": "稳定的逻辑标识",
+        "font_size": "文字字号"
+      }
+    },
+    {
+      "id": "option_items",
+      "name": "物品页签按钮",
+      "scene": "res://scenes/ui/options/items_button.tscn",
+      "parameters": [
+        "option_text",
+        "option_id",
+        "font_size"
+      ],
+      "code_name": "UIItemsTabButton",
+      "category": "菜单页签",
+      "annotation": "点击后切换到“物品”内容页；文字与标识可独立修改。",
+      "reusable": true,
+      "parameter_notes": {
+        "option_text": "显示文字",
+        "option_id": "稳定的逻辑标识",
+        "font_size": "文字字号"
+      }
+    },
+    {
+      "id": "option_skills",
+      "name": "技能页签按钮",
+      "scene": "res://scenes/ui/options/skills_button.tscn",
+      "parameters": [
+        "option_text",
+        "option_id",
+        "font_size"
+      ],
+      "code_name": "UISkillsTabButton",
+      "category": "菜单页签",
+      "annotation": "点击后切换到“技能”内容页；文字与标识可独立修改。",
+      "reusable": true,
+      "parameter_notes": {
+        "option_text": "显示文字",
+        "option_id": "稳定的逻辑标识",
+        "font_size": "文字字号"
+      }
+    },
+    {
+      "id": "option_settings",
+      "name": "设置页签按钮",
+      "scene": "res://scenes/ui/options/settings_button.tscn",
+      "parameters": [
+        "option_text",
+        "option_id",
+        "font_size"
+      ],
+      "code_name": "UISettingsTabButton",
+      "category": "菜单页签",
+      "annotation": "点击后切换到“设置”内容页；文字与标识可独立修改。",
+      "reusable": true,
+      "parameter_notes": {
+        "option_text": "显示文字",
+        "option_id": "稳定的逻辑标识",
+        "font_size": "文字字号"
+      }
+    },
+    {
+      "id": "option_save",
+      "name": "保存操作按钮",
+      "scene": "res://scenes/ui/options/save_button.tscn",
+      "parameters": [
+        "option_text",
+        "option_id",
+        "font_size"
+      ],
+      "code_name": "UISaveActionButton",
+      "category": "设置操作",
+      "annotation": "设置页独立按钮；触发 save 操作信号，由游戏连接具体行为。",
+      "reusable": true,
+      "parameter_notes": {
+        "option_text": "显示文字",
+        "option_id": "稳定的逻辑标识",
+        "font_size": "文字字号"
+      }
+    },
+    {
+      "id": "option_load",
+      "name": "加载操作按钮",
+      "scene": "res://scenes/ui/options/load_button.tscn",
+      "parameters": [
+        "option_text",
+        "option_id",
+        "font_size"
+      ],
+      "code_name": "UILoadActionButton",
+      "category": "设置操作",
+      "annotation": "设置页独立按钮；触发 load 操作信号，由游戏连接具体行为。",
+      "reusable": true,
+      "parameter_notes": {
+        "option_text": "显示文字",
+        "option_id": "稳定的逻辑标识",
+        "font_size": "文字字号"
+      }
+    },
+    {
+      "id": "option_exit",
+      "name": "退出操作按钮",
+      "scene": "res://scenes/ui/options/exit_button.tscn",
+      "parameters": [
+        "option_text",
+        "option_id",
+        "font_size"
+      ],
+      "code_name": "UIExitActionButton",
+      "category": "设置操作",
+      "annotation": "设置页独立按钮；触发 exit 操作信号，由游戏连接具体行为。",
+      "reusable": true,
+      "parameter_notes": {
+        "option_text": "显示文字",
+        "option_id": "稳定的逻辑标识",
+        "font_size": "文字字号"
+      }
+    },
+    {
+      "id": "option_unstuck",
+      "name": "脱离卡死操作按钮",
+      "scene": "res://scenes/ui/options/unstuck_button.tscn",
+      "parameters": [
+        "option_text",
+        "option_id",
+        "font_size"
+      ],
+      "code_name": "UIUnstuckActionButton",
+      "category": "设置操作",
+      "annotation": "设置页独立按钮；触发 unstuck 操作信号，由游戏连接具体行为。",
+      "reusable": true,
+      "parameter_notes": {
+        "option_text": "显示文字",
+        "option_id": "稳定的逻辑标识",
+        "font_size": "文字字号"
+      }
+    },
+    {
+      "id": "information_panel",
+      "name": "角色信息栏",
+      "scene": "res://scenes/ui/components/information_panel.tscn",
+      "code_name": "UIInformationPanel",
+      "category": "信息与面板",
+      "annotation": "组合四种属性条，可选显示日期；用于 HUD 左上角或菜单上部。",
+      "reusable": true
+    },
+    {
+      "id": "special_status",
+      "name": "特殊状态像素提示框",
+      "scene": "res://scenes/ui/components/special_status.tscn",
+      "code_name": "UISpecialStatusNotice",
+      "category": "信息与面板",
+      "annotation": "仅有特殊状态时显示；空状态列表自动隐藏，底板使用灰色像素块。",
+      "reusable": true
+    },
+    {
+      "id": "portrait_panel",
+      "name": "角色人像面板",
+      "scene": "res://scenes/ui/components/portrait_panel.tscn",
+      "code_name": "UICharacterPortrait",
+      "category": "信息与面板",
+      "annotation": "独立显示角色人像；可替换 portrait 贴图，示例使用现有主角正面。",
+      "reusable": true
+    },
+    {
+      "id": "screen_frame",
+      "name": "黑白窄屏幕边框",
+      "scene": "res://scenes/ui/components/screen_frame.tscn",
+      "code_name": "UIScreenFrame",
+      "category": "输入与边框",
+      "annotation": "贴合屏幕四周的黑白窄线；忽略鼠标输入，可调边线透明度。",
+      "reusable": true
+    },
+    {
+      "id": "joystick",
+      "name": "移动摇杆",
+      "scene": "res://scenes/ui/components/joystick.tscn",
+      "code_name": "UIMovementJoystick",
+      "category": "输入与边框",
+      "annotation": "支持鼠标与触摸拖动；输出归一化方向，松开或隐藏时归零。",
+      "reusable": true
+    },
+    {
+      "id": "date_label",
+      "name": "游戏日期时间文字",
+      "scene": "res://scenes/ui/components/date_label.tscn",
+      "code_name": "UIDateTimeLabel",
+      "category": "信息与面板",
+      "annotation": "独立日期时间文字；信息栏可通过 set_date 更新。",
+      "reusable": true
+    },
+    {
+      "id": "background_panel",
+      "name": "通用半透明底板",
+      "scene": "res://scenes/ui/components/background_panel.tscn",
+      "code_name": "UITranslucentPanel",
+      "category": "信息与面板",
+      "annotation": "独立半透明面板；可调整 background_opacity 和 content_padding。",
+      "reusable": true
+    },
+    {
+      "id": "action_x",
+      "name": "X操作按钮",
+      "scene": "res://scenes/ui/components/action_x.tscn",
+      "code_name": "UIActionXButton",
+      "category": "输入与边框",
+      "annotation": "独立圆形 X 按钮；HUD 向外发送 action_requested(“x”)。",
+      "reusable": true
+    },
+    {
+      "id": "action_y",
+      "name": "Y操作按钮",
+      "scene": "res://scenes/ui/components/action_y.tscn",
+      "code_name": "UIActionYButton",
+      "category": "输入与边框",
+      "annotation": "独立圆形 Y 按钮；HUD 向外发送 action_requested(“y”)。",
+      "reusable": true
+    },
+    {
+      "id": "action_a",
+      "name": "A操作按钮",
+      "scene": "res://scenes/ui/components/action_a.tscn",
+      "code_name": "UIActionAButton",
+      "category": "输入与边框",
+      "annotation": "独立圆形 A 按钮；HUD 向外发送 action_requested(“a”)。",
+      "reusable": true
+    },
+    {
+      "id": "action_b",
+      "name": "B操作按钮",
+      "scene": "res://scenes/ui/components/action_b.tscn",
+      "code_name": "UIActionBButton",
+      "category": "输入与边框",
+      "annotation": "独立圆形 B 按钮；HUD 向外发送 action_requested(“b”)。",
+      "reusable": true
+    },
+    {
+      "id": "page_status",
+      "name": "状态内容页",
+      "scene": "res://scenes/ui/pages/status_page.tscn",
+      "code_name": "UIStatusPage",
+      "category": "菜单内容页",
+      "annotation": "“状态”页签对应的独立内容面板；仅在此页被选中时显示。",
+      "reusable": true
+    },
+    {
+      "id": "page_equipment",
+      "name": "装备内容页",
+      "scene": "res://scenes/ui/pages/equipment_page.tscn",
+      "code_name": "UIEquipmentPage",
+      "category": "菜单内容页",
+      "annotation": "“装备”页签对应的独立内容面板；仅在此页被选中时显示。",
+      "reusable": true
+    },
+    {
+      "id": "page_items",
+      "name": "物品内容页",
+      "scene": "res://scenes/ui/pages/items_page.tscn",
+      "code_name": "UIItemsPage",
+      "category": "菜单内容页",
+      "annotation": "“物品”页签对应的独立内容面板；仅在此页被选中时显示。",
+      "reusable": true
+    },
+    {
+      "id": "page_skills",
+      "name": "技能内容页",
+      "scene": "res://scenes/ui/pages/skills_page.tscn",
+      "code_name": "UISkillsPage",
+      "category": "菜单内容页",
+      "annotation": "“技能”页签对应的独立内容面板；仅在此页被选中时显示。",
+      "reusable": true
+    },
+    {
+      "id": "page_settings",
+      "name": "设置内容页",
+      "scene": "res://scenes/ui/pages/settings_page.tscn",
+      "code_name": "UISettingsPage",
+      "category": "菜单内容页",
+      "annotation": "“设置”页签对应的独立内容面板；仅在此页被选中时显示。",
+      "reusable": true
+    }
+  ],
+  "shared_vectors": {
+    "panel": "res://assets/ui/components/panels/panel.svg",
+    "special_status": "res://assets/ui/components/panels/special_status.svg",
+    "bar_track": "res://assets/ui/components/bars/track.svg",
+    "button_states": [
+      "res://assets/ui/components/buttons/option_normal.svg",
+      "res://assets/ui/components/buttons/option_hover.svg",
+      "res://assets/ui/components/buttons/option_selected.svg",
+      "res://assets/ui/components/buttons/option_disabled.svg"
+    ],
+    "joystick_base": "res://assets/ui/components/controls/joystick_base.svg",
+    "joystick_knob": "res://assets/ui/components/controls/joystick_knob.svg",
+    "action_disc": "res://assets/ui/components/controls/action_disc.svg",
+    "screen_frame": "res://assets/ui/components/controls/screen_frame.svg"
+  },
+  "examples": {
+    "gameplay_hud": "res://scenes/ui/examples/gameplay_hud.tscn",
+    "character_menu": "res://scenes/ui/examples/character_menu.tscn",
+    "interactive_preview": "res://scenes/ui/modular_ui_preview.tscn"
+  },
+  "settings": {
+    "options": [
+      "save",
+      "load",
+      "exit",
+      "unstuck"
+    ],
+    "signal": "settings_action_requested(action: StringName)",
+    "implementation": "按钮及菜单切换已实现；真实存档、读档、退出流程与脱离卡死位置处理由游戏接收信号后实现"
+  },
+  "documentation": "docs/UI组件库使用说明.md",
+  "annotation_status": "已补充中文显示名、用途注释、场景根节点名、编辑器说明、参数说明与信号说明",
+  "naming_rules": {
+    "files": "英文 snake_case，原有路径保持稳定",
+    "scene_nodes": "UI 前缀加 PascalCase",
+    "display_names": "中文用途名称",
+    "logical_ids": "保持稳定的英文标识，与显示文字分离"
+  },
+  "visual_assets": [
+    {
+      "id": "bar_track",
+      "name": "属性条空轨道",
+      "category": "属性条底板",
+      "annotation": "透明灰黑轨道与灰色细边框，四色填充共用；不包含文字。",
+      "svg": "res://assets/ui/components/bars/track.svg",
+      "png": "res://assets/ui/components/bars/track.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "hp_fill",
+      "name": "血量条红色填充",
+      "category": "属性条填充",
+      "annotation": "红色进度填充；由属性条组件根据当前值裁切显示。",
+      "svg": "res://assets/ui/components/bars/hp_fill.svg",
+      "png": "res://assets/ui/components/bars/hp_fill.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "mp_fill",
+      "name": "蓝量条蓝色填充",
+      "category": "属性条填充",
+      "annotation": "蓝色进度填充；由属性条组件根据当前值裁切显示。",
+      "svg": "res://assets/ui/components/bars/mp_fill.svg",
+      "png": "res://assets/ui/components/bars/mp_fill.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "energy_fill",
+      "name": "精力条黄色填充",
+      "category": "属性条填充",
+      "annotation": "黄色进度填充；由属性条组件根据当前值裁切显示。",
+      "svg": "res://assets/ui/components/bars/energy_fill.svg",
+      "png": "res://assets/ui/components/bars/energy_fill.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "san_fill",
+      "name": "SAN值条绿色填充",
+      "category": "属性条填充",
+      "annotation": "绿色进度填充；由属性条组件根据当前值裁切显示。",
+      "svg": "res://assets/ui/components/bars/san_fill.svg",
+      "png": "res://assets/ui/components/bars/san_fill.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "panel",
+      "name": "通用半透明面板底板",
+      "category": "面板底板",
+      "annotation": "深色底板约 46% 不透明度，灰白细边框；可缩放，不包含文字。",
+      "svg": "res://assets/ui/components/panels/panel.svg",
+      "png": "res://assets/ui/components/panels/panel.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "special_status_base",
+      "name": "特殊状态像素块底板",
+      "category": "面板底板",
+      "annotation": "灰色阶梯状像素块底板；用于特殊状态提示，约 46% 不透明度。",
+      "svg": "res://assets/ui/components/panels/special_status.svg",
+      "png": "res://assets/ui/components/panels/special_status.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "option_normal",
+      "name": "选项按钮常态底板",
+      "category": "按钮底板",
+      "annotation": "低调半透明常态；用于独立菜单或设置按钮，不包含文字。",
+      "svg": "res://assets/ui/components/buttons/option_normal.svg",
+      "png": "res://assets/ui/components/buttons/option_normal.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "option_hover",
+      "name": "选项按钮悬停底板",
+      "category": "按钮底板",
+      "annotation": "鼠标悬停时的底板；不改变按钮文字或逻辑标识。",
+      "svg": "res://assets/ui/components/buttons/option_hover.svg",
+      "png": "res://assets/ui/components/buttons/option_hover.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "option_selected",
+      "name": "选项按钮选中底板",
+      "category": "按钮底板",
+      "annotation": "选中时使用较亮灰底及白色细下划线；用于页签选中反馈。",
+      "svg": "res://assets/ui/components/buttons/option_selected.svg",
+      "png": "res://assets/ui/components/buttons/option_selected.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "option_disabled",
+      "name": "选项按钮禁用底板",
+      "category": "按钮底板",
+      "annotation": "降低可见度的禁用外观；是否可点击由按钮 disabled 控制。",
+      "svg": "res://assets/ui/components/buttons/option_disabled.svg",
+      "png": "res://assets/ui/components/buttons/option_disabled.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "action_disc",
+      "name": "ABXY共用圆形按钮底板",
+      "category": "输入底板",
+      "annotation": "半透明圆形底板；X/Y/A/B 字母由各自独立按钮组件显示。",
+      "svg": "res://assets/ui/components/controls/action_disc.svg",
+      "png": "res://assets/ui/components/controls/action_disc.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "joystick_base",
+      "name": "移动摇杆外圈底板",
+      "category": "输入底板",
+      "annotation": "低透明度摇杆外圈与四个方向标记；旋钮为另一独立素材。",
+      "svg": "res://assets/ui/components/controls/joystick_base.svg",
+      "png": "res://assets/ui/components/controls/joystick_base.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "joystick_knob",
+      "name": "移动摇杆旋钮底板",
+      "category": "输入底板",
+      "annotation": "半透明摇杆旋钮；拖动位置由摇杆组件控制。",
+      "svg": "res://assets/ui/components/controls/joystick_knob.svg",
+      "png": "res://assets/ui/components/controls/joystick_knob.png",
+      "scalable": true,
+      "labels_embedded": false
+    },
+    {
+      "id": "screen_frame",
+      "name": "黑白窄屏幕边框素材",
+      "category": "边框",
+      "annotation": "无填充黑白双线；适配屏幕四周，原生边框组件可保持线宽。",
+      "svg": "res://assets/ui/components/controls/screen_frame.svg",
+      "png": "res://assets/ui/components/controls/screen_frame.png",
+      "scalable": true,
+      "labels_embedded": false
+    }
+  ],
+  "naming_documentation": "docs/UI素材命名与注释.md",
+  "extension_libraries": {
+    "battle": "res://data/battle_ui_library.json",
+    "battle_actions": "res://data/battle_action_library.json"
+  }
+}

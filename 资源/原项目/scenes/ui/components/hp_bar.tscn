@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/stat_bar.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/components/bars/hp_fill.svg" id="2"]
+
+[node name="UIHealthBar" type="HBoxContainer"]
+editor_description = "红色血量文字、数值与进度条；同一组件可缩小用于 HUD，放大用于菜单。"
+metadata/asset_name = "血量条"
+metadata/asset_category = "属性条"
+metadata/asset_usage = "红色血量文字、数值与进度条；同一组件可缩小用于 HUD，放大用于菜单。"
+script = ExtResource("1")
+stat_name = "HP"
+value = 86.0
+maximum = 100.0
+tint = Color(0.8901960784313725, 0.4196078431372549, 0.4196078431372549, 0.95)
+fill_texture = ExtResource("2")

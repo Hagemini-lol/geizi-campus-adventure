@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/ui/covers/游戏封面.png" id="1_cover"]
+
+[node name="UIGameTitleCover" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+editor_description = "游戏启动封面设计：校园背景略微模糊，赵慕gei仰躺大笑；上方标题与侧面口号已包含在图片内。"
+metadata/asset_name = "游戏封面"
+metadata/asset_usage = "进入游戏时的封面设计；独立预览按 F6。"
+
+[node name="CoverArtwork" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_cover")
+expand_mode = 1
+stretch_mode = 6

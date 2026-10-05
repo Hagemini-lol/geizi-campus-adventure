@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/option_button.gd" id="1"]
+
+[node name="UISkillsTabButton" type="Button"]
+editor_description = "点击后切换到“技能”内容页；文字与标识可独立修改。"
+metadata/asset_name = "技能页签按钮"
+metadata/asset_category = "菜单页签"
+metadata/asset_usage = "点击后切换到“技能”内容页；文字与标识可独立修改。"
+script = ExtResource("1")
+option_text = "技能"
+option_id = &"skills"

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="40" viewBox="0 0 240 40">
+<title>特殊状态像素块底板</title>
+<desc>灰色阶梯状像素块底板；用于特殊状态提示，约 46% 不透明度。</desc>
+
+
+
+<path d="M0 0H240V24H232V32H224V40H0Z" fill="#252a30" fill-opacity=".46"/></svg>

@@ -1,0 +1,148 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/characters/runtime/lao_shuo/四向.png" id="1_arfnl"]
+[ext_resource type="Texture2D" path="res://assets/characters/runtime/lao_shuo/行走.png" id="2_bugg1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w3a6"]
+atlas = ExtResource("1_arfnl")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmt2m"]
+atlas = ExtResource("1_arfnl")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eculu"]
+atlas = ExtResource("1_arfnl")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvqmg"]
+atlas = ExtResource("1_arfnl")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1apdn"]
+atlas = ExtResource("2_bugg1")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjn37"]
+atlas = ExtResource("2_bugg1")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1mk3"]
+atlas = ExtResource("2_bugg1")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dusxl"]
+atlas = ExtResource("2_bugg1")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoiia"]
+atlas = ExtResource("2_bugg1")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o35qg"]
+atlas = ExtResource("2_bugg1")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytvmc"]
+atlas = ExtResource("2_bugg1")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v14lg"]
+atlas = ExtResource("2_bugg1")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[resource]
+resource_name = "牢硕 · 四向行走 · 两张迈步差分"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w3a6")
+}],
+"loop": 0,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmt2m")
+}],
+"loop": 0,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eculu")
+}],
+"loop": 0,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvqmg")
+}],
+"loop": 0,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1apdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjn37")
+}],
+"loop": 1,
+"name": &"walk_back",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1mk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dusxl")
+}],
+"loop": 1,
+"name": &"walk_front",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoiia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o35qg")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytvmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v14lg")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 4.0
+}]
+metadata/character_name = "牢硕"
+metadata/annotation = "班级军迷，正义，坚信社会主义，梦想成为军人保家卫国。"
+metadata/walk_cycle = "A→B；每向2张新增动作"
+metadata/foot_anchor = Vector2i(64, 120)

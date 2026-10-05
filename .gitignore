@@ -1,0 +1,23 @@
+# Generated builds and release downloads live in GitHub Releases.
+/runtime/
+/android_source/
+/android_tools/
+/releases/
+/存档/
+/设置.json
+/*.exe
+/*.apk
+/*.apk.idsig
+/*.zip
+**/.godot/
+**/__pycache__/
+*.pyc
+*.import
+# Never commit credentials or Android signing material.
+*.keystore
+*.jks
+credentials.json
+.env
+.env.*
+/runtime_cache/
+/_sc_/

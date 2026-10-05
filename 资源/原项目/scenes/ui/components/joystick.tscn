@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/joystick.gd" id="1"]
+
+[node name="UIMovementJoystick" type="Control"]
+editor_description = "支持鼠标与触摸拖动；输出归一化方向，松开或隐藏时归零。"
+metadata/asset_name = "移动摇杆"
+metadata/asset_category = "输入与边框"
+metadata/asset_usage = "支持鼠标与触摸拖动；输出归一化方向，松开或隐藏时归零。"
+script = ExtResource("1")

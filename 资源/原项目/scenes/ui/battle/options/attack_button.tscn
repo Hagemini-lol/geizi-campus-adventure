@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/option_button.gd" id="1"]
+
+[node name="UIBattleAttackButton" type="Button"]
+editor_description = "战斗攻击入口：打开对应独立子菜单，当前不执行任何具体招式或战斗操作。"
+metadata/asset_name = "战斗攻击入口"
+script = ExtResource("1")
+option_text = "攻击"
+option_id = &"attack"
+font_size = 20

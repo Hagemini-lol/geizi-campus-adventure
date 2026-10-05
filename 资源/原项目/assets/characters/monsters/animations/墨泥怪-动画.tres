@@ -1,0 +1,90 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/characters/monsters/animations/墨泥怪-动作.png" id="1_atlas"]
+
+[sub_resource type="AtlasTexture" id="Atlas_0"]
+atlas = ExtResource("1_atlas")
+region = Rect2(42, 95, 389, 389)
+margin = Rect2(61.5, 71, 123, 123)
+filter_clip = true
+metadata/annotation = "墨泥怪 · 待机1：中间姿态"
+
+[sub_resource type="AtlasTexture" id="Atlas_1"]
+atlas = ExtResource("1_atlas")
+region = Rect2(458, 95, 432, 389)
+margin = Rect2(40.0, 71, 80, 123)
+filter_clip = true
+metadata/annotation = "墨泥怪 · 待机2：收缩／下沉"
+
+[sub_resource type="AtlasTexture" id="Atlas_2"]
+atlas = ExtResource("1_atlas")
+region = Rect2(919, 95, 374, 389)
+margin = Rect2(69.0, 71, 138, 123)
+filter_clip = true
+metadata/annotation = "墨泥怪 · 待机3：展开／抬起"
+
+[sub_resource type="AtlasTexture" id="Atlas_3"]
+atlas = ExtResource("1_atlas")
+region = Rect2(1329, 95, 410, 389)
+margin = Rect2(32.75, 71, 102, 123)
+filter_clip = true
+metadata/annotation = "墨泥怪 · 攻击：单张出招姿态"
+
+[sub_resource type="AtlasTexture" id="Atlas_4"]
+atlas = ExtResource("1_atlas")
+region = Rect2(51, 539, 365, 303)
+margin = Rect2(73.5, 157, 147, 209)
+filter_clip = true
+metadata/annotation = "墨泥怪 · 移动1：中间姿态"
+
+[sub_resource type="AtlasTexture" id="Atlas_5"]
+atlas = ExtResource("1_atlas")
+region = Rect2(465, 539, 390, 303)
+margin = Rect2(61.0, 157, 122, 209)
+filter_clip = true
+metadata/annotation = "墨泥怪 · 移动2：左步／推进"
+
+[sub_resource type="AtlasTexture" id="Atlas_6"]
+atlas = ExtResource("1_atlas")
+region = Rect2(922, 539, 359, 303)
+margin = Rect2(76.5, 145, 153, 209)
+filter_clip = true
+metadata/annotation = "墨泥怪 · 移动3：右步／弹跳"
+
+[sub_resource type="AtlasTexture" id="Atlas_7"]
+atlas = ExtResource("1_atlas")
+region = Rect2(1311, 539, 434, 303)
+margin = Rect2(39.0, 157, 78, 209)
+filter_clip = true
+metadata/annotation = "墨泥怪 · 受击：单张后仰／变形姿态"
+
+[resource]
+metadata/asset_name = "墨泥怪 · 正面动作差分"
+metadata/annotation = "待机3张、移动3张、攻击1张、受击1张；中间帧复用成循环。"
+metadata/documentation = "res://assets/characters/monsters/素材命名与注释.md"
+animations = [
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_0")}, {"duration": 1.0, "texture": SubResource("Atlas_1")}, {"duration": 1.0, "texture": SubResource("Atlas_0")}, {"duration": 1.0, "texture": SubResource("Atlas_2")}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_4")}, {"duration": 1.0, "texture": SubResource("Atlas_5")}, {"duration": 1.0, "texture": SubResource("Atlas_4")}, {"duration": 1.0, "texture": SubResource("Atlas_6")}],
+"loop": true,
+"name": &"move",
+"speed": 7.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_3")}],
+"loop": false,
+"name": &"attack",
+"speed": 4.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_7")}],
+"loop": false,
+"name": &"hurt",
+"speed": 3.33
+}
+]

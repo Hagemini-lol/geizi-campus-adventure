@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle/battle_stage.gd" id="1"]
+
+[node name="UIBattleStage" type="Control"]
+editor_description = "同一战场内前景主角背向镜头，右前方远处敌人；背景、立绘和构图独立可替换。"
+metadata/asset_name = "可切换背景战场"
+script = ExtResource("1")

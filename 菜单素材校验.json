@@ -1,0 +1,22 @@
+[
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\菜单UI.png",
+    "SHA256": "E241477C113F0445AE9B7454245BA9BC22172C9E11FC33591F697E1398B6A12D"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\panels\\panel.png",
+    "SHA256": "3E110EB64FF527E5337DB05868B5BB211B19987323C2F519CCFF77344E59ECE2"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_normal.png",
+    "SHA256": "4FFCFE95AC04438F094BB9F78748D8553582DE838981990C84300F042DDC370A"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_hover.png",
+    "SHA256": "E1343981B8B05706CDF9A0F18401B0F237FB257AA6E0E7B807A1C64E38D5CE7E"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_selected.png",
+    "SHA256": "3339E9F57E9FED287C6EC7E473AA376278E88DCAB141D0650B906A8D174F7E45"
+  }
+]

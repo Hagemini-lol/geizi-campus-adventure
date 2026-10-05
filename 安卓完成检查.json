@@ -1,0 +1,66 @@
+{
+  "version": 2,
+  "game_version": "1.0.1",
+  "apk": {
+    "apk": "D:\\Godot\\校园自由漫游\\校园自由漫游.apk",
+    "bytes": 387157641,
+    "sha256": "61c6b112f601828bf7c39b5b24fe92d80925ddb78c5608ac7e8c6886506b1ea2",
+    "signature_verified": true,
+    "asset_hashes_checked": 3684,
+    "configuration_files_checked": 6,
+    "saves_settings_signing_keys_excluded": true,
+    "native_abis": [
+      "arm64-v8a",
+      "armeabi-v7a"
+    ],
+    "package": "org.campus.gei.adventure",
+    "physical_device_tested": false,
+    "exported_resource_payload_tested_with_desktop_engine": true,
+    "exported_payload_touch_checks": 34,
+    "exported_payload_touch_checks_wide": 34
+  },
+  "touch_checks": {
+    "standard": {
+      "checks": 34,
+      "failures": [],
+      "passed": true,
+      "test": "actual ScreenTouch/ScreenDrag dispatch with simultaneous fingers"
+    },
+    "wide": {
+      "checks": 34,
+      "failures": [],
+      "passed": true,
+      "test": "actual ScreenTouch/ScreenDrag dispatch with simultaneous fingers"
+    }
+  },
+  "furniture_checks": {
+    "actual_walk_targets": 8,
+    "checks": 2418,
+    "failures": [],
+    "foreground_occlusion": true,
+    "passed": true,
+    "scene_types": 4,
+    "separate_table_chair_collisions": true
+  },
+  "lesson_checks": {
+    "checks": 1267,
+    "class_students": 31,
+    "class_teacher": 1,
+    "failures": [],
+    "hero_seat": 16,
+    "interaction_radius_m": 0.5,
+    "lesson_hold_seconds": [
+      2.016,
+      2.0
+    ],
+    "ordinary_students_per_ten_class": 21,
+    "passed": true,
+    "zip_edited": false
+  },
+  "windows_pck_sha256": "5c35285cc5707fbcbed209660918c45288591f569032610a567a50e12a8dde2e",
+  "android_minimum": "7.0 / API 24",
+  "orientation": "landscape",
+  "original_assets_edited": false,
+  "existing_zip_modified": false,
+  "device_attached": false
+}

@@ -1,0 +1,27 @@
+{
+  "building_ids": ["B01", "B02", "B05", "B12"],
+  "student_count": 1,
+  "staff_ids": ["homeroom_teacher", "english_teacher", "wen_cong"],
+  "assets": {
+    "office_white": "资源/原项目/assets/maps/indoor/教师办公室-白桌玻璃版.png",
+    "office_wood": "资源/原项目/assets/maps/indoor/教师办公室-实木版.png"
+  },
+  "dialogue_profiles": {
+    "homeroom_teacher": {
+      "greetings": ["找我有什么事？学习上遇到困难可以来问我。", "作业记得按时完成，也要注意休息。", "上课认真些，有问题及时举手。"],
+      "replies": ["老师好，我知道了。", "谢谢老师，我会认真完成作业。", "好的老师，有问题我会及时请教。"]
+    },
+    "english_teacher": {
+      "greetings": ["Hello! 有不懂的英语问题可以来问我。", "单词要每天复习，别怕开口练习。", "读课文时注意发音和停顿。"],
+      "replies": ["Hello, teacher. 我会认真练习。", "谢谢老师，我会继续复习单词。", "好的老师，我会注意发音。"]
+    },
+    "wen_cong": {
+      "greetings": ["进办公室先敲门，记住了吗？", "在走廊不要跑闹，注意纪律。", "校服穿整齐，有事就说清楚。"],
+      "replies": ["主任好，我会遵守纪律。", "知道了，我会注意的。", "好的主任，我记住了。"]
+    },
+    "office_student": {
+      "greetings": ["老师在办公，我们小声一点。", "我来请教作业里的问题。", "我在等老师，有空再聊吧。"],
+      "replies": ["好的，我也小声些。", "嗯，有问题就请教老师吧。", "好，那我们等会儿再聊。"]
+    }
+  }
+}

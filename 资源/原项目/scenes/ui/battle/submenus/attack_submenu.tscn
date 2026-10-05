@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle/battle_submenu.gd" id="1"]
+
+[node name="UIBattleAttackSubmenu" type="PanelContainer"]
+editor_description = "战斗攻击子菜单：独立空白框架，后续通过数据接口添加具体条目。"
+metadata/asset_name = "战斗攻击子菜单"
+script = ExtResource("1")
+category_id = &"attack"
+category_title = "攻击"

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="48" viewBox="0 0 160 48">
+<title>选项按钮禁用底板</title>
+<desc>降低可见度的禁用外观；是否可点击由按钮 disabled 控制。</desc>
+
+
+
+<rect x=".5" y=".5" width="159" height="47" fill="#141f29" fill-opacity=".12" stroke="#bbc2c9" stroke-opacity=".6"/></svg>

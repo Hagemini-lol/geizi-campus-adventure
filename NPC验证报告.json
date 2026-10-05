@@ -1,0 +1,92 @@
+{
+  "checks": 369,
+  "dialogue_above_portraits": true,
+  "dialogue_outer_thirds": true,
+  "excluded_building": "B02",
+  "failures": [],
+  "greetings_sampled": [
+    "嗨，见到你很高兴！",
+    "你好呀！今天过得怎么样？",
+    "你好！有空一起聊聊天吧。",
+    "嗨！在校园里逛得开心。"
+  ],
+  "moving_student_total": 30,
+  "named_student_total": 30,
+  "one_active_scene": true,
+  "ordinary_collision_bodies": 0,
+  "ordinary_processing": false,
+  "ordinary_sprite_nodes": 0,
+  "outdoor_npcs": 0,
+  "passed": true,
+  "samples": [
+    {
+      "building": "B12",
+      "classroom_static": 12,
+      "corridor_ordinary": 4,
+      "moving_students": 10,
+      "named_students": 10,
+      "ordinary_in_ten": 0
+    },
+    {
+      "building": "B05",
+      "classroom_static": 12,
+      "corridor_ordinary": 4,
+      "moving_students": 10,
+      "named_students": 10,
+      "ordinary_in_ten": 0
+    },
+    {
+      "building": "B01",
+      "classroom_static": 12,
+      "corridor_ordinary": 4,
+      "moving_students": 10,
+      "named_students": 10,
+      "ordinary_in_ten": 0
+    }
+  ],
+  "speaking_highlight": true,
+  "special_ids": [
+    "lao_li",
+    "lao_li",
+    "lao_li"
+  ],
+  "ten_class_rosters": {
+    "B01": [
+      "lao_li",
+      "lao_chou",
+      "fei_yan",
+      "lao_ao",
+      "yang_zi",
+      "lao_shuo",
+      "lao_dong",
+      "la_jiao",
+      "gou_ga",
+      "wr"
+    ],
+    "B05": [
+      "lao_li",
+      "lao_chou",
+      "fei_yan",
+      "lao_ao",
+      "yang_zi",
+      "lao_shuo",
+      "lao_dong",
+      "la_jiao",
+      "gou_ga",
+      "wr"
+    ],
+    "B12": [
+      "lao_li",
+      "lao_chou",
+      "fei_yan",
+      "lao_ao",
+      "yang_zi",
+      "lao_shuo",
+      "lao_dong",
+      "la_jiao",
+      "gou_ga",
+      "wr"
+    ]
+  },
+  "two_greeting_turns": true
+}

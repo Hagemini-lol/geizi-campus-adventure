@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/gameplay_hud.gd" id="1"]
+
+[node name="UIGameplayHUD" type="Control"]
+editor_description = "游玩界面组合示例：小尺寸信息条、状态提示、摇杆、ABXY 与窄边框。"
+metadata/asset_name = "游玩界面组合"
+metadata/asset_category = "组合示例"
+metadata/asset_usage = "游玩界面组合示例：小尺寸信息条、状态提示、摇杆、ABXY 与窄边框。"
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")

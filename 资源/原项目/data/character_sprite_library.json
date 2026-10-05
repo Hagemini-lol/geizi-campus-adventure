@@ -1,0 +1,741 @@
+{
+	"characters": [
+		{
+			"display_name": "牢董",
+			"height_px": 108.0,
+			"id": "lao_dong",
+			"sheet": "res://assets/characters/runtime/lao_dong/四向.png",
+			"source": "res://assets/characters/npcs/牢董.png",
+			"source_group": "lao_dong",
+			"source_regions": {
+				"back": [
+					703.0,
+					21.0,
+					235.0,
+					584.0
+				],
+				"front": [
+					315.0,
+					21.0,
+					243.0,
+					584.0
+				],
+				"left": [
+					345.0,
+					629.0,
+					177.0,
+					582.0
+				],
+				"right": [
+					740.0,
+					630.0,
+					177.0,
+					581.0
+				]
+			},
+			"source_sha256": "476b766371c2f3e8fa82e519fc65571779d7fc53a1d8054e52413012b9717ef8",
+			"sprite_frames": "res://assets/characters/runtime/lao_dong/四向.tres"
+		},
+		{
+			"display_name": "辣椒",
+			"height_px": 110.0,
+			"id": "la_jiao",
+			"sheet": "res://assets/characters/runtime/la_jiao/四向.png",
+			"source": "res://assets/characters/npcs/辣椒.png",
+			"source_group": "la_jiao",
+			"source_regions": {
+				"back": [
+					723.0,
+					14.0,
+					222.0,
+					613.0
+				],
+				"front": [
+					296.0,
+					9.0,
+					230.0,
+					618.0
+				],
+				"left": [
+					316.0,
+					631.0,
+					205.0,
+					593.0
+				],
+				"right": [
+					732.0,
+					633.0,
+					203.0,
+					590.0
+				]
+			},
+			"source_sha256": "fc02c6cb98c9b50ca2cc122bd11c949e15c879905c6db361e341fa46e59b12ae",
+			"sprite_frames": "res://assets/characters/runtime/la_jiao/四向.tres"
+		},
+		{
+			"display_name": "勾尬",
+			"height_px": 90.0,
+			"id": "gou_ga",
+			"sheet": "res://assets/characters/runtime/gou_ga/四向.png",
+			"source": "res://assets/characters/npcs/勾尬.png",
+			"source_group": "gou_ga",
+			"source_regions": {
+				"back": [
+					736.0,
+					67.0,
+					306.0,
+					555.0
+				],
+				"front": [
+					224.0,
+					48.0,
+					312.0,
+					573.0
+				],
+				"left": [
+					252.0,
+					664.0,
+					263.0,
+					560.0
+				],
+				"right": [
+					763.0,
+					672.0,
+					255.0,
+					551.0
+				]
+			},
+			"source_sha256": "7e9782a4d35ab70cd5ddb307f80cbdc951f762f5aba56b5a79c17b793d85796c",
+			"sprite_frames": "res://assets/characters/runtime/gou_ga/四向.tres"
+		},
+		{
+			"display_name": "wr",
+			"height_px": 98.0,
+			"id": "wr",
+			"sheet": "res://assets/characters/runtime/wr/四向.png",
+			"source": "res://assets/characters/npcs/wr.png",
+			"source_group": "wr",
+			"source_regions": {
+				"back": [
+					694.0,
+					39.0,
+					257.0,
+					592.0
+				],
+				"front": [
+					289.0,
+					26.0,
+					256.0,
+					605.0
+				],
+				"left": [
+					326.0,
+					645.0,
+					209.0,
+					574.0
+				],
+				"right": [
+					718.0,
+					647.0,
+					200.0,
+					572.0
+				]
+			},
+			"source_sha256": "eb0e5af1853e88c241c544265cc0aeb409dd7c0b8d2c6123d30e1d42c29e668d",
+			"sprite_frames": "res://assets/characters/runtime/wr/四向.tres"
+		},
+		{
+			"display_name": "牢李",
+			"height_px": 103.0,
+			"id": "lao_li",
+			"sheet": "res://assets/characters/runtime/lao_li/四向.png",
+			"source": "res://assets/characters/npcs/牢李.png",
+			"source_group": "lao_li",
+			"source_regions": {
+				"back": [
+					683.0,
+					25.0,
+					259.0,
+					591.0
+				],
+				"front": [
+					306.0,
+					28.0,
+					262.0,
+					588.0
+				],
+				"left": [
+					340.0,
+					632.0,
+					186.0,
+					585.0
+				],
+				"right": [
+					723.0,
+					630.0,
+					190.0,
+					587.0
+				]
+			},
+			"source_sha256": "15561edc209eccf7bcaab3d0c2d8fc2fadd6a8b51f9fba5ef7b4c65ccafe5a22",
+			"sprite_frames": "res://assets/characters/runtime/lao_li/四向.tres"
+		},
+		{
+			"display_name": "牢抽",
+			"height_px": 114.0,
+			"id": "lao_chou",
+			"sheet": "res://assets/characters/runtime/lao_chou/四向.png",
+			"source": "res://assets/characters/npcs/牢抽.png",
+			"source_group": "lao_chou",
+			"source_regions": {
+				"back": [
+					739.0,
+					21.0,
+					173.0,
+					583.0
+				],
+				"front": [
+					356.0,
+					21.0,
+					169.0,
+					583.0
+				],
+				"left": [
+					368.0,
+					632.0,
+					136.0,
+					574.0
+				],
+				"right": [
+					760.0,
+					633.0,
+					136.0,
+					573.0
+				]
+			},
+			"source_sha256": "28d2368b01ad1d304569dbc267a9cd97c0179cdf80e83a151b2fe0cadf9df176",
+			"sprite_frames": "res://assets/characters/runtime/lao_chou/四向.tres"
+		},
+		{
+			"display_name": "费眼",
+			"height_px": 92.0,
+			"id": "fei_yan",
+			"sheet": "res://assets/characters/runtime/fei_yan/四向.png",
+			"source": "res://assets/characters/npcs/费眼.png",
+			"source_group": "fei_yan",
+			"source_regions": {
+				"back": [
+					673.0,
+					35.0,
+					306.0,
+					575.0
+				],
+				"front": [
+					278.0,
+					34.0,
+					314.0,
+					575.0
+				],
+				"left": [
+					323.0,
+					625.0,
+					229.0,
+					598.0
+				],
+				"right": [
+					717.0,
+					629.0,
+					228.0,
+					594.0
+				]
+			},
+			"source_sha256": "5457aff9764c77b3dac2aa9b16a89f6472f0ec0d6f9bdd4147a9818eb59f3c05",
+			"sprite_frames": "res://assets/characters/runtime/fei_yan/四向.tres"
+		},
+		{
+			"display_name": "牢傲",
+			"height_px": 94.0,
+			"id": "lao_ao",
+			"sheet": "res://assets/characters/runtime/lao_ao/四向.png",
+			"source": "res://assets/characters/npcs/牢傲.png",
+			"source_group": "lao_ao",
+			"source_regions": {
+				"back": [
+					736.0,
+					31.0,
+					196.0,
+					565.0
+				],
+				"front": [
+					339.0,
+					31.0,
+					192.0,
+					566.0
+				],
+				"left": [
+					346.0,
+					631.0,
+					180.0,
+					567.0
+				],
+				"right": [
+					744.0,
+					631.0,
+					181.0,
+					567.0
+				]
+			},
+			"source_sha256": "e75f6f1f433b6775b5e5bdf2cce9fb3f543f27d6b5756e213e6ecd24e1858ff0",
+			"sprite_frames": "res://assets/characters/runtime/lao_ao/四向.tres"
+		},
+		{
+			"display_name": "牢硕",
+			"height_px": 108.0,
+			"id": "lao_shuo",
+			"sheet": "res://assets/characters/runtime/lao_shuo/四向.png",
+			"source": "res://assets/characters/npcs/牢硕.png",
+			"source_group": "lao_shuo",
+			"source_regions": {
+				"back": [
+					681.0,
+					25.0,
+					284.0,
+					599.0
+				],
+				"front": [
+					290.0,
+					25.0,
+					289.0,
+					599.0
+				],
+				"left": [
+					353.0,
+					633.0,
+					172.0,
+					586.0
+				],
+				"right": [
+					733.0,
+					633.0,
+					170.0,
+					585.0
+				]
+			},
+			"source_sha256": "d9a21a4aef5ae2cad7aad691f841d4ab29f1484b582dabdd97c6a9438bdf5c99",
+			"sprite_frames": "res://assets/characters/runtime/lao_shuo/四向.tres"
+		},
+		{
+			"display_name": "阳子",
+			"height_px": 108.0,
+			"id": "yang_zi",
+			"sheet": "res://assets/characters/runtime/yang_zi/四向.png",
+			"source": "res://assets/characters/npcs/阳子.png",
+			"source_group": "yang_zi",
+			"source_regions": {
+				"back": [
+					699.0,
+					12.0,
+					243.0,
+					595.0
+				],
+				"front": [
+					322.0,
+					10.0,
+					243.0,
+					597.0
+				],
+				"left": [
+					344.0,
+					624.0,
+					175.0,
+					597.0
+				],
+				"right": [
+					751.0,
+					624.0,
+					177.0,
+					595.0
+				]
+			},
+			"source_sha256": "cd672cbfa3165059d3849e481dbeba4d3f4f9e97774a6dfb910e5cadcf1aa49a",
+			"sprite_frames": "res://assets/characters/runtime/yang_zi/四向.tres"
+		},
+		{
+			"display_name": "文聪",
+			"height_px": 116.0,
+			"id": "wen_cong",
+			"sheet": "res://assets/characters/runtime/wen_cong/四向.png",
+			"source": "res://assets/characters/npcs/文聪.png",
+			"source_group": "wen_cong",
+			"source_regions": {
+				"back": [
+					726.0,
+					62.0,
+					207.0,
+					548.0
+				],
+				"front": [
+					307.0,
+					64.0,
+					204.0,
+					549.0
+				],
+				"left": [
+					341.0,
+					658.0,
+					139.0,
+					544.0
+				],
+				"right": [
+					760.0,
+					657.0,
+					140.0,
+					545.0
+				]
+			},
+			"source_sha256": "c11d4cceb270818beddfaa5a0e6f3c6b542b5ebaa11ddb6fa0e147bdbdf0e9c1",
+			"sprite_frames": "res://assets/characters/runtime/wen_cong/四向.tres"
+		},
+		{
+			"display_name": "班主任",
+			"height_px": 100.0,
+			"id": "homeroom_teacher",
+			"sheet": "res://assets/characters/runtime/homeroom_teacher/四向.png",
+			"source": "res://assets/characters/npcs/班主任.png",
+			"source_group": "homeroom_teacher",
+			"source_regions": {
+				"back": [
+					679.0,
+					17.0,
+					280.0,
+					616.0
+				],
+				"front": [
+					278.0,
+					13.0,
+					282.0,
+					618.0
+				],
+				"left": [
+					327.0,
+					638.0,
+					207.0,
+					577.0
+				],
+				"right": [
+					713.0,
+					638.0,
+					207.0,
+					577.0
+				]
+			},
+			"source_sha256": "9e7aef18d9ec083900a61ab9992dbccbc2192909db12f2ccc7bc485a715b6023",
+			"sprite_frames": "res://assets/characters/runtime/homeroom_teacher/四向.tres"
+		},
+		{
+			"display_name": "男生校服模板",
+			"height_px": 104.0,
+			"id": "student_male",
+			"sheet": "res://assets/characters/runtime/student_male/四向.png",
+			"source": "res://assets/characters/templates/student_male.png",
+			"source_group": "student_male",
+			"source_regions": {
+				"back": [
+					704.0,
+					20.0,
+					240.0,
+					585.0
+				],
+				"front": [
+					317.0,
+					20.0,
+					244.0,
+					585.0
+				],
+				"left": [
+					344.0,
+					636.0,
+					176.0,
+					585.0
+				],
+				"right": [
+					737.0,
+					634.0,
+					185.0,
+					587.0
+				]
+			},
+			"source_sha256": "9eb4c5107d3a8fd59f83e600abb83d98e62a7472550cdd033aad2f3431b005f4",
+			"sprite_frames": "res://assets/characters/runtime/student_male/四向.tres"
+		},
+		{
+			"display_name": "女生校服模板",
+			"height_px": 102.0,
+			"id": "student_female",
+			"sheet": "res://assets/characters/runtime/student_female/四向.png",
+			"source": "res://assets/characters/templates/student_female.png",
+			"source_group": "student_female",
+			"source_regions": {
+				"back": [
+					696.0,
+					42.0,
+					253.0,
+					590.0
+				],
+				"front": [
+					295.0,
+					34.0,
+					252.0,
+					598.0
+				],
+				"left": [
+					331.0,
+					657.0,
+					195.0,
+					575.0
+				],
+				"right": [
+					716.0,
+					657.0,
+					191.0,
+					575.0
+				]
+			},
+			"source_sha256": "f3e87c295274bd393b20ce00e7910e34b363cfa753e9c1435dcd677ff560600b",
+			"sprite_frames": "res://assets/characters/runtime/student_female/四向.tres"
+		},
+		{
+			"display_name": "赵慕gei",
+			"height_px": 104.0,
+			"id": "zhao_mugei",
+			"sheet": "res://assets/characters/runtime/zhao_mugei/四向.png",
+			"source": "res://assets/characters/hero/zhao_mugei.png",
+			"source_group": "zhao_mugei",
+			"source_regions": {
+				"back": [
+					675.0,
+					30.0,
+					291.0,
+					593.0
+				],
+				"front": [
+					287.0,
+					30.0,
+					291.0,
+					593.0
+				],
+				"left": [
+					332.0,
+					636.0,
+					196.0,
+					585.0
+				],
+				"right": [
+					734.0,
+					635.0,
+					197.0,
+					586.0
+				]
+			},
+			"source_sha256": "891e28695d58080dfe193be42d9c8ef1c510a97783be3d3fd485638b3b6bfa1a",
+			"sprite_frames": "res://assets/characters/runtime/zhao_mugei/四向.tres"
+		},
+		{
+			"display_name": "旧NPC男生一",
+			"height_px": 104.0,
+			"id": "legacy_student_1",
+			"sheet": "res://assets/characters/runtime/legacy_student_1/四向.png",
+			"source": "res://assets/characters/npcs/students_npc_atlas.png",
+			"source_group": "npc_students",
+			"source_regions": {
+				"back": [
+					446.0,
+					3.0,
+					138.0,
+					309.0
+				],
+				"front": [
+					234.0,
+					3.0,
+					138.0,
+					309.0
+				],
+				"left": [
+					672.0,
+					5.0,
+					118.0,
+					309.0
+				],
+				"right": [
+					884.0,
+					5.0,
+					118.0,
+					309.0
+				]
+			},
+			"source_sha256": "747d15969a371f58335be5952cd82482dd2f8adee9d6cded0ee922050d708761",
+			"sprite_frames": "res://assets/characters/runtime/legacy_student_1/四向.tres"
+		},
+		{
+			"display_name": "旧NPC男生二",
+			"height_px": 102.0,
+			"id": "legacy_student_2",
+			"sheet": "res://assets/characters/runtime/legacy_student_2/四向.png",
+			"source": "res://assets/characters/npcs/students_npc_atlas.png",
+			"source_group": "npc_students",
+			"source_regions": {
+				"back": [
+					442.0,
+					320.0,
+					146.0,
+					304.0
+				],
+				"front": [
+					231.0,
+					318.0,
+					143.0,
+					306.0
+				],
+				"left": [
+					679.0,
+					322.0,
+					105.0,
+					304.0
+				],
+				"right": [
+					887.0,
+					322.0,
+					106.0,
+					304.0
+				]
+			},
+			"source_sha256": "747d15969a371f58335be5952cd82482dd2f8adee9d6cded0ee922050d708761",
+			"sprite_frames": "res://assets/characters/runtime/legacy_student_2/四向.tres"
+		},
+		{
+			"display_name": "旧NPC女生一",
+			"height_px": 100.0,
+			"id": "legacy_student_3",
+			"sheet": "res://assets/characters/runtime/legacy_student_3/四向.png",
+			"source": "res://assets/characters/npcs/students_npc_atlas.png",
+			"source_group": "npc_students",
+			"source_regions": {
+				"back": [
+					446.0,
+					632.0,
+					139.0,
+					301.0
+				],
+				"front": [
+					234.0,
+					632.0,
+					138.0,
+					301.0
+				],
+				"left": [
+					675.0,
+					635.0,
+					118.0,
+					301.0
+				],
+				"right": [
+					880.0,
+					635.0,
+					118.0,
+					301.0
+				]
+			},
+			"source_sha256": "747d15969a371f58335be5952cd82482dd2f8adee9d6cded0ee922050d708761",
+			"sprite_frames": "res://assets/characters/runtime/legacy_student_3/四向.tres"
+		},
+		{
+			"display_name": "旧NPC女生二",
+			"height_px": 100.0,
+			"id": "legacy_student_4",
+			"sheet": "res://assets/characters/runtime/legacy_student_4/四向.png",
+			"source": "res://assets/characters/npcs/students_npc_atlas.png",
+			"source_group": "npc_students",
+			"source_regions": {
+				"back": [
+					445.0,
+					936.0,
+					140.0,
+					314.0
+				],
+				"front": [
+					232.0,
+					936.0,
+					140.0,
+					314.0
+				],
+				"left": [
+					668.0,
+					939.0,
+					138.0,
+					315.0
+				],
+				"right": [
+					866.0,
+					939.0,
+					139.0,
+					315.0
+				]
+			},
+			"source_sha256": "747d15969a371f58335be5952cd82482dd2f8adee9d6cded0ee922050d708761",
+			"sprite_frames": "res://assets/characters/runtime/legacy_student_4/四向.tres"
+		},
+		{
+			"display_name": "英语老师",
+			"height_px": 106.0,
+			"id": "english_teacher",
+			"sheet": "res://assets/characters/runtime/english_teacher/四向.png",
+			"source": "res://assets/characters/npcs/英语老师.png",
+			"source_group": "english_teacher",
+			"source_regions": {
+				"back": [
+					682.0,
+					15.0,
+					265.0,
+					619.0
+				],
+				"front": [
+					295.0,
+					15.0,
+					264.0,
+					619.0
+				],
+				"left": [
+					332.0,
+					637.0,
+					214.0,
+					599.0
+				],
+				"right": [
+					701.0,
+					638.0,
+					203.0,
+					598.0
+				]
+			},
+			"source_sha256": "f112c92e8b8302b13de87b88dab7d594720873f06ad92a8c3748563619e40a70",
+			"sprite_frames": "res://assets/characters/runtime/english_teacher/四向.tres"
+		}
+	],
+	"component": "res://scenes/characters/character_sprite.tscn",
+	"directions": [
+		"front",
+		"back",
+		"left",
+		"right"
+	],
+	"foot_anchor": [
+		64,
+		120
+	],
+	"frame_size": [
+		128,
+		128
+	],
+	"preview_scene": "res://scenes/characters/character_library_preview.tscn",
+	"version": 1
+}

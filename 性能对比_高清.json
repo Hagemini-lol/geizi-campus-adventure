@@ -1,0 +1,9 @@
+{
+  "map_texture_bytes": 12007672,
+  "mean_draw_calls": 24.0333333333333,
+  "mean_frame_ms": 16.6684666666667,
+  "mean_process_ms": 5.71279444444445,
+  "p95_process_ms": 16.894,
+  "samples": 180,
+  "scene": "B12"
+}

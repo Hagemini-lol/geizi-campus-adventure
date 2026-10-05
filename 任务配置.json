@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "part_1",
+      "type": "main",
+      "title": "第一章 · 窗后的闪光",
+      "auto_start": true,
+      "steps": [
+        {
+          "hint": "去秋实楼三楼最左侧十班，在靠窗倒数第二排自己的白圈座位按 E。",
+          "event": "story/morning"
+        },
+        {
+          "hint": "去实验楼北侧（后墙）查看闪光的窗户，走近白圈按 E。",
+          "event": "story/window"
+        },
+        {
+          "hint": "绕到实验楼南侧正门，按 E 进入。",
+          "event": "story/entrance"
+        },
+        {
+          "hint": "在实验楼一楼找到震动的 102 教室门，走近后按 E。",
+          "event": "story/initiation"
+        },
+        {
+          "hint": "返回秋实楼十班，在自己的白圈座位按 E 上晚自习。",
+          "event": "story/complete"
+        }
+      ]
+    },
+    {
+      "id": "after_part_1",
+      "type": "guide",
+      "title": "明日再议",
+      "auto_start": true,
+      "prerequisites": [
+        "part_1"
+      ],
+      "steps": [
+        {
+          "hint": "第一章已结束。与费眼学习法术，与牢李委托制作物品，或找牢硕购买装备、学习战斗专精。后续剧情尚未开放。"
+        }
+      ]
+    },
+    {
+      "id": "free_exploration",
+      "type": "guide",
+      "title": "自由探索",
+      "auto_start": true,
+      "prerequisites": [],
+      "steps": [
+        {
+          "hint": "gei子，先自由探索校园，走近门口、告示牌或人物后按 E 交互。上午、下午可以到教学楼十班的白圈座位上课。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1702 @@
+{
+  "version": 32,
+  "project": "赵慕gei的牙林冒险",
+  "status": "最新版走廊素材已确认保存，并登记楼梯碰撞区与上下层传送备注",
+  "monster_animation_batch_01": {
+    "annotation": "怪物动作差分01：四种怪物，每种待机3张、移动3张、攻击1张、受击1张",
+    "user_confirmed_as_asset": true,
+    "library_notes": "assets/characters/monsters/素材命名与注释.md",
+    "save_audit": "docs/怪物动作差分01/入库核对.json",
+    "date": "2026-10-04",
+    "generation_method": "built_in_image_gen",
+    "documentation": "docs/怪物动作差分01说明.md",
+    "catalog": "data/monster_animations_01.json",
+    "preview_scene": "res://scenes/monsters/monster_animation_preview.tscn",
+    "preview_gif": "docs/怪物动作差分01/动作预览.gif",
+    "view": "front",
+    "distinct_poses_per_monster": {
+      "idle": 3,
+      "move": 3,
+      "attack": 1,
+      "hurt": 1
+    },
+    "monster_count": 4,
+    "total_distinct_poses": 32,
+    "status": "saved_as_requested"
+  },
+  "monsters": [
+    {
+      "id": "ink_slime",
+      "display_name": "墨泥怪",
+      "path": "res://assets/characters/monsters/墨泥怪.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "generation_method": "built_in_image_gen",
+      "asset_saved_date": "2026-10-04",
+      "prompt": "docs/怪物素材批次01/墨泥怪-提示词.txt",
+      "documentation": "docs/怪物素材批次01说明.md",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "status": "saved_as_requested",
+      "usage": "RGBA透明底四向静止原图；已另存正面动作图集和Godot拨帧资源，详见monster_animation_batch_01；尚未加入游戏场景。",
+      "annotation": "墨泥怪：四向静止原图；正面动作差分另存 animations 目录",
+      "user_confirmed_as_asset": true
+    },
+    {
+      "id": "book_mimic",
+      "display_name": "噬书怪",
+      "path": "res://assets/characters/monsters/噬书怪.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "generation_method": "built_in_image_gen",
+      "asset_saved_date": "2026-10-04",
+      "prompt": "docs/怪物素材批次01/噬书怪-提示词.txt",
+      "documentation": "docs/怪物素材批次01说明.md",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "status": "saved_as_requested",
+      "usage": "RGBA透明底四向静止原图；已另存正面动作图集和Godot拨帧资源，详见monster_animation_batch_01；尚未加入游戏场景。",
+      "annotation": "噬书怪：四向静止原图；正面动作差分另存 animations 目录",
+      "user_confirmed_as_asset": true
+    },
+    {
+      "id": "hollow_uniform",
+      "display_name": "空壳校服",
+      "path": "res://assets/characters/monsters/空壳校服.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "generation_method": "built_in_image_gen",
+      "asset_saved_date": "2026-10-04",
+      "prompt": "docs/怪物素材批次01/空壳校服-提示词.txt",
+      "documentation": "docs/怪物素材批次01说明.md",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "status": "saved_as_requested",
+      "usage": "RGBA透明底四向静止原图；已另存正面动作图集和Godot拨帧资源，详见monster_animation_batch_01；尚未加入游戏场景。",
+      "annotation": "空壳校服：四向静止原图；正面动作差分另存 animations 目录",
+      "user_confirmed_as_asset": true
+    },
+    {
+      "id": "twig_imp",
+      "display_name": "枯枝怪",
+      "path": "res://assets/characters/monsters/枯枝怪.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "generation_method": "built_in_image_gen",
+      "asset_saved_date": "2026-10-04",
+      "prompt": "docs/怪物素材批次01/枯枝怪-提示词.txt",
+      "documentation": "docs/怪物素材批次01说明.md",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "status": "saved_as_requested",
+      "usage": "RGBA透明底四向静止原图；已另存正面动作图集和Godot拨帧资源，详见monster_animation_batch_01；尚未加入游戏场景。",
+      "annotation": "枯枝怪：四向静止原图；正面动作差分另存 animations 目录",
+      "user_confirmed_as_asset": true
+    }
+  ],
+  "characters": [
+    {
+      "id": "lao_dong",
+      "display_name": "牢董",
+      "annotation": "牢董",
+      "gender": "男",
+      "role": "班级六边形战士，沉稳、俊俏、富有魅力，总是微笑，话少但直切重点。",
+      "path": "res://assets/characters/npcs/牢董.png",
+      "description": "中等偏高、匀称挺拔的身材，肤色自然偏白；黑色整齐中分短发，左右柔顺的弧形发束、露出眉心，俊俏鹅蛋形脸，眉毛整洁，细长但明亮的眼睛，不戴眼镜，脸上总有含蓄从容的微笑，沉稳温和、话少而可靠。与活泼阳子、瘦小牢傲明显区分。",
+      "size": [
+        1269,
+        1240
+      ],
+      "revision": 1,
+      "status": "runtime_static_ready",
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/中学生NPC人设版01/牢董-提示词.txt",
+      "documentation": "docs/中学生NPC人设与素材批次01.md",
+      "character_design": "data/student_npcs_01.json",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "lao_dong",
+          "sheet": "res://assets/characters/runtime/lao_dong/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/lao_dong/四向.tres",
+          "height_px": 108.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "la_jiao",
+      "display_name": "辣椒",
+      "annotation": "辣椒",
+      "gender": "女",
+      "role": "班长，管理班级信息和出勤信息。",
+      "path": "res://assets/characters/npcs/辣椒.png",
+      "description": "明显瘦高，四肢修长，头部不过大，长脸与略尖下巴；黑色整洁高马尾，额前侧分刘海，戴扁窄长方形细框眼镜，眼睛中等偏细长，眉毛较直，认真机警而克制的班长表情，嘴角轻轻抿起，避免活泼甜美大笑。",
+      "size": [
+        1247,
+        1261
+      ],
+      "revision": 2,
+      "status": "runtime_static_ready",
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/角色素材修正2026-10-04/辣椒-修正提示词.txt",
+      "documentation": "docs/中学生NPC人设与素材批次01.md",
+      "character_design": "data/student_npcs_01.json",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "la_jiao",
+          "sheet": "res://assets/characters/runtime/la_jiao/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/la_jiao/四向.tres",
+          "height_px": 110.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md",
+      "previous_prompt": "docs/中学生NPC人设版01/辣椒-提示词.txt",
+      "previous_image": "res://assets/characters/history/2026-10-04-before-fix/辣椒.png"
+    },
+    {
+      "id": "gou_ga",
+      "display_name": "勾尬",
+      "annotation": "勾尬",
+      "gender": "女",
+      "role": "混沌之源，怀抱恶意接触他人，曾做局害阳子重伤，如今与费眼侧对立，艰难维持平衡。",
+      "path": "res://assets/characters/npcs/勾尬.png",
+      "description": "明显矮胖，身形圆润、腰腹宽、腿较短，宽圆脸、饱满脸颊，大眼睛，戴圆框眼镜；黑色齐耳短波波头、厚实齐刘海。哭泣人格：眉头内侧上扬并微微皱起，眼眶泛红、眼睛含泪，可见少量沿脸颊流下的泪滴；嘴角明显下垂，嘴唇轻抿，神情悲伤、委屈、快哭出来，保留校园日常学生外观，不夸张崩溃。",
+      "size": [
+        1247,
+        1261
+      ],
+      "revision": 3,
+      "status": "runtime_static_ready",
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/角色素材修正2026-10-04/勾尬-排布修正提示词.txt",
+      "expression_prompt": "docs/中学生NPC人设版01/勾尬-哭泣表情修改提示词.txt",
+      "personality": "哭泣人格，悲伤含泪",
+      "documentation": "docs/中学生NPC人设与素材批次01.md",
+      "character_design": "data/student_npcs_01.json",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "gou_ga",
+          "sheet": "res://assets/characters/runtime/gou_ga/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/gou_ga/四向.tres",
+          "height_px": 90.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md",
+      "previous_prompt": "docs/中学生NPC人设版01/勾尬-提示词.txt",
+      "previous_image": "res://assets/characters/history/2026-10-04-before-fix/勾尬.png"
+    },
+    {
+      "id": "wr",
+      "display_name": "wr",
+      "annotation": "wr",
+      "gender": "女",
+      "role": "校园内善于社交，喜欢读书。",
+      "path": "res://assets/characters/npcs/wr.png",
+      "description": "身高稍矮、身材匀称纤细而非瘦高，脸型精致小鹅蛋脸；黑色柔顺长发扎成低马尾，空气感薄刘海，侧边一缕贴脸长发，不戴眼镜，较大清亮眼睛，眉眼柔和，嘴角有自然亲切的社交微笑，神态从容而略带深藏不露。得体的中学生校服与青少年形象。",
+      "size": [
+        1247,
+        1261
+      ],
+      "revision": 1,
+      "status": "runtime_static_ready",
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/中学生NPC人设版01/wr-提示词.txt",
+      "documentation": "docs/中学生NPC人设与素材批次01.md",
+      "character_design": "data/student_npcs_01.json",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "wr",
+          "sheet": "res://assets/characters/runtime/wr/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/wr/四向.tres",
+          "height_px": 98.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "lao_li",
+      "display_name": "牢李",
+      "annotation": "牢李",
+      "gender": "男",
+      "role": "班级技术担当，动手能力强，受老师器重，总能搞到神奇道具。",
+      "path": "res://assets/characters/npcs/牢李.png",
+      "description": "微胖，腰腹圆润但比参考主角赵慕gei略瘦，身高中等，肤色略深为自然浅棕色；黑色短而平整的侧分发，露出大部分额头，别用主角的锅盖头；黑色长方形眼镜，略宽圆脸，小而专注的眼睛，温和克制微笑，低调内敛的技术担当。",
+      "size": [
+        1265,
+        1243
+      ],
+      "revision": 1,
+      "status": "runtime_static_ready",
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/中学生NPC人设版01/牢李-提示词.txt",
+      "documentation": "docs/中学生NPC人设与素材批次01.md",
+      "character_design": "data/student_npcs_01.json",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "lao_li",
+          "sheet": "res://assets/characters/runtime/lao_li/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/lao_li/四向.tres",
+          "height_px": 103.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "lao_chou",
+      "display_name": "牢抽",
+      "annotation": "牢抽",
+      "gender": "男",
+      "role": "班级学霸，外表像小头爸爸，推理和数学能力优秀，总能靠智商解决问题。",
+      "path": "res://assets/characters/npcs/牢抽.png",
+      "description": "明显瘦高，肩窄腰细腿长，头部相对更小，让轮廓呈小头瘦高的学生形象；黑色整齐短发，上部轻微侧梳，薄刘海，瘦长脸、长鼻梁、小眼睛，戴窄长方形细框眼镜，聪明沉静的表情，额头稍宽但不秃顶，仍是青少年而非父亲年龄。",
+      "size": [
+        1265,
+        1243
+      ],
+      "revision": 2,
+      "status": "runtime_static_ready",
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/角色素材修正2026-10-04/牢抽-修正提示词.txt",
+      "documentation": "docs/中学生NPC人设与素材批次01.md",
+      "character_design": "data/student_npcs_01.json",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "lao_chou",
+          "sheet": "res://assets/characters/runtime/lao_chou/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/lao_chou/四向.tres",
+          "height_px": 114.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md",
+      "previous_prompt": "docs/中学生NPC人设版01/牢抽-提示词.txt",
+      "previous_image": "res://assets/characters/history/2026-10-04-before-fix/牢抽.png"
+    },
+    {
+      "id": "fei_yan",
+      "display_name": "费眼",
+      "annotation": "费眼",
+      "gender": "男",
+      "role": "为人风趣，能够扮作丑角逗笑大家，实际是隐藏的法术高手；理论充实但天赋受限，赵慕gei的法术引路人。",
+      "path": "res://assets/characters/npcs/费眼.png",
+      "description": "明显矮胖，较短的腿、圆润腰腹和较宽的身体，肤色比牢李更深一档，为自然中深棕色；黑色蓬松短卷发，宽圆脸，眉毛灵活，眼睛偏小但有神，不戴眼镜，露出风趣亲切的笑容，一侧眉毛微挑；日常形态的隐藏法术高手，亲切机敏，不把角色画成丑陋怪物。",
+      "size": [
+        1265,
+        1243
+      ],
+      "revision": 1,
+      "status": "runtime_static_ready",
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/中学生NPC人设版01/费眼-提示词.txt",
+      "documentation": "docs/中学生NPC人设与素材批次01.md",
+      "character_design": "data/student_npcs_01.json",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "fei_yan",
+          "sheet": "res://assets/characters/runtime/fei_yan/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/fei_yan/四向.tres",
+          "height_px": 92.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "lao_ao",
+      "display_name": "牢傲",
+      "annotation": "牢傲",
+      "gender": "男",
+      "role": "班级音游担当，性格平和但不能容忍不道德的事。",
+      "path": "res://assets/characters/npcs/牢傲.png",
+      "description": "明显瘦小，比普通男生稍矮，肩膀窄、四肢纤细，皮肤白皙；黑色柔顺短发，较长轻薄侧刘海，额前有一小撮弧形发束，小巧椭圆脸，清澈较大眼睛，不戴眼镜，温和平静微笑，神态有坚定感。画平时未变身的男中学生。",
+      "size": [
+        1265,
+        1243
+      ],
+      "revision": 2,
+      "status": "runtime_static_ready",
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/角色素材修正2026-10-04/牢傲-修正提示词.txt",
+      "documentation": "docs/中学生NPC人设与素材批次01.md",
+      "character_design": "data/student_npcs_01.json",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "lao_ao",
+          "sheet": "res://assets/characters/runtime/lao_ao/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/lao_ao/四向.tres",
+          "height_px": 94.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md",
+      "previous_prompt": "docs/中学生NPC人设版01/牢傲-提示词.txt",
+      "previous_image": "res://assets/characters/history/2026-10-04-before-fix/牢傲.png"
+    },
+    {
+      "id": "lao_shuo",
+      "display_name": "牢硕",
+      "annotation": "牢硕",
+      "gender": "男",
+      "role": "班级军迷，正义，坚信社会主义，梦想成为军人保家卫国。",
+      "path": "res://assets/characters/npcs/牢硕.png",
+      "description": "健壮结实，宽肩、厚实手臂、挺拔直立，身高稍高；黑色干净利落的极短寸头，额头完全露出，明显国字脸、方下颌、粗直浓眉，眼睛中等，有坚定正气和可靠的微笑，不戴眼镜，正常学生校服，不穿军装。",
+      "size": [
+        1265,
+        1243
+      ],
+      "revision": 1,
+      "status": "runtime_static_ready",
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/中学生NPC人设版01/牢硕-提示词.txt",
+      "documentation": "docs/中学生NPC人设与素材批次01.md",
+      "character_design": "data/student_npcs_01.json",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "lao_shuo",
+          "sheet": "res://assets/characters/runtime/lao_shuo/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/lao_shuo/四向.tres",
+          "height_px": 108.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "yang_zi",
+      "display_name": "阳子",
+      "annotation": "阳子",
+      "gender": "男",
+      "role": "班级跑步担当，风趣大方的点子王。没有法术背景，凭聪明发现学校异变，在事件中发现法术秘密，与gei子一起向费眼学习法术。",
+      "path": "res://assets/characters/npcs/阳子.png",
+      "description": "跑步型修长体态，中等偏高，腿长、肩腰匀称而不壮，肤色自然略带日晒；黑色清爽露耳短发，额前发束向上立起、后部短，较长椭圆脸，眼睛有精神，不戴眼镜，开朗大方的笑容，眉毛略上扬，机灵活泼的点子王。与牢硕的极短寸头和国字脸区分。",
+      "size": [
+        1265,
+        1243
+      ],
+      "revision": 1,
+      "status": "runtime_static_ready",
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/中学生NPC人设版01/阳子-提示词.txt",
+      "documentation": "docs/中学生NPC人设与素材批次01.md",
+      "character_design": "data/student_npcs_01.json",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "yang_zi",
+          "sheet": "res://assets/characters/runtime/yang_zi/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/yang_zi/四向.tres",
+          "height_px": 108.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "wen_cong",
+      "display_name": "文聪",
+      "annotation": "文聪",
+      "role": "教导主任",
+      "path": "res://assets/characters/npcs/文聪.png",
+      "description": "瘦高中年男性教导主任，缩小头部的修长比例，高发际线地中海秃顶、眼镜、挑眉斜视与薄唇冷笑，神态狡猾刻薄，深藏青夹克、浅灰衬衫和深灰长裤。",
+      "revision": 3,
+      "size": [
+        1240,
+        1269
+      ],
+      "status": "runtime_static_ready",
+      "user_confirmed_as_asset": true,
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/文聪生成提示词-v3.txt",
+      "documentation": "docs/文聪角色素材说明.md",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "wen_cong",
+          "sheet": "res://assets/characters/runtime/wen_cong/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/wen_cong/四向.tres",
+          "height_px": 116.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "homeroom_teacher",
+      "display_name": "班主任",
+      "path": "res://assets/characters/npcs/班主任.png",
+      "description": "微胖、稍矮的中年女性，深色露耳短发、方圆脸、小眼睛与细框眼镜，灰蓝开衫、米白衬衫和深色长裤。",
+      "revision": 4,
+      "status": "runtime_static_ready",
+      "user_confirmed_as_asset": true,
+      "asset_saved_date": "2026-10-03",
+      "generation_method": "built_in_image_gen",
+      "prompt": "docs/角色素材修正2026-10-04/班主任-修正提示词.txt",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "size": [
+        1240,
+        1269
+      ],
+      "runtime_assets": [
+        {
+          "id": "homeroom_teacher",
+          "sheet": "res://assets/characters/runtime/homeroom_teacher/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/homeroom_teacher/四向.tres",
+          "height_px": 100.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md",
+      "previous_prompt": "docs/班主任生成提示词-v3.txt",
+      "previous_image": "res://assets/characters/history/2026-10-04-before-fix/班主任.png"
+    },
+    {
+      "id": "student_male",
+      "path": "res://assets/characters/templates/student_male.png",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "display_name": "男生校服模板",
+      "size": [
+        1265,
+        1244
+      ],
+      "status": "runtime_static_ready",
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "student_male",
+          "sheet": "res://assets/characters/runtime/student_male/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/student_male/四向.tres",
+          "height_px": 104.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "student_female",
+      "path": "res://assets/characters/templates/student_female.png",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "display_name": "女生校服模板",
+      "size": [
+        1247,
+        1261
+      ],
+      "status": "runtime_static_ready",
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "student_female",
+          "sheet": "res://assets/characters/runtime/student_female/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/student_female/四向.tres",
+          "height_px": 102.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "zhao_mugei",
+      "display_name": "赵慕gei",
+      "path": "res://assets/characters/hero/zhao_mugei.png",
+      "description": "略胖、黑框眼镜、锅盖头、肤色略深，薄荷绿校服",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "size": [
+        1265,
+        1243
+      ],
+      "status": "runtime_static_ready",
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "zhao_mugei",
+          "sheet": "res://assets/characters/runtime/zhao_mugei/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/zhao_mugei/四向.tres",
+          "height_px": 104.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "npc_students",
+      "path": "res://assets/characters/npcs/students_npc_atlas.png",
+      "layout": {
+        "columns": 4,
+        "rows": 4,
+        "directions_by_column": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ],
+        "characters_by_row": [
+          "偏瘦侧分男生",
+          "短发健壮男生",
+          "短发女生",
+          "马尾圆框眼镜女生"
+        ]
+      },
+      "display_name": "学生NPC四人四向图集",
+      "size": [
+        1247,
+        1261
+      ],
+      "status": "runtime_static_ready",
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "runtime_assets": [
+        {
+          "id": "legacy_student_1",
+          "sheet": "res://assets/characters/runtime/legacy_student_1/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/legacy_student_1/四向.tres",
+          "height_px": 104.0
+        },
+        {
+          "id": "legacy_student_2",
+          "sheet": "res://assets/characters/runtime/legacy_student_2/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/legacy_student_2/四向.tres",
+          "height_px": 102.0
+        },
+        {
+          "id": "legacy_student_3",
+          "sheet": "res://assets/characters/runtime/legacy_student_3/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/legacy_student_3/四向.tres",
+          "height_px": 100.0
+        },
+        {
+          "id": "legacy_student_4",
+          "sheet": "res://assets/characters/runtime/legacy_student_4/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/legacy_student_4/四向.tres",
+          "height_px": 100.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md"
+    },
+    {
+      "id": "english_teacher",
+      "display_name": "英语老师",
+      "annotation": "英语老师",
+      "gender": "女",
+      "path": "res://assets/characters/npcs/英语老师.png",
+      "description": "酒红齐肩头发、眼镜、便携扩音器和头戴麦克风，米色开衫、米白衬衫、深色长裤；扩音器佩戴在人物左侧。",
+      "revision": 2,
+      "generation_method": "built_in_image_gen",
+      "asset_saved_date": "2026-10-04",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "directions": [
+          "front",
+          "back",
+          "left",
+          "right"
+        ]
+      },
+      "status": "runtime_static_ready",
+      "runtime_assets": [
+        {
+          "id": "english_teacher",
+          "sheet": "res://assets/characters/runtime/english_teacher/四向.png",
+          "sprite_frames": "res://assets/characters/runtime/english_teacher/四向.tres",
+          "height_px": 106.0
+        }
+      ],
+      "runtime_verified_date": "2026-10-04",
+      "runtime_documentation": "docs/角色四向素材使用说明.md",
+      "usage": "高分辨率原图作为设定与编辑来源；游戏使用 runtime_assets 中的128×128四向静止帧与SpriteFrames，脚底锚点(64,120)。无行走动画，剧情交互另行实现。",
+      "size": [
+        1247,
+        1261
+      ],
+      "prompt": "docs/角色素材修正2026-10-04/英语老师-修正提示词.txt",
+      "previous_image": "res://assets/characters/history/2026-10-04-before-fix/英语老师.png"
+    }
+  ],
+  "maps": [
+    {
+      "id": "campus_exterior_v2",
+      "path": "res://assets/maps/outdoor/campus_exterior_v2.png",
+      "layout_basis": "Esri 卫星轮廓和公开校园照片，细节为 RPG 简化",
+      "status": "rejected_by_user_retained_as_history",
+      "north": "up",
+      "size": [
+        1024,
+        1536
+      ],
+      "buildings": [
+        {
+          "id": "01",
+          "name": "建筑01",
+          "description": "北侧蓝顶长楼",
+          "label_position_normalized": [
+            0.463,
+            0.068
+          ],
+          "name_confirmed": false
+        },
+        {
+          "id": "02",
+          "name": "建筑02",
+          "description": "东北角白顶楼",
+          "label_position_normalized": [
+            0.804,
+            0.068
+          ],
+          "name_confirmed": false
+        },
+        {
+          "id": "03",
+          "name": "建筑03",
+          "description": "东侧红顶长楼",
+          "label_position_normalized": [
+            0.855,
+            0.222
+          ],
+          "name_confirmed": false
+        },
+        {
+          "id": "04",
+          "name": "建筑04",
+          "description": "东南角红顶带翼楼",
+          "label_position_normalized": [
+            0.803,
+            0.376
+          ],
+          "name_confirmed": false
+        },
+        {
+          "id": "05",
+          "name": "建筑05",
+          "description": "南侧中间红顶楼",
+          "label_position_normalized": [
+            0.51,
+            0.376
+          ],
+          "name_confirmed": false
+        },
+        {
+          "id": "06",
+          "name": "建筑06",
+          "description": "西南角深色顶楼",
+          "label_position_normalized": [
+            0.239,
+            0.428
+          ],
+          "name_confirmed": false
+        },
+        {
+          "id": "07",
+          "name": "建筑07",
+          "description": "西侧浅色顶建筑组",
+          "label_position_normalized": [
+            0.214,
+            0.224
+          ],
+          "name_confirmed": false
+        },
+        {
+          "id": "08",
+          "name": "建筑08",
+          "description": "道路南侧、操场北侧建筑",
+          "label_position_normalized": [
+            0.327,
+            0.62
+          ],
+          "name_confirmed": false
+        },
+        {
+          "id": "09",
+          "name": "建筑09",
+          "description": "南侧运动区域东南角建筑",
+          "label_position_normalized": [
+            0.769,
+            0.883
+          ],
+          "name_confirmed": false
+        }
+      ],
+      "requested_names": [
+        "春华楼",
+        "夏耘楼",
+        "秋实楼",
+        "实验楼",
+        "礼堂",
+        "创新中心"
+      ],
+      "south_sports_area_ownership_confirmed": false
+    },
+    {
+      "id": "campus_exterior_v3",
+      "path": "res://assets/maps/outdoor/campus_exterior_v3.png",
+      "preview_scene": "res://scenes/maps/campus_exterior.tscn",
+      "status": "superseded_retained_as_history",
+      "north": "up",
+      "size": [
+        1024,
+        1536
+      ],
+      "labels_present": [
+        "A",
+        "B",
+        "C",
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "confirmed_constraints": [
+        "单一校区，不跨街道",
+        "05 是校门口最大建筑",
+        "06 是横向较小的楼",
+        "花坛缩小",
+        "足球场与花坛之间有小片篮球场"
+      ],
+      "building_names_confirmed": false,
+      "layout_basis": "用户校正优先，卫星图仅作轮廓参考",
+      "historical_pending_changes": [
+        "去除 A、B、C 对应的三栋楼，而非仅删除字母",
+        "将 01 楼分为三栋独立楼",
+        "中间一栋比左右两栋更靠北",
+        "最左一栋延伸到地图最左边"
+      ],
+      "superseded_by": "campus_rectified_playable",
+      "usage": "旧草图及旧编号；不作为当前校园或继续编辑底图"
+    },
+    {
+      "id": "classroom_v1",
+      "path": "res://assets/maps/indoor/classroom_v1.png",
+      "preview_scene": "res://scenes/maps/classroom_preview.tscn",
+      "status": "photo_inspired_draft",
+      "size": [
+        1536,
+        1024
+      ],
+      "type": "classroom_interior",
+      "source_url": "https://nmg.wenming.cn/2022xbwz/wmcj_54208/wmxy_54213/202509/t20250908_6922479.html",
+      "source_photo": "D:\\Godot\\素材预览\\牙林一中\\reference-wenming-campus.jpg",
+      "observed_features": [
+        "蓝色墙面",
+        "浅蓝地面",
+        "橙色桌面与无靠背方凳，灰色金属腿",
+        "绿色黑板左侧嵌入多媒体屏幕",
+        "左侧窗户和灰色窗帘",
+        "黑板下方白色通风/暖气板"
+      ],
+      "game_layout": {
+        "rows": 4,
+        "columns": 8,
+        "seats": 32,
+        "banks": 4,
+        "seats_per_bank_per_row": 2,
+        "front": "image_top",
+        "door": "right_front"
+      },
+      "limitations": [
+        "座位数量和排布为游戏化简化，非实测平面",
+        "尚未指定属于哪栋楼或哪间教室",
+        "仅整体背景图，未加入碰撞、角色或传送逻辑"
+      ],
+      "display_name": "蓝墙教室初稿（公开课教室参考底图）",
+      "usage": "保留为公开课教室制作参考，不是当前普通教室成品"
+    },
+    {
+      "id": "open_classroom",
+      "display_name": "公开课教室",
+      "path": "res://assets/maps/indoor/公开课教室.png",
+      "preview_scene": "res://scenes/maps/open_classroom_preview.tscn",
+      "status": "saved_as_requested",
+      "size": [
+        1536,
+        1024
+      ],
+      "type": "open_lesson_classroom_interior",
+      "derived_from": "res://assets/maps/indoor/classroom_v1.png",
+      "game_layout": {
+        "table_shape": "hexagon",
+        "table_construction": "six_joined_triangular_desks",
+        "groups": 6,
+        "group_rows": 2,
+        "group_columns": 3,
+        "seats_per_group": 6,
+        "total_seats": 36
+      },
+      "design_basis": "原教室环境来自实拍参考；六角形拼桌为用户指定的素材改版",
+      "limitations": [
+        "整体背景图，未加入碰撞、角色或传送逻辑",
+        "六角形拼桌布局不作为实景测绘结论"
+      ]
+    },
+    {
+      "id": "ordinary_classroom",
+      "display_name": "普通教室",
+      "path": "res://assets/maps/indoor/普通教室.png",
+      "preview_scene": "res://scenes/maps/ordinary_classroom_preview.tscn",
+      "status": "saved_as_requested",
+      "size": [
+        1536,
+        1024
+      ],
+      "type": "ordinary_classroom_background",
+      "game_layout": {
+        "rows": 4,
+        "columns": 8,
+        "seats": 32,
+        "banks": 4,
+        "furniture": "rectangular_desks_and_backed_chairs"
+      },
+      "design_basis": "牙林课堂封面局部设施参考与普通教室陈设；完整布局为游戏化设计",
+      "source_url": "https://www.jianpian.cn/mpage/gab2r",
+      "documentation": "docs/普通教室素材说明.md",
+      "prompt": "docs/普通教室前后单开玻璃门提示词-v7.txt",
+      "limitations": [
+        "完整日常教室实景尚未核实",
+        "未连接主场景，未加入人物、碰撞或事件"
+      ],
+      "revision": 7,
+      "teaching_board": {
+        "style": "希沃黑白款（用户指定设计）",
+        "left": "black_chalkboard",
+        "center": "interactive_screen",
+        "right": "black_chalkboard",
+        "frame": "white_silver"
+      },
+      "room_fixtures": {
+        "radiators": "左侧窗户下三组白色暖气",
+        "front_wall": "黑板与讲台保持扩宽前的位置，原条状设备保持移除",
+        "lockers": "右墙前后门之间的银色学生储物柜",
+        "teaching_platform": "木讲台所在区域比课桌地面高一个台阶",
+        "entrance": "right_wall_front_and_rear",
+        "entrance_style": {
+          "door_count": 2,
+          "leaves_per_door": 1,
+          "frame": "brown_wood",
+          "glass": "large_upper_window",
+          "location": "right_wall_front_and_rear",
+          "style_reference": "res://assets/maps/indoor/十班.png"
+        },
+        "door_transom": {
+          "fixed": true,
+          "panes_per_door": 1,
+          "door_count": 2,
+          "width": "same_as_single_door",
+          "height": "low_horizontal"
+        }
+      },
+      "retained_versions": "latest_only",
+      "display_size": [
+        1536,
+        1024
+      ],
+      "render_scale": 1,
+      "prompt_sequence": [
+        "docs/普通教室前后单开玻璃门提示词-v7.txt"
+      ],
+      "user_confirmed_as_asset": true,
+      "layout_basis_revision": "pre_expansion_v3"
+    },
+    {
+      "id": "teachers_office_white_glass",
+      "display_name": "教师办公室-白桌玻璃版",
+      "path": "res://assets/maps/indoor/教师办公室-白桌玻璃版.png",
+      "preview_scene": "res://scenes/maps/teachers_office_white_preview.tscn",
+      "materials": {
+        "desks": "white",
+        "partitions": "transparent_glass"
+      },
+      "prompts": [
+        "docs/教师办公室转向与加大桌面提示词.txt",
+        "docs/教师办公室电脑相对朝向修正提示词.txt"
+      ],
+      "status": "saved_as_requested",
+      "size": [
+        1536,
+        1024
+      ],
+      "type": "teachers_office_background",
+      "layout": {
+        "desk_count": 16,
+        "chair_count": 16,
+        "face_to_face_pairs": 8,
+        "pair_rows": 2,
+        "pair_columns": 4,
+        "east_west_pairs": [
+          "northwest",
+          "southeast"
+        ],
+        "north_south_pairs": 6,
+        "circulation": "central_longitudinal_cross_and_perimeter_aisles_with_side_access_to_chairs"
+      },
+      "room_scale_reference": "res://assets/maps/indoor/普通教室.png",
+      "documentation": "docs/教师办公室素材说明.md",
+      "generation_method": "built_in_image_gen",
+      "limitations": [
+        "完整牙林办公室实景未核实，使用用户指定的游戏化布局",
+        "整体背景图，未配置碰撞和导航，未连接主场景"
+      ],
+      "user_confirmed_as_asset": true,
+      "asset_saved_date": "2026-10-03",
+      "room_scale_reference_size": [
+        1536,
+        1024
+      ],
+      "room_scale_reference_revision": 3
+    },
+    {
+      "id": "teachers_office_solid_wood",
+      "display_name": "教师办公室-实木版",
+      "path": "res://assets/maps/indoor/教师办公室-实木版.png",
+      "preview_scene": "res://scenes/maps/teachers_office_wood_preview.tscn",
+      "materials": {
+        "desks": "solid_wood",
+        "partitions": "opaque_solid_wood"
+      },
+      "prompts": [
+        "docs/教师办公室相对工位实木版提示词.txt"
+      ],
+      "status": "saved_as_requested",
+      "size": [
+        1536,
+        1024
+      ],
+      "type": "teachers_office_background",
+      "layout": {
+        "desk_count": 16,
+        "chair_count": 16,
+        "face_to_face_pairs": 8,
+        "pair_rows": 2,
+        "pair_columns": 4,
+        "east_west_pairs": [
+          "northwest",
+          "southeast"
+        ],
+        "north_south_pairs": 6,
+        "circulation": "central_longitudinal_cross_and_perimeter_aisles_with_side_access_to_chairs"
+      },
+      "room_scale_reference": "res://assets/maps/indoor/普通教室.png",
+      "documentation": "docs/教师办公室素材说明.md",
+      "generation_method": "built_in_image_gen",
+      "limitations": [
+        "完整牙林办公室实景未核实，使用用户指定的游戏化布局",
+        "整体背景图，未配置碰撞和导航，未连接主场景"
+      ],
+      "user_confirmed_as_asset": true,
+      "asset_saved_date": "2026-10-03",
+      "room_scale_reference_size": [
+        1536,
+        1024
+      ],
+      "room_scale_reference_revision": 3
+    },
+    {
+      "id": "campus_rectified_playable",
+      "path": "res://assets/maps/outdoor/campus_named_v2.png",
+      "numbered_reference": "res://assets/maps/outdoor/campus_numbered_reference.png",
+      "scene": "res://scenes/maps/campus/campus_demo.tscn",
+      "regions_data": "res://data/campus_regions.json",
+      "status": "saved_as_requested",
+      "size": [
+        1108,
+        1420
+      ],
+      "region_count": 30,
+      "building_and_annex_ids": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B10",
+        "B11",
+        "B12",
+        "B13",
+        "B14",
+        "B15",
+        "B16",
+        "B17"
+      ],
+      "documentation": "docs/校园地图编号与可游玩小场景.md",
+      "generation_method": "built_in_image_gen",
+      "constraints": [
+        "北侧两栋蓝顶楼",
+        "西侧主席台与两段看台",
+        "由北向南排球场、羽毛球场、篮球场",
+        "排除左下校外斜楼",
+        "完整围墙与B01背后较小北门",
+        "边缘楼栋与围墙留互通走道"
+      ],
+      "limitations": [
+        "当前实现为外景和庭院，尚未添加垂直换层及楼内房间",
+        "B16宿舍层数未提供；B09、B17使用标明暂定的制作设定",
+        "游戏化绘制，未作实测平面"
+      ],
+      "display_name": "当前校园外景（围墙版）",
+      "previous_revision": "res://assets/maps/outdoor/campus_rectified.png",
+      "numbered_reference_usage": "仅用于B/S等编号确认；游戏底图不含编号",
+      "data_version": 2,
+      "building_names_registered": true,
+      "court_layout": {
+        "B14": "两个完整篮球全场",
+        "S07": "四个竖向并排的完整篮球全场"
+      },
+      "special_architecture": {
+        "B03": "两层窗户，内部通高大空间",
+        "B08": "两层，小食堂二楼入口，外楼梯",
+        "B10": "两层窗户，内部通高大空间，二楼主入口",
+        "B11": "礼堂后门，与B10双向连接",
+        "B12": "五层含半地下一层，深色侧屋顶为四楼顶，中央橙屋顶为五楼顶，中央楼梯直达二楼"
+      },
+      "user_confirmed_as_asset": true,
+      "asset_saved_date": "2026-10-03",
+      "preview_copy": "D:\\Godot\\素材预览\\牙林一中\\校园外景-最新版正式素材.png",
+      "numbered_preview_copy": "D:\\Godot\\素材预览\\牙林一中\\校园外景-最新版编号与楼名.png",
+      "playable_state": "30 connected exterior regions; geometry and returns validated"
+    },
+    {
+      "id": "classroom_10",
+      "display_name": "十班",
+      "path": "res://assets/maps/indoor/十班.png",
+      "preview_scene": "res://scenes/maps/classroom_10_preview.tscn",
+      "status": "saved_as_requested",
+      "size": [
+        1596,
+        985
+      ],
+      "type": "classroom_10_background",
+      "game_layout": {
+        "rows": 4,
+        "columns": 8,
+        "seats": 32,
+        "banks": 4,
+        "furniture": "rectangular_desks_and_backed_chairs"
+      },
+      "design_basis": "牙林课堂封面局部设施参考与普通教室陈设；完整布局为游戏化设计",
+      "source_url": "https://www.jianpian.cn/mpage/gab2r",
+      "documentation": "docs/十班素材说明.md",
+      "prompt": "docs/普通教室门上横窗两分格提示词-v6.txt",
+      "limitations": [
+        "完整日常教室实景尚未核实",
+        "未连接主场景，未加入人物、碰撞或事件"
+      ],
+      "revision": 6,
+      "teaching_board": {
+        "style": "希沃黑白款（用户指定设计）",
+        "left": "black_chalkboard",
+        "center": "interactive_screen",
+        "right": "black_chalkboard",
+        "frame": "white_silver"
+      },
+      "room_fixtures": {
+        "radiators": "左侧窗户下三组白色暖气",
+        "front_wall": "入口移至黑板所在前墙的右端，旧条状设备保持移除",
+        "lockers": "最右侧窗户下的银色学生储物柜",
+        "teaching_platform": "木讲台所在区域比课桌地面高一个台阶",
+        "entrance": "front_wall_right_of_teaching_board",
+        "right_windows": "mirror_of_left_window_wall",
+        "entrance_style": {
+          "leaves": 2,
+          "frame": "brown_wood",
+          "glass": "large_upper_windows_on_both_leaves",
+          "location": "front_wall_right"
+        },
+        "door_transom": {
+          "fixed": true,
+          "panes": 2,
+          "split": "vertical_center",
+          "width": "same_as_double_door",
+          "height": "low_horizontal"
+        }
+      },
+      "retained_versions": "latest_only",
+      "display_size": [
+        1792,
+        1024
+      ],
+      "render_scale": 1.1228070175438596,
+      "expansion": {
+        "direction": "right",
+        "corridor_display_width": 256,
+        "original_display_size": [
+          1536,
+          1024
+        ],
+        "preserved_layout": "32套桌椅、黑板及讲台保留原区域排布",
+        "pixel_identical_to_previous": false
+      },
+      "prompt_sequence": [
+        "docs/普通教室门上固定横窗提示词-v6.txt",
+        "docs/普通教室门上横窗两分格提示词-v6.txt"
+      ],
+      "preview_texture_region": [
+        0,
+        0,
+        1596,
+        912
+      ],
+      "class_number": 10,
+      "user_confirmed_as_asset": true
+    },
+    {
+      "id": "corridor_ordinary_floor",
+      "display_name": "走廊-普通楼层",
+      "path": "res://assets/maps/indoor/corridor/走廊-底图.png",
+      "preview_scene": "res://scenes/maps/corridor_preview.tscn",
+      "size": [
+        1882,
+        836
+      ],
+      "type": "layered_corridor_background",
+      "revision": 12,
+      "prompt": "docs/走廊下行宽度校正提示词-v12.txt",
+      "user_reference": "docs/references/楼梯布局用户参考.jpg",
+      "stairs": "后退嵌入的折返梯井：中央宽梯上行，两侧下行入口加宽，每侧净宽约为中央一半",
+      "door_layer": "res://assets/maps/indoor/corridor/走廊-门图层.png",
+      "layer_nodes": [
+        "Background",
+        "DoorLayer",
+        "ObjectLayer",
+        "ForegroundLayer"
+      ],
+      "limitations": [
+        "已保存楼梯触发框、方向备注与到达落点；实际换层逻辑尚未绑定",
+        "尚未分配具体楼栋和楼层；其它墙面及门的碰撞需随落地补充"
+      ],
+      "rendered_preview": "docs/走廊组合预览.png",
+      "user_confirmed_as_asset": true,
+      "asset_saved_date": "2026-10-03",
+      "status": "saved_as_requested",
+      "documentation": "docs/走廊素材说明.md",
+      "generation_method": "built_in_image_gen",
+      "desired_width_ratio": [
+        2,
+        1,
+        1
+      ],
+      "width_ratio_precision": "visual_approximation",
+      "width_measurement": "clear_tread_width_at_same_entrance_plane_excluding_rails",
+      "stairwell_position": "backward_recessed_away_from_viewer",
+      "collision_documentation": "docs/走廊碰撞与传送备注.md",
+      "transition_status": "shapes_and_metadata_saved_runtime_unbound"
+    },
+    {
+      "id": "corridor_top_floor",
+      "display_name": "走廊-顶楼",
+      "path": "res://assets/maps/indoor/corridor/走廊-顶楼底图.png",
+      "preview_scene": "res://scenes/maps/corridor_top_floor_preview.tscn",
+      "size": [
+        1882,
+        836
+      ],
+      "type": "layered_corridor_background",
+      "revision": 6,
+      "prompt": "docs/走廊顶楼同步下行宽度提示词-v6.txt",
+      "derived_from": "res://assets/maps/indoor/corridor/走廊-底图.png",
+      "stairs": "中央护栏，左右紧邻的下行梯段；无继续上行梯段",
+      "door_layer": "res://assets/maps/indoor/corridor/走廊-门图层.png",
+      "limitations": [
+        "已保存楼梯触发框、方向备注与到达落点；实际换层逻辑尚未绑定",
+        "尚未分配具体楼栋和楼层；其它墙面及门的碰撞需随落地补充"
+      ],
+      "rendered_preview": "docs/走廊顶楼组合预览.png",
+      "user_confirmed_as_asset": true,
+      "asset_saved_date": "2026-10-03",
+      "status": "saved_as_requested",
+      "documentation": "docs/走廊素材说明.md",
+      "generation_method": "built_in_image_gen",
+      "desired_width_ratio": [
+        2,
+        1,
+        1
+      ],
+      "width_ratio_precision": "visual_approximation",
+      "width_measurement": "clear_tread_width_at_same_entrance_plane_excluding_rails",
+      "stairwell_position": "backward_recessed_away_from_viewer",
+      "collision_documentation": "docs/走廊碰撞与传送备注.md",
+      "transition_status": "shapes_and_metadata_saved_runtime_unbound"
+    },
+    {
+      "id": "corridor_door_layers",
+      "display_name": "走廊-门覆盖图层",
+      "path": "res://assets/maps/indoor/corridor/走廊-门图层.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "type": "corridor_door_overlay_atlas",
+      "revision": 1,
+      "prompt": "docs/走廊门图层生成提示词-v1.txt",
+      "transparent_background": true,
+      "layout": {
+        "single_door_region": [
+          120,
+          222,
+          268,
+          570
+        ],
+        "left_terminal_double_door_region": [
+          588,
+          198,
+          369,
+          620
+        ],
+        "right_terminal_double_door_region": [
+          1113,
+          198,
+          336,
+          632
+        ]
+      },
+      "usage": "门独立叠加、移动和替换，双开端门在走廊短端墙；未烘焙入底图",
+      "user_confirmed_as_asset": true,
+      "asset_saved_date": "2026-10-03",
+      "status": "saved_as_requested",
+      "documentation": "docs/走廊素材说明.md",
+      "generation_method": "built_in_image_gen"
+    }
+  ],
+  "ui": [
+    {
+      "id": "dialogue_box",
+      "display_name": "对话框",
+      "annotation": "对话框",
+      "path": "res://assets/ui/对话框.png",
+      "type": "rpg_dialogue_box",
+      "status": "saved_as_requested",
+      "size": [
+        2170,
+        725
+      ],
+      "description": "浅绿色 RPG 对话框，简洁的不对称蕨叶与种荚细线花纹，预留角色名牌、正文区和继续提示。",
+      "prompt": "docs/对话框生成提示词.txt",
+      "generation_method": "built_in_image_gen"
+    },
+    {
+      "id": "scene_ui",
+      "display_name": "场景UI",
+      "annotation": "场景UI",
+      "path": "res://assets/ui/场景UI.png",
+      "type": "rpg_scene_hud_design",
+      "status": "saved_design",
+      "size": [
+        1671,
+        941
+      ],
+      "revision": 3,
+      "description": "低调简约 UI，信息栏、摇杆及按钮提高实际透明度。左上信息栏紧贴屏幕上沿和左沿，四行文字和进度条对应红色血量、蓝色蓝量、黄色精力、绿色 SAN；保留日期时间、左下摇杆、右下 Y/X/B/A 按钮及四周黑白窄边框。",
+      "stat_colors": {
+        "HP": "red",
+        "MP": "blue",
+        "energy": "yellow",
+        "SAN": "green"
+      },
+      "sample_labels": [
+        "HP 86/100",
+        "MP 64/80",
+        "精力 72/100",
+        "SAN 90/100",
+        "第1天 08:30"
+      ],
+      "variants": {
+        "normal": "res://assets/ui/场景UI.png",
+        "special_status": "res://assets/ui/场景UI-特殊状态.png"
+      },
+      "special_status_rule": "常态隐藏；仅有特殊状态时显示灰色像素块底板，上接信息栏，左接屏幕左边框。特殊状态图用疲劳作为示例。",
+      "previous_revision": "res://assets/ui/场景UI-黑白灰-v2.png",
+      "previous_special_status": "res://assets/ui/场景UI-特殊状态-v2.png",
+      "prompt": "docs/场景UI生成提示词-v3.txt",
+      "generation_method": "built_in_image_gen",
+      "usage": "整体设计图，信息与按钮为静态图像，尚未绑定游戏状态或输入。"
+    },
+    {
+      "id": "character_menu_ui",
+      "display_name": "菜单UI",
+      "annotation": "半透明角色菜单",
+      "path": "res://assets/ui/菜单UI.png",
+      "type": "rpg_character_menu_design",
+      "status": "saved_design",
+      "size": [
+        1672,
+        941
+      ],
+      "description": "半透明灰黑简约菜单：左侧独立主角人像；右上红色血量、蓝色蓝量、黄色精力、绿色 SAN；右下状态、装备、物品、技能页签与共享内容区。",
+      "character_reference": "res://assets/characters/hero/zhao_mugei.png",
+      "style_reference": "res://assets/ui/场景UI.png",
+      "tabs": [
+        "状态",
+        "装备",
+        "物品",
+        "技能"
+      ],
+      "default_tab": "状态",
+      "interaction_design": "选择页签时仅显示对应内容，人像和上方信息固定显示。",
+      "documentation": "docs/菜单UI设计说明.md",
+      "prompt": "docs/菜单UI生成提示词.txt",
+      "generation_method": "built_in_image_gen",
+      "usage": "静态设计素材，页签切换规则已记录，尚未绑定 Godot 点击事件或动态数据。"
+    },
+    {
+      "id": "modular_ui_library",
+      "display_name": "独立UI组件库",
+      "annotation": "可缩放组合的UI素材",
+      "path": "res://data/ui_component_library.json",
+      "type": "reusable_godot_ui_component_library",
+      "status": "saved_and_verified",
+      "description": "29 个独立 Godot 组件，15 个半透明 SVG 底板及对应 PNG。四种属性条在 HUD 和菜单中复用；五个菜单页签包含设置，设置页提供保存、加载、退出和脱离卡死按钮。",
+      "vector_directory": "res://assets/ui/components/",
+      "component_directory": "res://scenes/ui/components/",
+      "option_directory": "res://scenes/ui/options/",
+      "preview_scene": "res://scenes/ui/modular_ui_preview.tscn",
+      "documentation": "docs/UI组件库使用说明.md",
+      "naming_documentation": "docs/UI素材命名与注释.md",
+      "annotation_status": "已补齐中文命名、场景编辑器说明、参数及信号注释，独立素材已归档",
+      "generation_method": "native_godot_components_and_svg",
+      "usage": "组件可独立调整尺寸、文字、数值及透明度。页签切换和按钮信号已实现，真实存档、读档、退出流程和安全位置复位由游戏接收信号后处理。"
+    },
+    {
+      "id": "game_title_cover",
+      "display_name": "游戏封面",
+      "annotation": "进入游戏时的封面设计",
+      "path": "res://assets/ui/covers/游戏封面.png",
+      "type": "game_title_cover",
+      "status": "saved_design",
+      "size": [
+        1672,
+        941
+      ],
+      "title": "赵慕gei的牙林冒险",
+      "side_text": "你gei不gei啊",
+      "description": "稍微模糊的校园背景；主角赵慕gei戴黑框眼镜、穿薄荷绿校服，仰躺大笑；上方标题，侧面文字。",
+      "character_reference": "res://assets/characters/hero/zhao_mugei.png",
+      "campus_reference": "res://assets/maps/outdoor/campus_rectified_walled.png",
+      "preview_scene": "res://scenes/ui/title_cover_preview.tscn",
+      "documentation": "docs/游戏封面素材说明.md",
+      "prompt": "docs/游戏封面生成提示词.txt",
+      "generation_method": "built_in_image_gen",
+      "usage": "封面图与独立预览场景；标题及侧面文字包含在 PNG 内，可用于后续启动页面。"
+    },
+    {
+      "id": "battle_ui_framework",
+      "display_name": "回合制战斗UI框架",
+      "annotation": "共用战场内主角斜后视角观察远处敌人；背景可切换，下部六类操作及独立空子菜单。",
+      "path": "res://data/battle_ui_library.json",
+      "type": "turn_based_battle_ui_framework",
+      "status": "saved_and_verified",
+      "framework_scene": "res://scenes/ui/battle/battle_interface.tscn",
+      "preview_scene": "res://scenes/ui/battle/battle_preview.tscn",
+      "documentation": "docs/回合制战斗UI框架说明.md",
+      "component_count": 18,
+      "category_count": 6,
+      "preset_commands": false,
+      "generation_method": "native_godot_components_with_generated_rear_portrait",
+      "hero_portrait": "res://assets/characters/hero/battle/zhao_mugei_rear_quarter.png",
+      "background_switchable": true,
+      "usage": "战场背景、人物层、按钮和子菜单独立保存并附命名注释。背景可在编辑器指定或运行时切换；后续通过数据配置或接口加入招式，由战斗系统处理规则。"
+    },
+    {
+      "id": "battle_actions_and_effects",
+      "display_name": "主角拳击闪避差分与战斗特效",
+      "annotation": "两张斜后视角透明差分和命中、闪避成功/失败、挂机对白四个独立动态特效。",
+      "path": "res://data/battle_action_library.json",
+      "type": "battle_pose_and_effect_library",
+      "status": "saved_and_verified",
+      "pose_count": 2,
+      "effect_count": 4,
+      "presenter_scene": "res://scenes/ui/battle/effects/action_presenter.tscn",
+      "preview_scene": "res://scenes/ui/battle/battle_actions_preview.tscn",
+      "documentation": "docs/战斗差分与特效素材说明.md",
+      "prompts": "docs/battle-ui/拳击与闪避差分生成提示词.txt",
+      "generation_method": "built_in_image_gen_for_poses_and_native_godot_for_effects",
+      "auto_battle_dialogue": "woc我忘吃饭了",
+      "usage": "姿势和特效可独立替换缩放，演出后自动恢复。挂机入口显示专属头顶对白；战斗规则和真实招式数据由后续系统提供。"
+    }
+  ],
+  "interiors": {
+    "status": "classrooms_offices_corridors_saved",
+    "included_assets": [
+      "res://assets/maps/indoor/classroom_v1.png",
+      "res://assets/maps/indoor/公开课教室.png",
+      "res://assets/maps/indoor/普通教室.png",
+      "res://assets/maps/indoor/教师办公室-白桌玻璃版.png",
+      "res://assets/maps/indoor/教师办公室-实木版.png",
+      "res://assets/maps/indoor/十班.png",
+      "res://assets/maps/indoor/corridor/走廊-底图.png",
+      "res://assets/maps/indoor/corridor/走廊-顶楼底图.png",
+      "res://assets/maps/indoor/corridor/走廊-门图层.png"
+    ],
+    "other_interiors_status": "awaiting_user_instruction"
+  },
+  "next_session": {
+    "status": "corridors_saved_transition_notes_ready",
+    "resume_record": "docs/继续制作记录.md",
+    "next_action": "走廊已确认保存；后续按用户指示分配楼栋楼层，并连接楼梯换层逻辑。碰撞及方向见 docs/走廊碰撞与传送备注.md；校园后续见 campus_playable.next_action"
+  },
+  "campus_playable": {
+    "scene": "res://scenes/main.tscn",
+    "record": "docs/校园地图编号与可游玩小场景.md",
+    "next_action": "楼名、层数、结构和完整篮球场数量已登记；后续可据用途细化楼内房间与垂直换层",
+    "validated": true,
+    "user_confirmed_as_asset": true
+  },
+  "retained_design_history": [
+    {
+      "path": "res://assets/ui/场景UI-浅绿色-v1.png",
+      "status": "superseded_retained_as_history",
+      "current": "res://assets/ui/场景UI.png"
+    },
+    {
+      "path": "res://assets/ui/场景UI-黑白灰-v2.png",
+      "status": "superseded_retained_as_history",
+      "current": "res://assets/ui/场景UI.png"
+    },
+    {
+      "path": "res://assets/ui/场景UI-特殊状态-v2.png",
+      "status": "superseded_retained_as_history",
+      "current": "res://assets/ui/场景UI-特殊状态.png"
+    }
+  ],
+  "asset_audit": {
+    "date": "2026-10-03",
+    "catalog": "docs/素材总览与核查.md",
+    "snapshot": "docs/保存核对.json",
+    "engine_result": "res://docs/素材资源检查.json",
+    "script": "res://scripts/tools/audit_saved_assets.gd",
+    "png_count": 54,
+    "svg_count": 15,
+    "scene_count": 76,
+    "passed": true
+  },
+  "character_sprite_library": {
+    "path": "res://data/character_sprite_library.json",
+    "characters": 20,
+    "frames": 80,
+    "frame_size": [
+      128,
+      128
+    ],
+    "foot_anchor": [
+      64,
+      120
+    ],
+    "passed": true,
+    "verification": "docs/角色四向运行时验收.json",
+    "documentation": "docs/角色四向素材使用说明.md",
+    "preview_scene": "res://scenes/characters/character_library_preview.tscn"
+  }
+}

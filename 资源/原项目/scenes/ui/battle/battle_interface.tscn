@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle/battle_interface.gd" id="1"]
+
+[node name="UITurnBasedBattle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+editor_description = "回合制战斗界面：共用战场，近景主角斜后视角观察远处敌方，背景可切换，下部六类操作及空子菜单。"
+metadata/asset_name = "回合制战斗界面"
+script = ExtResource("1")

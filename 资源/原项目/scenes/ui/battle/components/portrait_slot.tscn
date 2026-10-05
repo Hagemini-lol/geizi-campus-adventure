@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle/battle_portrait_slot.gd" id="1"]
+
+[node name="UIBattlePortraitSlot" type="PanelContainer"]
+editor_description = "战斗立绘槽：独立显示双方名称与可替换立绘；敌方未指定时显示占位。"
+metadata/asset_name = "战斗立绘槽"
+script = ExtResource("1")

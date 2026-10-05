@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/status_notice.gd" id="1"]
+
+[node name="UISpecialStatusNotice" type="PanelContainer"]
+editor_description = "仅有特殊状态时显示；空状态列表自动隐藏，底板使用灰色像素块。"
+metadata/asset_name = "特殊状态像素提示框"
+metadata/asset_category = "信息与面板"
+metadata/asset_usage = "仅有特殊状态时显示；空状态列表自动隐藏，底板使用灰色像素块。"
+script = ExtResource("1")

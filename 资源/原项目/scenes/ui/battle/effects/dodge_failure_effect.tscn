@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle/battle_effect.gd" id="1"]
+
+[node name="UIBattleEffectDodgeFailure" type="Control"]
+offset_right = 240.0
+offset_bottom = 200.0
+mouse_filter = 2
+editor_description = "闪避失败特效：独立可缩放像素组件，只负责视觉演出。"
+metadata/asset_name = "闪避失败特效"
+script = ExtResource("1")
+effect_kind = "dodge_failure"
+duration = 0.65

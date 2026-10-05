@@ -1,0 +1,148 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/characters/runtime/yang_zi/四向.png" id="1_bnhkd"]
+[ext_resource type="Texture2D" path="res://assets/characters/runtime/yang_zi/行走.png" id="2_st2l0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyvnd"]
+atlas = ExtResource("1_bnhkd")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juwce"]
+atlas = ExtResource("1_bnhkd")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb75u"]
+atlas = ExtResource("1_bnhkd")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgim1"]
+atlas = ExtResource("1_bnhkd")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8cjx"]
+atlas = ExtResource("2_st2l0")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0m1t"]
+atlas = ExtResource("2_st2l0")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8fvf"]
+atlas = ExtResource("2_st2l0")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_443yu"]
+atlas = ExtResource("2_st2l0")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc5qb"]
+atlas = ExtResource("2_st2l0")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ov63"]
+atlas = ExtResource("2_st2l0")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73h85"]
+atlas = ExtResource("2_st2l0")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2hkm"]
+atlas = ExtResource("2_st2l0")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[resource]
+resource_name = "阳子 · 四向行走 · 两张迈步差分"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyvnd")
+}],
+"loop": 0,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juwce")
+}],
+"loop": 0,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb75u")
+}],
+"loop": 0,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgim1")
+}],
+"loop": 0,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8cjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0m1t")
+}],
+"loop": 1,
+"name": &"walk_back",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8fvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_443yu")
+}],
+"loop": 1,
+"name": &"walk_front",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc5qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ov63")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73h85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2hkm")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 4.0
+}]
+metadata/character_name = "阳子"
+metadata/annotation = "班级跑步担当，风趣大方的点子王。没有法术背景，凭聪明发现学校异变，在事件中发现法术秘密，与gei子一起向费眼学习法术。"
+metadata/walk_cycle = "A→B；每向2张新增动作"
+metadata/foot_anchor = Vector2i(64, 120)

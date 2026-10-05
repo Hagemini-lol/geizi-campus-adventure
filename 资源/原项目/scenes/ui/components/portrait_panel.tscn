@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/portrait_panel.gd" id="1"]
+
+[node name="UICharacterPortrait" type="PanelContainer"]
+editor_description = "独立显示角色人像；可替换 portrait 贴图，示例使用现有主角正面。"
+metadata/asset_name = "角色人像面板"
+metadata/asset_category = "信息与面板"
+metadata/asset_usage = "独立显示角色人像；可替换 portrait 贴图，示例使用现有主角正面。"
+script = ExtResource("1")

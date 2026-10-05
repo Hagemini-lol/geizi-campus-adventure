@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/content_page.gd" id="1"]
+
+[node name="UIEquipmentPage" type="VBoxContainer"]
+editor_description = "“装备”页签对应的独立内容面板；仅在此页被选中时显示。"
+metadata/asset_name = "装备内容页"
+metadata/asset_category = "菜单内容页"
+metadata/asset_usage = "“装备”页签对应的独立内容面板；仅在此页被选中时显示。"
+script = ExtResource("1")
+page_title = "装备"
+empty_text = "暂无装备"

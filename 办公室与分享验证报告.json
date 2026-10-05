@@ -1,0 +1,14 @@
+{
+	"all_runtime_asset_reads_inside_package": true,
+	"checks": 5163,
+	"failures": [],
+	"game_root": "D:/Godot/校园分享验证 临时/校园自由漫游",
+	"office_count": 34,
+	"original_ui_asset_reads": 36,
+	"portable": true,
+	"staff_counts": {
+		"english_teacher": 26,
+		"homeroom_teacher": 26,
+		"wen_cong": 26
+	}
+}

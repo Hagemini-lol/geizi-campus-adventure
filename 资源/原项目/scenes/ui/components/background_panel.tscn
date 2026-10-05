@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/background_panel.gd" id="1"]
+
+[node name="UITranslucentPanel" type="PanelContainer"]
+editor_description = "独立半透明面板；可调整 background_opacity 和 content_padding。"
+metadata/asset_name = "通用半透明底板"
+metadata/asset_category = "信息与面板"
+metadata/asset_usage = "独立半透明面板；可调整 background_opacity 和 content_padding。"
+script = ExtResource("1")

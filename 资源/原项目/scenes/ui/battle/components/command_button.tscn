@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/option_button.gd" id="1"]
+
+[node name="UIBattleCommandButton" type="Button"]
+editor_description = "战斗条目按钮模板：只提供可复用外观，未定义任何具体招式。"
+metadata/asset_name = "战斗条目按钮模板"
+script = ExtResource("1")
+option_text = ""
+option_id = &"command"
+font_size = 16

@@ -1,0 +1,125 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "distance_pixels": 0.0,
+      "id": "B01",
+      "passed": true,
+      "transitions": 6
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B02",
+      "passed": true,
+      "transitions": 7
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B03",
+      "passed": true,
+      "transitions": 8
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B04",
+      "passed": true,
+      "transitions": 7
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B05",
+      "passed": true,
+      "transitions": 5
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B06",
+      "passed": true,
+      "transitions": 6
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "S01",
+      "passed": true,
+      "transitions": 4
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "S05",
+      "passed": true,
+      "transitions": 4
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "G01",
+      "passed": true,
+      "transitions": 4
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "S06",
+      "passed": true,
+      "transitions": 5
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B07",
+      "passed": true,
+      "transitions": 6
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B09",
+      "passed": true,
+      "transitions": 5
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "S07",
+      "passed": true,
+      "transitions": 4
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B08",
+      "passed": true,
+      "transitions": 6
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B10",
+      "passed": true,
+      "transitions": 3
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B16",
+      "passed": true,
+      "transitions": 2
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B12",
+      "passed": true,
+      "transitions": 6
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B13",
+      "passed": true,
+      "transitions": 4
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "B15",
+      "passed": true,
+      "transitions": 1
+    },
+    {
+      "distance_pixels": 0.0,
+      "id": "N02",
+      "passed": true,
+      "transitions": 0
+    }
+  ]
+}

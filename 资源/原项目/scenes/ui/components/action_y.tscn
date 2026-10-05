@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/option_button.gd" id="1"]
+
+[node name="UIActionYButton" type="Button"]
+editor_description = "独立圆形 Y 按钮；HUD 向外发送 action_requested(“y”)。"
+metadata/asset_name = "Y操作按钮"
+metadata/asset_category = "输入与边框"
+metadata/asset_usage = "独立圆形 Y 按钮；HUD 向外发送 action_requested(“y”)。"
+script = ExtResource("1")
+option_text = "Y"
+option_id = &"y"
+round_button = true
+font_size = 20

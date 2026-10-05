@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[node name="UIDateTimeLabel" type="Label"]
+editor_description = "独立日期时间文字；信息栏可通过 set_date 更新。"
+metadata/asset_name = "游戏日期时间文字"
+metadata/asset_category = "信息与面板"
+metadata/asset_usage = "独立日期时间文字；信息栏可通过 set_date 更新。"
+text = "第1天 08:30"
+mouse_filter = 2

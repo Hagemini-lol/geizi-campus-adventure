@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="48" viewBox="0 0 160 48">
+<title>选项按钮选中底板</title>
+<desc>选中时使用较亮灰底及白色细下划线；用于页签选中反馈。</desc>
+
+
+
+<rect x=".5" y=".5" width="159" height="47" fill="#859099" fill-opacity=".25" stroke="#ebf0f2" stroke-opacity=".9"/><path d="M1 46H159" stroke="#eee" stroke-opacity=".9"/></svg>

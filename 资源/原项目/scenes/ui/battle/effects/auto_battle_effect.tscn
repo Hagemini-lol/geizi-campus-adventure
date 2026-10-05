@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle/battle_effect.gd" id="1"]
+
+[node name="UIBattleEffectAutoBattle" type="Control"]
+offset_right = 240.0
+offset_bottom = 64.0
+mouse_filter = 2
+editor_description = "挂机专属对白特效：独立可缩放像素组件，只负责视觉演出。"
+metadata/asset_name = "挂机专属对白特效"
+script = ExtResource("1")
+effect_kind = "auto_battle"
+duration = 2.8

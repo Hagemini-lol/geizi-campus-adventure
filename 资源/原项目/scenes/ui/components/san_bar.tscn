@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/stat_bar.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/components/bars/san_fill.svg" id="2"]
+
+[node name="UISanityBar" type="HBoxContainer"]
+editor_description = "绿色 SAN 文字、数值与进度条；表示角色 SAN 值。"
+metadata/asset_name = "SAN值条"
+metadata/asset_category = "属性条"
+metadata/asset_usage = "绿色 SAN 文字、数值与进度条；表示角色 SAN 值。"
+script = ExtResource("1")
+stat_name = "SAN"
+value = 90.0
+maximum = 100.0
+tint = Color(0.47058823529411764, 0.7411764705882353, 0.5098039215686274, 0.95)
+fill_texture = ExtResource("2")

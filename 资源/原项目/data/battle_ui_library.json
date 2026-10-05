@@ -1,0 +1,172 @@
+{
+  "version": 2,
+  "name": "回合制战斗UI框架",
+  "annotation": "共用战场斜后视角、背景可切换，具备独立空子菜单的战斗界面素材",
+  "preview_scene": "res://scenes/ui/battle/battle_preview.tscn",
+  "framework_scene": "res://scenes/ui/battle/battle_interface.tscn",
+  "style_reference": "res://scripts/ui/ui_style.gd",
+  "action_library": "res://data/battle_action_library.json",
+  "battle_stage": {
+    "scene": "res://scenes/ui/battle/components/battle_stage.tscn",
+    "camera_composition": "主角左侧近景斜后视角，观察右前方远处敌人",
+    "background_default": null,
+    "background_setter": "set_battle_background(Texture2D); null 恢复中性占位地面",
+    "actor_composition_setter": "stage.set_composition(near_foot, far_foot, near_height, far_height)",
+    "hero_portrait": "res://assets/characters/hero/battle/zhao_mugei_rear_quarter.png",
+    "hero_generation_method": "built_in_image_gen",
+    "hero_prompt": "docs/battle-ui/主角斜后立绘生成提示词.txt"
+  },
+  "categories": [
+    {
+      "id": "attack",
+      "label": "攻击",
+      "button_scene": "res://scenes/ui/battle/options/attack_button.tscn",
+      "submenu_scene": "res://scenes/ui/battle/submenus/attack_submenu.tscn",
+      "commands": []
+    },
+    {
+      "id": "magic",
+      "label": "魔法",
+      "button_scene": "res://scenes/ui/battle/options/magic_button.tscn",
+      "submenu_scene": "res://scenes/ui/battle/submenus/magic_submenu.tscn",
+      "commands": []
+    },
+    {
+      "id": "dodge",
+      "label": "闪避",
+      "button_scene": "res://scenes/ui/battle/options/dodge_button.tscn",
+      "submenu_scene": "res://scenes/ui/battle/submenus/dodge_submenu.tscn",
+      "commands": []
+    },
+    {
+      "id": "items",
+      "label": "道具",
+      "button_scene": "res://scenes/ui/battle/options/items_button.tscn",
+      "submenu_scene": "res://scenes/ui/battle/submenus/items_submenu.tscn",
+      "commands": []
+    },
+    {
+      "id": "surrender",
+      "label": "投降",
+      "button_scene": "res://scenes/ui/battle/options/surrender_button.tscn",
+      "submenu_scene": "res://scenes/ui/battle/submenus/surrender_submenu.tscn",
+      "commands": []
+    },
+    {
+      "id": "auto_battle",
+      "label": "挂机",
+      "button_scene": "res://scenes/ui/battle/options/auto_battle_button.tscn",
+      "submenu_scene": "res://scenes/ui/battle/submenus/auto_battle_submenu.tscn",
+      "commands": []
+    }
+  ],
+  "components": [
+    {
+      "id": "battle_stage",
+      "name": "可切换背景战场",
+      "scene": "res://scenes/ui/battle/components/battle_stage.tscn"
+    },
+    {
+      "id": "battle_combatant_sprite",
+      "name": "战斗人物层",
+      "scene": "res://scenes/ui/battle/components/combatant_sprite.tscn"
+    },
+    {
+      "id": "battle_interface",
+      "name": "回合制战斗界面",
+      "scene": "res://scenes/ui/battle/battle_interface.tscn"
+    },
+    {
+      "id": "battle_portrait_slot",
+      "name": "战斗立绘槽",
+      "scene": "res://scenes/ui/battle/components/portrait_slot.tscn"
+    },
+    {
+      "id": "battle_submenu",
+      "name": "通用战斗子菜单",
+      "scene": "res://scenes/ui/battle/components/submenu.tscn"
+    },
+    {
+      "id": "battle_command_button",
+      "name": "战斗条目按钮模板",
+      "scene": "res://scenes/ui/battle/components/command_button.tscn"
+    },
+    {
+      "id": "battle_attack_button",
+      "name": "战斗攻击按钮",
+      "scene": "res://scenes/ui/battle/options/attack_button.tscn"
+    },
+    {
+      "id": "battle_attack_submenu",
+      "name": "战斗攻击子菜单",
+      "scene": "res://scenes/ui/battle/submenus/attack_submenu.tscn"
+    },
+    {
+      "id": "battle_magic_button",
+      "name": "战斗魔法按钮",
+      "scene": "res://scenes/ui/battle/options/magic_button.tscn"
+    },
+    {
+      "id": "battle_magic_submenu",
+      "name": "战斗魔法子菜单",
+      "scene": "res://scenes/ui/battle/submenus/magic_submenu.tscn"
+    },
+    {
+      "id": "battle_dodge_button",
+      "name": "战斗闪避按钮",
+      "scene": "res://scenes/ui/battle/options/dodge_button.tscn"
+    },
+    {
+      "id": "battle_dodge_submenu",
+      "name": "战斗闪避子菜单",
+      "scene": "res://scenes/ui/battle/submenus/dodge_submenu.tscn"
+    },
+    {
+      "id": "battle_items_button",
+      "name": "战斗道具按钮",
+      "scene": "res://scenes/ui/battle/options/items_button.tscn"
+    },
+    {
+      "id": "battle_items_submenu",
+      "name": "战斗道具子菜单",
+      "scene": "res://scenes/ui/battle/submenus/items_submenu.tscn"
+    },
+    {
+      "id": "battle_surrender_button",
+      "name": "战斗投降按钮",
+      "scene": "res://scenes/ui/battle/options/surrender_button.tscn"
+    },
+    {
+      "id": "battle_surrender_submenu",
+      "name": "战斗投降子菜单",
+      "scene": "res://scenes/ui/battle/submenus/surrender_submenu.tscn"
+    },
+    {
+      "id": "battle_auto_battle_button",
+      "name": "战斗挂机按钮",
+      "scene": "res://scenes/ui/battle/options/auto_battle_button.tscn"
+    },
+    {
+      "id": "battle_auto_battle_submenu",
+      "name": "战斗挂机子菜单",
+      "scene": "res://scenes/ui/battle/submenus/auto_battle_submenu.tscn"
+    }
+  ],
+  "command_schema": {
+    "required": {
+      "id": "稳定的字符串标识",
+      "label": "显示名称"
+    },
+    "optional": {
+      "enabled": "bool，默认 true",
+      "description": "按钮提示文字",
+      "payload": "传给战斗系统的 Dictionary"
+    }
+  },
+  "signals": {
+    "category_opened": "category_id: StringName",
+    "action_selected": "category_id: StringName, command_id: StringName, payload: Dictionary"
+  },
+  "documentation": "docs/回合制战斗UI框架说明.md",
+  "scope": "仅制作框架。没有预置具体招式，没有伤害、魔法消耗、闪避结算、道具执行、投降或挂机战斗逻辑。"
+}

@@ -1,0 +1,1776 @@
+{
+  "version": 2,
+  "source_image": "res://assets/maps/outdoor/campus_named_v2.png",
+  "image_size": [
+    1108,
+    1420
+  ],
+  "world_scale": 4,
+  "player_radius": 3,
+  "hub_spawn": [
+    527,
+    1310
+  ],
+  "campus_bounds": [
+    35,
+    25,
+    1032,
+    1376
+  ],
+  "zones": [
+    {
+      "id": "B01",
+      "kind": "building",
+      "title": "B01 · 秋实楼",
+      "description": "西北蓝顶楼",
+      "name": "秋实楼",
+      "purpose": "教学楼",
+      "name_confirmed": true,
+      "footprint": [
+        61,
+        83,
+        298,
+        88
+      ],
+      "spawn": [
+        197,
+        179
+      ],
+      "bounds": [
+        47,
+        61,
+        332,
+        166
+      ],
+      "label": [
+        210,
+        127
+      ],
+      "scene": "res://scenes/maps/campus/b01.tscn",
+      "storeys": 4,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "levels": [
+        {
+          "level": 1,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 2,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 3,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 4,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        }
+      ]
+    },
+    {
+      "id": "B02",
+      "kind": "building",
+      "title": "B02 · 实验楼",
+      "description": "北侧中部蓝顶楼",
+      "name": "实验楼",
+      "purpose": "实验教学",
+      "name_confirmed": true,
+      "footprint": [
+        379,
+        83,
+        293,
+        88
+      ],
+      "spawn": [
+        525,
+        181
+      ],
+      "bounds": [
+        360,
+        61,
+        345,
+        166
+      ],
+      "label": [
+        525.5,
+        127
+      ],
+      "scene": "res://scenes/maps/campus/b02.tscn",
+      "storeys": 4,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "levels": [
+        {
+          "level": 1,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 2,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 3,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 4,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        }
+      ]
+    },
+    {
+      "id": "B03",
+      "kind": "building",
+      "title": "B03 · 体育馆",
+      "description": "东北灰顶楼（含相连西侧附楼）",
+      "name": "体育馆",
+      "purpose": "室内体育活动",
+      "name_confirmed": true,
+      "footprint": [
+        778,
+        76,
+        250,
+        103
+      ],
+      "spawn": [
+        890,
+        185
+      ],
+      "bounds": [
+        735,
+        61,
+        312,
+        209
+      ],
+      "label": [
+        903,
+        127.5
+      ],
+      "scene": "res://scenes/maps/campus/b03.tscn",
+      "storeys": null,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "window_rows": 2,
+      "interior_layout": "single_tall_hall",
+      "interior_note": "两层窗户，内部为一个通高大空间；不按两层普通楼板分隔。",
+      "levels": [],
+      "floor_count_confirmed": false
+    },
+    {
+      "id": "B04",
+      "kind": "building",
+      "title": "B04 · 小仓库",
+      "description": "东北小灰顶楼",
+      "name": "小仓库",
+      "purpose": "仓储",
+      "name_confirmed": true,
+      "footprint": [
+        950,
+        173,
+        78,
+        61
+      ],
+      "spawn": [
+        934,
+        205
+      ],
+      "bounds": [
+        888,
+        158,
+        160,
+        107
+      ],
+      "label": [
+        989,
+        203.5
+      ],
+      "scene": "res://scenes/maps/campus/b04.tscn",
+      "storeys": 2,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "levels": [
+        {
+          "level": 1,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 2,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        }
+      ]
+    },
+    {
+      "id": "B05",
+      "kind": "building",
+      "title": "B05 · 夏耘楼",
+      "description": "北中部橙顶长楼",
+      "name": "夏耘楼",
+      "purpose": "教学楼",
+      "name_confirmed": true,
+      "footprint": [
+        540,
+        199,
+        351,
+        96
+      ],
+      "spawn": [
+        716,
+        306
+      ],
+      "bounds": [
+        494,
+        179,
+        433,
+        154
+      ],
+      "label": [
+        715.5,
+        247
+      ],
+      "scene": "res://scenes/maps/campus/b05.tscn",
+      "storeys": 4,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "levels": [
+        {
+          "level": 1,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 2,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 3,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 4,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        }
+      ]
+    },
+    {
+      "id": "B06",
+      "kind": "building",
+      "title": "B06 · 科技中心",
+      "description": "东侧北段橙顶长楼",
+      "name": "科技中心",
+      "purpose": "科技活动与教学",
+      "name_confirmed": true,
+      "footprint": [
+        950,
+        271,
+        96,
+        304
+      ],
+      "spawn": [
+        929,
+        402
+      ],
+      "bounds": [
+        865,
+        245,
+        187,
+        345
+      ],
+      "label": [
+        998,
+        423
+      ],
+      "scene": "res://scenes/maps/campus/b06.tscn",
+      "storeys": 4,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "levels": [
+        {
+          "level": 1,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 2,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 3,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 4,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        }
+      ]
+    },
+    {
+      "id": "B07",
+      "kind": "building",
+      "title": "B07 · 食堂",
+      "description": "东侧中段灰顶长楼",
+      "name": "食堂",
+      "purpose": "餐饮",
+      "name_confirmed": true,
+      "footprint": [
+        953,
+        590,
+        91,
+        209
+      ],
+      "spawn": [
+        937,
+        682
+      ],
+      "bounds": [
+        867,
+        575,
+        185,
+        250
+      ],
+      "label": [
+        998.5,
+        694.5
+      ],
+      "scene": "res://scenes/maps/campus/b07.tscn",
+      "storeys": 2,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "levels": [
+        {
+          "level": 1,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 2,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        }
+      ]
+    },
+    {
+      "id": "B08",
+      "kind": "building",
+      "title": "B08 · 小食堂",
+      "description": "东侧南段灰顶楼",
+      "name": "小食堂",
+      "purpose": "餐饮",
+      "name_confirmed": true,
+      "footprint": [
+        956,
+        800,
+        88,
+        117
+      ],
+      "spawn": [
+        940,
+        881
+      ],
+      "bounds": [
+        861,
+        777,
+        191,
+        156
+      ],
+      "label": [
+        1000,
+        858.5
+      ],
+      "scene": "res://scenes/maps/campus/b08.tscn",
+      "storeys": 2,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "levels": [
+        {
+          "level": 1,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 2,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        }
+      ],
+      "entrance": {
+        "level": 2,
+        "type": "external_stairs",
+        "approach": [
+          940,
+          881
+        ],
+        "landing": [
+          944,
+          824
+        ],
+        "note": "入口位于二楼，通过西侧外楼梯上楼。"
+      }
+    },
+    {
+      "id": "B09",
+      "kind": "building",
+      "title": "B09 · 设备辅助用房（暂定）",
+      "description": "东中部小灰顶楼",
+      "name": "设备辅助用房（暂定）",
+      "purpose": "场地设备与维护辅助",
+      "name_confirmed": false,
+      "footprint": [
+        778,
+        736,
+        62,
+        78
+      ],
+      "spawn": [
+        854,
+        770
+      ],
+      "bounds": [
+        741,
+        710,
+        181,
+        128
+      ],
+      "label": [
+        809,
+        775
+      ],
+      "scene": "res://scenes/maps/campus/b09.tscn",
+      "storeys": 1,
+      "design_assumption": true,
+      "assumption_note": "用户授权其余区域按理解处理，暂按小型设备辅助用房；层数为制作假定。"
+    },
+    {
+      "id": "B10",
+      "kind": "building",
+      "title": "B10 · 礼堂",
+      "description": "东南大红顶楼",
+      "name": "礼堂",
+      "purpose": "礼堂活动",
+      "name_confirmed": true,
+      "footprint": [
+        787,
+        918,
+        257,
+        149
+      ],
+      "spawn": [
+        909,
+        1108
+      ],
+      "bounds": [
+        745,
+        876,
+        307,
+        246
+      ],
+      "label": [
+        915.5,
+        992.5
+      ],
+      "scene": "res://scenes/maps/campus/b10.tscn",
+      "storeys": null,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "window_rows": 2,
+      "interior_layout": "single_tall_hall",
+      "interior_note": "两层窗户，内部为一个通高大空间；不按两层普通楼板分隔。",
+      "levels": [],
+      "floor_count_confirmed": false,
+      "entrance": {
+        "level": 2,
+        "type": "external_stairs",
+        "approach": [
+          909,
+          1108
+        ],
+        "landing": [
+          909,
+          1069
+        ],
+        "note": "主入口位于二楼，经南侧外楼梯到达，内部通高大空间。"
+      },
+      "connections": [
+        {
+          "target": "B11",
+          "position": [
+            885,
+            907
+          ],
+          "arrival": [
+            885,
+            907
+          ],
+          "label": "礼堂后门"
+        }
+      ]
+    },
+    {
+      "id": "B11",
+      "kind": "entrance",
+      "title": "B11 · 礼堂后门",
+      "description": "B10北侧狭长红顶附属建筑",
+      "name": "礼堂后门",
+      "purpose": "礼堂后侧出入口",
+      "name_confirmed": true,
+      "footprint": [
+        830,
+        895,
+        112,
+        22
+      ],
+      "spawn": [
+        814,
+        904
+      ],
+      "bounds": [
+        757,
+        862,
+        193,
+        64
+      ],
+      "label": [
+        886,
+        906
+      ],
+      "scene": "res://scenes/maps/campus/b11.tscn",
+      "storeys": null,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "parent_building": "B10",
+      "architecture_note": "礼堂后门与雨棚，不独立计算为一栋楼。",
+      "connections": [
+        {
+          "target": "B10",
+          "position": [
+            885,
+            907
+          ],
+          "arrival": [
+            885,
+            907
+          ],
+          "label": "礼堂后侧外景"
+        }
+      ]
+    },
+    {
+      "id": "B12",
+      "kind": "building",
+      "title": "B12 · 春华楼",
+      "description": "南中部橙顶长楼（两端附翼）",
+      "name": "春华楼",
+      "purpose": "教学楼",
+      "name_confirmed": true,
+      "footprint": [
+        365,
+        1003,
+        313,
+        83
+      ],
+      "spawn": [
+        527,
+        1122
+      ],
+      "bounds": [
+        305,
+        979,
+        440,
+        203
+      ],
+      "label": [
+        521.5,
+        1044.5
+      ],
+      "scene": "res://scenes/maps/campus/b12.tscn",
+      "storeys": 5,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "levels": [
+        {
+          "level": 1,
+          "type": "semi_basement",
+          "plan_status": "楼层已确认，房间未分配"
+        },
+        {
+          "level": 2,
+          "type": "above_ground",
+          "plan_status": "楼层已确认，房间未分配"
+        },
+        {
+          "level": 3,
+          "type": "above_ground",
+          "plan_status": "楼层已确认，房间未分配"
+        },
+        {
+          "level": 4,
+          "type": "above_ground",
+          "plan_status": "楼层已确认，房间未分配"
+        },
+        {
+          "level": 5,
+          "type": "above_ground",
+          "plan_status": "楼层已确认，房间未分配"
+        }
+      ],
+      "roof_levels": {
+        "left_dark": 4,
+        "right_dark": 4,
+        "central_orange": 5
+      },
+      "entrance": {
+        "level": 2,
+        "type": "external_stairs",
+        "approach": [
+          527,
+          1122
+        ],
+        "landing": [
+          527,
+          1084
+        ],
+        "note": "中央深色区域为外楼梯，直通二楼；一楼为半地下。"
+      },
+      "architecture_note": "总共五层含半地下一层；两侧深色为四楼楼顶，中间橙色为五楼楼顶。"
+    },
+    {
+      "id": "B13",
+      "kind": "building",
+      "title": "B13 · 新教学楼",
+      "description": "体育场南侧浅顶楼",
+      "name": "新教学楼",
+      "purpose": "教学楼",
+      "name_confirmed": true,
+      "footprint": [
+        66,
+        958,
+        238,
+        83
+      ],
+      "spawn": [
+        314,
+        996
+      ],
+      "bounds": [
+        50,
+        928,
+        294,
+        148
+      ],
+      "label": [
+        185,
+        999.5
+      ],
+      "scene": "res://scenes/maps/campus/b13.tscn",
+      "storeys": 4,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "levels": [
+        {
+          "level": 1,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 2,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 3,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 4,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        }
+      ]
+    },
+    {
+      "id": "B14",
+      "kind": "sports",
+      "title": "B14 · 小篮球场",
+      "description": "西南小橙顶楼",
+      "name": "小篮球场",
+      "purpose": "两块完整篮球场",
+      "name_confirmed": true,
+      "footprint": [
+        112,
+        1039,
+        106,
+        74
+      ],
+      "spawn": [
+        237,
+        1092
+      ],
+      "bounds": [
+        61,
+        1025,
+        207,
+        107
+      ],
+      "label": [
+        162,
+        1078
+      ],
+      "scene": "res://scenes/maps/campus/b14.tscn",
+      "storeys": null,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "court_count": 2,
+      "court_type": "basketball_full",
+      "court_orientation": "north_south",
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    {
+      "id": "B15",
+      "kind": "building",
+      "title": "B15 · 办公楼",
+      "description": "西南灰顶组合楼",
+      "name": "办公楼",
+      "purpose": "办公",
+      "name_confirmed": true,
+      "footprint": [
+        61,
+        1110,
+        259,
+        84
+      ],
+      "spawn": [
+        330,
+        1161
+      ],
+      "bounds": [
+        47,
+        1092,
+        309,
+        160
+      ],
+      "label": [
+        190.5,
+        1152
+      ],
+      "scene": "res://scenes/maps/campus/b15.tscn",
+      "storeys": 4,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "levels": [
+        {
+          "level": 1,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 2,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 3,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        },
+        {
+          "level": 4,
+          "plan_status": "楼层信息已确认；具体房间未分配"
+        }
+      ]
+    },
+    {
+      "id": "B16",
+      "kind": "building",
+      "title": "B16 · 宿舍",
+      "description": "东南U形楼（庭院连通）",
+      "name": "宿舍",
+      "purpose": "住宿",
+      "name_confirmed": true,
+      "footprint": [
+        778,
+        1092,
+        264,
+        237
+      ],
+      "spawn": [
+        915,
+        1220
+      ],
+      "bounds": [
+        750,
+        1078,
+        302,
+        278
+      ],
+      "label": [
+        910,
+        1210.5
+      ],
+      "scene": "res://scenes/maps/campus/b16.tscn",
+      "storeys": null,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "architecture_note": "宿舍用途已确认，层数未提供，不据窗户数擅自确定。"
+    },
+    {
+      "id": "B17",
+      "kind": "passage",
+      "title": "B17 · 有顶连廊（暂定）",
+      "description": "北中部狭长有顶附属结构",
+      "name": "有顶连廊（暂定）",
+      "purpose": "带顶棚通行连廊",
+      "name_confirmed": false,
+      "footprint": [
+        489,
+        325,
+        139,
+        22
+      ],
+      "spawn": [
+        644,
+        330
+      ],
+      "bounds": [
+        476,
+        299,
+        194,
+        67
+      ],
+      "label": [
+        558.5,
+        336
+      ],
+      "scene": "res://scenes/maps/campus/b17.tscn",
+      "storeys": null,
+      "design_assumption": true
+    },
+    {
+      "id": "S01",
+      "kind": "sports",
+      "title": "S01 · 体育场：足球场与跑道",
+      "description": "体育场：足球场与跑道",
+      "name": "体育场：足球场与跑道",
+      "purpose": "体育场：足球场与跑道",
+      "name_confirmed": true,
+      "footprint": [
+        93,
+        215,
+        353,
+        741
+      ],
+      "spawn": [
+        437,
+        586
+      ],
+      "bounds": [
+        86,
+        188,
+        394,
+        780
+      ],
+      "label": [
+        275,
+        580
+      ],
+      "scene": "res://scenes/maps/campus/s01.tscn"
+    },
+    {
+      "id": "S02",
+      "kind": "sports",
+      "title": "S02 · 带顶棚的主席台",
+      "description": "主席台",
+      "name": "带顶棚的主席台",
+      "purpose": "主席台",
+      "name_confirmed": true,
+      "footprint": [
+        52,
+        537,
+        36,
+        84
+      ],
+      "spawn": [
+        98,
+        577
+      ],
+      "bounds": [
+        42,
+        516,
+        106,
+        130
+      ],
+      "label": [
+        65,
+        578
+      ],
+      "scene": "res://scenes/maps/campus/s02.tscn",
+      "storeys": null,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "covered": true
+    },
+    {
+      "id": "S03",
+      "kind": "sports",
+      "title": "S03 · 北段看台",
+      "description": "北段看台",
+      "name": "北段看台",
+      "purpose": "北段看台",
+      "name_confirmed": true,
+      "footprint": [
+        51,
+        374,
+        36,
+        153
+      ],
+      "spawn": [
+        97,
+        447
+      ],
+      "bounds": [
+        44,
+        345,
+        110,
+        190
+      ],
+      "label": [
+        69,
+        444
+      ],
+      "scene": "res://scenes/maps/campus/s03.tscn"
+    },
+    {
+      "id": "S04",
+      "kind": "sports",
+      "title": "S04 · 南段看台",
+      "description": "南段看台",
+      "name": "南段看台",
+      "purpose": "南段看台",
+      "name_confirmed": true,
+      "footprint": [
+        50,
+        626,
+        40,
+        169
+      ],
+      "spawn": [
+        98,
+        710
+      ],
+      "bounds": [
+        44,
+        619,
+        111,
+        190
+      ],
+      "label": [
+        69,
+        708
+      ],
+      "scene": "res://scenes/maps/campus/s04.tscn"
+    },
+    {
+      "id": "S05",
+      "kind": "sports",
+      "title": "S05 · 排球场",
+      "description": "排球场",
+      "name": "排球场",
+      "purpose": "排球场",
+      "name_confirmed": true,
+      "footprint": [
+        475,
+        391,
+        210,
+        91
+      ],
+      "spawn": [
+        639,
+        498
+      ],
+      "bounds": [
+        447,
+        367,
+        283,
+        154
+      ],
+      "label": [
+        575,
+        437
+      ],
+      "scene": "res://scenes/maps/campus/s05.tscn"
+    },
+    {
+      "id": "S06",
+      "kind": "sports",
+      "title": "S06 · 羽毛球场",
+      "description": "羽毛球场",
+      "name": "羽毛球场",
+      "purpose": "羽毛球场",
+      "name_confirmed": true,
+      "footprint": [
+        474,
+        524,
+        143,
+        264
+      ],
+      "spawn": [
+        636,
+        653
+      ],
+      "bounds": [
+        442,
+        503,
+        288,
+        325
+      ],
+      "label": [
+        545,
+        653
+      ],
+      "scene": "res://scenes/maps/campus/s06.tscn"
+    },
+    {
+      "id": "S07",
+      "kind": "sports",
+      "title": "S07 · 篮球场（4个竖向全场）",
+      "description": "篮球场",
+      "name": "篮球场（4个竖向全场）",
+      "purpose": "四块完整篮球场",
+      "name_confirmed": true,
+      "footprint": [
+        475,
+        848,
+        236,
+        132
+      ],
+      "spawn": [
+        721,
+        904
+      ],
+      "bounds": [
+        449,
+        827,
+        297,
+        166
+      ],
+      "label": [
+        591,
+        905
+      ],
+      "scene": "res://scenes/maps/campus/s07.tscn",
+      "court_count": 4,
+      "court_type": "basketball_full",
+      "court_orientation": "north_south",
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    {
+      "id": "G01",
+      "kind": "public",
+      "title": "G01 · 花坛喷泉",
+      "description": "东侧花园",
+      "name": "花坛喷泉",
+      "purpose": "花坛与喷泉景观",
+      "name_confirmed": true,
+      "footprint": [
+        746,
+        416,
+        190,
+        165
+      ],
+      "spawn": [
+        845,
+        589
+      ],
+      "bounds": [
+        728,
+        393,
+        220,
+        207
+      ],
+      "label": [
+        842,
+        505
+      ],
+      "scene": "res://scenes/maps/campus/g01.tscn",
+      "storeys": null,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "feature_type": "flowerbed_fountain"
+    },
+    {
+      "id": "G02",
+      "kind": "public",
+      "title": "G02 · 中央林荫步道",
+      "description": "中央林荫步道",
+      "name": "中央林荫步道",
+      "purpose": "中央林荫步道",
+      "name_confirmed": true,
+      "footprint": [
+        653,
+        518,
+        33,
+        266
+      ],
+      "spawn": [
+        670,
+        813
+      ],
+      "bounds": [
+        618,
+        501,
+        108,
+        330
+      ],
+      "label": [
+        669,
+        720
+      ],
+      "scene": "res://scenes/maps/campus/g02.tscn"
+    },
+    {
+      "id": "G03",
+      "kind": "public",
+      "title": "G03 · 户外大屏幕",
+      "description": "南门广场",
+      "name": "户外大屏幕",
+      "purpose": "户外显示屏及观看广场",
+      "name_confirmed": true,
+      "footprint": [
+        365,
+        1237,
+        62,
+        42
+      ],
+      "spawn": [
+        399,
+        1290
+      ],
+      "bounds": [
+        330,
+        1098,
+        438,
+        260
+      ],
+      "label": [
+        395,
+        1256
+      ],
+      "scene": "res://scenes/maps/campus/g03.tscn",
+      "storeys": null,
+      "confirmation_source": "用户2026-10-03明确说明",
+      "design_assumption": false,
+      "feature_type": "outdoor_led_screen"
+    },
+    {
+      "id": "N01",
+      "kind": "gate",
+      "title": "N01 · 北门（小门）",
+      "description": "北门（小门）",
+      "name": "北门（小门）",
+      "purpose": "北门（小门）",
+      "name_confirmed": true,
+      "footprint": [
+        221,
+        41,
+        49,
+        41
+      ],
+      "spawn": [
+        245,
+        68
+      ],
+      "bounds": [
+        163,
+        25,
+        212,
+        66
+      ],
+      "label": [
+        245,
+        43
+      ],
+      "scene": "res://scenes/maps/campus/n01.tscn"
+    },
+    {
+      "id": "N02",
+      "kind": "gate",
+      "title": "N02 · 南门（主门）",
+      "description": "南门（主门）",
+      "name": "南门（主门）",
+      "purpose": "南门（主门）",
+      "name_confirmed": true,
+      "footprint": [
+        474,
+        1314,
+        112,
+        82
+      ],
+      "spawn": [
+        527,
+        1343
+      ],
+      "bounds": [
+        433,
+        1296,
+        196,
+        105
+      ],
+      "label": [
+        526,
+        1350
+      ],
+      "scene": "res://scenes/maps/campus/n02.tscn"
+    },
+    {
+      "id": "P01",
+      "kind": "public",
+      "title": "P01 · 围墙内环校走道",
+      "description": "围墙内环校走道",
+      "name": "围墙内环校走道",
+      "purpose": "围墙内环校走道",
+      "name_confirmed": true,
+      "footprint": [
+        42,
+        57,
+        1011,
+        1303
+      ],
+      "spawn": [
+        368,
+        71
+      ],
+      "bounds": [
+        35,
+        25,
+        1032,
+        1376
+      ],
+      "label": [
+        1038,
+        236
+      ],
+      "scene": "res://scenes/maps/campus/p01.tscn"
+    }
+  ],
+  "blockers": [
+    {
+      "owner": "B01",
+      "rect": [
+        61,
+        83,
+        298,
+        88
+      ]
+    },
+    {
+      "owner": "B02",
+      "rect": [
+        379,
+        83,
+        293,
+        88
+      ]
+    },
+    {
+      "owner": "B03",
+      "rect": [
+        778,
+        76,
+        250,
+        103
+      ]
+    },
+    {
+      "owner": "B04",
+      "rect": [
+        950,
+        173,
+        78,
+        61
+      ]
+    },
+    {
+      "owner": "B05",
+      "rect": [
+        540,
+        199,
+        351,
+        96
+      ]
+    },
+    {
+      "owner": "B06",
+      "rect": [
+        950,
+        271,
+        96,
+        304
+      ]
+    },
+    {
+      "owner": "B07",
+      "rect": [
+        953,
+        590,
+        91,
+        209
+      ]
+    },
+    {
+      "owner": "B08",
+      "rect": [
+        956,
+        800,
+        88,
+        117
+      ]
+    },
+    {
+      "owner": "B09",
+      "rect": [
+        778,
+        736,
+        62,
+        78
+      ]
+    },
+    {
+      "owner": "B10",
+      "rect": [
+        787,
+        918,
+        257,
+        149
+      ]
+    },
+    {
+      "owner": "B12",
+      "rect": [
+        365,
+        1003,
+        313,
+        83
+      ]
+    },
+    {
+      "owner": "B12",
+      "rect": [
+        319,
+        1044,
+        82,
+        55
+      ]
+    },
+    {
+      "owner": "B12",
+      "rect": [
+        643,
+        1043,
+        80,
+        57
+      ]
+    },
+    {
+      "owner": "B13",
+      "rect": [
+        66,
+        958,
+        238,
+        83
+      ]
+    },
+    {
+      "owner": "B15",
+      "rect": [
+        61,
+        1132,
+        109,
+        55
+      ]
+    },
+    {
+      "owner": "B15",
+      "rect": [
+        170,
+        1110,
+        55,
+        83
+      ]
+    },
+    {
+      "owner": "B15",
+      "rect": [
+        225,
+        1129,
+        95,
+        58
+      ]
+    },
+    {
+      "owner": "B16",
+      "rect": [
+        778,
+        1092,
+        110,
+        229
+      ]
+    },
+    {
+      "owner": "B16",
+      "rect": [
+        934,
+        1092,
+        108,
+        229
+      ]
+    },
+    {
+      "owner": "B16",
+      "rect": [
+        778,
+        1260,
+        264,
+        69
+      ]
+    },
+    {
+      "owner": "S02",
+      "rect": [
+        52,
+        537,
+        36,
+        84
+      ]
+    },
+    {
+      "owner": "wall",
+      "rect": [
+        34,
+        49,
+        8,
+        1321
+      ]
+    },
+    {
+      "owner": "wall",
+      "rect": [
+        1058,
+        49,
+        8,
+        1321
+      ]
+    },
+    {
+      "owner": "wall",
+      "rect": [
+        34,
+        48,
+        187,
+        8
+      ]
+    },
+    {
+      "owner": "wall",
+      "rect": [
+        270,
+        48,
+        796,
+        8
+      ]
+    },
+    {
+      "owner": "wall",
+      "rect": [
+        220,
+        40,
+        13,
+        25
+      ]
+    },
+    {
+      "owner": "wall",
+      "rect": [
+        258,
+        40,
+        13,
+        25
+      ]
+    },
+    {
+      "owner": "wall",
+      "rect": [
+        34,
+        1363,
+        444,
+        8
+      ]
+    },
+    {
+      "owner": "wall",
+      "rect": [
+        584,
+        1363,
+        482,
+        8
+      ]
+    },
+    {
+      "owner": "wall",
+      "rect": [
+        477,
+        1332,
+        23,
+        41
+      ]
+    },
+    {
+      "owner": "wall",
+      "rect": [
+        558,
+        1332,
+        25,
+        41
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        61,
+        190,
+        370,
+        35
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        446,
+        218,
+        39,
+        77
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        493,
+        345,
+        210,
+        35
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        450,
+        390,
+        24,
+        99
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        485,
+        487,
+        138,
+        31
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        650,
+        489,
+        63,
+        30
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        445,
+        533,
+        28,
+        106
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        451,
+        664,
+        22,
+        123
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        479,
+        793,
+        158,
+        26
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        686,
+        523,
+        35,
+        260
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        751,
+        346,
+        186,
+        47
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        754,
+        1170,
+        21,
+        172
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        553,
+        1180,
+        191,
+        153
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        80,
+        1220,
+        258,
+        118
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        433,
+        1170,
+        60,
+        105
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        100,
+        1327,
+        369,
+        23
+      ]
+    },
+    {
+      "owner": "trees",
+      "rect": [
+        590,
+        1335,
+        403,
+        17
+      ]
+    },
+    {
+      "owner": "B11_canopy_post",
+      "rect": [
+        830,
+        895,
+        4,
+        22
+      ]
+    },
+    {
+      "owner": "B11_canopy_post",
+      "rect": [
+        938,
+        895,
+        4,
+        22
+      ]
+    },
+    {
+      "owner": "B17_canopy_post",
+      "rect": [
+        489,
+        325,
+        4,
+        22
+      ]
+    },
+    {
+      "owner": "B17_canopy_post",
+      "rect": [
+        624,
+        325,
+        4,
+        22
+      ]
+    },
+    {
+      "owner": "fountain_basin",
+      "rect": [
+        818,
+        481,
+        47,
+        47
+      ]
+    },
+    {
+      "owner": "outdoor_screen",
+      "rect": [
+        365,
+        1239,
+        61,
+        22
+      ]
+    }
+  ],
+  "bridges": [
+    [
+      620,
+      478,
+      32,
+      54
+    ],
+    [
+      611,
+      642,
+      52,
+      23
+    ],
+    [
+      694,
+      891,
+      46,
+      25
+    ],
+    [
+      655,
+      782,
+      28,
+      48
+    ],
+    [
+      835,
+      556,
+      23,
+      40
+    ],
+    [
+      438,
+      570,
+      39,
+      32
+    ]
+  ],
+  "note": "已按用户确认写入楼名、层数、通高大空间、半地下及二楼楼梯入口。编号保持稳定：B14是两块小篮球全场，B11为礼堂后门，B17暂按有顶连廊，B09暂按设备辅助用房；B16宿舍层数未提供。室内具体房间仍未分配。"
+}

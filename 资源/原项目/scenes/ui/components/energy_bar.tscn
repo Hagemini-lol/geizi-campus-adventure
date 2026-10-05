@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/stat_bar.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/components/bars/energy_fill.svg" id="2"]
+
+[node name="UIEnergyBar" type="HBoxContainer"]
+editor_description = "黄色精力文字、数值与进度条；独立调整当前值、上限和尺寸。"
+metadata/asset_name = "精力条"
+metadata/asset_category = "属性条"
+metadata/asset_usage = "黄色精力文字、数值与进度条；独立调整当前值、上限和尺寸。"
+script = ExtResource("1")
+stat_name = "精力"
+value = 72.0
+maximum = 100.0
+tint = Color(0.8784313725490196, 0.7725490196078432, 0.39215686274509803, 0.95)
+fill_texture = ExtResource("2")

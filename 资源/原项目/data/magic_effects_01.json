@@ -1,0 +1,699 @@
+{
+  "date": "2026-10-05",
+  "annotation": "战斗魔法四系三级12种，以及大世界简单魔法4种；每种三帧",
+  "battle_count": 12,
+  "overworld_count": 4,
+  "frame_count": 48,
+  "entries": [
+    {
+      "id": "fire_low",
+      "group": "battle",
+      "name": "烈焰弹",
+      "annotation": "低级·烈焰弹",
+      "loop": false,
+      "fps": 10,
+      "preview_width": 82,
+      "element": "fire",
+      "element_name": "火焰",
+      "tier": "low",
+      "tier_name": "低级",
+      "texture": "res://assets/effects/magic/battle/fire/低级-烈焰弹.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/fire/低级-烈焰弹.tres",
+      "scene": "res://scenes/effects/magic/battle/低级-烈焰弹.tscn",
+      "prompt": "docs/魔法特效01/提示词/低级-烈焰弹.txt",
+      "sha256": "6b6df8b311801b61794a9db76dcc88d3d5ab668c08c6d256b712fb181716a111",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "fire_medium",
+      "group": "battle",
+      "name": "灼燃爆裂",
+      "annotation": "中级·灼燃爆裂",
+      "loop": false,
+      "fps": 8,
+      "preview_width": 124,
+      "element": "fire",
+      "element_name": "火焰",
+      "tier": "medium",
+      "tier_name": "中级",
+      "texture": "res://assets/effects/magic/battle/fire/中级-灼燃爆裂-v2.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/fire/中级-灼燃爆裂-v2.tres",
+      "scene": "res://scenes/effects/magic/battle/中级-灼燃爆裂-v2.tscn",
+      "prompt": "docs/魔法特效01/提示词/中级-灼燃爆裂-v2.txt",
+      "sha256": "4197c561057dd41760fbf4a86a10c2f683212dbca635d7e171be7ff22a66ee9d",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "fire_high",
+      "group": "battle",
+      "name": "烈火燎原",
+      "annotation": "高级·烈火燎原",
+      "loop": false,
+      "fps": 6,
+      "preview_width": 166,
+      "element": "fire",
+      "element_name": "火焰",
+      "tier": "high",
+      "tier_name": "高级",
+      "texture": "res://assets/effects/magic/battle/fire/高级-烈火燎原.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/fire/高级-烈火燎原.tres",
+      "scene": "res://scenes/effects/magic/battle/高级-烈火燎原.tscn",
+      "prompt": "docs/魔法特效01/提示词/高级-烈火燎原.txt",
+      "sha256": "b056f28b5ef58c7811b0276e06d466663077fcadf3c9f06cea86b3f69ff11466",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "lightning_low",
+      "group": "battle",
+      "name": "闪电链",
+      "annotation": "低级·闪电链",
+      "loop": false,
+      "fps": 10,
+      "preview_width": 82,
+      "element": "lightning",
+      "element_name": "闪电",
+      "tier": "low",
+      "tier_name": "低级",
+      "texture": "res://assets/effects/magic/battle/lightning/低级-闪电链.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/lightning/低级-闪电链.tres",
+      "scene": "res://scenes/effects/magic/battle/低级-闪电链.tscn",
+      "prompt": "docs/魔法特效01/提示词/低级-闪电链.txt",
+      "sha256": "33f058047bf85f1d2c112960545667cad0db4ff553fa218a73030b5c0ff04856",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "lightning_medium",
+      "group": "battle",
+      "name": "电广束",
+      "annotation": "中级·电广束",
+      "loop": false,
+      "fps": 8,
+      "preview_width": 124,
+      "element": "lightning",
+      "element_name": "闪电",
+      "tier": "medium",
+      "tier_name": "中级",
+      "texture": "res://assets/effects/magic/battle/lightning/中级-电广束-v2.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/lightning/中级-电广束-v2.tres",
+      "scene": "res://scenes/effects/magic/battle/中级-电广束-v2.tscn",
+      "prompt": "docs/魔法特效01/提示词/中级-电广束-v2.txt",
+      "sha256": "baf78b0587950689b926374f9c4f1df93cf846c1e25dbda9fc7fa5558977b107",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "lightning_high",
+      "group": "battle",
+      "name": "雷霆万钧",
+      "annotation": "高级·雷霆万钧",
+      "loop": false,
+      "fps": 6,
+      "preview_width": 166,
+      "element": "lightning",
+      "element_name": "闪电",
+      "tier": "high",
+      "tier_name": "高级",
+      "texture": "res://assets/effects/magic/battle/lightning/高级-雷霆万钧-v2.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/lightning/高级-雷霆万钧-v2.tres",
+      "scene": "res://scenes/effects/magic/battle/高级-雷霆万钧-v2.tscn",
+      "prompt": "docs/魔法特效01/提示词/高级-雷霆万钧-v2.txt",
+      "sha256": "80330ff0ed0cf8e5d60755ac4883508eedd4158638b43b95f9689b4aa83d7f8a",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "frost_low",
+      "group": "battle",
+      "name": "冻结术",
+      "annotation": "低级·冻结术",
+      "loop": false,
+      "fps": 10,
+      "preview_width": 82,
+      "element": "frost",
+      "element_name": "冰霜",
+      "tier": "low",
+      "tier_name": "低级",
+      "texture": "res://assets/effects/magic/battle/frost/低级-冻结术.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/frost/低级-冻结术.tres",
+      "scene": "res://scenes/effects/magic/battle/低级-冻结术.tscn",
+      "prompt": "docs/魔法特效01/提示词/低级-冻结术.txt",
+      "sha256": "0b59a6118e43fe465fc19d23cd6a4df1c2dbb8dccdd03c091f7d6cbb50c0c4a3",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "frost_medium",
+      "group": "battle",
+      "name": "寒气流",
+      "annotation": "中级·寒气流",
+      "loop": false,
+      "fps": 8,
+      "preview_width": 124,
+      "element": "frost",
+      "element_name": "冰霜",
+      "tier": "medium",
+      "tier_name": "中级",
+      "texture": "res://assets/effects/magic/battle/frost/中级-寒气流-v2.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/frost/中级-寒气流-v2.tres",
+      "scene": "res://scenes/effects/magic/battle/中级-寒气流-v2.tscn",
+      "prompt": "docs/魔法特效01/提示词/中级-寒气流-v2.txt",
+      "sha256": "582d99d6a3fd5613f8aa97b513ce3f8bc9ab89128ced07cc3acfdf49ebc6a201",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "frost_high",
+      "group": "battle",
+      "name": "冷冰封",
+      "annotation": "高级·冷冰封",
+      "loop": false,
+      "fps": 6,
+      "preview_width": 166,
+      "element": "frost",
+      "element_name": "冰霜",
+      "tier": "high",
+      "tier_name": "高级",
+      "texture": "res://assets/effects/magic/battle/frost/高级-冷冰封.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/frost/高级-冷冰封.tres",
+      "scene": "res://scenes/effects/magic/battle/高级-冷冰封.tscn",
+      "prompt": "docs/魔法特效01/提示词/高级-冷冰封.txt",
+      "sha256": "70a1669acaa5572c35958ae167aab7637ade82daad42f4bda31284b9730efc7c",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "light_low",
+      "group": "battle",
+      "name": "光弹",
+      "annotation": "低级·光弹",
+      "loop": false,
+      "fps": 10,
+      "preview_width": 82,
+      "element": "light",
+      "element_name": "光",
+      "tier": "low",
+      "tier_name": "低级",
+      "texture": "res://assets/effects/magic/battle/light/低级-光弹.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/light/低级-光弹.tres",
+      "scene": "res://scenes/effects/magic/battle/低级-光弹.tscn",
+      "prompt": "docs/魔法特效01/提示词/低级-光弹.txt",
+      "sha256": "616352e610aa3761f28ce8a9b730d4ba871b722536163755f07cdd8920d4f3ce",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "light_medium",
+      "group": "battle",
+      "name": "聚焦打击",
+      "annotation": "中级·聚焦打击",
+      "loop": false,
+      "fps": 8,
+      "preview_width": 124,
+      "element": "light",
+      "element_name": "光",
+      "tier": "medium",
+      "tier_name": "中级",
+      "texture": "res://assets/effects/magic/battle/light/中级-聚焦打击.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/light/中级-聚焦打击.tres",
+      "scene": "res://scenes/effects/magic/battle/中级-聚焦打击.tscn",
+      "prompt": "docs/魔法特效01/提示词/中级-聚焦打击.txt",
+      "sha256": "e7fd91d3977ea8c893853f2798a373609c1e91fc3d4c2920e7bba5f12d576787",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "light_high",
+      "group": "battle",
+      "name": "光爆十字",
+      "annotation": "高级·光爆十字",
+      "loop": false,
+      "fps": 6,
+      "preview_width": 166,
+      "element": "light",
+      "element_name": "光",
+      "tier": "high",
+      "tier_name": "高级",
+      "texture": "res://assets/effects/magic/battle/light/高级-光爆十字.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/battle/light/高级-光爆十字.tres",
+      "scene": "res://scenes/effects/magic/battle/高级-光爆十字.tscn",
+      "prompt": "docs/魔法特效01/提示词/高级-光爆十字.txt",
+      "sha256": "751bd751a74ca4ecc34d35454f83b99c91f70263faf8c706e5c29b7d399efd85",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "world_explosion",
+      "group": "overworld",
+      "name": "爆炸",
+      "annotation": "大世界·爆炸",
+      "loop": false,
+      "fps": 10,
+      "preview_width": 88,
+      "texture": "res://assets/effects/magic/overworld/爆炸.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/overworld/爆炸.tres",
+      "scene": "res://scenes/effects/magic/overworld/爆炸.tscn",
+      "prompt": "docs/魔法特效01/提示词/爆炸.txt",
+      "sha256": "15d712ee5c4dc5028cc4a6d4e8e28ba9d40f2a3a14a72a4be6442dcc0d7ceb9e",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "world_magic_circle",
+      "group": "overworld",
+      "name": "魔法阵",
+      "annotation": "大世界·魔法阵",
+      "loop": true,
+      "fps": 5,
+      "preview_width": 90,
+      "texture": "res://assets/effects/magic/overworld/魔法阵.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/overworld/魔法阵.tres",
+      "scene": "res://scenes/effects/magic/overworld/魔法阵.tscn",
+      "prompt": "docs/魔法特效01/提示词/魔法阵.txt",
+      "sha256": "76e3f774e525b8558875c7b2da88e783139e490a61d789cf48efbd0b479d6139",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "world_portal",
+      "group": "overworld",
+      "name": "传送门",
+      "annotation": "大世界·传送门",
+      "loop": true,
+      "fps": 5,
+      "preview_width": 100,
+      "texture": "res://assets/effects/magic/overworld/传送门-v2.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/overworld/传送门-v2.tres",
+      "scene": "res://scenes/effects/magic/overworld/传送门-v2.tscn",
+      "prompt": "docs/魔法特效01/提示词/传送门-v2.txt",
+      "sha256": "8ce33857804a84a1e31740f6ec616608c5be3621482b55225a232642f08ec17a",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    },
+    {
+      "id": "world_barrier",
+      "group": "overworld",
+      "name": "防御屏障",
+      "annotation": "大世界·防御屏障",
+      "loop": true,
+      "fps": 5,
+      "preview_width": 100,
+      "texture": "res://assets/effects/magic/overworld/防御屏障.png",
+      "size": [
+        2172,
+        724
+      ],
+      "frame_regions": [
+        [
+          0,
+          0,
+          724,
+          724
+        ],
+        [
+          724,
+          0,
+          724,
+          724
+        ],
+        [
+          1448,
+          0,
+          724,
+          724
+        ]
+      ],
+      "resource": "res://assets/effects/magic/overworld/防御屏障.tres",
+      "scene": "res://scenes/effects/magic/overworld/防御屏障.tscn",
+      "prompt": "docs/魔法特效01/提示词/防御屏障.txt",
+      "sha256": "f3ef2bd06bde179a94d3dc34870964babe393968afda04a32810337d7641e560",
+      "generation_method": "built_in_image_gen",
+      "status": "saved_ready_for_reuse"
+    }
+  ],
+  "preview_scene": "res://scenes/effects/magic/magic_library_preview.tscn",
+  "documentation": "docs/魔法特效素材说明01.md"
+}

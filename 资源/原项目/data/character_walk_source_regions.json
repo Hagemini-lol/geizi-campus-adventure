@@ -1,0 +1,1063 @@
+{
+  "version": 1,
+  "date": "2026-10-04",
+  "generation_method": "built_in_image_gen",
+  "frame_size": [
+    128,
+    128
+  ],
+  "foot_anchor": [
+    64,
+    120
+  ],
+  "directions": [
+    "front",
+    "back",
+    "left",
+    "right"
+  ],
+  "new_poses_per_direction": 2,
+  "cycle": [
+    "a",
+    "b"
+  ],
+  "animation_fps": 4,
+  "characters": [
+    {
+      "id": "zhao_mugei",
+      "display_name": "赵慕gei",
+      "annotation": "略胖、黑框眼镜、锅盖头、肤色略深，薄荷绿校服",
+      "appearance": "略胖、黑框眼镜、锅盖头、肤色略深，薄荷绿校服",
+      "source": "res://assets/characters/walk_sources/zhao_mugei-walk.png",
+      "source_sha256": "2df2fd802cb7eda7fb373b1d845ce5aa81db005ff407668226b5855f6ca8bfc7",
+      "source_size": [
+        1288,
+        1280
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            63,
+            24,
+            196,
+            359
+          ],
+          "b": [
+            24,
+            664,
+            274,
+            592
+          ]
+        },
+        "back": {
+          "a": [
+            383,
+            24,
+            199,
+            351
+          ],
+          "b": [
+            346,
+            664,
+            274,
+            592
+          ]
+        },
+        "left": {
+          "a": [
+            705,
+            24,
+            200,
+            331
+          ],
+          "b": [
+            683,
+            664,
+            243,
+            571
+          ]
+        },
+        "right": {
+          "a": [
+            1022,
+            24,
+            209,
+            339
+          ],
+          "b": [
+            1006,
+            664,
+            241,
+            571
+          ]
+        }
+      },
+      "height_px": 104,
+      "idle_sprite_frames": "res://assets/characters/runtime/zhao_mugei/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/zhao_mugei-最终提示词.txt"
+    },
+    {
+      "id": "lao_li",
+      "display_name": "牢李",
+      "annotation": "班级技术担当，动手能力强，受老师器重，总能搞到神奇道具。",
+      "appearance": "微胖，腰腹圆润但比参考主角赵慕gei略瘦，身高中等，肤色略深为自然浅棕色；黑色短而平整的侧分发，露出大部分额头，别用主角的锅盖头；黑色长方形眼镜，略宽圆脸，小而专注的眼睛，温和克制微笑，低调内敛的技术担当。",
+      "source": "res://assets/characters/walk_sources/lao_li-walk.png",
+      "source_sha256": "5d6605453921edf835e2ce74c0fb65e9e2dedd97703c3dc142ff2345ac4c6837",
+      "source_size": [
+        1248,
+        1288
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            64,
+            24,
+            184,
+            370
+          ],
+          "b": [
+            25,
+            668,
+            261,
+            596
+          ]
+        },
+        "back": {
+          "a": [
+            374,
+            24,
+            188,
+            362
+          ],
+          "b": [
+            336,
+            668,
+            264,
+            596
+          ]
+        },
+        "left": {
+          "a": [
+            677,
+            24,
+            205,
+            367
+          ],
+          "b": [
+            666,
+            668,
+            228,
+            572
+          ]
+        },
+        "right": {
+          "a": [
+            980,
+            24,
+            224,
+            366
+          ],
+          "b": [
+            979,
+            668,
+            225,
+            574
+          ]
+        }
+      },
+      "height_px": 103,
+      "idle_sprite_frames": "res://assets/characters/runtime/lao_li/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/lao_li-最终提示词.txt"
+    },
+    {
+      "id": "lao_chou",
+      "display_name": "牢抽",
+      "annotation": "班级学霸，外表像小头爸爸，推理和数学能力优秀，总能靠智商解决问题。",
+      "appearance": "明显瘦高，肩窄腰细腿长，头部相对更小，让轮廓呈小头瘦高的学生形象；黑色整齐短发，上部轻微侧梳，薄刘海，瘦长脸、长鼻梁、小眼睛，戴窄长方形细框眼镜，聪明沉静的表情，额头稍宽但不秃顶，仍是青少年而非父亲年龄。",
+      "source": "res://assets/characters/walk_sources/lao_chou-walk.png",
+      "source_sha256": "dcaf19e5e3637edbcc8e830644ad6ba2dae44e2b71334fbe9894513c6fc3d519",
+      "source_size": [
+        1000,
+        1272
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            69,
+            24,
+            111,
+            362
+          ],
+          "b": [
+            42,
+            660,
+            165,
+            588
+          ]
+        },
+        "back": {
+          "a": [
+            312,
+            24,
+            126,
+            367
+          ],
+          "b": [
+            287,
+            660,
+            176,
+            587
+          ]
+        },
+        "left": {
+          "a": [
+            525,
+            24,
+            200,
+            355
+          ],
+          "b": [
+            544,
+            660,
+            162,
+            566
+          ]
+        },
+        "right": {
+          "a": [
+            774,
+            24,
+            202,
+            363
+          ],
+          "b": [
+            794,
+            660,
+            161,
+            560
+          ]
+        }
+      },
+      "height_px": 114,
+      "idle_sprite_frames": "res://assets/characters/runtime/lao_chou/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/lao_chou-最终提示词.txt"
+    },
+    {
+      "id": "fei_yan",
+      "display_name": "费眼",
+      "annotation": "为人风趣，能够扮作丑角逗笑大家，实际是隐藏的法术高手；理论充实但天赋受限，赵慕gei的法术引路人。",
+      "appearance": "明显矮胖，较短的腿、圆润腰腹和较宽的身体，肤色比牢李更深一档，为自然中深棕色；黑色蓬松短卷发，宽圆脸，眉毛灵活，眼睛偏小但有神，不戴眼镜，露出风趣亲切的笑容，一侧眉毛微挑；日常形态的隐藏法术高手，亲切机敏，不把角色画成丑陋怪物。",
+      "source": "res://assets/characters/walk_sources/fei_yan-walk.png",
+      "source_sha256": "0df2b2ceb41844202a5b1a1836dcae651e4ab768a68a495ef920ed0d825d5a22",
+      "source_size": [
+        1412,
+        1262
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            66,
+            24,
+            221,
+            361
+          ],
+          "b": [
+            24,
+            655,
+            305,
+            583
+          ]
+        },
+        "back": {
+          "a": [
+            415,
+            24,
+            228,
+            360
+          ],
+          "b": [
+            381,
+            655,
+            296,
+            583
+          ]
+        },
+        "left": {
+          "a": [
+            773,
+            24,
+            219,
+            356
+          ],
+          "b": [
+            748,
+            655,
+            268,
+            577
+          ]
+        },
+        "right": {
+          "a": [
+            1126,
+            24,
+            219,
+            365
+          ],
+          "b": [
+            1104,
+            655,
+            263,
+            578
+          ]
+        }
+      },
+      "height_px": 92,
+      "idle_sprite_frames": "res://assets/characters/runtime/fei_yan/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/fei_yan-最终提示词.txt"
+    },
+    {
+      "id": "lao_ao",
+      "display_name": "牢傲",
+      "annotation": "班级音游担当，性格平和但不能容忍不道德的事。",
+      "appearance": "明显瘦小，比普通男生稍矮，肩膀窄、四肢纤细，皮肤白皙；黑色柔顺短发，较长轻薄侧刘海，额前有一小撮弧形发束，小巧椭圆脸，清澈较大眼睛，不戴眼镜，温和平静微笑，神态有坚定感。画平时未变身的男中学生。",
+      "source": "res://assets/characters/walk_sources/lao_ao-walk.png",
+      "source_sha256": "157a47b61d366ad82d7d2e0614ff7a42f9042e335dba494353af9e676822c121",
+      "source_size": [
+        1380,
+        1254
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            68,
+            24,
+            208,
+            579
+          ],
+          "b": [
+            71,
+            651,
+            202,
+            572
+          ]
+        },
+        "back": {
+          "a": [
+            414,
+            24,
+            207,
+            573
+          ],
+          "b": [
+            417,
+            651,
+            200,
+            569
+          ]
+        },
+        "left": {
+          "a": [
+            720,
+            24,
+            285,
+            564
+          ],
+          "b": [
+            766,
+            651,
+            192,
+            559
+          ]
+        },
+        "right": {
+          "a": [
+            1059,
+            24,
+            297,
+            566
+          ],
+          "b": [
+            1110,
+            651,
+            195,
+            556
+          ]
+        }
+      },
+      "height_px": 94,
+      "idle_sprite_frames": "res://assets/characters/runtime/lao_ao/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/lao_ao-最终提示词.txt"
+    },
+    {
+      "id": "lao_shuo",
+      "display_name": "牢硕",
+      "annotation": "班级军迷，正义，坚信社会主义，梦想成为军人保家卫国。",
+      "appearance": "健壮结实，宽肩、厚实手臂、挺拔直立，身高稍高；黑色干净利落的极短寸头，额头完全露出，明显国字脸、方下颌、粗直浓眉，眼睛中等，有坚定正气和可靠的微笑，不戴眼镜，正常学生校服，不穿军装。",
+      "source": "res://assets/characters/walk_sources/lao_shuo-walk.png",
+      "source_sha256": "a6bef0ed202a1e5d08648c318bd74906da52d3bdca2bf0654cfe72af6f0a896f",
+      "source_size": [
+        1524,
+        1314
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            43,
+            24,
+            294,
+            605
+          ],
+          "b": [
+            55,
+            681,
+            270,
+            599
+          ]
+        },
+        "back": {
+          "a": [
+            425,
+            24,
+            292,
+            609
+          ],
+          "b": [
+            439,
+            681,
+            264,
+            599
+          ]
+        },
+        "left": {
+          "a": [
+            786,
+            24,
+            333,
+            568
+          ],
+          "b": [
+            833,
+            681,
+            239,
+            576
+          ]
+        },
+        "right": {
+          "a": [
+            1167,
+            24,
+            333,
+            568
+          ],
+          "b": [
+            1214,
+            681,
+            238,
+            576
+          ]
+        }
+      },
+      "height_px": 108,
+      "idle_sprite_frames": "res://assets/characters/runtime/lao_shuo/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/lao_shuo-最终提示词.txt"
+    },
+    {
+      "id": "yang_zi",
+      "display_name": "阳子",
+      "annotation": "班级跑步担当，风趣大方的点子王。没有法术背景，凭聪明发现学校异变，在事件中发现法术秘密，与gei子一起向费眼学习法术。",
+      "appearance": "跑步型修长体态，中等偏高，腿长、肩腰匀称而不壮，肤色自然略带日晒；黑色清爽露耳短发，额前发束向上立起、后部短，较长椭圆脸，眼睛有精神，不戴眼镜，开朗大方的笑容，眉毛略上扬，机灵活泼的点子王。与牢硕的极短寸头和国字脸区分。",
+      "source": "res://assets/characters/walk_sources/yang_zi-walk.png",
+      "source_sha256": "fc8d903973d20c1755f2da7249986e324e6206e83085ca38d58628e19e7fe4d3",
+      "source_size": [
+        1444,
+        1308
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            66,
+            24,
+            229,
+            606
+          ],
+          "b": [
+            62,
+            678,
+            236,
+            605
+          ]
+        },
+        "back": {
+          "a": [
+            419,
+            24,
+            245,
+            602
+          ],
+          "b": [
+            422,
+            678,
+            239,
+            602
+          ]
+        },
+        "left": {
+          "a": [
+            747,
+            24,
+            310,
+            580
+          ],
+          "b": [
+            801,
+            678,
+            202,
+            594
+          ]
+        },
+        "right": {
+          "a": [
+            1107,
+            24,
+            313,
+            583
+          ],
+          "b": [
+            1163,
+            678,
+            201,
+            594
+          ]
+        }
+      },
+      "height_px": 108,
+      "idle_sprite_frames": "res://assets/characters/runtime/yang_zi/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/yang_zi-最终提示词.txt"
+    },
+    {
+      "id": "lao_dong",
+      "display_name": "牢董",
+      "annotation": "班级六边形战士，沉稳、俊俏、富有魅力，总是微笑，话少但直切重点。",
+      "appearance": "中等偏高、匀称挺拔的身材，肤色自然偏白；黑色整齐中分短发，左右柔顺的弧形发束、露出眉心，俊俏鹅蛋形脸，眉毛整洁，细长但明亮的眼睛，不戴眼镜，脸上总有含蓄从容的微笑，沉稳温和、话少而可靠。与活泼阳子、瘦小牢傲明显区分。",
+      "source": "res://assets/characters/walk_sources/lao_dong-walk.png",
+      "source_sha256": "1913c75171688a46b3684596d0424b21c4dce4c026fe45df3c082ee05746a650",
+      "source_size": [
+        1516,
+        1304
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            63,
+            24,
+            252,
+            604
+          ],
+          "b": [
+            72,
+            676,
+            234,
+            588
+          ]
+        },
+        "back": {
+          "a": [
+            442,
+            24,
+            252,
+            603
+          ],
+          "b": [
+            448,
+            676,
+            240,
+            588
+          ]
+        },
+        "left": {
+          "a": [
+            782,
+            24,
+            330,
+            569
+          ],
+          "b": [
+            845,
+            676,
+            205,
+            578
+          ]
+        },
+        "right": {
+          "a": [
+            1161,
+            24,
+            331,
+            570
+          ],
+          "b": [
+            1224,
+            676,
+            205,
+            574
+          ]
+        }
+      },
+      "height_px": 108,
+      "idle_sprite_frames": "res://assets/characters/runtime/lao_dong/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/lao_dong-最终提示词.txt"
+    },
+    {
+      "id": "la_jiao",
+      "display_name": "辣椒",
+      "annotation": "班长，管理班级信息和出勤信息。",
+      "appearance": "明显瘦高，四肢修长，头部不过大，长脸与略尖下巴；黑色整洁高马尾，额前侧分刘海，戴扁窄长方形细框眼镜，眼睛中等偏细长，眉毛较直，认真机警而克制的班长表情，嘴角轻轻抿起，避免活泼甜美大笑。",
+      "source": "res://assets/characters/walk_sources/la_jiao-walk.png",
+      "source_sha256": "b2c2d87909c45d7e643bf907af82d3ad3703fec376f65272b539d21056b906d8",
+      "source_size": [
+        1552,
+        1332
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            78,
+            24,
+            231,
+            618
+          ],
+          "b": [
+            78,
+            690,
+            232,
+            611
+          ]
+        },
+        "back": {
+          "a": [
+            476,
+            24,
+            212,
+            612
+          ],
+          "b": [
+            476,
+            690,
+            212,
+            606
+          ]
+        },
+        "left": {
+          "a": [
+            801,
+            24,
+            338,
+            594
+          ],
+          "b": [
+            839,
+            690,
+            261,
+            607
+          ]
+        },
+        "right": {
+          "a": [
+            1188,
+            24,
+            340,
+            592
+          ],
+          "b": [
+            1229,
+            690,
+            257,
+            601
+          ]
+        }
+      },
+      "height_px": 110,
+      "idle_sprite_frames": "res://assets/characters/runtime/la_jiao/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/la_jiao-最终提示词.txt"
+    },
+    {
+      "id": "gou_ga",
+      "display_name": "勾尬",
+      "annotation": "混沌之源，怀抱恶意接触他人，曾做局害阳子重伤，如今与费眼侧对立，艰难维持平衡。",
+      "appearance": "明显矮胖，身形圆润、腰腹宽、腿较短，宽圆脸、饱满脸颊，大眼睛，戴圆框眼镜；黑色齐耳短波波头、厚实齐刘海。哭泣人格：眉头内侧上扬并微微皱起，眼眶泛红、眼睛含泪，可见少量沿脸颊流下的泪滴；嘴角明显下垂，嘴唇轻抿，神情悲伤、委屈、快哭出来，保留校园日常学生外观，不夸张崩溃。",
+      "source": "res://assets/characters/walk_sources/gou_ga-walk.png",
+      "source_sha256": "c4a15c42c04e15563960d1f1842a1e5e6a005b221faa6876fc9141283a537106",
+      "source_size": [
+        1508,
+        1296
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            24,
+            24,
+            329,
+            600
+          ],
+          "b": [
+            31,
+            672,
+            315,
+            586
+          ]
+        },
+        "back": {
+          "a": [
+            403,
+            24,
+            324,
+            564
+          ],
+          "b": [
+            416,
+            672,
+            299,
+            563
+          ]
+        },
+        "left": {
+          "a": [
+            780,
+            24,
+            325,
+            544
+          ],
+          "b": [
+            803,
+            672,
+            278,
+            564
+          ]
+        },
+        "right": {
+          "a": [
+            1158,
+            24,
+            323,
+            533
+          ],
+          "b": [
+            1182,
+            672,
+            274,
+            557
+          ]
+        }
+      },
+      "height_px": 90,
+      "idle_sprite_frames": "res://assets/characters/runtime/gou_ga/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/gou_ga-最终提示词.txt"
+    },
+    {
+      "id": "wr",
+      "display_name": "wr",
+      "annotation": "校园内善于社交，喜欢读书。",
+      "appearance": "身高稍矮、身材匀称纤细而非瘦高，脸型精致小鹅蛋脸；黑色柔顺长发扎成低马尾，空气感薄刘海，侧边一缕贴脸长发，不戴眼镜，较大清亮眼睛，眉眼柔和，嘴角有自然亲切的社交微笑，神态从容而略带深藏不露。得体的中学生校服与青少年形象。",
+      "source": "res://assets/characters/walk_sources/wr-walk.png",
+      "source_sha256": "9f931958534e3eef513a1dead5d423ba22d27a702343f4787fcefb6aa66def34",
+      "source_size": [
+        1436,
+        1306
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            59,
+            24,
+            241,
+            603
+          ],
+          "b": [
+            58,
+            677,
+            243,
+            605
+          ]
+        },
+        "back": {
+          "a": [
+            414,
+            24,
+            248,
+            586
+          ],
+          "b": [
+            412,
+            677,
+            252,
+            591
+          ]
+        },
+        "left": {
+          "a": [
+            743,
+            24,
+            308,
+            563
+          ],
+          "b": [
+            779,
+            677,
+            236,
+            567
+          ]
+        },
+        "right": {
+          "a": [
+            1101,
+            24,
+            311,
+            563
+          ],
+          "b": [
+            1142,
+            677,
+            229,
+            567
+          ]
+        }
+      },
+      "height_px": 98,
+      "idle_sprite_frames": "res://assets/characters/runtime/wr/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/wr-最终提示词.txt"
+    },
+    {
+      "id": "wen_cong",
+      "display_name": "文聪",
+      "annotation": "教导主任",
+      "appearance": "瘦高中年男性教导主任，缩小头部的修长比例，高发际线地中海秃顶、眼镜、挑眉斜视与薄唇冷笑，神态狡猾刻薄，深藏青夹克、浅灰衬衫和深灰长裤。",
+      "source": "res://assets/characters/walk_sources/wen_cong-walk.png",
+      "source_sha256": "02c6bfb751fb6bc6d309a6da89ec5ee535502685e83d5ad2a3f818a72bdf033e",
+      "source_size": [
+        1476,
+        1258
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            67,
+            24,
+            234,
+            581
+          ],
+          "b": [
+            83,
+            653,
+            203,
+            578
+          ]
+        },
+        "back": {
+          "a": [
+            442,
+            24,
+            222,
+            575
+          ],
+          "b": [
+            455,
+            653,
+            196,
+            579
+          ]
+        },
+        "left": {
+          "a": [
+            762,
+            24,
+            321,
+            552
+          ],
+          "b": [
+            824,
+            653,
+            196,
+            542
+          ]
+        },
+        "right": {
+          "a": [
+            1134,
+            24,
+            314,
+            554
+          ],
+          "b": [
+            1197,
+            653,
+            189,
+            545
+          ]
+        }
+      },
+      "height_px": 116,
+      "idle_sprite_frames": "res://assets/characters/runtime/wen_cong/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/wen_cong-最终提示词.txt"
+    },
+    {
+      "id": "homeroom_teacher",
+      "display_name": "班主任",
+      "annotation": "微胖、稍矮的中年女性，深色露耳短发、方圆脸、小眼睛与细框眼镜，灰蓝开衫、米白衬衫和深色长裤。",
+      "appearance": "微胖、稍矮的中年女性，深色露耳短发、方圆脸、小眼睛与细框眼镜，灰蓝开衫、米白衬衫和深色长裤。",
+      "source": "res://assets/characters/walk_sources/homeroom_teacher-walk.png",
+      "source_sha256": "6e7df2430decbf649e5383971aad60b434d6d88dcb28e607b6114cbd4514f710",
+      "source_size": [
+        1484,
+        1348
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            47,
+            24,
+            277,
+            626
+          ],
+          "b": [
+            55,
+            698,
+            261,
+            621
+          ]
+        },
+        "back": {
+          "a": [
+            425,
+            24,
+            263,
+            621
+          ],
+          "b": [
+            426,
+            698,
+            260,
+            622
+          ]
+        },
+        "left": {
+          "a": [
+            766,
+            24,
+            322,
+            575
+          ],
+          "b": [
+            785,
+            698,
+            284,
+            575
+          ]
+        },
+        "right": {
+          "a": [
+            1137,
+            24,
+            323,
+            574
+          ],
+          "b": [
+            1184,
+            698,
+            229,
+            572
+          ]
+        }
+      },
+      "height_px": 100,
+      "idle_sprite_frames": "res://assets/characters/runtime/homeroom_teacher/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/homeroom_teacher-最终提示词.txt"
+    },
+    {
+      "id": "english_teacher",
+      "display_name": "英语老师",
+      "annotation": "酒红齐肩头发、眼镜、便携扩音器和头戴麦克风，米色开衫、米白衬衫、深色长裤；扩音器佩戴在人物左侧。",
+      "appearance": "酒红齐肩头发、眼镜、便携扩音器和头戴麦克风，米色开衫、米白衬衫、深色长裤；扩音器佩戴在人物左侧。",
+      "source": "res://assets/characters/walk_sources/english_teacher-walk.png",
+      "source_sha256": "d3b1a11d2573d2efef54ad69a7d39732a01dad34ff6eb0b3a9cc66aa96174808",
+      "source_size": [
+        1448,
+        1344
+      ],
+      "source_layout": "strip",
+      "source_regions": {
+        "front": {
+          "a": [
+            44,
+            24,
+            273,
+            617
+          ],
+          "b": [
+            54,
+            696,
+            254,
+            624
+          ]
+        },
+        "back": {
+          "a": [
+            407,
+            24,
+            272,
+            612
+          ],
+          "b": [
+            414,
+            696,
+            258,
+            624
+          ]
+        },
+        "left": {
+          "a": [
+            748,
+            24,
+            314,
+            577
+          ],
+          "b": [
+            782,
+            696,
+            245,
+            586
+          ]
+        },
+        "right": {
+          "a": [
+            1113,
+            24,
+            307,
+            577
+          ],
+          "b": [
+            1146,
+            696,
+            242,
+            583
+          ]
+        }
+      },
+      "height_px": 106,
+      "idle_sprite_frames": "res://assets/characters/runtime/english_teacher/四向.tres",
+      "prompt": "docs/角色行走差分2026-10-04/english_teacher-最终提示词.txt"
+    }
+  ]
+}

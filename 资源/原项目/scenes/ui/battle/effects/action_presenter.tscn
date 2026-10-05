@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle/battle_action_presenter.gd" id="1"]
+
+[node name="UIBattleActionPresenter" type="Node"]
+editor_description = "动作演出组件：独立拳击/闪避差分及命中、闪避结果、挂机对白；只负责视觉。"
+metadata/asset_name = "战斗动作演出组件"
+script = ExtResource("1")

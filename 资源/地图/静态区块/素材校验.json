@@ -1,0 +1,182 @@
+[
+  {
+    "id": "B01",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B01.png",
+    "pixels": [
+      3022,
+      993
+    ],
+    "sha256": "e677cda40310c8a8cc93c2635200898f292d7c8e4b8656513fddc00e4399ca68"
+  },
+  {
+    "id": "B02",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B02.png",
+    "pixels": [
+      2687,
+      1117
+    ],
+    "sha256": "b8c1a4924221781c384feeda202802222b41aa19b3284c15446be4baa5988ae3"
+  },
+  {
+    "id": "B03",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B03.png",
+    "pixels": [
+      2290,
+      1248
+    ],
+    "sha256": "6daea2e09681d4bf02dfd5602c5dfa2c13c99050fef828e89fba52882fd984b1"
+  },
+  {
+    "id": "B04",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B04.png",
+    "pixels": [
+      1072,
+      1120
+    ],
+    "sha256": "17e55621c4785a4c434f86bee78a3a5e677c8832f7dbf5f51129e24677115404"
+  },
+  {
+    "id": "B05",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B05.png",
+    "pixels": [
+      2568,
+      1169
+    ],
+    "sha256": "76653f339f8a054d5cf657b3dc3ea846b14220f4c9b7c90b2001c468995d5519"
+  },
+  {
+    "id": "B06",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B06.png",
+    "pixels": [
+      934,
+      3072
+    ],
+    "sha256": "de9b97b2419106305b4fd2aea695fa076b666b4ecdd275d734b68e0e1edebb73"
+  },
+  {
+    "id": "S01",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\S01.png",
+    "pixels": [
+      1385,
+      2168
+    ],
+    "sha256": "f57d5bffae79f14adcd20bf350d6fbc55112c95e8ff6c42189544bff0bca6778"
+  },
+  {
+    "id": "S05",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\S05.png",
+    "pixels": [
+      2076,
+      1446
+    ],
+    "sha256": "b2a89daeea2f6d531dfe46e1d1b76be6326759e94d131d175f2328f23ac8c1b2"
+  },
+  {
+    "id": "G01",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\G01.png",
+    "pixels": [
+      1340,
+      2240
+    ],
+    "sha256": "5883cb9b2abaf5b9a7d8983ed4aed3126ab1788047f6f78c078004cd5aab357c"
+  },
+  {
+    "id": "S06",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\S06.png",
+    "pixels": [
+      1410,
+      2128
+    ],
+    "sha256": "84f7f38bcfae6ae0b684b60eb198944853ab77606012c86db5c1bdf7ea5578a3"
+  },
+  {
+    "id": "B07",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B07.png",
+    "pixels": [
+      1496,
+      2006
+    ],
+    "sha256": "fd41c80852a921f3fdc7dc8dcd8b3070d9e8c08b29be9031caff96ea9dbafac6"
+  },
+  {
+    "id": "B09",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B09.png",
+    "pixels": [
+      1339,
+      2243
+    ],
+    "sha256": "7aa681203ef68cacc85ab4d0ce04428bd379036f18e933148f39abfe810069c5"
+  },
+  {
+    "id": "S07",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\S07.png",
+    "pixels": [
+      2436,
+      1232
+    ],
+    "sha256": "cf0defd1e5d4eed577e612d5b98ea67d8307891cfbd7b229f8ef9211227c7eb0"
+  },
+  {
+    "id": "B08",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B08.png",
+    "pixels": [
+      1906,
+      1574
+    ],
+    "sha256": "dc29ed5883c9016d468c8dd7ce22f2a902fc6979930ea4f7dbdb5bea116bc01d"
+  },
+  {
+    "id": "B10",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B10.png",
+    "pixels": [
+      2055,
+      1461
+    ],
+    "sha256": "8131eaa38e95328cceaa6710551b1d0c92a41e38047e9cde437c8f208723b9fd"
+  },
+  {
+    "id": "B16",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B16.png",
+    "pixels": [
+      2055,
+      1422
+    ],
+    "sha256": "def8e8fe7c48f994f90b15457214c8aa9a25a1095e962edf53a1a914b5b5022b"
+  },
+  {
+    "id": "B12",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B12.png",
+    "pixels": [
+      2557,
+      1174
+    ],
+    "sha256": "652c08a35d3b827fd80b850cd8f903ef6dc16cf5aa3348cde3c5ed909ebc11d3"
+  },
+  {
+    "id": "B13",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B13.png",
+    "pixels": [
+      2876,
+      1044
+    ],
+    "sha256": "6914fd3b9db0f2197a9b0446f3c4e949373ef839f396f0101cf1ce7f12a1f43c"
+  },
+  {
+    "id": "B15",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\B15.png",
+    "pixels": [
+      2711,
+      1107
+    ],
+    "sha256": "c7614f8ddf5be41550dfc048e2e426c57bdbf91f96a32964a1c4dcbbfe16aa8f"
+  },
+  {
+    "id": "N02",
+    "path": "D:\\Godot\\地图重绘预览\\静态区块\\N02.png",
+    "pixels": [
+      3071,
+      978
+    ],
+    "sha256": "295280b428eb04de0ba2b61252cb4cba49f7e7dd37f0a51cd25a9c4397392d1b"
+  }
+]

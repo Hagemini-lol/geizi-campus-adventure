@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle/battle_submenu.gd" id="1"]
+
+[node name="UIBattleSubmenu" type="PanelContainer"]
+editor_description = "通用战斗子菜单：标题、返回、空状态、滚动条目区，便于新增类别。"
+metadata/asset_name = "通用战斗子菜单"
+script = ExtResource("1")

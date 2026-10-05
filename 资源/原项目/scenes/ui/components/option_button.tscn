@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/option_button.gd" id="1"]
+
+[node name="UIOptionButton" type="Button"]
+editor_description = "通用选项按钮；复制后修改 option_text、option_id 和 font_size 即可扩充菜单。"
+metadata/asset_name = "通用选项按钮"
+metadata/asset_category = "通用按钮"
+metadata/asset_usage = "通用选项按钮；复制后修改 option_text、option_id 和 font_size 即可扩充菜单。"
+script = ExtResource("1")

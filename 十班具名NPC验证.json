@@ -1,0 +1,34 @@
+{
+  "checks": 366,
+  "passed": true,
+  "samples": [
+    {
+      "building": "B12",
+      "classroom_static": 12,
+      "corridor_ordinary": 4,
+      "moving_students": 10,
+      "named_students": 10,
+      "ordinary_in_ten": 0
+    },
+    {
+      "building": "B05",
+      "classroom_static": 12,
+      "corridor_ordinary": 4,
+      "moving_students": 10,
+      "named_students": 10,
+      "ordinary_in_ten": 0
+    },
+    {
+      "building": "B01",
+      "classroom_static": 12,
+      "corridor_ordinary": 4,
+      "moving_students": 10,
+      "named_students": 10,
+      "ordinary_in_ten": 0
+    }
+  ],
+  "zip_unchanged": true,
+  "zip_sha256_before": "E18673FEEFBA5DAEC7DA060973AE62E388DF40DD1C42A6B45DAAB8D05DA1CAA1",
+  "zip_sha256_after": "E18673FEEFBA5DAEC7DA060973AE62E388DF40DD1C42A6B45DAAB8D05DA1CAA1",
+  "updated_only_game_folder": true
+}

@@ -1,0 +1,53 @@
+{
+	"actual_player_rates": [
+		4.00012788318452,
+		7.99996512276786,
+		19.9998885866196
+	],
+	"checks": 775,
+	"direction_samples": [
+		{
+			"animation_facing": 0,
+			"direction": 0,
+			"frame": 1,
+			"moving": true,
+			"phase": 1.06662326388889,
+			"player_facing": 0,
+			"rate": 3.99983723958333
+		},
+		{
+			"animation_facing": 1,
+			"direction": 1,
+			"frame": 1,
+			"moving": true,
+			"phase": 1.06662326388889,
+			"player_facing": 1,
+			"rate": 3.99983723958333
+		},
+		{
+			"animation_facing": 2,
+			"direction": 2,
+			"frame": 1,
+			"moving": true,
+			"phase": 1.00003197079613,
+			"player_facing": 2,
+			"rate": 4.00012788318452
+		},
+		{
+			"animation_facing": 3,
+			"direction": 3,
+			"frame": 1,
+			"moving": true,
+			"phase": 1.00003197079613,
+			"player_facing": 3,
+			"rate": 4.00012788318452
+		}
+	],
+	"failures": [],
+	"named_npc_instances": 30,
+	"npc_rate_fps": 0.476190476190476,
+	"only_current_scene": true,
+	"poses_per_direction": 2,
+	"uses_hd_original_poses": true,
+	"walking_directions": 4
+}

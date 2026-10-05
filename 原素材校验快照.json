@@ -1,0 +1,286 @@
+[
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\hero\\zhao_mugei.png",
+    "SHA256": "891E28695D58080DFE193BE42D9C8EF1C510A97783BE3D3FD485638B3B6BFA1A"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\班主任.png",
+    "SHA256": "F70B9C57BB7A96C4E1614F45CC0AEDFB3F5D9CD4EB68C1E1917745A58010B95F"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\费眼.png",
+    "SHA256": "5457AFF9764C77B3DAC2AA9B16A89F6472F0EC0D6F9BDD4147A9818EB59F3C05"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\勾尬.png",
+    "SHA256": "25382E5D3CB90A531FE359DD4783AED9B3096BA39DF5E4D595B59016F883D020"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\辣椒.png",
+    "SHA256": "25A174C2D1BFF22EF67B17CD6F9451B48FB8CCE24DBF74761509BF1612906922"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\牢傲.png",
+    "SHA256": "2826270422C9F588A60DCE8D7D18B0BEFF9B37C4787BEC53DAA9C22B412819B7"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\牢抽.png",
+    "SHA256": "B38610BD6B1BF188A34F530A05A8C5E6F304BF4EF7F468F750CE8A01C86647BA"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\牢董.png",
+    "SHA256": "476B766371C2F3E8FA82E519FC65571779D7FC53A1D8054E52413012B9717EF8"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\牢李.png",
+    "SHA256": "15561EDC209ECCF7BCAAB3D0C2D8FC2FADD6A8B51F9FBA5EF7B4C65CCAFE5A22"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\牢硕.png",
+    "SHA256": "D9A21A4AEF5AE2CAD7AAD691F841D4AB29F1484B582DABDD97C6A9438BDF5C99"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\文聪.png",
+    "SHA256": "C11D4CCEB270818BEDDFAA5A0E6F3C6B542B5EBAA11DDB6FA0E147BDBDF0E9C1"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\阳子.png",
+    "SHA256": "CD672CBFA3165059D3849E481DBEBA4D3F4F9E97774A6DFB910E5CADCF1AA49A"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\students_npc_atlas.png",
+    "SHA256": "747D15969A371F58335BE5952CD82482DD2F8ADEE9D6CDED0EE922050D708761"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\wr.png",
+    "SHA256": "EB0E5AF1853E88C241C544265CC0AEB409DD7C0B8D2C6123D30E1D42C29E668D"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\templates\\student_female.png",
+    "SHA256": "F3E87C295274BD393B20CE00E7910E34B363CFA753E9C1435DCD677FF560600B"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\templates\\student_male.png",
+    "SHA256": "9EB4C5107D3A8FD59F83E600ABB83D98E62A7472550CDD033AAD2F3431B005F4"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\公开课教室.png",
+    "SHA256": "0D1175C5F9EC0BA42A25F5532C05168E1F4877B0CD09A81C3E4CFE953C5229A4"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\教师办公室-白桌玻璃版.png",
+    "SHA256": "8D0446FEE8E58ED37DA827216CD9F1BD0BF1DC04C995D0E04E99882AA7A83547"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\教师办公室-实木版.png",
+    "SHA256": "4A05BF372BBF875DF78B84B9EDBA49C6564340C1445FBA337C7B2B8DD4D29C33"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\普通教室.png",
+    "SHA256": "E085110EFE697849AF8FC3B4CCA58E5712799E07790F0E984D5017435C63C7D3"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\十班.png",
+    "SHA256": "01E3C90C8F53B5B4AEC0CCAE13C210DEDAD0400047BF5B42B012F45CD572DDAE"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\classroom_v1.png",
+    "SHA256": "CB5B5FEF0DAB8750E3988EE9C8BB3D9DB3EA6F32E8C01DEF41608E0515F884D3"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\corridor\\走廊-底图.png",
+    "SHA256": "2875E4EF05559442B8F840124827BB7B950AA1AF9484FB4A42695EA31AC41EC0"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\corridor\\走廊-顶楼底图.png",
+    "SHA256": "64D835DE84554ACABD3C4B435ECAF7160C6D65DFBD6AD9225F054A04C3AE5567"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\corridor\\走廊-门图层.png",
+    "SHA256": "2EB7A7921B60FEF746DA645B63D4A9328E4D2F7F9B54E3EBD9A91FE467047CC9"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\outdoor\\campus_exterior_v2.png",
+    "SHA256": "085134201F0892A504E12D527D3B9244861A2EB814E7374E6F6E172B9953F3F3"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\outdoor\\campus_exterior_v3.png",
+    "SHA256": "E2A968AFBE52ACE9CA5F38598091507132DA160E4AFE7C3B6F16D2FA09B93360"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\outdoor\\campus_named_v2.png",
+    "SHA256": "CF54083ECDA23F34EEF7F855D2C3B9C5C0401AE50B640EF2631E698EA56D9E30"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\outdoor\\campus_numbered_reference.png",
+    "SHA256": "99540CC2D4D50DBC32FF2E244F41AE26667816E8D40489AE0C2AAFF47509ACF3"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\outdoor\\campus_rectified_walled.png",
+    "SHA256": "30F4708005B8A7932BCBC369BE3AAD32F7925D41A36C2CFF551BD6F4857662FB"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\outdoor\\campus_rectified.png",
+    "SHA256": "7E87871A4CEFEBFA045314052B3D7C4D1E3A758A8980B2EFAED2244719147A40"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\菜单UI.png",
+    "SHA256": "E241477C113F0445AE9B7454245BA9BC22172C9E11FC33591F697E1398B6A12D"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\场景UI-黑白灰-v2.png",
+    "SHA256": "3ADC9A4B43A3C9E11832559F08DC494B7B0959A51EC0FB221DB1FB65387A10E5"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\场景UI-浅绿色-v1.png",
+    "SHA256": "0643BC40AC2245D8F465A6712FFE5AD2CD00A39091B338440CD8341F92F8F678"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\场景UI-特殊状态-v2.png",
+    "SHA256": "C53FB7AEC8F0925E2550B72D3ADFB7BBC248772ABCBA8EDAAEC05126DEA9367A"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\场景UI-特殊状态.png",
+    "SHA256": "E588ABFDC4F1E012BA356AC545A166F20FA9A9BF1151A4E1CE678D554180AD48"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\场景UI.png",
+    "SHA256": "1C95A381E8DD5BD0ECA780B61BAA4B8E7DAD45AB29D899E7D041FFC1CF0F0BF6"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\对话框.png",
+    "SHA256": "1590F4B6B578BAEA22E68951B9A942199BF6AD951598A3D85526211180534A98"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\素材命名与注释.md",
+    "SHA256": "D55DF8E4AF475959773B839D0FB244D72196E5806EE4166A6BD649129849389B"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\bars\\energy_fill.png",
+    "SHA256": "1917895F728A6BA8D595F2CA569EA1D9695B2794A7801FDF11DB9D3755BD8A53"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\bars\\energy_fill.svg",
+    "SHA256": "D8B5CBB581770241B3C92539CCA7680928F28382926786A7B2FF86D6DD48CDB7"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\bars\\hp_fill.png",
+    "SHA256": "5D489427CFD198C7A895BCAF2E7AFD59CCE5F32EB92BF94DCC17FD1E9121DBF6"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\bars\\hp_fill.svg",
+    "SHA256": "94D76F8E87012D14E8D92142CBDF67C6108C8A71E12A95FCA695930C8B3AFD8D"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\bars\\mp_fill.png",
+    "SHA256": "E64C252932414478088A4038FE97109953446FD8C7C9A14043C7AAE0FC5746BC"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\bars\\mp_fill.svg",
+    "SHA256": "E1D920AF8B7C6E411135E6E88CBA5A41B76EC0CAA364BAB5CA2CF5061DD9109D"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\bars\\san_fill.png",
+    "SHA256": "9E2E5C42BF145D33D65815DD0B6121D3A39B348B6D2F1DF5718D4F9900448E3C"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\bars\\san_fill.svg",
+    "SHA256": "159DEA2AAD9068A943D825BE6DAA832FB8579D18BF550DEA2A9EB9F9FCF0C562"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\bars\\track.png",
+    "SHA256": "7A0FF15932EE3F5E099B6FC88032BF588E7A3E01F538A87745247DFF1D1590DD"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\bars\\track.svg",
+    "SHA256": "0DFAE0E5842D082B625AF747262A76F2D9E0C27B81DB85AD33D881AE9471ED3D"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_disabled.png",
+    "SHA256": "3CE71AC1BF631B54746E83949088DCBDED0EFBD24C3E58FD9D25791DB2A5AC86"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_disabled.svg",
+    "SHA256": "AC9962DC4A7B2AFC6351D9D3D345D8267842EF215EF1D3572929A5E060F6689A"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_hover.png",
+    "SHA256": "E1343981B8B05706CDF9A0F18401B0F237FB257AA6E0E7B807A1C64E38D5CE7E"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_hover.svg",
+    "SHA256": "5084F9BD1655270C65AE764A2A92482CA61D1456DFFE7A21C1661B304FF41D95"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_normal.png",
+    "SHA256": "4FFCFE95AC04438F094BB9F78748D8553582DE838981990C84300F042DDC370A"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_normal.svg",
+    "SHA256": "F1DB4C43288D7850595C8F0E62658C5000DB912FFD8615A6C069168F70D25B78"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_selected.png",
+    "SHA256": "3339E9F57E9FED287C6EC7E473AA376278E88DCAB141D0650B906A8D174F7E45"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\buttons\\option_selected.svg",
+    "SHA256": "DF13C06AD0B70CB602FCBAE30C045FC91F7D71B5D40FD5782F64466D79B59CCC"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\controls\\action_disc.png",
+    "SHA256": "E1D87F6BF97E610B1BBCAABC3668362354464BEB4D40C8F209E6FAD00A50EE63"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\controls\\action_disc.svg",
+    "SHA256": "0E0B7156C882C0983EDDC02AD05182F789AC6A197E249656213A37196314B160"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\controls\\joystick_base.png",
+    "SHA256": "5F449DA4CC782CDE5A1D90107D66B280FF2D1C6CEB0AD3812C48D93726B80BAB"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\controls\\joystick_base.svg",
+    "SHA256": "845762C55AA1CD428B41E0BD3D915498553E434BD4BF3DDB0A7B976DABDD8850"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\controls\\joystick_knob.png",
+    "SHA256": "DE92AA93D1A150A77B419905EC20FB5BC491C933D2A7631FBC8F9100CBCEE236"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\controls\\joystick_knob.svg",
+    "SHA256": "12CBEE737C2E5973598806C83F5AA6A7362E6D9BAE9C0B42B3880E2413BC37C0"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\controls\\screen_frame.png",
+    "SHA256": "93765993A26B58575D17E5FF4A0AAEC1711851F332864F109DE33709098A467B"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\controls\\screen_frame.svg",
+    "SHA256": "488EC76F3881E305F8B3C0158B8E1AF2336A08A5B138A9B24744FEF7386C70FF"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\panels\\panel.png",
+    "SHA256": "3E110EB64FF527E5337DB05868B5BB211B19987323C2F519CCFF77344E59ECE2"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\panels\\panel.svg",
+    "SHA256": "3E303604283B36804FB4F043172204190CB7C7CDA23900A884001529E7805730"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\panels\\special_status.png",
+    "SHA256": "935381683A0D283916B8AE770B1C87723DF9D069D902895B3482658599268F66"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\components\\panels\\special_status.svg",
+    "SHA256": "87BCDD7215EB32316C84C990BAF9B0B263A05EE647B0FBBDE3A176AC192F8A47"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\covers\\游戏封面.png",
+    "SHA256": "9B34666D090ACE2D2B3788567BD4CECF5FB624FA5708B5CE258F7F0CAC0890EC"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\data\\campus_regions.json",
+    "SHA256": "2BBE6C8A0ACB1B2351ED04D7BBCF5ABCFDE0C03CBD903755A2460AE3E50BAA44"
+  }
+]

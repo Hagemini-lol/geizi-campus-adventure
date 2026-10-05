@@ -1,0 +1,26 @@
+[
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\corridor\\走廊-底图.png",
+    "SHA256": "2ACBEA0B21B37AAAB57C9284B55C6E7857B34C2E42600FBBD8EEF3AC1E4FD5C3"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\corridor\\走廊-顶楼底图.png",
+    "SHA256": "BD038B5A7FD2C8C2D2A3C4B6B79944B44C42A70D219C77AC11F9CDFECF547723"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\corridor\\走廊-门图层.png",
+    "SHA256": "2EB7A7921B60FEF746DA645B63D4A9328E4D2F7F9B54E3EBD9A91FE467047CC9"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\普通教室.png",
+    "SHA256": "E085110EFE697849AF8FC3B4CCA58E5712799E07790F0E984D5017435C63C7D3"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\indoor\\十班.png",
+    "SHA256": "01E3C90C8F53B5B4AEC0CCAE13C210DEDAD0400047BF5B42B012F45CD572DDAE"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\maps\\outdoor\\campus_named_v2.png",
+    "SHA256": "CF54083ECDA23F34EEF7F855D2C3B9C5C0401AE50B640EF2631E698EA56D9E30"
+  }
+]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/modular_preview.gd" id="1"]
+
+[node name="UIModularAssetPreview" type="Control"]
+editor_description = "按 F6 预览素材组合；右上按钮可查看游玩 UI、菜单 UI 和特殊状态。"
+metadata/asset_name = "UI组件组合预览"
+metadata/asset_category = "素材预览"
+metadata/asset_usage = "按 F6 预览素材组合；右上按钮可查看游玩 UI、菜单 UI 和特殊状态。"
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")

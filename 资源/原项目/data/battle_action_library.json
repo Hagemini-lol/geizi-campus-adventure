@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "name": "主角战斗差分与特效素材库",
+  "annotation": "拳击和闪避各一张透明差分；命中、闪避成功/失败及挂机对白四个独立动态特效。",
+  "base_portrait": "res://assets/characters/hero/battle/zhao_mugei_rear_quarter.png",
+  "poses": [
+    {
+      "id": "punch",
+      "name": "赵慕gei拳击差分",
+      "texture": "res://assets/characters/hero/battle/zhao_mugei_punch.png",
+      "annotation": "斜后视角右拳前伸，拳击动作演出；独立透明PNG。",
+      "generation_method": "built_in_image_gen"
+    },
+    {
+      "id": "dodge",
+      "name": "赵慕gei闪避差分",
+      "texture": "res://assets/characters/hero/battle/zhao_mugei_dodge.png",
+      "annotation": "斜后视角压低身体并侧移，成功/失败反馈复用此姿势。",
+      "generation_method": "built_in_image_gen"
+    }
+  ],
+  "effects": [
+    {
+      "id": "hit",
+      "name": "命中特效",
+      "scene": "res://scenes/ui/battle/effects/hit_effect.tscn",
+      "duration": 0.55,
+      "annotation": "像素冲击闪光与碎粒，适用于我方或敌方。"
+    },
+    {
+      "id": "dodge_success",
+      "name": "闪避成功特效",
+      "scene": "res://scenes/ui/battle/effects/dodge_success_effect.tscn",
+      "duration": 0.8,
+      "annotation": "浅青拖线与闪避成功文字。"
+    },
+    {
+      "id": "dodge_failure",
+      "name": "闪避失败特效",
+      "scene": "res://scenes/ui/battle/effects/dodge_failure_effect.tscn",
+      "duration": 0.65,
+      "annotation": "红色冲击及失败标记，动作演出同时短暂染红人物。"
+    },
+    {
+      "id": "auto_battle",
+      "name": "挂机专属对白特效",
+      "scene": "res://scenes/ui/battle/effects/auto_battle_effect.tscn",
+      "duration": 2.8,
+      "dialogue": "woc我忘吃饭了",
+      "annotation": "主角头顶像素对白框，文字可编辑。"
+    }
+  ],
+  "presenter_scene": "res://scenes/ui/battle/effects/action_presenter.tscn",
+  "preview_scene": "res://scenes/ui/battle/battle_actions_preview.tscn",
+  "documentation": "docs/战斗差分与特效素材说明.md",
+  "prompts": "docs/battle-ui/拳击与闪避差分生成提示词.txt",
+  "scope": "仅动作和反馈演出，未添加招式菜单条目，不处理伤害、闪避判定或自动战斗策略。"
+}

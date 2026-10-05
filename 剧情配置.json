@@ -1,0 +1,211 @@
+{
+  "version": 1,
+  "chapter": "part_1",
+  "classroom": {
+    "building": "B01",
+    "floor": 3,
+    "kind": "classroom",
+    "room": 0
+  },
+  "lab_room": 1,
+  "dialogues": {
+    "morning": [
+      {
+        "actor": "zhao_mugei",
+        "text": "你们是不是废啊，昨天阿根廷输了你们看没看啊。"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "没看啊，谁大晚上看这玩意啊。"
+      },
+      {
+        "actor": "zhao_mugei",
+        "text": "对啊，我也没看，我昨天跟手机客服说能不能把手机邮给我打七天王者再退回去。"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "太贱了"
+      },
+      {
+        "actor": "lao_li",
+        "text": "太贱了"
+      },
+      {
+        "actor": "lao_ao",
+        "text": "太贱了"
+      },
+      {
+        "actor": "lao_shuo",
+        "text": "太贱了"
+      },
+      {
+        "actor": "homeroom_teacher",
+        "text": "都别说话了，到点了，好好读课文！"
+      }
+    ],
+    "evening": [
+      {
+        "actor": "zhao_mugei",
+        "text": "又上一天课，一会还有晚自习"
+      },
+      {
+        "actor": "zhao_mugei",
+        "text": "能不能不上课啊，"
+      },
+      {
+        "actor": "zhao_mugei",
+        "text": "把学校炸了吧，我不想上课"
+      },
+      {
+        "actor": "zhao_mugei",
+        "text": "算了去整点辣肺子炒饭"
+      }
+    ],
+    "window": [
+      {
+        "actor": "zhao_mugei",
+        "text": "我造你的，这什么东西"
+      }
+    ],
+    "entrance": [
+      {
+        "actor": "zhao_mugei",
+        "text": "什么玩意装神弄鬼的，我惧你？"
+      }
+    ],
+    "encounter": [
+      {
+        "actor": "zhao_mugei",
+        "text": "！"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "卧槽给子你他妈怎么在这"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "算了，等我一会"
+      }
+    ],
+    "reveal": [
+      {
+        "actor": "fei_yan",
+        "text": "不是你不是应该去踢球么，怎么跑这来了，你是不是gei啊"
+      },
+      {
+        "actor": "zhao_mugei",
+        "text": "你tm才是gei呢，我看里面整的跟爆炸了似的过来看看"
+      },
+      {
+        "actor": "zhao_mugei",
+        "text": "你刚才用的啥玩意啊，魔法啊"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "对啊"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "其实不瞒你了，我是一个魔法师"
+      },
+      {
+        "actor": "zhao_mugei",
+        "text": "奥，然后呢"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "不是你不是应该表现的特别震惊么，然后求我教你魔法，把你带入魔法之路！"
+      },
+      {
+        "actor": "zhao_mugei",
+        "text": "你说学我就学啊，你太gei了"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "你个gei处，你得学，你已经沾染上魔力了，以后会有怪物找上你的"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "你不学魔法哪天让人草饲在外面了"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "也不知道学校怎么了，突然出现这么多怪物，我本来只想度过一段和平的校园生活"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "别人，普通校园生活。我，处理怪物。就很……你们懂吧"
+      },
+      {
+        "actor": "zhao_mugei",
+        "text": "你太贱了，你都这么说了，那我肯定得学啊"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "你看好吧"
+      }
+    ],
+    "gifts": [
+      {
+        "actor": "fei_yan",
+        "text": "这个拿着，有用"
+      },
+      {
+        "actor": "system",
+        "text": "获得特制校服、基础护符、基础魔法书。\n等级 +1，习得烈焰弹、闪电链、冻结术、光弹。"
+      },
+      {
+        "actor": "fei_yan",
+        "text": "先回去上晚自习吧，你自己看吧，明天我们再商量"
+      },
+      {
+        "actor": "zhao_mugei",
+        "text": "行吧"
+      }
+    ]
+  },
+  "role_greetings": {
+    "lao_li": [
+      "工具我收好了，别踩到线。",
+      "想改点东西？材料备齐了再来，我给你做。"
+    ],
+    "lao_chou": [
+      "别急，先把条件列出来。",
+      "实验楼后面的动静不对。先看清楚，再从正门进去。"
+    ],
+    "fei_yan": [
+      "你又整什么活呢，gei子？",
+      "魔法不是硬莽，先看属性和剩下多少蓝。"
+    ],
+    "lao_ao": [
+      "这段节奏还差一点。",
+      "有些事不能装作没看见。费眼那边我会留意。"
+    ],
+    "lao_shuo": [
+      "身体是本钱，战斗也得讲纪律。",
+      "装备检查好再出发，别光顾着逞强。"
+    ],
+    "yang_zi": [
+      "走啊，下课跑两圈？我等你。",
+      "你别急，我有个点子。先看看学校哪儿不对劲。"
+    ],
+    "lao_dong": [
+      "先观察。",
+      "别浪费魔力。"
+    ],
+    "la_jiao": [
+      "出勤表在我这儿。晚自习出去得先说清楚。",
+      "回来别忘了签到。"
+    ],
+    "gou_ga": [
+      "看起来很顺利嘛。你真觉得会一直这样？",
+      "你猜我知道些什么？"
+    ],
+    "wr": [
+      "这本书还挺有意思，你想看吗？",
+      "有些知识，可不在课本里。"
+    ]
+  },
+  "effects_index": "资源/原项目/data/magic_effects_01.json",
+  "end_hint": "第一章已完成。明天再和费眼商量；目前可以自由探索、学习技能和挑战实验楼怪物。"
+}

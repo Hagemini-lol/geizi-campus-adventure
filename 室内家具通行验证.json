@@ -1,0 +1,13 @@
+{
+  "actual_walk_targets": 123,
+  "checks": 543,
+  "classroom_types": 2,
+  "failures": [],
+  "furniture_collision_logical_pixels": [
+    1,
+    1
+  ],
+  "passed": true,
+  "physics_frames": 711,
+  "wall_collisions_preserved": true
+}

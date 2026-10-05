@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<title>移动摇杆旋钮底板</title>
+<desc>半透明摇杆旋钮；拖动位置由摇杆组件控制。</desc>
+
+
+
+<circle cx="32" cy="32" r="30" fill="#9ea8b5" fill-opacity=".28" stroke="#e0e6eb" stroke-opacity=".75"/></svg>

@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "currency": "g",
+  "daily_allowance": 50,
+  "initial_items": {
+    "water": 2,
+    "bread": 1
+  },
+  "items": [
+    {
+      "id": "water",
+      "name": "饮用水",
+      "description": "恢复 30 精力",
+      "buy_price": 10,
+      "sell_price": 5,
+      "restore": {
+        "energy": 30
+      }
+    },
+    {
+      "id": "bread",
+      "name": "面包",
+      "description": "恢复 120 生命和 50 精力",
+      "buy_price": 15,
+      "sell_price": 7,
+      "restore": {
+        "hp": 120,
+        "energy": 50
+      }
+    },
+    {
+      "id": "first_aid",
+      "name": "急救包",
+      "description": "恢复 400 生命",
+      "buy_price": 30,
+      "sell_price": 15,
+      "restore": {
+        "hp": 400
+      }
+    },
+    {
+      "id": "calming_medicine",
+      "name": "镇静药",
+      "description": "恢复 25 SAN",
+      "buy_price": 25,
+      "sell_price": 12,
+      "restore": {
+        "san": 25
+      }
+    },
+    {
+      "id": "ink_fragment",
+      "name": "墨渣",
+      "description": "怪物掉落的交易物资，可出售",
+      "buy_price": -1,
+      "sell_price": 10,
+      "restore": {}
+    },
+    {
+      "id": "special_uniform",
+      "name": "特制校服",
+      "description": "防御 +20，法术抗性 +20",
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {},
+      "merchant": "",
+      "plot_item": true
+    },
+    {
+      "id": "basic_amulet",
+      "name": "基础护符",
+      "description": "攻击 +200",
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {},
+      "merchant": "",
+      "plot_item": true
+    },
+    {
+      "id": "basic_magic_book",
+      "name": "基础魔法书",
+      "description": "记载火、电、冰、光四种低级魔法",
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {},
+      "merchant": "",
+      "plot_item": true
+    },
+    {
+      "id": "tech_amulet",
+      "name": "改装护符",
+      "description": "攻击 +240；委托牢李制作，需要 2 份墨屑",
+      "buy_price": 100,
+      "sell_price": 0,
+      "restore": {},
+      "merchant": "lao_li",
+      "plot_item": true
+    },
+    {
+      "id": "patrol_uniform",
+      "name": "巡查校服",
+      "description": "防御 +30，法术抗性 +20",
+      "buy_price": 150,
+      "sell_price": 0,
+      "restore": {},
+      "merchant": "lao_shuo",
+      "plot_item": true
+    }
+  ],
+  "monster_loot": {
+    "normal": {
+      "ink_fragment": 1
+    },
+    "elite": {
+      "ink_fragment": 2
+    },
+    "boss": {
+      "ink_fragment": 5
+    }
+  }
+}

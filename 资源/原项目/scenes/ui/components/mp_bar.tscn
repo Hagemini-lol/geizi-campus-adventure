@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/stat_bar.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/components/bars/mp_fill.svg" id="2"]
+
+[node name="UIManaBar" type="HBoxContainer"]
+editor_description = "蓝色蓝量文字、数值与进度条；与血量条共用结构。"
+metadata/asset_name = "蓝量条"
+metadata/asset_category = "属性条"
+metadata/asset_usage = "蓝色蓝量文字、数值与进度条；与血量条共用结构。"
+script = ExtResource("1")
+stat_name = "MP"
+value = 64.0
+maximum = 80.0
+tint = Color(0.3843137254901961, 0.6196078431372549, 0.8588235294117647, 0.95)
+fill_texture = ExtResource("2")

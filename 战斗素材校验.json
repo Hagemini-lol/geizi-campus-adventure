@@ -1,0 +1,247 @@
+[
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\monsters\\噬书怪.png",
+    "SHA256": "5E5442E0FCB906301E473C3FECD4F2AC9FF588E4BDF0D4D9A4F5FF7467F8F946",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\monsters\\墨泥怪.png",
+    "SHA256": "AB1010356EBC9FCEC1811C2273399CD0EC693AECC1309AD763DAD82C3C10E40F",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\monsters\\枯枝怪.png",
+    "SHA256": "369F5C993AADA8316DA9E2914C568EF5F8ECCF46CAA4C39F8AE5A5CAD3209D37",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\monsters\\空壳校服.png",
+    "SHA256": "F2DF03B6A91876109D363CE55F0858D54A3E4AE42839C05E5604387F894CCA68",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\hero\\battle\\zhao_mugei_dodge.png",
+    "SHA256": "82DC2FF364D2555BB0B4D394E76C7F192A6975ECF0347D5A456C1343990295A2",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\hero\\battle\\zhao_mugei_punch.png",
+    "SHA256": "BBB231CA1843F55EAAC37004F814EF5D6FF0A205C67D4ED478CACE2CFA52FCAD",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\hero\\battle\\zhao_mugei_rear_quarter.png",
+    "SHA256": "B5FC48A4B2580C9A25BEF704A610806B8AB73AE48CB57F364B4A7443BE1F5751",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\battle_actions_preview.tscn",
+    "SHA256": "33CB1AC92440E83B7B87B1FBEABAA4B66715D982F76F1D7037118FB65BFEEBCD",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\battle_interface.tscn",
+    "SHA256": "611B84690C5D6F62597DDC43CDBB12602D99096D5C74F7C5BA87697E886165AD",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\battle_preview.tscn",
+    "SHA256": "20AF6BA790E8030EF6F9CDB539C967D866BD68D68ED13A086DDBD8BDE939892B",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\components\\battle_stage.tscn",
+    "SHA256": "055200CD9B20113767039BF37292D606DE6A30F76F55E0817CB5FF6A114B7895",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\components\\combatant_sprite.tscn",
+    "SHA256": "B920F166DD09A7A3F64035BCAB8F19E9AA00BF005FB8A06478B015840F571345",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\components\\command_button.tscn",
+    "SHA256": "8516D2A16CCB0F642FB73B96FBFBBB91D4A342E90DB6E7B13D573CBA0375B2FC",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\components\\portrait_slot.tscn",
+    "SHA256": "F704288C654399C4EAFB43B51A52AADA6FBDFBEB0BC83F7B57DDDE4B66F9246D",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\components\\submenu.tscn",
+    "SHA256": "E64C6A94DCF223AF193CA4725FABA181AE4D5849E4441819204449284094FE00",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\effects\\action_presenter.tscn",
+    "SHA256": "EA3E467DE3B49D3AFB47A5DC066E4DA7E907699CA90D436F7D601837188F7150",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\effects\\auto_battle_effect.tscn",
+    "SHA256": "31DF99C14D3E867493F34FBF886B732A95255757EE1AAA2BE8936DB036A495EC",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\effects\\dodge_failure_effect.tscn",
+    "SHA256": "01137C1CE7DAA0759A05177C122B6B66AB726F99813CD3C91846B6A9005FD96B",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\effects\\dodge_success_effect.tscn",
+    "SHA256": "3DF598BEE0AC82506995DF619171C9499E3D73581CAC934376CDD7A4698F1061",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\effects\\hit_effect.tscn",
+    "SHA256": "1297EE3FAB49160E0E604800C85FFA50B15A4BFB14F9F97DDB9C5DF104FE38FB",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\options\\attack_button.tscn",
+    "SHA256": "B025A7D7F4ABDC18AAC14040BF20ABE7213DF9EEDF877224AE8C52E7A8CC0B7E",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\options\\auto_battle_button.tscn",
+    "SHA256": "72AC1083C7B9F82A9E71348356D94CD0CDA4E506EFA1B04447302C61D4E8095E",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\options\\dodge_button.tscn",
+    "SHA256": "AFA5CA91472016F562394849B3754FF794AFC569BE1D0B17AF92A24C50602F31",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\options\\items_button.tscn",
+    "SHA256": "5A396EF241737FE70349170FAE37E57593B4B825D3ECC1B074E71D5689D819F3",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\options\\magic_button.tscn",
+    "SHA256": "3767BA213A8CF614BBED7D56E96E151B12D53BCB6B79CA373A64DC39F2861C01",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\options\\surrender_button.tscn",
+    "SHA256": "592E7B8802269DAA6E3616323A5A3DE46402BE54BF8A70410CCD1C0D531605C9",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\submenus\\attack_submenu.tscn",
+    "SHA256": "3313F7A906FAE2F77131F49E7C4B1DDBD80F461D09916322834CF930D3E9882F",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\submenus\\auto_battle_submenu.tscn",
+    "SHA256": "E04826B680F2CE1C67271D17C32964ECE2AFA737EB2EE66E99C59B2D1AB69F1C",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\submenus\\dodge_submenu.tscn",
+    "SHA256": "3E2B08499D3502CDA81002B96AA88C4C737A019EBA6467834C26CD2517171ECD",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\submenus\\items_submenu.tscn",
+    "SHA256": "359097E4B9C994E8A59D8096106DB44B9FBE6D2CE7444FD726AE4D3637408E8D",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\submenus\\magic_submenu.tscn",
+    "SHA256": "CBC11351A3D84DD7BB3C499BC3F0E836A488FC2325D1D8C672D0721B906E1A63",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scenes\\ui\\battle\\submenus\\surrender_submenu.tscn",
+    "SHA256": "F8E33DD9CAB8AAA74C336566BD014F2684C89C6DAE1CC1AA975D1290763945EE",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\battle_actions_preview.gd",
+    "SHA256": "9253BAEFC2D2BF66631C4993183A319038F20F9EDE9694E0DC7A9790B7DF80E8",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\battle_action_presenter.gd",
+    "SHA256": "7D8C71C347B6AFE8E3F7A71EB438A9C3640ED62017245B9DE0907D0700E8AE3B",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\battle_combatant.gd",
+    "SHA256": "4157B7157C5A754D1A1A70EF3AA73F151D47C3B9136F4EA42040E1F2952CD1E7",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\battle_effect.gd",
+    "SHA256": "ED15DFA06CA54440FBB57B9D2D9041A4316B492DE2BD53A26C100BA9004C74A4",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\battle_interface.gd",
+    "SHA256": "08F462E6C2B99D2AFA5C4C14E4DFD6647E4296783442699CFDC89A22D4F134DE",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\battle_portrait_slot.gd",
+    "SHA256": "31E87AC652A5F160157B49ED3FC074F50144035217FEE036BD99327938DBDBA3",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\battle_preview.gd",
+    "SHA256": "D22E191FB4CC75E07CA9EF69FC6CAAB0929DEDD436E1B6374B5410026F9B8995",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\battle_stage.gd",
+    "SHA256": "F7BE3368A3D7461DFB2D89818718063FCB30FC20D0C2BEA932D632C8548676B1",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\battle_submenu.gd",
+    "SHA256": "306DE6F4BF5BD90F78BD9F2DE0C271FD843352B0741B56B455949AEE849083F5",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\render_battle_actions.gd",
+    "SHA256": "20208CA7ED505E4A024CC7E61ABBA2040A52AB01654CF23E34C79164DEB0CD6F",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\render_battle_preview.gd",
+    "SHA256": "420E4DC33444388B8898AFA54CFA9C0739137063D5587B1A819CEC0387BB62EA",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\verify_battle_actions.gd",
+    "SHA256": "B3FF403F2B96C4417D06BAA583F13A76FF1163C604A992F9F66D95D5F0967ADB",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\battle\\verify_battle_framework.gd",
+    "SHA256": "9CCDED145DE9DF9DFDB880965CC9F1AABAD93B06C1CC25C36C39AA1C820F8592",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\ui_style.gd",
+    "SHA256": "296228CB27EED2A062607EED179A2F84A27819D28C30FD4FDCE9CA4C5726B62B",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\scripts\\ui\\option_button.gd",
+    "SHA256": "B5DDB55A9E3123B43EDDFB99D52970C2BA8FAED06B475D9DAE15979EA77DF995",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\data\\battle_ui_library.json",
+    "SHA256": "7274796786531F4CCE975A022BB097E3C9326D261027B28CBFB20E184D3A9015",
+    "Access": "external_read_only"
+  },
+  {
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\data\\battle_action_library.json",
+    "SHA256": "22BE4A9287D007EFA060E0610249B465A4B52E56FD5DC3EF2396D51E4EC94A5B",
+    "Access": "external_read_only"
+  }
+]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle/battle_actions_preview.gd" id="1"]
+
+[node name="UIBattleActionsPreview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+editor_description = "按 F6 查看拳击、闪避成功/失败、命中与挂机专属对白演出；仅预览素材。"
+metadata/asset_name = "战斗动作与特效预览"
+script = ExtResource("1")

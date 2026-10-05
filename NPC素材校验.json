@@ -1,0 +1,127 @@
+[
+  {
+    "id": "lao_dong",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\牢董.png",
+    "SHA256": "476B766371C2F3E8FA82E519FC65571779D7FC53A1D8054E52413012B9717EF8",
+    "height_px": 108
+  },
+  {
+    "id": "la_jiao",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\辣椒.png",
+    "SHA256": "FC02C6CB98C9B50CA2CC122BD11C949E15C879905C6DB361E341FA46E59B12AE",
+    "height_px": 110
+  },
+  {
+    "id": "gou_ga",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\勾尬.png",
+    "SHA256": "7E9782A4D35AB70CD5DDB307F80CBDC951F762F5ABA56B5A79C17B793D85796C",
+    "height_px": 90
+  },
+  {
+    "id": "wr",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\wr.png",
+    "SHA256": "EB0E5AF1853E88C241C544265CC0AEB409DD7C0B8D2C6123D30E1D42C29E668D",
+    "height_px": 98
+  },
+  {
+    "id": "lao_li",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\牢李.png",
+    "SHA256": "15561EDC209ECCF7BCAAB3D0C2D8FC2FADD6A8B51F9FBA5EF7B4C65CCAFE5A22",
+    "height_px": 103
+  },
+  {
+    "id": "lao_chou",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\牢抽.png",
+    "SHA256": "28D2368B01AD1D304569DBC267A9CD97C0179CDF80E83A151B2FE0CADF9DF176",
+    "height_px": 114
+  },
+  {
+    "id": "fei_yan",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\费眼.png",
+    "SHA256": "5457AFF9764C77B3DAC2AA9B16A89F6472F0EC0D6F9BDD4147A9818EB59F3C05",
+    "height_px": 92
+  },
+  {
+    "id": "lao_ao",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\牢傲.png",
+    "SHA256": "E75F6F1F433B6775B5E5BDF2CCE9FB3F543F27D6B5756E213E6ECD24E1858FF0",
+    "height_px": 94
+  },
+  {
+    "id": "lao_shuo",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\牢硕.png",
+    "SHA256": "D9A21A4AEF5AE2CAD7AAD691F841D4AB29F1484B582DABDD97C6A9438BDF5C99",
+    "height_px": 108
+  },
+  {
+    "id": "yang_zi",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\阳子.png",
+    "SHA256": "CD672CBFA3165059D3849E481DBEBA4D3F4F9E97774A6DFB910E5CADCF1AA49A",
+    "height_px": 108
+  },
+  {
+    "id": "wen_cong",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\文聪.png",
+    "SHA256": "C11D4CCEB270818BEDDFAA5A0E6F3C6B542B5EBAA11DDB6FA0E147BDBDF0E9C1",
+    "height_px": 116
+  },
+  {
+    "id": "homeroom_teacher",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\班主任.png",
+    "SHA256": "9E7AEF18D9EC083900A61AB9992DBCCBC2192909DB12F2CCC7BC485A715B6023",
+    "height_px": 100
+  },
+  {
+    "id": "student_male",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\templates\\student_male.png",
+    "SHA256": "9EB4C5107D3A8FD59F83E600ABB83D98E62A7472550CDD033AAD2F3431B005F4",
+    "height_px": 104
+  },
+  {
+    "id": "student_female",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\templates\\student_female.png",
+    "SHA256": "F3E87C295274BD393B20CE00E7910E34B363CFA753E9C1435DCD677FF560600B",
+    "height_px": 102
+  },
+  {
+    "id": "zhao_mugei",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\hero\\zhao_mugei.png",
+    "SHA256": "891E28695D58080DFE193BE42D9C8EF1C510A97783BE3D3FD485638B3B6BFA1A",
+    "height_px": 104
+  },
+  {
+    "id": "legacy_student_1",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\students_npc_atlas.png",
+    "SHA256": "747D15969A371F58335BE5952CD82482DD2F8ADEE9D6CDED0EE922050D708761",
+    "height_px": 104
+  },
+  {
+    "id": "legacy_student_2",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\students_npc_atlas.png",
+    "SHA256": "747D15969A371F58335BE5952CD82482DD2F8ADEE9D6CDED0EE922050D708761",
+    "height_px": 102
+  },
+  {
+    "id": "legacy_student_3",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\students_npc_atlas.png",
+    "SHA256": "747D15969A371F58335BE5952CD82482DD2F8ADEE9D6CDED0EE922050D708761",
+    "height_px": 100
+  },
+  {
+    "id": "legacy_student_4",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\students_npc_atlas.png",
+    "SHA256": "747D15969A371F58335BE5952CD82482DD2F8ADEE9D6CDED0EE922050D708761",
+    "height_px": 100
+  },
+  {
+    "id": "english_teacher",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\characters\\npcs\\英语老师.png",
+    "SHA256": "F112C92E8B8302B13DE87B88DAB7D594720873F06AD92A8C3748563619E40A70",
+    "height_px": 106
+  },
+  {
+    "id": "dialogue",
+    "Path": "D:\\Godot\\Projects\\赵慕gei的牙林冒险\\assets\\ui\\对话框.png",
+    "SHA256": "1590F4B6B578BAEA22E68951B9A942199BF6AD951598A3D85526211180534A98"
+  }
+]

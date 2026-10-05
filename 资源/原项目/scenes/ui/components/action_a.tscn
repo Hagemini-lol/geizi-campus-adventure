@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/option_button.gd" id="1"]
+
+[node name="UIActionAButton" type="Button"]
+editor_description = "独立圆形 A 按钮；HUD 向外发送 action_requested(“a”)。"
+metadata/asset_name = "A操作按钮"
+metadata/asset_category = "输入与边框"
+metadata/asset_usage = "独立圆形 A 按钮；HUD 向外发送 action_requested(“a”)。"
+script = ExtResource("1")
+option_text = "A"
+option_id = &"a"
+round_button = true
+font_size = 20

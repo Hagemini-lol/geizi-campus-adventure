@@ -1,0 +1,863 @@
+{
+  "date": "2026-10-04",
+  "generation_method": "built_in_image_gen",
+  "annotation": "校园异变怪物动作素材库：四种怪物，共32个独立正面姿态",
+  "status": "saved_as_requested",
+  "user_confirmed_as_asset": true,
+  "view": "front",
+  "canvas_size": [
+    512,
+    512
+  ],
+  "preview_scene": "res://scenes/monsters/monster_animation_preview.tscn",
+  "monsters": [
+    {
+      "id": "ink_slime",
+      "name": "墨泥怪",
+      "annotation": "墨泥怪：正面动作差分，8个独立姿态",
+      "status": "saved_as_requested",
+      "user_confirmed_as_asset": true,
+      "scene": "res://scenes/monsters/墨泥怪-动画.tscn",
+      "documentation": "assets/characters/monsters/素材命名与注释.md",
+      "prompt": "docs/怪物动作差分01/墨泥怪-提示词.txt",
+      "atlas": "res://assets/characters/monsters/animations/墨泥怪-动作.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "resource": "res://assets/characters/monsters/animations/墨泥怪-动画.tres",
+      "view": "front",
+      "distinct_poses": 8,
+      "frames": [
+        {
+          "index": 0,
+          "annotation": "待机1：中间姿态",
+          "region": [
+            42,
+            95,
+            389,
+            389
+          ],
+          "padding_offset": [
+            61.5,
+            71
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 1,
+          "annotation": "待机2：收缩／下沉",
+          "region": [
+            458,
+            95,
+            432,
+            389
+          ],
+          "padding_offset": [
+            40.0,
+            71
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 2,
+          "annotation": "待机3：展开／抬起",
+          "region": [
+            919,
+            95,
+            374,
+            389
+          ],
+          "padding_offset": [
+            69.0,
+            71
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 3,
+          "annotation": "攻击：单张出招姿态",
+          "region": [
+            1329,
+            95,
+            410,
+            389
+          ],
+          "padding_offset": [
+            32.75,
+            71
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 4,
+          "annotation": "移动1：中间姿态",
+          "region": [
+            51,
+            539,
+            365,
+            303
+          ],
+          "padding_offset": [
+            73.5,
+            157
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 5,
+          "annotation": "移动2：左步／推进",
+          "region": [
+            465,
+            539,
+            390,
+            303
+          ],
+          "padding_offset": [
+            61.0,
+            157
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 6,
+          "annotation": "移动3：右步／弹跳",
+          "region": [
+            922,
+            539,
+            359,
+            303
+          ],
+          "padding_offset": [
+            76.5,
+            145
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 7,
+          "annotation": "受击：单张后仰／变形姿态",
+          "region": [
+            1311,
+            539,
+            434,
+            303
+          ],
+          "padding_offset": [
+            39.0,
+            157
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "name": "idle",
+          "annotation": "待机",
+          "source_indices": [
+            0,
+            1,
+            0,
+            2
+          ],
+          "fps": 4.0,
+          "loop": true,
+          "usage": "循环拨帧，中间姿态重复使用"
+        },
+        {
+          "name": "move",
+          "annotation": "移动",
+          "source_indices": [
+            4,
+            5,
+            4,
+            6
+          ],
+          "fps": 7.0,
+          "loop": true,
+          "usage": "循环拨帧，中间姿态重复使用"
+        },
+        {
+          "name": "attack",
+          "annotation": "攻击",
+          "source_indices": [
+            3
+          ],
+          "fps": 4.0,
+          "loop": false,
+          "usage": "单张短暂停留，结束后回到待机"
+        },
+        {
+          "name": "hurt",
+          "annotation": "受击",
+          "source_indices": [
+            7
+          ],
+          "fps": 3.33,
+          "loop": false,
+          "usage": "单张短暂停留，结束后回到待机"
+        }
+      ]
+    },
+    {
+      "id": "book_mimic",
+      "name": "噬书怪",
+      "annotation": "噬书怪：正面动作差分，8个独立姿态",
+      "status": "saved_as_requested",
+      "user_confirmed_as_asset": true,
+      "scene": "res://scenes/monsters/噬书怪-动画.tscn",
+      "documentation": "assets/characters/monsters/素材命名与注释.md",
+      "prompt": "docs/怪物动作差分01/噬书怪-提示词.txt",
+      "atlas": "res://assets/characters/monsters/animations/噬书怪-动作.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "resource": "res://assets/characters/monsters/animations/噬书怪-动画.tres",
+      "view": "front",
+      "distinct_poses": 8,
+      "frames": [
+        {
+          "index": 0,
+          "annotation": "待机1：中间姿态",
+          "region": [
+            17,
+            16,
+            390,
+            418
+          ],
+          "padding_offset": [
+            61.0,
+            42
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 1,
+          "annotation": "待机2：收缩／下沉",
+          "region": [
+            485,
+            16,
+            362,
+            418
+          ],
+          "padding_offset": [
+            75.0,
+            42
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 2,
+          "annotation": "待机3：展开／抬起",
+          "region": [
+            917,
+            16,
+            383,
+            418
+          ],
+          "padding_offset": [
+            64.5,
+            42
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 3,
+          "annotation": "攻击：单张出招姿态",
+          "region": [
+            1333,
+            16,
+            436,
+            418
+          ],
+          "padding_offset": [
+            36.75,
+            42
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 4,
+          "annotation": "移动1：中间姿态",
+          "region": [
+            26,
+            463,
+            382,
+            388
+          ],
+          "padding_offset": [
+            65.0,
+            72
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 5,
+          "annotation": "移动2：左步／推进",
+          "region": [
+            479,
+            463,
+            371,
+            388
+          ],
+          "padding_offset": [
+            70.5,
+            72
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 6,
+          "annotation": "移动3：右步／弹跳",
+          "region": [
+            932,
+            463,
+            356,
+            388
+          ],
+          "padding_offset": [
+            78.0,
+            72
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 7,
+          "annotation": "受击：单张后仰／变形姿态",
+          "region": [
+            1341,
+            463,
+            416,
+            388
+          ],
+          "padding_offset": [
+            48.0,
+            72
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "name": "idle",
+          "annotation": "待机",
+          "source_indices": [
+            0,
+            1,
+            0,
+            2
+          ],
+          "fps": 4.0,
+          "loop": true,
+          "usage": "循环拨帧，中间姿态重复使用"
+        },
+        {
+          "name": "move",
+          "annotation": "移动",
+          "source_indices": [
+            4,
+            5,
+            4,
+            6
+          ],
+          "fps": 7.0,
+          "loop": true,
+          "usage": "循环拨帧，中间姿态重复使用"
+        },
+        {
+          "name": "attack",
+          "annotation": "攻击",
+          "source_indices": [
+            3
+          ],
+          "fps": 4.0,
+          "loop": false,
+          "usage": "单张短暂停留，结束后回到待机"
+        },
+        {
+          "name": "hurt",
+          "annotation": "受击",
+          "source_indices": [
+            7
+          ],
+          "fps": 3.33,
+          "loop": false,
+          "usage": "单张短暂停留，结束后回到待机"
+        }
+      ]
+    },
+    {
+      "id": "hollow_uniform",
+      "name": "空壳校服",
+      "annotation": "空壳校服：正面动作差分，8个独立姿态",
+      "status": "saved_as_requested",
+      "user_confirmed_as_asset": true,
+      "scene": "res://scenes/monsters/空壳校服-动画.tscn",
+      "documentation": "assets/characters/monsters/素材命名与注释.md",
+      "prompt": "docs/怪物动作差分01/空壳校服-提示词.txt",
+      "atlas": "res://assets/characters/monsters/animations/空壳校服-动作.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "resource": "res://assets/characters/monsters/animations/空壳校服-动画.tres",
+      "view": "front",
+      "distinct_poses": 8,
+      "frames": [
+        {
+          "index": 0,
+          "annotation": "待机1：中间姿态",
+          "region": [
+            98,
+            27,
+            250,
+            428
+          ],
+          "padding_offset": [
+            131.0,
+            32
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 1,
+          "annotation": "待机2：收缩／下沉",
+          "region": [
+            548,
+            27,
+            236,
+            428
+          ],
+          "padding_offset": [
+            138.0,
+            32
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 2,
+          "annotation": "待机3：展开／抬起",
+          "region": [
+            971,
+            27,
+            283,
+            428
+          ],
+          "padding_offset": [
+            114.5,
+            32
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 3,
+          "annotation": "攻击：单张出招姿态",
+          "region": [
+            1397,
+            27,
+            315,
+            428
+          ],
+          "padding_offset": [
+            100.75,
+            32
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 4,
+          "annotation": "移动1：中间姿态",
+          "region": [
+            105,
+            464,
+            233,
+            387
+          ],
+          "padding_offset": [
+            139.5,
+            73
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 5,
+          "annotation": "移动2：左步／推进",
+          "region": [
+            549,
+            464,
+            232,
+            387
+          ],
+          "padding_offset": [
+            140.0,
+            73
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 6,
+          "annotation": "移动3：右步／弹跳",
+          "region": [
+            995,
+            464,
+            233,
+            387
+          ],
+          "padding_offset": [
+            139.5,
+            73
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 7,
+          "annotation": "受击：单张后仰／变形姿态",
+          "region": [
+            1396,
+            464,
+            347,
+            387
+          ],
+          "padding_offset": [
+            82.5,
+            73
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "name": "idle",
+          "annotation": "待机",
+          "source_indices": [
+            0,
+            1,
+            0,
+            2
+          ],
+          "fps": 4.0,
+          "loop": true,
+          "usage": "循环拨帧，中间姿态重复使用"
+        },
+        {
+          "name": "move",
+          "annotation": "移动",
+          "source_indices": [
+            4,
+            5,
+            4,
+            6
+          ],
+          "fps": 7.0,
+          "loop": true,
+          "usage": "循环拨帧，中间姿态重复使用"
+        },
+        {
+          "name": "attack",
+          "annotation": "攻击",
+          "source_indices": [
+            3
+          ],
+          "fps": 4.0,
+          "loop": false,
+          "usage": "单张短暂停留，结束后回到待机"
+        },
+        {
+          "name": "hurt",
+          "annotation": "受击",
+          "source_indices": [
+            7
+          ],
+          "fps": 3.33,
+          "loop": false,
+          "usage": "单张短暂停留，结束后回到待机"
+        }
+      ]
+    },
+    {
+      "id": "twig_imp",
+      "name": "枯枝怪",
+      "annotation": "枯枝怪：正面动作差分，8个独立姿态",
+      "status": "saved_as_requested",
+      "user_confirmed_as_asset": true,
+      "scene": "res://scenes/monsters/枯枝怪-动画.tscn",
+      "documentation": "assets/characters/monsters/素材命名与注释.md",
+      "prompt": "docs/怪物动作差分01/枯枝怪-提示词.txt",
+      "atlas": "res://assets/characters/monsters/animations/枯枝怪-动作.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "resource": "res://assets/characters/monsters/animations/枯枝怪-动画.tres",
+      "view": "front",
+      "distinct_poses": 8,
+      "frames": [
+        {
+          "index": 0,
+          "annotation": "待机1：中间姿态",
+          "region": [
+            47,
+            22,
+            384,
+            404
+          ],
+          "padding_offset": [
+            64.0,
+            56
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 1,
+          "annotation": "待机2：收缩／下沉",
+          "region": [
+            503,
+            22,
+            346,
+            404
+          ],
+          "padding_offset": [
+            83.0,
+            56
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 2,
+          "annotation": "待机3：展开／抬起",
+          "region": [
+            899,
+            22,
+            414,
+            404
+          ],
+          "padding_offset": [
+            49.0,
+            56
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 3,
+          "annotation": "攻击：单张出招姿态",
+          "region": [
+            1348,
+            22,
+            393,
+            404
+          ],
+          "padding_offset": [
+            51.75,
+            56
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 4,
+          "annotation": "移动1：中间姿态",
+          "region": [
+            64,
+            463,
+            341,
+            363
+          ],
+          "padding_offset": [
+            85.5,
+            97
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 5,
+          "annotation": "移动2：左步／推进",
+          "region": [
+            487,
+            463,
+            381,
+            363
+          ],
+          "padding_offset": [
+            65.5,
+            97
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 6,
+          "annotation": "移动3：右步／弹跳",
+          "region": [
+            935,
+            463,
+            339,
+            363
+          ],
+          "padding_offset": [
+            86.5,
+            97
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        },
+        {
+          "index": 7,
+          "annotation": "受击：单张后仰／变形姿态",
+          "region": [
+            1317,
+            463,
+            439,
+            363
+          ],
+          "padding_offset": [
+            36.5,
+            97
+          ],
+          "canvas": [
+            512,
+            512
+          ]
+        }
+      ],
+      "animations": [
+        {
+          "name": "idle",
+          "annotation": "待机",
+          "source_indices": [
+            0,
+            1,
+            0,
+            2
+          ],
+          "fps": 4.0,
+          "loop": true,
+          "usage": "循环拨帧，中间姿态重复使用"
+        },
+        {
+          "name": "move",
+          "annotation": "移动",
+          "source_indices": [
+            4,
+            5,
+            4,
+            6
+          ],
+          "fps": 7.0,
+          "loop": true,
+          "usage": "循环拨帧，中间姿态重复使用"
+        },
+        {
+          "name": "attack",
+          "annotation": "攻击",
+          "source_indices": [
+            3
+          ],
+          "fps": 4.0,
+          "loop": false,
+          "usage": "单张短暂停留，结束后回到待机"
+        },
+        {
+          "name": "hurt",
+          "annotation": "受击",
+          "source_indices": [
+            7
+          ],
+          "fps": 3.33,
+          "loop": false,
+          "usage": "单张短暂停留，结束后回到待机"
+        }
+      ]
+    }
+  ]
+}

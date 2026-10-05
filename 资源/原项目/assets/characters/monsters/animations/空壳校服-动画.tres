@@ -1,0 +1,90 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/characters/monsters/animations/空壳校服-动作.png" id="1_atlas"]
+
+[sub_resource type="AtlasTexture" id="Atlas_0"]
+atlas = ExtResource("1_atlas")
+region = Rect2(98, 27, 250, 428)
+margin = Rect2(131.0, 32, 262, 84)
+filter_clip = true
+metadata/annotation = "空壳校服 · 待机1：中间姿态"
+
+[sub_resource type="AtlasTexture" id="Atlas_1"]
+atlas = ExtResource("1_atlas")
+region = Rect2(548, 27, 236, 428)
+margin = Rect2(138.0, 32, 276, 84)
+filter_clip = true
+metadata/annotation = "空壳校服 · 待机2：收缩／下沉"
+
+[sub_resource type="AtlasTexture" id="Atlas_2"]
+atlas = ExtResource("1_atlas")
+region = Rect2(971, 27, 283, 428)
+margin = Rect2(114.5, 32, 229, 84)
+filter_clip = true
+metadata/annotation = "空壳校服 · 待机3：展开／抬起"
+
+[sub_resource type="AtlasTexture" id="Atlas_3"]
+atlas = ExtResource("1_atlas")
+region = Rect2(1397, 27, 315, 428)
+margin = Rect2(100.75, 32, 197, 84)
+filter_clip = true
+metadata/annotation = "空壳校服 · 攻击：单张出招姿态"
+
+[sub_resource type="AtlasTexture" id="Atlas_4"]
+atlas = ExtResource("1_atlas")
+region = Rect2(105, 464, 233, 387)
+margin = Rect2(139.5, 73, 279, 125)
+filter_clip = true
+metadata/annotation = "空壳校服 · 移动1：中间姿态"
+
+[sub_resource type="AtlasTexture" id="Atlas_5"]
+atlas = ExtResource("1_atlas")
+region = Rect2(549, 464, 232, 387)
+margin = Rect2(140.0, 73, 280, 125)
+filter_clip = true
+metadata/annotation = "空壳校服 · 移动2：左步／推进"
+
+[sub_resource type="AtlasTexture" id="Atlas_6"]
+atlas = ExtResource("1_atlas")
+region = Rect2(995, 464, 233, 387)
+margin = Rect2(139.5, 73, 279, 125)
+filter_clip = true
+metadata/annotation = "空壳校服 · 移动3：右步／弹跳"
+
+[sub_resource type="AtlasTexture" id="Atlas_7"]
+atlas = ExtResource("1_atlas")
+region = Rect2(1396, 464, 347, 387)
+margin = Rect2(82.5, 73, 165, 125)
+filter_clip = true
+metadata/annotation = "空壳校服 · 受击：单张后仰／变形姿态"
+
+[resource]
+metadata/asset_name = "空壳校服 · 正面动作差分"
+metadata/annotation = "待机3张、移动3张、攻击1张、受击1张；中间帧复用成循环。"
+metadata/documentation = "res://assets/characters/monsters/素材命名与注释.md"
+animations = [
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_0")}, {"duration": 1.0, "texture": SubResource("Atlas_1")}, {"duration": 1.0, "texture": SubResource("Atlas_0")}, {"duration": 1.0, "texture": SubResource("Atlas_2")}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_4")}, {"duration": 1.0, "texture": SubResource("Atlas_5")}, {"duration": 1.0, "texture": SubResource("Atlas_4")}, {"duration": 1.0, "texture": SubResource("Atlas_6")}],
+"loop": true,
+"name": &"move",
+"speed": 7.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_3")}],
+"loop": false,
+"name": &"attack",
+"speed": 4.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_7")}],
+"loop": false,
+"name": &"hurt",
+"speed": 3.33
+}
+]

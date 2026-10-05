@@ -1,0 +1,25 @@
+{
+  "mode": "self_contained_local_assets",
+  "map": "资源/原项目/assets/maps/outdoor/campus_named_v2.png",
+  "hero": "资源/原项目/assets/characters/hero/zhao_mugei.png",
+  "geometry": "资源/原项目/data/campus_regions.json",
+  "district_model": "资源/地图/运行数据.json",
+  "interior_model": "资源/地图/内景/内外对应.json",
+  "menu_assets": {
+    "menu": "资源/原项目/assets/ui/菜单UI.png",
+    "panel": "资源/原项目/assets/ui/components/panels/panel.png",
+    "button_normal": "资源/原项目/assets/ui/components/buttons/option_normal.png",
+    "button_hover": "资源/原项目/assets/ui/components/buttons/option_hover.png",
+    "button_selected": "资源/原项目/assets/ui/components/buttons/option_selected.png"
+  },
+  "cover": "资源/原项目/assets/ui/covers/游戏封面.png",
+  "npc_library": "资源/原项目/data/character_source_regions.json",
+  "dialogue": "资源/原项目/assets/ui/对话框.png",
+  "combat_rules": "战斗与刷新配置.json",
+  "task_rules": "任务配置.json",
+  "economy_rules": "物资与交易配置.json",
+  "battle_asset_root": "资源/原项目",
+  "battle_ui_library": "资源/原项目/data/battle_ui_library.json",
+  "office_rules": "办公室配置.json",
+  "walk_library": "资源/原项目/data/character_walk_library.json"
+}

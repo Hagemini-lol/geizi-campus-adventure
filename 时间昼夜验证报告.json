@@ -1,0 +1,66 @@
+{
+  "automatic_progression": false,
+  "checks": 115,
+  "cooldown_seconds": 2,
+  "display_period_only": true,
+  "event_advancement": true,
+  "failures": [],
+  "passed": true,
+  "path_line_hidden": true,
+  "ranges": [
+    {
+      "name": "凌晨"
+    },
+    {
+      "name": "上午"
+    },
+    {
+      "name": "下午"
+    },
+    {
+      "name": "晚上"
+    },
+    {
+      "name": "深夜"
+    }
+  ],
+  "samples": [
+    {
+      "cooldown_ms": 2050,
+      "peak_black": 1.0,
+      "period": "下午",
+      "tint": "(1.0, 0.95, 0.85, 1.0)"
+    },
+    {
+      "cooldown_ms": 2049,
+      "peak_black": 1.0,
+      "period": "晚上",
+      "tint": "(0.55, 0.56, 0.7, 1.0)"
+    },
+    {
+      "cooldown_ms": 2049,
+      "peak_black": 1.0,
+      "period": "深夜",
+      "tint": "(0.3, 0.37, 0.55, 1.0)"
+    },
+    {
+      "cooldown_ms": 2049,
+      "peak_black": 1.0,
+      "period": "凌晨",
+      "tint": "(0.56, 0.64, 0.78, 1.0)"
+    },
+    {
+      "cooldown_ms": 2048,
+      "peak_black": 1.0,
+      "period": "上午",
+      "tint": "(1.0, 1.0, 1.0, 1.0)"
+    },
+    {
+      "cooldown_ms": 2046,
+      "peak_black": 1.0,
+      "period": "凌晨",
+      "tint": "(0.82, 0.86, 0.94, 1.0)"
+    }
+  ],
+  "ui_lighting_independent": true
+}

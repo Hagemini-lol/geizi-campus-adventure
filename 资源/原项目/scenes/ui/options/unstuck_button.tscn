@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/option_button.gd" id="1"]
+
+[node name="UIUnstuckActionButton" type="Button"]
+editor_description = "设置页独立按钮；触发 unstuck 操作信号，由游戏连接具体行为。"
+metadata/asset_name = "脱离卡死操作按钮"
+metadata/asset_category = "设置操作"
+metadata/asset_usage = "设置页独立按钮；触发 unstuck 操作信号，由游戏连接具体行为。"
+script = ExtResource("1")
+option_text = "脱离卡死"
+option_id = &"unstuck"
