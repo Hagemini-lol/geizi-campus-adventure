@@ -102,7 +102,7 @@ func _physics_process(delta: float) -> void:
 			game.show_notice("路线被阻挡，请重新点击目的地")
 	else: stuck_time = 0.0
 	gait.advance(delta,position.distance_to(before)/maxf(delta,.001) if not frozen else 0.0)
-	queue_redraw()
+	# The local shadow never changes with animation or movement.
 
 func _draw() -> void:
 	draw_set_transform(Vector2(0, 1), 0.0, Vector2(1.0, 0.38))

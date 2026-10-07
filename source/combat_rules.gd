@@ -97,7 +97,7 @@ func damage(attacker: Dictionary, defender: Dictionary, kind: String="physical",
 		amount=attack*ratio*maxf(0,(100.0-defense)/100.0)*(1.0-float(defender.get("physical_reduction",0)))*(1.0-temporary_reduction)
 	if kind=="magic":amount*=1.0-float(defender.get("elemental_reductions",{}).get(element,0))
 	var value:=floori(maxf(floori(attack*.1),floori(amount))*amplifier)
-	if defender.get("rarity","")=="elite":value=mini(value,maxi(1,floori(int(defender["hp"])*float(data.get("elite_damage_cap_ratio",.7)))))
+	if defender.get("rarity","") in ["elite","boss"]:value=mini(value,maxi(1,floori(int(defender["hp"])*float(data.get("elite_damage_cap_ratio",.7)))))
 	return value
 
 func restore(snapshot: Dictionary) -> void:

@@ -207,5 +207,1231 @@
     ]
   },
   "effects_index": "资源/原项目/data/magic_effects_01.json",
-  "end_hint": "第一章已完成。明天再和费眼商量；目前可以自由探索、学习技能和挑战实验楼怪物。"
+  "end_hint": "第一章已完成。明天再和费眼商量；目前可以自由探索、学习技能和挑战实验楼怪物。",
+  "campaign": {
+    "version": 1,
+    "nodes": [
+      {
+        "id": "night_hunt",
+        "chapter": "part_2",
+        "title": "深夜：实验楼第一战",
+        "location": "B02:1:corridor",
+        "cast": [
+          "fei_yan",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "fei_yan",
+            "text": "墨泥怪怕电。试试闪电链；MP 不足就休整，撑不住可以撤离，双方保留血量。"
+          }
+        ],
+        "timeWindow": [
+          4
+        ],
+        "requires": [],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "battle": [
+          "ink_slime"
+        ],
+        "event": "monster_defeated/ink_slime",
+        "min_day": 0
+      },
+      {
+        "id": "next_dawn",
+        "chapter": "part_2",
+        "title": "回家 / 宿舍休息",
+        "location": "N02",
+        "cast": [
+          "zhao_mugei",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "zhao_mugei",
+            "text": "白天上课，晚上刷怪。先回去睡一觉，明天再说。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "night_hunt"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "rest": true,
+        "event": "days_passed",
+        "min_day": 0
+      },
+      {
+        "id": "yang_awakened",
+        "chapter": "part_2",
+        "title": "阳子的连珠炮",
+        "location": "B01:3:0",
+        "cast": [
+          "yang_zi",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "yang_zi",
+            "text": "昨晚实验楼蓝一道白一道的，别再跟我说球形闪电了！"
+          }
+        ],
+        "timeWindow": [
+          1
+        ],
+        "requires": [
+          "next_dawn"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "RP_H": 10,
+          "BOND_yang_zi": 15
+        },
+        "event": "story/yang_awakened",
+        "extra": [
+          [
+            "fei_yan",
+            "行吧，一个两个都是侦探。阳子，你过来。法术我能教，魔法书找牢李印。"
+          ],
+          [
+            "zhao_mugei",
+            "欢迎入伙。以后晚上一块儿——刷怪。"
+          ]
+        ],
+        "effect": "world_magic_circle",
+        "min_day": 0
+      },
+      {
+        "id": "team_meet",
+        "chapter": "part_3",
+        "title": "主席台后的小会",
+        "location": "S02",
+        "cast": [
+          "fei_yan",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "fei_yan",
+            "text": "法力淤积久了会凝成怪物。要么地下有东西，要么有人故意的。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "yang_awakened"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "RP_H": 10,
+          "RP_D": 5,
+          "BOND_fei_yan": 10,
+          "BOND_lao_li": 10,
+          "BOND_lao_chou": 10,
+          "BOND_la_jiao": 10
+        },
+        "event": "story/team_meet",
+        "min_day": 2
+      },
+      {
+        "id": "handout",
+        "chapter": "part_3",
+        "title": "牢李：基础法术讲义",
+        "location": "B12:3:0",
+        "cast": [
+          "lao_li",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_li",
+            "text": "魔法书没有，讲义我给阳子印一本。墨渣自带，工本费 20g。暂时凑不齐也能留下委托，回来补印。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "team_meet"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "cost": 20,
+        "materials": {
+          "ink_fragment": 1
+        },
+        "items": {
+          "basic_spell_handout": 1
+        },
+        "event": "item_received/basic_spell_handout",
+        "min_day": 2
+      },
+      {
+        "id": "library_trace",
+        "chapter": "part_3",
+        "title": "巡查科技中心图书室",
+        "location": "B06:1:0",
+        "cast": [
+          "lao_chou",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_chou",
+            "text": "最里侧书架已经拉绳。书页一块块缺，还掉渣。先记录，不在这里动手。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "handout"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "event": "story/library_trace",
+        "min_day": 2
+      },
+      {
+        "id": "warehouse_trace",
+        "chapter": "part_3",
+        "title": "巡查小仓库",
+        "location": "B04",
+        "cast": [
+          "lao_chou",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_chou",
+            "text": "码好的枯枝自己挪窝，煤渣地上还有拖痕。三处异常，得放一起看。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "library_trace"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "event": "story/warehouse_trace",
+        "min_day": 2
+      },
+      {
+        "id": "elite_lesson",
+        "chapter": "part_3",
+        "title": "实验楼：护壳教学",
+        "location": "B02:1:corridor",
+        "cast": [
+          "fei_yan",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "fei_yan",
+            "text": "空壳校服怕光。精英有护壳，单次最多打掉 70% 生命，别指望满血一击秒杀。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "warehouse_trace"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "battle": [
+          "empty_uniform"
+        ],
+        "event": "story/elite_lesson",
+        "min_day": 2
+      },
+      {
+        "id": "patrol_done",
+        "chapter": "part_3",
+        "title": "向牢抽汇总线索",
+        "location": "B01:3:0",
+        "cast": [
+          "lao_chou",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_chou",
+            "text": "三处魔力全汇向办公楼，还有人为疏通痕迹。自然淤积不会这么整齐。是人干的。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "elite_lesson"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "event": "story/patrol_done",
+        "min_day": 2
+      },
+      {
+        "id": "medium_lesson",
+        "chapter": "part_3",
+        "title": "向费眼学习中级法术",
+        "location": "B01:3:0",
+        "cast": [
+          "fei_yan",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "fei_yan",
+            "text": "先练到 5 级，再学任意一种中级法术。四系每种 100g。缺经验就补课、训练或去实验楼。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "patrol_done"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "require_level": 5,
+        "require_medium": true,
+        "event": "skill_learned/fire_medium",
+        "min_day": 2
+      },
+      {
+        "id": "library_enter",
+        "chapter": "part_4",
+        "title": "图书室：选择进入办法",
+        "location": "B06",
+        "cast": [
+          "la_jiao",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "la_jiao",
+            "text": "虫害消杀，图书室暂时关闭。要进去先想好办法，别拿全班的安全开玩笑。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "medium_lesson"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "choice": "entry",
+        "event": "story/library_enter",
+        "min_day": 5
+      },
+      {
+        "id": "books_clear",
+        "chapter": "part_4",
+        "title": "书架间清除三只噬书怪",
+        "location": "B06:1:0",
+        "cast": [
+          "yang_zi",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "yang_zi",
+            "text": "小火精准点杀，别烧书！蓄力或中高级火法会触发喷淋、赔偿和信任损失。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "library_enter"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "battle": [
+          "book_eater",
+          "book_eater",
+          "book_eater"
+        ],
+        "event": "story/books_clear",
+        "min_day": 5
+      },
+      {
+        "id": "wr_meet",
+        "chapter": "part_4",
+        "title": "阅览区：爱看书的 wr",
+        "location": "B06:1:0",
+        "cast": [
+          "wr",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "wr",
+            "text": "你们也是来抓虫的？虫巢在下面，那只大的再不处理，明天这儿就剩架子。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "books_clear"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "RP_H": 5,
+          "RP_W": 15,
+          "BOND_wr": 10
+        },
+        "event": "story/wr_meet",
+        "effect": "fire_low",
+        "min_day": 5
+      },
+      {
+        "id": "book_queen",
+        "chapter": "part_4",
+        "title": "半地下书库：大噬书怪",
+        "location": "B06:1:1",
+        "cast": [
+          "wr",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "wr",
+            "text": "你们的火太亮，只烧得到封皮；要暗一点的火，才钻得进书页缝。先清小怪，再处理虫巢。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "wr_meet"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "F_BOOK": true
+        },
+        "battle": [
+          "book_eater",
+          "book_eater",
+          "book_eater_queen"
+        ],
+        "items": {
+          "book_core": 1,
+          "dark_page": 1,
+          "ink_fragment": 5
+        },
+        "event": "monster_defeated/book_eater_queen",
+        "min_day": 5
+      },
+      {
+        "id": "li_start",
+        "chapter": "part_5",
+        "title": "牢李被举报",
+        "location": "B01:3:0",
+        "cast": [
+          "lao_li",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_li",
+            "text": "我没有。群里只聊技术，值日表每次都签了字。那些截图是拼的。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "book_queen"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "STATE": 1
+        },
+        "choice": "li_start",
+        "event": "story/li_defame_start",
+        "extra": [
+          [
+            "gou_ga",
+            "我就是试试，看你们一着急会不会把他推出去自己撇清。"
+          ]
+        ],
+        "deadline": 3,
+        "min_day": 8
+      },
+      {
+        "id": "li_hearing",
+        "chapter": "part_5",
+        "title": "班会：为牢李澄清",
+        "location": "B01:3:0",
+        "cast": [
+          "la_jiao",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "la_jiao",
+            "text": "原始记录、截图鉴定、后勤报修单和考勤台账。至少拿来三份，或者说明暂时搁置。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "li_start"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "choice": "li_hearing",
+        "event": "story/li_case_resolved",
+        "min_day": 10
+      },
+      {
+        "id": "office_infiltrate",
+        "chapter": "part_5",
+        "title": "夜探办公楼",
+        "location": "B15:1:corridor",
+        "cast": [
+          "fei_yan",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "fei_yan",
+            "text": "周六那晚的线索都指向这里。窗口不止一晚，整备好再去顶层。"
+          }
+        ],
+        "timeWindow": [
+          3,
+          4
+        ],
+        "requires": [
+          "li_hearing"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "battle": [
+          "dry_branch",
+          "dry_branch"
+        ],
+        "event": "story/office_infiltrate",
+        "min_day": 8
+      },
+      {
+        "id": "ancient",
+        "chapter": "part_5",
+        "title": "顶层仪式阵：老树枯枝",
+        "location": "B15:4:0",
+        "cast": [
+          "gou_ga",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "gou_ga",
+            "text": "就想看看，跑得最快的人，摔一跤啥样。——今天这局，可别让我失望。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "office_infiltrate"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "RP_H": 5
+        },
+        "battle": [
+          "dry_branch_ancient"
+        ],
+        "items": {
+          "wood_heart": 1,
+          "ritual_ash": 1
+        },
+        "choice_after": "gou",
+        "event": "monster_defeated/dry_branch_ancient",
+        "disruption": true,
+        "min_day": 8
+      },
+      {
+        "id": "yang_frame",
+        "chapter": "part_5_plus",
+        "title": "公告栏：阳子被指控",
+        "location": "N02",
+        "cast": [
+          "wen_cong",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "wen_cong",
+            "text": "周末校内多处破坏并报失窃。阳子被指夜闯校园。三天内把能核实的证据送到政教处。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "ancient"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "choice": "yang_start",
+        "event": "story/yang_frame_start",
+        "deadline": 4,
+        "min_day": 11
+      },
+      {
+        "id": "yang_hearing",
+        "chapter": "part_5_plus",
+        "title": "政教处听证",
+        "location": "B15:1:0",
+        "cast": [
+          "wen_cong",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "wen_cong",
+            "text": "时间线、物证摆放、监控和证人需要交叉验证。请提交至少三份证据，或者申请以后补证。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "yang_frame"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "choice": "yang_hearing",
+        "event": "story/yang_case_resolved",
+        "min_day": 14
+      },
+      {
+        "id": "dong_talk",
+        "chapter": "part_6",
+        "title": "牢董：等了两周",
+        "location": "B01:3:0",
+        "cast": [
+          "lao_dong",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_dong",
+            "text": "实验楼的电光、科技中心的墨、办公楼的阵，我都知道。封印漏得出渣，却不该有这半年规模。跟我来。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "yang_hearing"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "BOND_lao_dong": 15
+        },
+        "event": "story/dong_talk",
+        "min_day": 15
+      },
+      {
+        "id": "dong_house",
+        "chapter": "part_6",
+        "title": "牢家旧宅",
+        "location": "STORY_HOUSE:1:0",
+        "cast": [
+          "lao_dong",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_dong",
+            "text": "祖上是守印人。有人喂它、引流它，封印年限又将到——三股劲凑一起了。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "dong_talk"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "event": "story/dong_house",
+        "min_day": 15
+      },
+      {
+        "id": "rune",
+        "chapter": "part_6",
+        "title": "石室：补全符文数列",
+        "location": "STORY_SEAL:1:0",
+        "cast": [
+          "lao_chou",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_chou",
+            "text": "符文是 2、4、8、16、？。按顺序点亮石柱，错一回多挡一波怪，线索可以再看。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "dong_house"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "choice": "rune",
+        "event": "story/rune_solved",
+        "min_day": 15
+      },
+      {
+        "id": "seal_defend",
+        "chapter": "part_6",
+        "title": "守住封印表门",
+        "location": "STORY_SEAL:1:0",
+        "cast": [
+          "lao_dong",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_dong",
+            "text": "光系对空壳、火系对枯枝。三条路现在不用选，门开那天总得选一条。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "rune"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "RP_H": 5,
+          "RP_W": 5,
+          "RP_D": 20
+        },
+        "battle": [
+          "empty_uniform",
+          "empty_uniform",
+          "dry_branch"
+        ],
+        "items": {
+          "seal_shard": 1
+        },
+        "event": "story/seal_defend",
+        "min_day": 15
+      },
+      {
+        "id": "tide_lab",
+        "chapter": "part_7",
+        "title": "夜袭：实验楼防线",
+        "location": "B02:1:corridor",
+        "cast": [
+          "fei_yan",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "fei_yan",
+            "text": "阳子跟我守实验楼，牢董和牢硕守操场南门，牢傲跟 gei 子守秋实楼。牢李支援电网。"
+          }
+        ],
+        "timeWindow": [
+          4
+        ],
+        "requires": [
+          "seal_defend"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "STATE": 2
+        },
+        "battle": [
+          "ink_slime",
+          "empty_uniform"
+        ],
+        "event": "story/tide_lab",
+        "min_day": 24
+      },
+      {
+        "id": "tide_gate",
+        "chapter": "part_7",
+        "title": "夜袭：南门与操场",
+        "location": "N02",
+        "cast": [
+          "lao_shuo",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_shuo",
+            "text": "保家卫国我说了三年。今天先把同学都护住！"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "tide_lab"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "choice": "grid",
+        "event": "story/tide_gate",
+        "min_day": 24
+      },
+      {
+        "id": "tide_school",
+        "chapter": "part_7",
+        "title": "夜袭：秋实楼楼梯口",
+        "location": "B01:1:corridor",
+        "cast": [
+          "la_jiao",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "la_jiao",
+            "text": "都别出声，往高层撤！楼下交给你，上面的人我一个都不会少！"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "tide_gate"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "battle": [
+          "empty_uniform",
+          "dry_branch"
+        ],
+        "event": "story/tide_defend",
+        "min_day": 24
+      },
+      {
+        "id": "ao_transform",
+        "chapter": "part_7",
+        "title": "魔法少男变身",
+        "location": "B01:1:corridor",
+        "cast": [
+          "lao_ao",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_ao",
+            "text": "对不起了，本来想藏到毕业的。接下来一周，靠你们了。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "tide_school"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "F_AO_TRANSFORMED": true
+        },
+        "battle": [
+          "empty_uniform_leader"
+        ],
+        "effect": "lightning_high",
+        "transform": true,
+        "event": "story/ao_transform",
+        "min_day": 24
+      },
+      {
+        "id": "tide_clear",
+        "chapter": "part_7",
+        "title": "天亮：清点人数",
+        "location": "S01",
+        "cast": [
+          "la_jiao",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "la_jiao",
+            "text": "一个都不少。可是守印碎片被趁乱取走了，这一夜是调虎离山。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "ao_transform"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "F_CIVILIAN_SAFE": true,
+          "RP_H": 10,
+          "RP_D": 10,
+          "F_LI_PARTIAL": true,
+          "GOU_UNDERSTAND": 1
+        },
+        "event": "story/tide_clear",
+        "min_day": 24
+      },
+      {
+        "id": "exam",
+        "chapter": "part_8",
+        "title": "期中考试",
+        "location": "B01:3:0",
+        "cast": [
+          "fei_yan",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "fei_yan",
+            "text": "考试不许用法术作弊。牢抽押了三张纸，先看看；班长还等着收作业呢。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "tide_clear"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {
+          "STATE": 3
+        },
+        "choice": "exam",
+        "event": "story/exam_done",
+        "min_day": 25
+      },
+      {
+        "id": "preparation",
+        "chapter": "part_8",
+        "title": "决战前夜：准备与路线",
+        "location": "B01:3:0",
+        "cast": [
+          "yang_zi",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "yang_zi",
+            "text": "去年我在这儿摔下去，明天我在这儿站住。先找大家谈谈、补证、查碎片，再选我们的路。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "exam"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "choice": "route",
+        "event": "story/route_lock",
+        "min_day": 39
+      },
+      {
+        "id": "gate",
+        "chapter": "part_9",
+        "title": "门开之日：门扉战",
+        "location": "STORY_SEAL:1:0",
+        "cast": [
+          "lao_dong",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "lao_dong",
+            "text": "封门、吞噬，还是解开——先守住门。最终战可重整两次，理智归零和主动背叛会改变结局。"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "preparation"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "battle": [
+          "gate_entity"
+        ],
+        "event": "monster_defeated/gate_entity",
+        "min_day": 40
+      },
+      {
+        "id": "choice",
+        "chapter": "part_9",
+        "title": "最终抉择",
+        "location": "STORY_SEAL:1:0",
+        "cast": [
+          "gou_ga",
+          "zhao_mugei"
+        ],
+        "dialogue": [
+          {
+            "actor": "gou_ga",
+            "text": "你们本该恨我。可恨着我，跟拉我一把，真的不耽误么？"
+          }
+        ],
+        "timeWindow": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "requires": [
+          "gate"
+        ],
+        "mutexGroup": "campaign_main",
+        "priority": 1,
+        "repeatable": false,
+        "fallback": "wait_or_retry",
+        "onTrigger": {},
+        "choice": "ending",
+        "event": "story/final_choice",
+        "min_day": 40
+      }
+    ],
+    "chapter_titles": {
+      "part_2": "深夜刷怪与阳子启蒙",
+      "part_3": "据点、人脉与异常点巡查",
+      "part_4": "图书室·书与魔女",
+      "part_5": "混沌之女·勾尬",
+      "part_5_plus": "白日审判",
+      "part_6": "六边形战士·牢家的封印",
+      "part_7": "变身·夜守校园",
+      "part_8": "期中考试与决战前夜",
+      "part_9": "门开之日"
+    },
+    "ending_retry_limit": 2,
+    "san_safety": 40
+  }
 }

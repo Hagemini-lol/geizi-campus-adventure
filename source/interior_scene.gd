@@ -66,7 +66,7 @@ func setup(value: Dictionary, context: Dictionary, directory: String, game: Node
 	# Original furniture pixels become small foreground sprites. Sorting them
 	# with actors by their floor edge prevents actors behind a desk painting over it.
 	navigation.configure(dimensions,polygon,blockers,1.8 if state["kind"]=="classroom" else 3.6)
-	if game!=null and state["building"]!="B02":
+	if game!=null and state["building"] not in ["B02","B06","B15","STORY_HOUSE","STORY_SEAL"]:
 		y_sort_enabled=true
 		npcs=IndoorNpcs.new()
 		add_child(npcs)

@@ -18,6 +18,7 @@ var pending_slot:=0
 var draft: Dictionary={}
 var settings_open:=false
 var backdrop: ColorRect
+var cover_heading: PanelContainer
 
 func button(text: String, callback: Callable) -> Button:
 	var result:=Button.new()
@@ -42,6 +43,31 @@ func _ready() -> void:
 	cover.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	cover.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	add_child(cover)
+	# Overlay the old raster title without changing the original cover asset.
+	cover_heading=PanelContainer.new()
+	cover_heading.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	cover_heading.anchor_bottom=.32
+	cover_heading.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	var heading_style:=StyleBoxFlat.new()
+	heading_style.bg_color=Color("102e32")
+	heading_style.border_color=Color("d6c580")
+	heading_style.border_width_bottom=3
+	cover_heading.add_theme_stylebox_override("panel",heading_style)
+	add_child(cover_heading)
+	var heading:=VBoxContainer.new()
+	heading.alignment=BoxContainer.ALIGNMENT_CENTER
+	heading.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	cover_heading.add_child(heading)
+	var game_name: Label=game.label("gei子的冒险",68)
+	game_name.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	game_name.add_theme_color_override("font_color",Color("fff1b5"))
+	game_name.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	heading.add_child(game_name)
+	var edition: Label=game.label("离线版 · "+str(ProjectSettings.get_setting("application/config/version","")),17)
+	edition.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	edition.modulate=Color("b8d4cf")
+	edition.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	heading.add_child(edition)
 	title_actions=PanelContainer.new()
 	title_actions.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
 	title_actions.offset_left=-465;title_actions.offset_right=465
@@ -75,7 +101,7 @@ func _ready() -> void:
 	overwrite.cancel_button_text="取消"
 	overwrite.confirmed.connect(func():write_slot(pending_slot))
 	add_child(overwrite)
-	veil.hide();modal.hide();cover.hide();title_actions.hide()
+	veil.hide();modal.hide();cover.hide();cover_heading.hide();title_actions.hide()
 	hide()
 
 func title_action(id: String) -> void:
@@ -93,14 +119,14 @@ func show_title() -> void:
 		if image!=null:
 			image.generate_mipmaps()
 			cover.texture=ImageTexture.create_from_image(image)
-	cover.show();title_actions.show();modal.hide();veil.hide()
+	cover.show();cover_heading.show();title_actions.show();modal.hide();veil.hide()
 	show()
 	game.refresh_player_freeze()
 
 func hide_title() -> void:
 	title_visible=false
 	backdrop.hide()
-	cover.hide();title_actions.hide()
+	cover.hide();cover_heading.hide();title_actions.hide()
 	cover.texture=null
 	close_modal()
 	hide()

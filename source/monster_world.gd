@@ -69,7 +69,7 @@ func add_monster(key: String, rule: Dictionary, rarity: String) -> void:
 	if entry["monsters"].size()>=int(rule["capacity"]):return
 	var pool: Array=[]
 	for id: String in rules.data["monsters"]:
-		if rules.data["monsters"][id].get("rarity")==rarity:pool.append(id)
+		if rules.data["monsters"][id].get("rarity")==rarity and not rules.data["monsters"][id].get("scripted_only",false):pool.append(id)
 	if pool.is_empty():return
 	var id: String=pool[rng.randi_range(0,pool.size()-1)]
 	var level:=spawn_level(rarity,rule)

@@ -93,8 +93,15 @@ func run() -> void:
 	await create_timer(.4).timeout;await frames(5)
 	check(not game.nearby.is_empty(),"nearby interaction discovered before pressing X")
 	await tap(0,controls.x_rect.get_center())
-	check(game.dialogue_view.visible,"X interacts with nearby NPC")
+	check(game.dialogue_view.visible or is_instance_valid(game.campaign.panel),"X interacts with nearby NPC")
 	check(not controls.visible,"movement controls hidden under dialogue")
+	if is_instance_valid(game.campaign.panel):
+		var talk: Button=null
+		for button: Button in game.campaign.panel.find_children("*","Button",true,false):
+			if button.get_meta("campaign_option","")=="talk":talk=button
+		check(talk!=null,"named NPC service offers conversation")
+		if talk!=null:await tap(0,talk.get_global_rect().get_center())
+		check(game.dialogue_view.visible,"touching campaign option starts actual conversation")
 	var confirm: Button=game.dialogue_view.confirm
 	var dialogue_step: int=game.dialogue_view.script_index if game.dialogue_view.script_mode else game.dialogue_view.current_turn
 	if confirm!=null:await tap(0,confirm.get_global_rect().get_center())

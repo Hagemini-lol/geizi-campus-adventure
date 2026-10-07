@@ -57,6 +57,8 @@ func close() -> void:
 
 func start_lesson() -> void:
 	if running or not visible or not available() or game.transition_busy:return
+	if game.campaign!=null and game.campaign.active() and game.campaign.current().get("id","")=="yang_awakened" and game.story_system.chapter_room():
+		hide();game.campaign.run_event();return
 	running=true;hide();game.transition_busy=true;game.time_skip_busy=true;game.refresh_player_freeze()
 	game.player.path.clear();game.player.velocity=Vector2.ZERO;game.pending_npc_talk="";game.pending_monster=""
 	game.update_time_display()

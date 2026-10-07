@@ -28,6 +28,9 @@ func configure(value: Dictionary, directory: String) -> void:
 				region["visual_areas"]=entry["visual_areas"]
 	var tree := Image.load_from_file(asset_root.path_join("高清区块/tree.png"))
 	tree = tree.get_region(tree.get_used_rect())
+	# A crown occupies 84x108 world pixels, at most 4x display density.
+	var tree_scale:=minf(1.0,minf(336.0/tree.get_width(),432.0/tree.get_height()))
+	tree.resize(maxi(1,roundi(tree.get_width()*tree_scale)),maxi(1,roundi(tree.get_height()*tree_scale)),Image.INTERPOLATE_LANCZOS)
 	tree.generate_mipmaps()
 	tree_texture = ImageTexture.create_from_image(tree)
 
@@ -51,7 +54,11 @@ func load_region(index: int) -> bool:
 	if image.get_size()!=Vector2i(pixels[0],pixels[1]): return false
 	# These PNGs already include the complete ground, facade and window layers.
 	# Do not crop: exact bounds keep artwork and physical coordinates aligned.
-	active_texture_bytes = image.get_width()*image.get_height()*4
+	# A small preview backs incoming tiles; visible details use original HD art.
+	if not hd_manifest.is_empty():
+		var factor:=minf(1.0,512.0/maxi(image.get_width(),image.get_height()))
+		image.resize(maxi(1,roundi(image.get_width()*factor)),maxi(1,roundi(image.get_height()*factor)),Image.INTERPOLATE_BILINEAR)
+	active_texture_bytes = image.get_data_size()
 	var map_texture := ImageTexture.create_from_image(image)
 	current_scene = District.instantiate()
 	current_scene.model = model

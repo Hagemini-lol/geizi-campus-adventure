@@ -23,6 +23,8 @@ var mentor_previous:=Vector2.ZERO
 var effect_audio: AudioStreamPlayer
 var played_effects: Array[String]=[]
 var black_durations: Array[float]=[]
+var draw_stamp:=""
+var redraw_elapsed:=0.0
 
 func configure(path: String) -> bool:
 	var parsed: Variant=JSON.parse_string(FileAccess.get_file_as_string(path))
@@ -58,22 +60,28 @@ func _ready() -> void:
 	refresh_objective()
 
 func snapshot() -> Dictionary:
-	return {"version":1,"stage":stage,"reward_given":reward_given,"leave_permission":leave_permission}
+	return {"version":1,"stage":stage,"reward_given":reward_given,"leave_permission":leave_permission,"campaign":game.campaign.snapshot() if game.campaign!=null else {}}
 
 func valid_snapshot(value: Variant) -> bool:
 	if not value is Dictionary or value.get("version")!=1:return false
+	if value.has("campaign"):
+		if not value["campaign"] is Dictionary:return false
+		if not value["campaign"].is_empty() and not game.campaign.valid_snapshot(value["campaign"]):return false
 	var number: Variant=value.get("stage")
 	if not (number is float or number is int) or number!=floor(float(number)) or int(number)<0 or int(number)>6:return false
 	return value.get("reward_given") is bool and value.get("leave_permission",false) is bool and bool(value["reward_given"])==(int(number)>=5)
 
 func restore(value: Dictionary) -> void:
 	clear_actors();stage=int(value.get("stage",0));reward_given=bool(value.get("reward_given",false))
-	leave_permission=bool(value.get("leave_permission",false));running=false;refresh_objective()
+	leave_permission=bool(value.get("leave_permission",false));running=false
+	if game.campaign!=null:game.campaign.restore(value.get("campaign",{}))
+	refresh_objective()
 
 func chapter_room() -> bool:
 	return not game.interior_state.is_empty() and game.interior_state["kind"]=="classroom" and game.interior_state["building"]=="B01" and int(game.interior_state["floor"])==3 and int(game.interior_state.get("room",-1))==0
 
 func objective_text() -> String:
+	if stage>=6 and game.campaign!=null:return game.campaign.objective_text()
 	return ["秋实楼 3F 十班 → 自己的白圈座位","实验楼北侧后墙 → 闪光窗户","实验楼南侧正门 → 进入","实验楼 1F → 震动的 102 教室门","实验楼 1F → 震动的 102 教室门","返回秋实楼 3F 十班 → 晚自习","第一章完成 · 自由探索 / 学习技能"][stage]
 
 func refresh_objective() -> void:
@@ -141,7 +149,11 @@ func _process(delta: float) -> void:
 		vibrating_door.position=Vector2(observed_door_x-12+sin(Time.get_ticks_msec()*.038)*.8,21.88)
 	else:
 		if is_instance_valid(vibrating_door):vibrating_door.queue_free();vibrating_door=null
-	queue_redraw()
+	redraw_elapsed+=delta
+	var stamp:=str(stage)+"/"+str(running)+"/"+str(game.interior_state)+"/"+str(game.player.position.distance_to(rear_point)<=1100)
+	var flashing: bool=stage in [1,2] and game.interior_state.is_empty() and game.player.position.distance_to(rear_point)<=1100
+	if stamp!=draw_stamp or (flashing and redraw_elapsed>=.05):
+		draw_stamp=stamp;redraw_elapsed=0;queue_redraw()
 
 func _draw() -> void:
 	if not game.game_started:return
@@ -240,16 +252,18 @@ func initiation_sequence() -> void:
 	stage=4
 	var context: Dictionary={"building":"B02","floor":1,"kind":"classroom","room":int(data["lab_room"])}
 	await game.change_interior(context)
-	game.player.position=Vector2(84,153)
-	var mentor:=make_actor("fei_yan",Vector2(142,143),game.npc_catalog.height("fei_yan"))
+	# The old fixed point lies inside a desk since furniture collisions changed.
+	game.place_player_safely(Vector2(84,153))
+	var nav: RefCounted=game.motion_navigation()
+	var mentor:=make_actor("fei_yan",nav.safe_landing(Vector2(142,143)),game.npc_catalog.height("fei_yan"))
 	mentor_sprite=mentor;mentor_previous=mentor.position
 	var idle: Array[Texture2D]=[]
 	for direction: int in range(4):
 		var art: Image=game.npc_catalog.frame("fei_yan",direction);art.generate_mipmaps();idle.append(ImageTexture.create_from_image(art))
 	mentor_gait=preload("res://walk_animation.gd").new()
 	if not mentor_gait.configure(game.npc_catalog.project_root,game.walk_library["fei_yan"],mentor,game.npc_catalog.height("fei_yan"),idle):mentor_gait=null
-	var first:=make_actor("empty_uniform",Vector2(213,115),40.8)
-	var second:=make_actor("empty_uniform",Vector2(249,147),40.8)
+	var first:=make_actor("empty_uniform",nav.safe_landing(Vector2(213,115)),40.8)
+	var second:=make_actor("empty_uniform",nav.safe_landing(Vector2(249,147)),40.8)
 	await speak("encounter")
 	await play_effect("world_barrier",mentor.position-Vector2(0,20),70,.6)
 	await play_effect("light_medium",first.position-Vector2(0,20),82,.6)
@@ -259,7 +273,13 @@ func initiation_sequence() -> void:
 	await play_effect("world_explosion",second.position-Vector2(0,15),70,.5)
 	var fade_second:=create_tween();fade_second.tween_property(second,"modulate:a",0,.25);await fade_second.finished
 	await speak("reveal")
-	var approach:=create_tween();approach.tween_property(mentor,"position",game.player.position+Vector2(28,0),1.1);await approach.finished
+	var route: PackedVector2Array=nav.route(mentor.position,nav.safe_landing(game.player.position+Vector2(28,0)))
+	if not route.is_empty():
+		var approach:=create_tween()
+		var previous: Vector2=mentor.position
+		for target: Vector2 in route:
+			approach.tween_property(mentor,"position",target,maxf(.03,previous.distance_to(target)/55.0));previous=target
+		await approach.finished
 	await play_effect("world_magic_circle",game.player.position-Vector2(0,7),86,1.4)
 	grant_rewards()
 	await speak("gifts")
@@ -268,7 +288,7 @@ func initiation_sequence() -> void:
 	game.monster_world.set_zone_rule(context,{"initial_count":0})
 	var key: String=game.monster_world.zone_key(context)
 	if game.monster_world.zones.has(key):game.monster_world.zones[key]["monsters"]=[]
-	game.sync_monsters();end_sequence()
+	game.sync_monsters();game.place_player_safely(game.player.position);end_sequence()
 
 func grant_rewards() -> void:
 	if reward_given:return

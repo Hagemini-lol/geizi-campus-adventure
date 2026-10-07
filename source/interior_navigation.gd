@@ -26,6 +26,19 @@ func configure(dimensions: Vector2, polygon: PackedVector2Array, boxes: Array[Re
 func region_at(at: Vector2) -> int:
 	return 0 if Rect2(Vector2.ZERO,extent).has_point(at) else -1
 
+func safe_landing(at: Vector2) -> Vector2:
+	if walkable(at) and closest_cell(at).x>=0:return at
+	var best:=INF
+	var result:=Vector2(INF,INF)
+	for y: int in range(astar.region.size.y):
+		for x: int in range(astar.region.size.x):
+			var cell:=Vector2i(x,y)
+			if astar.is_point_solid(cell):continue
+			var candidate:=astar.get_point_position(cell)
+			var distance:=candidate.distance_squared_to(at)
+			if distance<best:best=distance;result=candidate
+	return result
+
 func walkable(at: Vector2, radius: float=CLEARANCE) -> bool:
 	if not Geometry2D.is_point_in_polygon(at,floor_polygon): return false
 	for i: int in range(floor_polygon.size()):

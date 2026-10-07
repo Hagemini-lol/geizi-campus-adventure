@@ -95,7 +95,7 @@ func _ready() -> void:
 	information.add_child(details)
 	var heading:=HBoxContainer.new()
 	details.add_child(heading)
-	var title: Label=game.label("校园漫游 · 角色菜单",25)
+	var title: Label=game.label("gei子的冒险 · 角色菜单",25)
 	title.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	heading.add_child(title)
 	close_button=Button.new()
@@ -144,6 +144,8 @@ func _ready() -> void:
 	pages["status"].add_child(game.label("当前任务",23))
 	task_label=game.label("",19);task_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	task_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL;pages["status"].add_child(task_label)
+	var journal_button:=Button.new();journal_button.text="剧情手册 · 证据 / 图鉴 / 伙伴";journal_button.custom_minimum_size.y=46
+	journal_button.pressed.connect(func():game.campaign.open_journal());pages["status"].add_child(journal_button)
 	pages["status"].add_child(game.label("常态移动  4.2 米/秒\nShift 奔跑  8.4 米/秒\n点击寻路  21 米/秒",19))
 	pages["status"].add_child(game.label("WASD 移动 · E 门 / 楼梯 / 告示牌\nM 校园全图 · 滚轮缩放 · F3 碰撞显示",18))
 	pages["equipment"].add_child(game.label("装备与委托",24))
@@ -177,7 +179,7 @@ func _ready() -> void:
 	settings_grid.add_theme_constant_override("h_separation",12)
 	settings_grid.add_theme_constant_override("v_separation",15)
 	pages["settings"].add_child(settings_grid)
-	for entry: Array in [["resume","继续漫游"],["map","校园全图"],["preferences","游戏设置"],["south","回到南门"],["fullscreen","切换全屏"],["title","返回封面"],["exit","退出游戏"]]:
+	for entry: Array in [["resume","继续漫游"],["map","校园全图"],["preferences","游戏设置"],["journal","剧情手册 / 证据 / 伙伴"],["south","回到南门"],["fullscreen","切换全屏"],["title","返回封面"],["exit","退出游戏"]]:
 		var id: String=entry[0]
 		var button:=Button.new()
 		button.text=entry[1]
@@ -224,7 +226,7 @@ func refresh_status() -> void:
 	location.text="当前位置："+(game.terrain.current_scene.title if not game.interior_state.is_empty() else str(game.model["regions"][game.terrain.current_id]["name"]))+"    资金 %dg" % game.economy.money
 
 func refresh_tasks() -> void:
-	if task_label!=null:task_label.text=game.task_system.display_text()
+	if task_label!=null:task_label.text=game.task_system.display_text()+ ("\n\n"+game.campaign.objective_text() if game.campaign!=null and game.campaign.active() else "")
 
 func on_economy_changed() -> void:
 	refresh_supplies()
@@ -305,8 +307,8 @@ func refresh_progression() -> void:
 			button.text="已装备" if equipped else "装备";button.disabled=equipped
 			button.pressed.connect(func():rules.equip(id);refresh_progression();refresh_status())
 		else:
-			button.text=("委托 " if merchant=="lao_li" else "购买 ")+str(item["buy_price"])+"g"
-			button.disabled=game.economy.money<int(item["buy_price"]) or (id=="tech_amulet" and game.economy.quantity("ink_fragment")<2)
+			button.text=("委托 " if merchant=="lao_li" else "购买 ")+str(game.equipment_price(id))+"g"
+			button.disabled=game.economy.money<game.equipment_price(id) or (id=="tech_amulet" and game.economy.quantity("ink_fragment")<2)
 			button.pressed.connect(func():progression_feedback(game.purchase_equipment(id,service_actor)))
 	if game.economy.quantity("basic_magic_book")>0:equipment_rows.add_child(game.label("基础魔法书 · 已习得四系低级法术",18))
 	if hero.get("equipment",{}).is_empty():equipment_rows.add_child(game.label("暂无装备。按主线任务继续探索。",19))

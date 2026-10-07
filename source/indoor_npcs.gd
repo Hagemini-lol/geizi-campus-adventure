@@ -25,10 +25,12 @@ func setup(owner_scene: Node2D, owner_game: Node2D, image: Image) -> void:
 	if scene.state["building"]=="B02":return
 	var identity: String="%s/%d/%s/%d" % [scene.state["building"],int(scene.state["floor"]),scene.state["kind"],int(scene.state.get("room",-1))]
 	var seed_value:=absi(identity.hash())
+	var named_ids: Array=game.campaign.classmates_for(scene.state) if game.campaign!=null else game.npc_catalog.NAMED_IDS
 	if scene.is_office:
 		var points: Array[Vector2]=[Vector2(495,535)*.2,Vector2(790,552)*.2,Vector2(1063,880)*.2]
 		for i: int in range(game.office_plan.data["staff_ids"].size()):
 			var id: String=game.office_plan.data["staff_ids"][i]
+			if id=="wen_cong" and game.campaign!=null and game.campaign.active():continue
 			var at:=valid_point(points[i%points.size()],Rect2(20,65,270,120))
 			var record:=make_record(identity+"/staff/"+id,id,game.npc_catalog.characters[id]["display_name"],at,0,true)
 			record["role"]=id;records.append(record)
@@ -45,8 +47,8 @@ func setup(owner_scene: Node2D, owner_game: Node2D, image: Image) -> void:
 		var named_index:=0
 		for seat: int in range(32):
 			if seat==scene.HERO_SEAT_INDEX:continue
-			var named: bool=named_index<game.npc_catalog.NAMED_IDS.size()
-			var id: String=game.npc_catalog.NAMED_IDS[named_index] if named else game.npc_catalog.ORDINARY_IDS[(seed_value+seat)%6]
+			var named: bool=named_index<named_ids.size()
+			var id: String=named_ids[named_index] if named else game.npc_catalog.ORDINARY_IDS[(seed_value+seat)%6]
 			if named:named_index+=1
 			var name: String=game.npc_catalog.characters[id]["display_name"] if named else "同学"
 			var record:=make_record(identity+"/seat/"+str(seat),id,name,scene.seat_position(seat),1,named)
@@ -82,11 +84,16 @@ func setup(owner_scene: Node2D, owner_game: Node2D, image: Image) -> void:
 			var at:=Vector2(scene.dimensions.x*[.18,.37,.63,.82][i],141+9*(i%2))
 			var id: String=game.npc_catalog.ORDINARY_IDS[(seed_value+i)%6]
 			records.append(make_record(identity+"/student_"+str(i),id,"同学",at,0 if i%2==0 else 2,false))
+	if ten_class and game.campaign!=null and game.campaign.actor_weak("lao_ao") and "lao_ao" in named_ids:
+		var seated:=make_record(identity+"/named/lao_ao","lao_ao",game.npc_catalog.characters["lao_ao"]["display_name"],scene.seat_position(18),1,true)
+		seated.merge({"seat_index":18,"seated":true,"weak":true,"height":float(seated["height"])*.68,"art_offset":Vector2(0,-scene.furniture_footprints[18].size.y*.30)})
+		records.append(seated)
 	bake_ordinary(image)
 	if ten_class:
 		var range_box:=Rect2(35,92,338,134)
-		for i: int in range(game.npc_catalog.NAMED_IDS.size()):
-			var id: String=game.npc_catalog.NAMED_IDS[i]
+		for i: int in range(named_ids.size()):
+			var id: String=named_ids[i]
+			if game.campaign!=null and game.campaign.actor_weak(id):continue
 			var at:=valid_point(Vector2(48+float(i%5)*72,112+float(i/5)*78),range_box)
 			if not is_finite(at.x):continue
 			var record:=make_record(identity+"/named/"+id,id,game.npc_catalog.characters[id]["display_name"],at,0,true)

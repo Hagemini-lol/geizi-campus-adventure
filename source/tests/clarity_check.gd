@@ -22,6 +22,7 @@ func run() -> void:
 	game=(load("res://main.tscn") as PackedScene).instantiate()
 	root.add_child(game)
 	await frames()
+	game.game_started=true;game.front_end.hide_title();game.player.show()
 	game.player.set_physics_process(false)
 	game.player.camera.position_smoothing_enabled=false
 	check(not game.terrain.hd_manifest.is_empty(),"HD manifest present")
@@ -52,7 +53,7 @@ func run() -> void:
 		await frames()
 		var layer: Node2D=game.terrain.current_scene.hd_layer
 		await layer.wait_for_view()
-		var expected:=1 if zoom<=1 else (2 if zoom<=2 else 4)
+		var expected:=clampi(ceili(zoom-.0001),1,4)
 		check(layer.lod==expected,"zoom chooses correct LOD")
 		check(layer.active_bytes<100000000,"bounded visible texture memory")
 		samples.append({"zoom":zoom,"lod":layer.lod,"tiles":layer.tiles.size(),"hd_texture_bytes":layer.active_bytes,"fallback_texture_bytes":game.terrain.active_texture_bytes})

@@ -1,10 +1,11 @@
 {
-  "version": 2,
-  "game_version": "1.0.1",
+  "version": 4,
+  "game_version": "1.2.2",
+  "game_name": "gei子的冒险",
   "apk": {
-    "apk": "D:\\Godot\\校园自由漫游\\校园自由漫游.apk",
-    "bytes": 387157641,
-    "sha256": "61c6b112f601828bf7c39b5b24fe92d80925ddb78c5608ac7e8c6886506b1ea2",
+    "apk": "D:\\Godot\\校园自由漫游\\gei子的冒险.apk",
+    "bytes": 387215410,
+    "sha256": "e2a8fad53ebf41bde47208308d0654db36b83d0ef6fed3db224da14a5509d4f4",
     "signature_verified": true,
     "asset_hashes_checked": 3684,
     "configuration_files_checked": 6,
@@ -14,20 +15,22 @@
       "armeabi-v7a"
     ],
     "package": "org.campus.gei.adventure",
+    "signer_sha256": "bb245f6fd4c7913545b3d0e846a21bb4450336d220cdffc1e081f5c2d01b2327",
+    "original_update_identity_verified": true,
     "physical_device_tested": false,
     "exported_resource_payload_tested_with_desktop_engine": true,
-    "exported_payload_touch_checks": 34,
-    "exported_payload_touch_checks_wide": 34
+    "exported_payload_touch_checks": 36,
+    "exported_payload_touch_checks_wide": 36
   },
   "touch_checks": {
     "standard": {
-      "checks": 34,
+      "checks": 36,
       "failures": [],
       "passed": true,
       "test": "actual ScreenTouch/ScreenDrag dispatch with simultaneous fingers"
     },
     "wide": {
-      "checks": 34,
+      "checks": 36,
       "failures": [],
       "passed": true,
       "test": "actual ScreenTouch/ScreenDrag dispatch with simultaneous fingers"
@@ -35,32 +38,6177 @@
   },
   "furniture_checks": {
     "actual_walk_targets": 8,
-    "checks": 2418,
+    "checks": 2266,
     "failures": [],
     "foreground_occlusion": true,
     "passed": true,
     "scene_types": 4,
     "separate_table_chair_collisions": true
   },
-  "lesson_checks": {
-    "checks": 1267,
-    "class_students": 31,
-    "class_teacher": 1,
+  "campaign_checks": {
+    "checks": 250,
     "failures": [],
-    "hero_seat": 16,
-    "interaction_radius_m": 0.5,
-    "lesson_hold_seconds": [
-      2.016,
-      2.0
-    ],
-    "ordinary_students_per_ten_class": 21,
-    "passed": true,
-    "zip_edited": false
+    "passed": true
   },
-  "windows_pck_sha256": "5c35285cc5707fbcbed209660918c45288591f569032610a567a50e12a8dde2e",
+  "balance_checks": {
+    "cases": [
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 0,
+        "hero_max_hp": 1000,
+        "monster": "ink_slime",
+        "plan": [
+          "physical",
+          "physical",
+          "physical",
+          "physical",
+          "physical",
+          "physical",
+          "physical"
+        ],
+        "remaining_hp": 160,
+        "remaining_mp": 100,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 1,
+        "hero_max_hp": 1120,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 1120,
+        "remaining_mp": 90,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 1,
+        "hero_max_hp": 1120,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 1120,
+        "remaining_mp": 120,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 1,
+        "hero_max_hp": 1120,
+        "monster": "empty_uniform",
+        "plan": [
+          "physical",
+          "physical"
+        ],
+        "remaining_hp": 916,
+        "remaining_mp": 120,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 1,
+        "hero_max_hp": 1120,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_low",
+          "physical"
+        ],
+        "remaining_hp": 984,
+        "remaining_mp": 90,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 2,
+        "hero_max_hp": 1275,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 1275,
+        "remaining_mp": 156,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 2,
+        "hero_max_hp": 1275,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 1275,
+        "remaining_mp": 156,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 2,
+        "gear": "chapter_one",
+        "hero_level": 2,
+        "hero_max_hp": 1275,
+        "monster": "empty_uniform",
+        "plan": [
+          "physical",
+          "physical"
+        ],
+        "remaining_hp": 969,
+        "remaining_mp": 156,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 2,
+        "gear": "chapter_one",
+        "hero_level": 2,
+        "hero_max_hp": 1275,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_low",
+          "fire_low"
+        ],
+        "remaining_hp": 1071,
+        "remaining_mp": 56,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 3,
+        "hero_max_hp": 1448,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 1448,
+        "remaining_mp": 203,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 3,
+        "hero_max_hp": 1448,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 1448,
+        "remaining_mp": 203,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 3,
+        "gear": "chapter_one",
+        "hero_level": 3,
+        "hero_max_hp": 1448,
+        "monster": "empty_uniform",
+        "plan": [
+          "physical",
+          "physical"
+        ],
+        "remaining_hp": 1046,
+        "remaining_mp": 203,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 3,
+        "gear": "chapter_one",
+        "hero_level": 3,
+        "hero_max_hp": 1448,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_low",
+          "fire_low",
+          "physical"
+        ],
+        "remaining_hp": 912,
+        "remaining_mp": 63,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 4,
+        "hero_max_hp": 1633,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 1633,
+        "remaining_mp": 260,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 4,
+        "hero_max_hp": 1633,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 1633,
+        "remaining_mp": 260,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 4,
+        "gear": "chapter_one",
+        "hero_level": 4,
+        "hero_max_hp": 1633,
+        "monster": "empty_uniform",
+        "plan": [
+          "physical",
+          "physical"
+        ],
+        "remaining_hp": 1131,
+        "remaining_mp": 260,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 4,
+        "gear": "chapter_one",
+        "hero_level": 4,
+        "hero_max_hp": 1633,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_low",
+          "fire_low",
+          "physical"
+        ],
+        "remaining_hp": 963,
+        "remaining_mp": 80,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 5,
+        "hero_max_hp": 1827,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 1827,
+        "remaining_mp": 323,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 5,
+        "hero_max_hp": 1827,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 1827,
+        "remaining_mp": 323,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 5,
+        "gear": "chapter_one",
+        "hero_level": 5,
+        "hero_max_hp": 1827,
+        "monster": "empty_uniform",
+        "plan": [
+          "physical",
+          "physical"
+        ],
+        "remaining_hp": 1224,
+        "remaining_mp": 323,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 5,
+        "gear": "chapter_one",
+        "hero_level": 5,
+        "hero_max_hp": 1827,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_medium",
+          "fire_low"
+        ],
+        "remaining_hp": 1425,
+        "remaining_mp": 13,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 6,
+        "hero_max_hp": 2030,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 2030,
+        "remaining_mp": 393,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 1,
+        "gear": "chapter_one",
+        "hero_level": 6,
+        "hero_max_hp": 2030,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 2030,
+        "remaining_mp": 393,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 6,
+        "gear": "chapter_one",
+        "hero_level": 6,
+        "hero_max_hp": 2030,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 1337,
+        "remaining_mp": 263,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 6,
+        "gear": "chapter_one",
+        "hero_level": 6,
+        "hero_max_hp": 2030,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_medium",
+          "fire_low"
+        ],
+        "remaining_hp": 1568,
+        "remaining_mp": 33,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 2,
+        "gear": "chapter_one",
+        "hero_level": 7,
+        "hero_max_hp": 2239,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 2239,
+        "remaining_mp": 470,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 2,
+        "gear": "chapter_one",
+        "hero_level": 7,
+        "hero_max_hp": 2239,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 2239,
+        "remaining_mp": 470,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 7,
+        "gear": "chapter_one",
+        "hero_level": 7,
+        "hero_max_hp": 2239,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 1447,
+        "remaining_mp": 320,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 7,
+        "gear": "chapter_one",
+        "hero_level": 7,
+        "hero_max_hp": 2239,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_medium",
+          "fire_low"
+        ],
+        "remaining_hp": 1711,
+        "remaining_mp": 60,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 3,
+        "gear": "chapter_one",
+        "hero_level": 8,
+        "hero_max_hp": 2455,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 2455,
+        "remaining_mp": 552,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 3,
+        "gear": "chapter_one",
+        "hero_level": 8,
+        "hero_max_hp": 2455,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 2455,
+        "remaining_mp": 552,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 8,
+        "gear": "chapter_one",
+        "hero_level": 8,
+        "hero_max_hp": 2455,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 1564,
+        "remaining_mp": 382,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 8,
+        "gear": "chapter_one",
+        "hero_level": 8,
+        "hero_max_hp": 2455,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_medium",
+          "fire_low",
+          "physical"
+        ],
+        "remaining_hp": 1267,
+        "remaining_mp": 92,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 4,
+        "gear": "chapter_one",
+        "hero_level": 9,
+        "hero_max_hp": 2675,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 2675,
+        "remaining_mp": 640,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 4,
+        "gear": "chapter_one",
+        "hero_level": 9,
+        "hero_max_hp": 2675,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 2675,
+        "remaining_mp": 640,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 9,
+        "gear": "chapter_one",
+        "hero_level": 9,
+        "hero_max_hp": 2675,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 1685,
+        "remaining_mp": 450,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 9,
+        "gear": "chapter_one",
+        "hero_level": 9,
+        "hero_max_hp": 2675,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_medium",
+          "fire_medium"
+        ],
+        "remaining_hp": 2015,
+        "remaining_mp": 0,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 5,
+        "gear": "chapter_one",
+        "hero_level": 10,
+        "hero_max_hp": 2901,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 2901,
+        "remaining_mp": 732,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 5,
+        "gear": "chapter_one",
+        "hero_level": 10,
+        "hero_max_hp": 2901,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 2901,
+        "remaining_mp": 732,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 10,
+        "gear": "chapter_one",
+        "hero_level": 10,
+        "hero_max_hp": 2901,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 1829,
+        "remaining_mp": 522,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 10,
+        "gear": "chapter_one",
+        "hero_level": 10,
+        "hero_max_hp": 2901,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_medium",
+          "fire_medium"
+        ],
+        "remaining_hp": 2186,
+        "remaining_mp": 32,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 6,
+        "gear": "chapter_one",
+        "hero_level": 11,
+        "hero_max_hp": 3132,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 3132,
+        "remaining_mp": 829,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 6,
+        "gear": "chapter_one",
+        "hero_level": 11,
+        "hero_max_hp": 3132,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 3132,
+        "remaining_mp": 829,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 11,
+        "gear": "chapter_one",
+        "hero_level": 11,
+        "hero_max_hp": 3132,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 1962,
+        "remaining_mp": 599,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 11,
+        "gear": "chapter_one",
+        "hero_level": 11,
+        "hero_max_hp": 3132,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_medium",
+          "fire_medium"
+        ],
+        "remaining_hp": 2352,
+        "remaining_mp": 69,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 7,
+        "gear": "chapter_one",
+        "hero_level": 12,
+        "hero_max_hp": 3367,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 3367,
+        "remaining_mp": 931,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 7,
+        "gear": "chapter_one",
+        "hero_level": 12,
+        "hero_max_hp": 3367,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 3367,
+        "remaining_mp": 931,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 12,
+        "gear": "chapter_one",
+        "hero_level": 12,
+        "hero_max_hp": 3367,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 2100,
+        "remaining_mp": 681,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 12,
+        "gear": "chapter_one",
+        "hero_level": 12,
+        "hero_max_hp": 3367,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_medium",
+          "fire_medium"
+        ],
+        "remaining_hp": 2522,
+        "remaining_mp": 111,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 8,
+        "gear": "chapter_one",
+        "hero_level": 13,
+        "hero_max_hp": 3605,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 3605,
+        "remaining_mp": 1037,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 8,
+        "gear": "chapter_one",
+        "hero_level": 13,
+        "hero_max_hp": 3605,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 3605,
+        "remaining_mp": 1037,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 13,
+        "gear": "chapter_one",
+        "hero_level": 13,
+        "hero_max_hp": 3605,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 2240,
+        "remaining_mp": 767,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 13,
+        "gear": "chapter_one",
+        "hero_level": 13,
+        "hero_max_hp": 3605,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_medium",
+          "fire_medium"
+        ],
+        "remaining_hp": 2695,
+        "remaining_mp": 157,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 9,
+        "gear": "chapter_one",
+        "hero_level": 14,
+        "hero_max_hp": 3847,
+        "monster": "ink_slime",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 3847,
+        "remaining_mp": 1147,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 9,
+        "gear": "chapter_one",
+        "hero_level": 14,
+        "hero_max_hp": 3847,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 3847,
+        "remaining_mp": 1147,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 14,
+        "gear": "chapter_one",
+        "hero_level": 14,
+        "hero_max_hp": 3847,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 2385,
+        "remaining_mp": 857,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 14,
+        "gear": "chapter_one",
+        "hero_level": 14,
+        "hero_max_hp": 3847,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_medium",
+          "fire_medium"
+        ],
+        "remaining_hp": 2872,
+        "remaining_mp": 207,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 10,
+        "gear": "chapter_one",
+        "hero_level": 15,
+        "hero_max_hp": 4093,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 4093,
+        "remaining_mp": 951,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 10,
+        "gear": "chapter_one",
+        "hero_level": 15,
+        "hero_max_hp": 4093,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 4093,
+        "remaining_mp": 1261,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 15,
+        "gear": "chapter_one",
+        "hero_level": 15,
+        "hero_max_hp": 4093,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 2533,
+        "remaining_mp": 951,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 15,
+        "gear": "chapter_one",
+        "hero_level": 15,
+        "hero_max_hp": 4093,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 3053,
+        "remaining_mp": 101,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 11,
+        "gear": "chapter_one",
+        "hero_level": 16,
+        "hero_max_hp": 4342,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 4342,
+        "remaining_mp": 1050,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 11,
+        "gear": "chapter_one",
+        "hero_level": 16,
+        "hero_max_hp": 4342,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 4342,
+        "remaining_mp": 1380,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 16,
+        "gear": "chapter_one",
+        "hero_level": 16,
+        "hero_max_hp": 4342,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 2710,
+        "remaining_mp": 1050,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 16,
+        "gear": "chapter_one",
+        "hero_level": 16,
+        "hero_max_hp": 4342,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 3254,
+        "remaining_mp": 150,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 12,
+        "gear": "chapter_one",
+        "hero_level": 17,
+        "hero_max_hp": 4595,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 4595,
+        "remaining_mp": 1151,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 12,
+        "gear": "chapter_one",
+        "hero_level": 17,
+        "hero_max_hp": 4595,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 4595,
+        "remaining_mp": 1501,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 17,
+        "gear": "chapter_one",
+        "hero_level": 17,
+        "hero_max_hp": 4595,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 2867,
+        "remaining_mp": 1151,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 17,
+        "gear": "chapter_one",
+        "hero_level": 17,
+        "hero_max_hp": 4595,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 3443,
+        "remaining_mp": 201,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 13,
+        "gear": "chapter_one",
+        "hero_level": 18,
+        "hero_max_hp": 4850,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 4850,
+        "remaining_mp": 1257,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 13,
+        "gear": "chapter_one",
+        "hero_level": 18,
+        "hero_max_hp": 4850,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 4850,
+        "remaining_mp": 1627,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 18,
+        "gear": "chapter_one",
+        "hero_level": 18,
+        "hero_max_hp": 4850,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 3026,
+        "remaining_mp": 1257,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 18,
+        "gear": "chapter_one",
+        "hero_level": 18,
+        "hero_max_hp": 4850,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 3634,
+        "remaining_mp": 257,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 14,
+        "gear": "chapter_one",
+        "hero_level": 19,
+        "hero_max_hp": 5108,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 5108,
+        "remaining_mp": 1366,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 14,
+        "gear": "chapter_one",
+        "hero_level": 19,
+        "hero_max_hp": 5108,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 5108,
+        "remaining_mp": 1756,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 19,
+        "gear": "chapter_one",
+        "hero_level": 19,
+        "hero_max_hp": 5108,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 3188,
+        "remaining_mp": 1366,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 19,
+        "gear": "chapter_one",
+        "hero_level": 19,
+        "hero_max_hp": 5108,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 3828,
+        "remaining_mp": 316,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 15,
+        "gear": "chapter_one",
+        "hero_level": 20,
+        "hero_max_hp": 5369,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 5369,
+        "remaining_mp": 1478,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 15,
+        "gear": "chapter_one",
+        "hero_level": 20,
+        "hero_max_hp": 5369,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 5369,
+        "remaining_mp": 1888,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 20,
+        "gear": "chapter_one",
+        "hero_level": 20,
+        "hero_max_hp": 5369,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 3353,
+        "remaining_mp": 1478,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 20,
+        "gear": "chapter_one",
+        "hero_level": 20,
+        "hero_max_hp": 5369,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 4025,
+        "remaining_mp": 378,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 16,
+        "gear": "chapter_one",
+        "hero_level": 21,
+        "hero_max_hp": 5632,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 5632,
+        "remaining_mp": 1594,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 16,
+        "gear": "chapter_one",
+        "hero_level": 21,
+        "hero_max_hp": 5632,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 5632,
+        "remaining_mp": 2024,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 21,
+        "gear": "chapter_one",
+        "hero_level": 21,
+        "hero_max_hp": 5632,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 3520,
+        "remaining_mp": 1594,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 21,
+        "gear": "chapter_one",
+        "hero_level": 21,
+        "hero_max_hp": 5632,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 4224,
+        "remaining_mp": 444,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 17,
+        "gear": "chapter_one",
+        "hero_level": 22,
+        "hero_max_hp": 5898,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 5898,
+        "remaining_mp": 1713,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 17,
+        "gear": "chapter_one",
+        "hero_level": 22,
+        "hero_max_hp": 5898,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 5898,
+        "remaining_mp": 2163,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 22,
+        "gear": "chapter_one",
+        "hero_level": 22,
+        "hero_max_hp": 5898,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 3690,
+        "remaining_mp": 1713,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 22,
+        "gear": "chapter_one",
+        "hero_level": 22,
+        "hero_max_hp": 5898,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 4426,
+        "remaining_mp": 513,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 18,
+        "gear": "chapter_one",
+        "hero_level": 23,
+        "hero_max_hp": 6167,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 6167,
+        "remaining_mp": 1836,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 18,
+        "gear": "chapter_one",
+        "hero_level": 23,
+        "hero_max_hp": 6167,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 6167,
+        "remaining_mp": 2306,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 23,
+        "gear": "chapter_one",
+        "hero_level": 23,
+        "hero_max_hp": 6167,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 3899,
+        "remaining_mp": 1836,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 23,
+        "gear": "chapter_one",
+        "hero_level": 23,
+        "hero_max_hp": 6167,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 4655,
+        "remaining_mp": 586,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 19,
+        "gear": "chapter_one",
+        "hero_level": 24,
+        "hero_max_hp": 6437,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 6437,
+        "remaining_mp": 1961,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 19,
+        "gear": "chapter_one",
+        "hero_level": 24,
+        "hero_max_hp": 6437,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 6437,
+        "remaining_mp": 2451,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 24,
+        "gear": "chapter_one",
+        "hero_level": 24,
+        "hero_max_hp": 6437,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 4075,
+        "remaining_mp": 1961,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 24,
+        "gear": "chapter_one",
+        "hero_level": 24,
+        "hero_max_hp": 6437,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 4862,
+        "remaining_mp": 661,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 20,
+        "gear": "chapter_one",
+        "hero_level": 25,
+        "hero_max_hp": 6710,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 6710,
+        "remaining_mp": 2090,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 20,
+        "gear": "chapter_one",
+        "hero_level": 25,
+        "hero_max_hp": 6710,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 6710,
+        "remaining_mp": 2600,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 25,
+        "gear": "chapter_one",
+        "hero_level": 25,
+        "hero_max_hp": 6710,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 4253,
+        "remaining_mp": 2090,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 25,
+        "gear": "chapter_one",
+        "hero_level": 25,
+        "hero_max_hp": 6710,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 5072,
+        "remaining_mp": 740,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 21,
+        "gear": "chapter_one",
+        "hero_level": 26,
+        "hero_max_hp": 6986,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 6986,
+        "remaining_mp": 2221,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 21,
+        "gear": "chapter_one",
+        "hero_level": 26,
+        "hero_max_hp": 6986,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 6986,
+        "remaining_mp": 2751,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 26,
+        "gear": "chapter_one",
+        "hero_level": 26,
+        "hero_max_hp": 6986,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 4435,
+        "remaining_mp": 2221,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 26,
+        "gear": "chapter_one",
+        "hero_level": 26,
+        "hero_max_hp": 6986,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 5285,
+        "remaining_mp": 821,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 22,
+        "gear": "chapter_one",
+        "hero_level": 27,
+        "hero_max_hp": 7263,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 7263,
+        "remaining_mp": 2355,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 22,
+        "gear": "chapter_one",
+        "hero_level": 27,
+        "hero_max_hp": 7263,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 7263,
+        "remaining_mp": 2905,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 27,
+        "gear": "chapter_one",
+        "hero_level": 27,
+        "hero_max_hp": 7263,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 4617,
+        "remaining_mp": 2355,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 27,
+        "gear": "chapter_one",
+        "hero_level": 27,
+        "hero_max_hp": 7263,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 5499,
+        "remaining_mp": 905,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 23,
+        "gear": "chapter_one",
+        "hero_level": 28,
+        "hero_max_hp": 7542,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 7542,
+        "remaining_mp": 2493,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 23,
+        "gear": "chapter_one",
+        "hero_level": 28,
+        "hero_max_hp": 7542,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 7542,
+        "remaining_mp": 3063,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 28,
+        "gear": "chapter_one",
+        "hero_level": 28,
+        "hero_max_hp": 7542,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 4802,
+        "remaining_mp": 2493,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 28,
+        "gear": "chapter_one",
+        "hero_level": 28,
+        "hero_max_hp": 7542,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 5715,
+        "remaining_mp": 993,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 24,
+        "gear": "chapter_one",
+        "hero_level": 29,
+        "hero_max_hp": 7824,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 7824,
+        "remaining_mp": 2633,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 24,
+        "gear": "chapter_one",
+        "hero_level": 29,
+        "hero_max_hp": 7824,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 7824,
+        "remaining_mp": 3223,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 29,
+        "gear": "chapter_one",
+        "hero_level": 29,
+        "hero_max_hp": 7824,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 4989,
+        "remaining_mp": 2633,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 29,
+        "gear": "chapter_one",
+        "hero_level": 29,
+        "hero_max_hp": 7824,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 5934,
+        "remaining_mp": 1083,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 25,
+        "gear": "chapter_one",
+        "hero_level": 30,
+        "hero_max_hp": 8107,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 8107,
+        "remaining_mp": 2776,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 25,
+        "gear": "chapter_one",
+        "hero_level": 30,
+        "hero_max_hp": 8107,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 8107,
+        "remaining_mp": 3386,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 30,
+        "gear": "chapter_one",
+        "hero_level": 30,
+        "hero_max_hp": 8107,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 5178,
+        "remaining_mp": 2776,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 30,
+        "gear": "chapter_one",
+        "hero_level": 30,
+        "hero_max_hp": 8107,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 6154,
+        "remaining_mp": 1176,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 26,
+        "gear": "chapter_one",
+        "hero_level": 31,
+        "hero_max_hp": 8392,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 8392,
+        "remaining_mp": 2922,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 26,
+        "gear": "chapter_one",
+        "hero_level": 31,
+        "hero_max_hp": 8392,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 8392,
+        "remaining_mp": 3552,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 31,
+        "gear": "chapter_one",
+        "hero_level": 31,
+        "hero_max_hp": 8392,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 5368,
+        "remaining_mp": 2922,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 31,
+        "gear": "chapter_one",
+        "hero_level": 31,
+        "hero_max_hp": 8392,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 6376,
+        "remaining_mp": 1272,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 27,
+        "gear": "chapter_one",
+        "hero_level": 32,
+        "hero_max_hp": 8680,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 8680,
+        "remaining_mp": 3070,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 27,
+        "gear": "chapter_one",
+        "hero_level": 32,
+        "hero_max_hp": 8680,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 8680,
+        "remaining_mp": 3720,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 32,
+        "gear": "chapter_one",
+        "hero_level": 32,
+        "hero_max_hp": 8680,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 5611,
+        "remaining_mp": 3070,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 32,
+        "gear": "chapter_one",
+        "hero_level": 32,
+        "hero_max_hp": 8680,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 6634,
+        "remaining_mp": 1370,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 28,
+        "gear": "chapter_one",
+        "hero_level": 33,
+        "hero_max_hp": 8968,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 8968,
+        "remaining_mp": 3221,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 28,
+        "gear": "chapter_one",
+        "hero_level": 33,
+        "hero_max_hp": 8968,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 8968,
+        "remaining_mp": 3891,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 33,
+        "gear": "chapter_one",
+        "hero_level": 33,
+        "hero_max_hp": 8968,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 5806,
+        "remaining_mp": 3221,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 33,
+        "gear": "chapter_one",
+        "hero_level": 33,
+        "hero_max_hp": 8968,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 6860,
+        "remaining_mp": 1471,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 29,
+        "gear": "chapter_one",
+        "hero_level": 34,
+        "hero_max_hp": 9259,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 9259,
+        "remaining_mp": 3375,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 29,
+        "gear": "chapter_one",
+        "hero_level": 34,
+        "hero_max_hp": 9259,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 9259,
+        "remaining_mp": 4065,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 34,
+        "gear": "chapter_one",
+        "hero_level": 34,
+        "hero_max_hp": 9259,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 6004,
+        "remaining_mp": 3375,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 34,
+        "gear": "chapter_one",
+        "hero_level": 34,
+        "hero_max_hp": 9259,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 7089,
+        "remaining_mp": 1575,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 30,
+        "gear": "chapter_one",
+        "hero_level": 35,
+        "hero_max_hp": 9551,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 9551,
+        "remaining_mp": 3531,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 30,
+        "gear": "chapter_one",
+        "hero_level": 35,
+        "hero_max_hp": 9551,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 9551,
+        "remaining_mp": 4241,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 35,
+        "gear": "chapter_one",
+        "hero_level": 35,
+        "hero_max_hp": 9551,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 6203,
+        "remaining_mp": 3531,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 35,
+        "gear": "chapter_one",
+        "hero_level": 35,
+        "hero_max_hp": 9551,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 7319,
+        "remaining_mp": 1681,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 31,
+        "gear": "chapter_one",
+        "hero_level": 36,
+        "hero_max_hp": 9845,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 9845,
+        "remaining_mp": 3690,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 31,
+        "gear": "chapter_one",
+        "hero_level": 36,
+        "hero_max_hp": 9845,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 9845,
+        "remaining_mp": 4420,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 36,
+        "gear": "chapter_one",
+        "hero_level": 36,
+        "hero_max_hp": 9845,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 6404,
+        "remaining_mp": 3690,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 36,
+        "gear": "chapter_one",
+        "hero_level": 36,
+        "hero_max_hp": 9845,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 7551,
+        "remaining_mp": 1790,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 32,
+        "gear": "chapter_one",
+        "hero_level": 37,
+        "hero_max_hp": 10141,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 10141,
+        "remaining_mp": 3851,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 32,
+        "gear": "chapter_one",
+        "hero_level": 37,
+        "hero_max_hp": 10141,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 10141,
+        "remaining_mp": 4601,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 37,
+        "gear": "chapter_one",
+        "hero_level": 37,
+        "hero_max_hp": 10141,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 6607,
+        "remaining_mp": 3851,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 37,
+        "gear": "chapter_one",
+        "hero_level": 37,
+        "hero_max_hp": 10141,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 7785,
+        "remaining_mp": 1901,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 33,
+        "gear": "chapter_one",
+        "hero_level": 38,
+        "hero_max_hp": 10438,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 10438,
+        "remaining_mp": 4014,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 33,
+        "gear": "chapter_one",
+        "hero_level": 38,
+        "hero_max_hp": 10438,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 10438,
+        "remaining_mp": 4784,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 38,
+        "gear": "chapter_one",
+        "hero_level": 38,
+        "hero_max_hp": 10438,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 6811,
+        "remaining_mp": 4014,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 38,
+        "gear": "chapter_one",
+        "hero_level": 38,
+        "hero_max_hp": 10438,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 8020,
+        "remaining_mp": 2014,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 34,
+        "gear": "chapter_one",
+        "hero_level": 39,
+        "hero_max_hp": 10737,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 10737,
+        "remaining_mp": 4181,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 34,
+        "gear": "chapter_one",
+        "hero_level": 39,
+        "hero_max_hp": 10737,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 10737,
+        "remaining_mp": 4971,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 39,
+        "gear": "chapter_one",
+        "hero_level": 39,
+        "hero_max_hp": 10737,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 7017,
+        "remaining_mp": 4181,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 39,
+        "gear": "chapter_one",
+        "hero_level": 39,
+        "hero_max_hp": 10737,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 8257,
+        "remaining_mp": 2131,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 35,
+        "gear": "chapter_one",
+        "hero_level": 40,
+        "hero_max_hp": 11038,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 11038,
+        "remaining_mp": 4349,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 35,
+        "gear": "chapter_one",
+        "hero_level": 40,
+        "hero_max_hp": 11038,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 11038,
+        "remaining_mp": 5159,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 40,
+        "gear": "chapter_one",
+        "hero_level": 40,
+        "hero_max_hp": 11038,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 7225,
+        "remaining_mp": 4349,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 40,
+        "gear": "chapter_one",
+        "hero_level": 40,
+        "hero_max_hp": 11038,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 8496,
+        "remaining_mp": 2249,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 36,
+        "gear": "chapter_one",
+        "hero_level": 41,
+        "hero_max_hp": 11340,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 11340,
+        "remaining_mp": 4520,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 36,
+        "gear": "chapter_one",
+        "hero_level": 41,
+        "hero_max_hp": 11340,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 11340,
+        "remaining_mp": 5350,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 41,
+        "gear": "chapter_one",
+        "hero_level": 41,
+        "hero_max_hp": 11340,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 7434,
+        "remaining_mp": 4520,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 41,
+        "gear": "chapter_one",
+        "hero_level": 41,
+        "hero_max_hp": 11340,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 8736,
+        "remaining_mp": 2370,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 37,
+        "gear": "chapter_one",
+        "hero_level": 42,
+        "hero_max_hp": 11643,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 11643,
+        "remaining_mp": 4693,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 37,
+        "gear": "chapter_one",
+        "hero_level": 42,
+        "hero_max_hp": 11643,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 11643,
+        "remaining_mp": 5543,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 42,
+        "gear": "chapter_one",
+        "hero_level": 42,
+        "hero_max_hp": 11643,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 7644,
+        "remaining_mp": 4693,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 42,
+        "gear": "chapter_one",
+        "hero_level": 42,
+        "hero_max_hp": 11643,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 8977,
+        "remaining_mp": 2493,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 38,
+        "gear": "chapter_one",
+        "hero_level": 43,
+        "hero_max_hp": 11948,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 11948,
+        "remaining_mp": 4869,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 38,
+        "gear": "chapter_one",
+        "hero_level": 43,
+        "hero_max_hp": 11948,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 11948,
+        "remaining_mp": 5739,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 43,
+        "gear": "chapter_one",
+        "hero_level": 43,
+        "hero_max_hp": 11948,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 7922,
+        "remaining_mp": 4869,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 43,
+        "gear": "chapter_one",
+        "hero_level": 43,
+        "hero_max_hp": 11948,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 9264,
+        "remaining_mp": 2619,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 39,
+        "gear": "chapter_one",
+        "hero_level": 44,
+        "hero_max_hp": 12254,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 12254,
+        "remaining_mp": 5047,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 39,
+        "gear": "chapter_one",
+        "hero_level": 44,
+        "hero_max_hp": 12254,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 12254,
+        "remaining_mp": 5937,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 44,
+        "gear": "chapter_one",
+        "hero_level": 44,
+        "hero_max_hp": 12254,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 8137,
+        "remaining_mp": 5047,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 44,
+        "gear": "chapter_one",
+        "hero_level": 44,
+        "hero_max_hp": 12254,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 9509,
+        "remaining_mp": 2747,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 40,
+        "gear": "chapter_one",
+        "hero_level": 45,
+        "hero_max_hp": 12562,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 12562,
+        "remaining_mp": 5227,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 40,
+        "gear": "chapter_one",
+        "hero_level": 45,
+        "hero_max_hp": 12562,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 12562,
+        "remaining_mp": 6137,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 45,
+        "gear": "chapter_one",
+        "hero_level": 45,
+        "hero_max_hp": 12562,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 8353,
+        "remaining_mp": 5227,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 45,
+        "gear": "chapter_one",
+        "hero_level": 45,
+        "hero_max_hp": 12562,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 9756,
+        "remaining_mp": 2877,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 41,
+        "gear": "chapter_one",
+        "hero_level": 46,
+        "hero_max_hp": 12871,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 12871,
+        "remaining_mp": 5409,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 41,
+        "gear": "chapter_one",
+        "hero_level": 46,
+        "hero_max_hp": 12871,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 12871,
+        "remaining_mp": 6339,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 46,
+        "gear": "chapter_one",
+        "hero_level": 46,
+        "hero_max_hp": 12871,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 8571,
+        "remaining_mp": 5409,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 46,
+        "gear": "chapter_one",
+        "hero_level": 46,
+        "hero_max_hp": 12871,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 10004,
+        "remaining_mp": 3009,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 42,
+        "gear": "chapter_one",
+        "hero_level": 47,
+        "hero_max_hp": 13181,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 13181,
+        "remaining_mp": 5594,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 42,
+        "gear": "chapter_one",
+        "hero_level": 47,
+        "hero_max_hp": 13181,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 13181,
+        "remaining_mp": 6544,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 47,
+        "gear": "chapter_one",
+        "hero_level": 47,
+        "hero_max_hp": 13181,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 8789,
+        "remaining_mp": 5594,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 47,
+        "gear": "chapter_one",
+        "hero_level": 47,
+        "hero_max_hp": 13181,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 10253,
+        "remaining_mp": 3144,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 43,
+        "gear": "chapter_one",
+        "hero_level": 48,
+        "hero_max_hp": 13493,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 13493,
+        "remaining_mp": 5781,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 43,
+        "gear": "chapter_one",
+        "hero_level": 48,
+        "hero_max_hp": 13493,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 13493,
+        "remaining_mp": 6751,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 48,
+        "gear": "chapter_one",
+        "hero_level": 48,
+        "hero_max_hp": 13493,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 9010,
+        "remaining_mp": 5781,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 48,
+        "gear": "chapter_one",
+        "hero_level": 48,
+        "hero_max_hp": 13493,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 10504,
+        "remaining_mp": 3281,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 44,
+        "gear": "chapter_one",
+        "hero_level": 49,
+        "hero_max_hp": 13806,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 13806,
+        "remaining_mp": 5970,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 44,
+        "gear": "chapter_one",
+        "hero_level": 49,
+        "hero_max_hp": 13806,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 13806,
+        "remaining_mp": 6960,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 49,
+        "gear": "chapter_one",
+        "hero_level": 49,
+        "hero_max_hp": 13806,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 9231,
+        "remaining_mp": 5970,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 49,
+        "gear": "chapter_one",
+        "hero_level": 49,
+        "hero_max_hp": 13806,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 10756,
+        "remaining_mp": 3420,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 45,
+        "gear": "chapter_one",
+        "hero_level": 50,
+        "hero_max_hp": 14120,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 14120,
+        "remaining_mp": 6161,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 45,
+        "gear": "chapter_one",
+        "hero_level": 50,
+        "hero_max_hp": 14120,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 14120,
+        "remaining_mp": 7171,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 50,
+        "gear": "chapter_one",
+        "hero_level": 50,
+        "hero_max_hp": 14120,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 9454,
+        "remaining_mp": 6161,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 50,
+        "gear": "chapter_one",
+        "hero_level": 50,
+        "hero_max_hp": 14120,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 11009,
+        "remaining_mp": 3561,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 46,
+        "gear": "chapter_one",
+        "hero_level": 51,
+        "hero_max_hp": 14435,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 14435,
+        "remaining_mp": 6354,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 46,
+        "gear": "chapter_one",
+        "hero_level": 51,
+        "hero_max_hp": 14435,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 14435,
+        "remaining_mp": 7384,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 51,
+        "gear": "chapter_one",
+        "hero_level": 51,
+        "hero_max_hp": 14435,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 9677,
+        "remaining_mp": 6354,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 51,
+        "gear": "chapter_one",
+        "hero_level": 51,
+        "hero_max_hp": 14435,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 11263,
+        "remaining_mp": 3704,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 47,
+        "gear": "chapter_one",
+        "hero_level": 52,
+        "hero_max_hp": 14752,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 14752,
+        "remaining_mp": 6549,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 47,
+        "gear": "chapter_one",
+        "hero_level": 52,
+        "hero_max_hp": 14752,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 14752,
+        "remaining_mp": 7599,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 52,
+        "gear": "chapter_one",
+        "hero_level": 52,
+        "hero_max_hp": 14752,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 9903,
+        "remaining_mp": 6549,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 52,
+        "gear": "chapter_one",
+        "hero_level": 52,
+        "hero_max_hp": 14752,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 11519,
+        "remaining_mp": 3849,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 48,
+        "gear": "chapter_one",
+        "hero_level": 53,
+        "hero_max_hp": 15070,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 15070,
+        "remaining_mp": 6746,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 48,
+        "gear": "chapter_one",
+        "hero_level": 53,
+        "hero_max_hp": 15070,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 15070,
+        "remaining_mp": 7816,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 53,
+        "gear": "chapter_one",
+        "hero_level": 53,
+        "hero_max_hp": 15070,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 10129,
+        "remaining_mp": 6746,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 53,
+        "gear": "chapter_one",
+        "hero_level": 53,
+        "hero_max_hp": 15070,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 11776,
+        "remaining_mp": 3996,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 49,
+        "gear": "chapter_one",
+        "hero_level": 54,
+        "hero_max_hp": 15389,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 15389,
+        "remaining_mp": 6946,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 49,
+        "gear": "chapter_one",
+        "hero_level": 54,
+        "hero_max_hp": 15389,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 15389,
+        "remaining_mp": 8036,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 54,
+        "gear": "chapter_one",
+        "hero_level": 54,
+        "hero_max_hp": 15389,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 10357,
+        "remaining_mp": 6946,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 54,
+        "gear": "chapter_one",
+        "hero_level": 54,
+        "hero_max_hp": 15389,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 12034,
+        "remaining_mp": 4146,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 50,
+        "gear": "chapter_one",
+        "hero_level": 55,
+        "hero_max_hp": 15710,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 15710,
+        "remaining_mp": 7147,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 50,
+        "gear": "chapter_one",
+        "hero_level": 55,
+        "hero_max_hp": 15710,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 15710,
+        "remaining_mp": 8257,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 55,
+        "gear": "chapter_one",
+        "hero_level": 55,
+        "hero_max_hp": 15710,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 10586,
+        "remaining_mp": 7147,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 55,
+        "gear": "chapter_one",
+        "hero_level": 55,
+        "hero_max_hp": 15710,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 12294,
+        "remaining_mp": 4297,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 51,
+        "gear": "chapter_one",
+        "hero_level": 56,
+        "hero_max_hp": 16031,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 16031,
+        "remaining_mp": 7351,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 51,
+        "gear": "chapter_one",
+        "hero_level": 56,
+        "hero_max_hp": 16031,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 16031,
+        "remaining_mp": 8481,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 56,
+        "gear": "chapter_one",
+        "hero_level": 56,
+        "hero_max_hp": 16031,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 10901,
+        "remaining_mp": 7351,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 56,
+        "gear": "chapter_one",
+        "hero_level": 56,
+        "hero_max_hp": 16031,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 12611,
+        "remaining_mp": 4451,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 52,
+        "gear": "chapter_one",
+        "hero_level": 57,
+        "hero_max_hp": 16354,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 16354,
+        "remaining_mp": 7556,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 52,
+        "gear": "chapter_one",
+        "hero_level": 57,
+        "hero_max_hp": 16354,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 16354,
+        "remaining_mp": 8706,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 57,
+        "gear": "chapter_one",
+        "hero_level": 57,
+        "hero_max_hp": 16354,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 11134,
+        "remaining_mp": 7556,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 57,
+        "gear": "chapter_one",
+        "hero_level": 57,
+        "hero_max_hp": 16354,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 12874,
+        "remaining_mp": 4606,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 53,
+        "gear": "chapter_one",
+        "hero_level": 58,
+        "hero_max_hp": 16678,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 16678,
+        "remaining_mp": 7764,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 53,
+        "gear": "chapter_one",
+        "hero_level": 58,
+        "hero_max_hp": 16678,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 16678,
+        "remaining_mp": 8934,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 58,
+        "gear": "chapter_one",
+        "hero_level": 58,
+        "hero_max_hp": 16678,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 11368,
+        "remaining_mp": 7764,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 58,
+        "gear": "chapter_one",
+        "hero_level": 58,
+        "hero_max_hp": 16678,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 13138,
+        "remaining_mp": 4764,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 54,
+        "gear": "chapter_one",
+        "hero_level": 59,
+        "hero_max_hp": 17003,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 17003,
+        "remaining_mp": 7973,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 54,
+        "gear": "chapter_one",
+        "hero_level": 59,
+        "hero_max_hp": 17003,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 17003,
+        "remaining_mp": 9163,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 59,
+        "gear": "chapter_one",
+        "hero_level": 59,
+        "hero_max_hp": 17003,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 11603,
+        "remaining_mp": 7973,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 59,
+        "gear": "chapter_one",
+        "hero_level": 59,
+        "hero_max_hp": 17003,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 13403,
+        "remaining_mp": 4923,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 55,
+        "gear": "chapter_one",
+        "hero_level": 60,
+        "hero_max_hp": 17329,
+        "monster": "ink_slime",
+        "plan": [
+          "lightning_low"
+        ],
+        "remaining_hp": 17329,
+        "remaining_mp": 8185,
+        "won": true
+      },
+      {
+        "companion": "none",
+        "enemy_level": 55,
+        "gear": "chapter_one",
+        "hero_level": 60,
+        "hero_max_hp": 17329,
+        "monster": "book_eater",
+        "plan": [
+          "physical"
+        ],
+        "remaining_hp": 17329,
+        "remaining_mp": 9395,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 60,
+        "gear": "chapter_one",
+        "hero_level": 60,
+        "hero_max_hp": 17329,
+        "monster": "empty_uniform",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 11839,
+        "remaining_mp": 8185,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 60,
+        "gear": "chapter_one",
+        "hero_level": 60,
+        "hero_max_hp": 17329,
+        "monster": "dry_branch",
+        "plan": [
+          "fire_high",
+          "fire_low"
+        ],
+        "remaining_hp": 13669,
+        "remaining_mp": 5085,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 8,
+        "gear": "chapter_one",
+        "hero_level": 5,
+        "hero_max_hp": 1827,
+        "monster": "book_eater_queen",
+        "plan": [
+          "barrier",
+          "fire_low",
+          "fire_low"
+        ],
+        "remaining_hp": 671,
+        "remaining_mp": 58,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 8,
+        "gear": "chapter_one",
+        "hero_level": 8,
+        "hero_max_hp": 2455,
+        "monster": "book_eater_queen",
+        "plan": [
+          "fire_low",
+          "physical"
+        ],
+        "remaining_hp": 1743,
+        "remaining_mp": 382,
+        "won": true
+      },
+      {
+        "companion": "lao_shuo",
+        "enemy_level": 10,
+        "gear": "chapter_one",
+        "hero_level": 8,
+        "hero_max_hp": 2455,
+        "monster": "dry_branch_ancient",
+        "plan": [
+          "barrier",
+          "fire_medium",
+          "fire_low",
+          "physical",
+          "physical"
+        ],
+        "remaining_hp": 277,
+        "remaining_mp": 32,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 10,
+        "gear": "chapter_one",
+        "hero_level": 10,
+        "hero_max_hp": 2901,
+        "monster": "dry_branch_ancient",
+        "plan": [
+          "fire_medium",
+          "fire_medium"
+        ],
+        "remaining_hp": 2186,
+        "remaining_mp": 32,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 15,
+        "gear": "chapter_one",
+        "hero_level": 12,
+        "hero_max_hp": 3367,
+        "monster": "empty_uniform_leader",
+        "plan": [
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 1417,
+        "remaining_mp": 521,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 15,
+        "gear": "chapter_one",
+        "hero_level": 15,
+        "hero_max_hp": 4093,
+        "monster": "empty_uniform_leader",
+        "plan": [
+          "light_low",
+          "physical"
+        ],
+        "remaining_hp": 2533,
+        "remaining_mp": 951,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 40,
+        "gear": "chapter_one",
+        "hero_level": 35,
+        "hero_max_hp": 9551,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 2579,
+        "remaining_mp": 391,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 41,
+        "gear": "chapter_one",
+        "hero_level": 35,
+        "hero_max_hp": 9551,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 2231,
+        "remaining_mp": 391,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 42,
+        "gear": "chapter_one",
+        "hero_level": 35,
+        "hero_max_hp": 9551,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high"
+        ],
+        "remaining_hp": 1873,
+        "remaining_mp": 1,
+        "won": true
+      },
+      {
+        "companion": "lao_shuo",
+        "enemy_level": 43,
+        "gear": "chapter_one",
+        "hero_level": 35,
+        "hero_max_hp": 9551,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "guard",
+          "light_high"
+        ],
+        "remaining_hp": 1107,
+        "remaining_mp": 1,
+        "won": true
+      },
+      {
+        "companion": "lao_shuo",
+        "enemy_level": 44,
+        "gear": "purchased_250g_and_2ink",
+        "hero_level": 35,
+        "hero_max_hp": 9551,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 1079,
+        "remaining_mp": 1,
+        "won": true
+      },
+      {
+        "companion": "lao_shuo",
+        "enemy_level": 45,
+        "gear": "purchased_250g_and_2ink",
+        "hero_level": 35,
+        "hero_max_hp": 9551,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 695,
+        "remaining_mp": 1,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 41,
+        "gear": "chapter_one",
+        "hero_level": 36,
+        "hero_max_hp": 9845,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 2729,
+        "remaining_mp": 490,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 42,
+        "gear": "chapter_one",
+        "hero_level": 36,
+        "hero_max_hp": 9845,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 2381,
+        "remaining_mp": 490,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 43,
+        "gear": "chapter_one",
+        "hero_level": 36,
+        "hero_max_hp": 9845,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high"
+        ],
+        "remaining_hp": 2025,
+        "remaining_mp": 90,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 44,
+        "gear": "chapter_one",
+        "hero_level": 36,
+        "hero_max_hp": 9845,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high"
+        ],
+        "remaining_hp": 1661,
+        "remaining_mp": 90,
+        "won": true
+      },
+      {
+        "companion": "lao_shuo",
+        "enemy_level": 45,
+        "gear": "purchased_250g_and_2ink",
+        "hero_level": 36,
+        "hero_max_hp": 9845,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 1235,
+        "remaining_mp": 90,
+        "won": true
+      },
+      {
+        "companion": "lao_shuo",
+        "enemy_level": 46,
+        "gear": "purchased_250g_and_2ink",
+        "hero_level": 36,
+        "hero_max_hp": 9845,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 854,
+        "remaining_mp": 90,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 42,
+        "gear": "chapter_one",
+        "hero_level": 37,
+        "hero_max_hp": 10141,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 2879,
+        "remaining_mp": 591,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 43,
+        "gear": "chapter_one",
+        "hero_level": 37,
+        "hero_max_hp": 10141,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 2533,
+        "remaining_mp": 591,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 44,
+        "gear": "chapter_one",
+        "hero_level": 37,
+        "hero_max_hp": 10141,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high"
+        ],
+        "remaining_hp": 2179,
+        "remaining_mp": 181,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 45,
+        "gear": "chapter_one",
+        "hero_level": 37,
+        "hero_max_hp": 10141,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high"
+        ],
+        "remaining_hp": 1817,
+        "remaining_mp": 181,
+        "won": true
+      },
+      {
+        "companion": "lao_shuo",
+        "enemy_level": 46,
+        "gear": "purchased_250g_and_2ink",
+        "hero_level": 37,
+        "hero_max_hp": 10141,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 1393,
+        "remaining_mp": 181,
+        "won": true
+      },
+      {
+        "companion": "lao_shuo",
+        "enemy_level": 47,
+        "gear": "purchased_250g_and_2ink",
+        "hero_level": 37,
+        "hero_max_hp": 10141,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 1012,
+        "remaining_mp": 181,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 43,
+        "gear": "chapter_one",
+        "hero_level": 38,
+        "hero_max_hp": 10438,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 3030,
+        "remaining_mp": 694,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 44,
+        "gear": "chapter_one",
+        "hero_level": 38,
+        "hero_max_hp": 10438,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 2686,
+        "remaining_mp": 694,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 45,
+        "gear": "chapter_one",
+        "hero_level": 38,
+        "hero_max_hp": 10438,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high"
+        ],
+        "remaining_hp": 2334,
+        "remaining_mp": 274,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 46,
+        "gear": "chapter_one",
+        "hero_level": 38,
+        "hero_max_hp": 10438,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high"
+        ],
+        "remaining_hp": 1974,
+        "remaining_mp": 274,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 47,
+        "gear": "chapter_one",
+        "hero_level": 38,
+        "hero_max_hp": 10438,
+        "monster": "gate_entity",
+        "plan": [
+          "barrier",
+          "light_super",
+          "mana_cycle",
+          "light_high"
+        ],
+        "remaining_hp": 501,
+        "remaining_mp": 64,
+        "won": true
+      },
+      {
+        "companion": "lao_shuo",
+        "enemy_level": 48,
+        "gear": "purchased_250g_and_2ink",
+        "hero_level": 38,
+        "hero_max_hp": 10438,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 1171,
+        "remaining_mp": 274,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 44,
+        "gear": "chapter_one",
+        "hero_level": 39,
+        "hero_max_hp": 10737,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 3183,
+        "remaining_mp": 801,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 45,
+        "gear": "chapter_one",
+        "hero_level": 39,
+        "hero_max_hp": 10737,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 2841,
+        "remaining_mp": 801,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 46,
+        "gear": "chapter_one",
+        "hero_level": 39,
+        "hero_max_hp": 10737,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_medium",
+          "physical"
+        ],
+        "remaining_hp": 2489,
+        "remaining_mp": 801,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 47,
+        "gear": "chapter_one",
+        "hero_level": 39,
+        "hero_max_hp": 10737,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high"
+        ],
+        "remaining_hp": 2131,
+        "remaining_mp": 371,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 48,
+        "gear": "chapter_one",
+        "hero_level": 39,
+        "hero_max_hp": 10737,
+        "monster": "gate_entity",
+        "plan": [
+          "barrier",
+          "light_super",
+          "mana_cycle",
+          "light_high"
+        ],
+        "remaining_hp": 643,
+        "remaining_mp": 156,
+        "won": true
+      },
+      {
+        "companion": "lao_shuo",
+        "enemy_level": 49,
+        "gear": "purchased_250g_and_2ink",
+        "hero_level": 39,
+        "hero_max_hp": 10737,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "mana_cycle",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 1329,
+        "remaining_mp": 371,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 45,
+        "gear": "chapter_one",
+        "hero_level": 40,
+        "hero_max_hp": 11038,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7188,
+        "remaining_mp": 59,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 46,
+        "gear": "chapter_one",
+        "hero_level": 40,
+        "hero_max_hp": 11038,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7017,
+        "remaining_mp": 59,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 47,
+        "gear": "chapter_one",
+        "hero_level": 40,
+        "hero_max_hp": 11038,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 6842,
+        "remaining_mp": 59,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 48,
+        "gear": "chapter_one",
+        "hero_level": 40,
+        "hero_max_hp": 11038,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 6664,
+        "remaining_mp": 59,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 49,
+        "gear": "chapter_one",
+        "hero_level": 40,
+        "hero_max_hp": 11038,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 1924,
+        "remaining_mp": 59,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 50,
+        "gear": "chapter_one",
+        "hero_level": 40,
+        "hero_max_hp": 11038,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 1552,
+        "remaining_mp": 59,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 46,
+        "gear": "chapter_one",
+        "hero_level": 41,
+        "hero_max_hp": 11340,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7417,
+        "remaining_mp": 150,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 47,
+        "gear": "chapter_one",
+        "hero_level": 41,
+        "hero_max_hp": 11340,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7247,
+        "remaining_mp": 150,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 48,
+        "gear": "chapter_one",
+        "hero_level": 41,
+        "hero_max_hp": 11340,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7072,
+        "remaining_mp": 150,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 49,
+        "gear": "chapter_one",
+        "hero_level": 41,
+        "hero_max_hp": 11340,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 6895,
+        "remaining_mp": 150,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 50,
+        "gear": "chapter_one",
+        "hero_level": 41,
+        "hero_max_hp": 11340,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 2086,
+        "remaining_mp": 150,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 51,
+        "gear": "chapter_one",
+        "hero_level": 41,
+        "hero_max_hp": 11340,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 1716,
+        "remaining_mp": 150,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 47,
+        "gear": "chapter_one",
+        "hero_level": 42,
+        "hero_max_hp": 11643,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7647,
+        "remaining_mp": 243,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 48,
+        "gear": "chapter_one",
+        "hero_level": 42,
+        "hero_max_hp": 11643,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7477,
+        "remaining_mp": 243,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 49,
+        "gear": "chapter_one",
+        "hero_level": 42,
+        "hero_max_hp": 11643,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7303,
+        "remaining_mp": 243,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 50,
+        "gear": "chapter_one",
+        "hero_level": 42,
+        "hero_max_hp": 11643,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7126,
+        "remaining_mp": 243,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 51,
+        "gear": "chapter_one",
+        "hero_level": 42,
+        "hero_max_hp": 11643,
+        "monster": "gate_entity",
+        "plan": [
+          "barrier",
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 5771,
+        "remaining_mp": 13,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 52,
+        "gear": "chapter_one",
+        "hero_level": 42,
+        "hero_max_hp": 11643,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 1879,
+        "remaining_mp": 243,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 48,
+        "gear": "chapter_one",
+        "hero_level": 43,
+        "hero_max_hp": 11948,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7945,
+        "remaining_mp": 339,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 49,
+        "gear": "chapter_one",
+        "hero_level": 43,
+        "hero_max_hp": 11948,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7778,
+        "remaining_mp": 339,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 50,
+        "gear": "chapter_one",
+        "hero_level": 43,
+        "hero_max_hp": 11948,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7608,
+        "remaining_mp": 339,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 51,
+        "gear": "chapter_one",
+        "hero_level": 43,
+        "hero_max_hp": 11948,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7434,
+        "remaining_mp": 339,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 52,
+        "gear": "chapter_one",
+        "hero_level": 43,
+        "hero_max_hp": 11948,
+        "monster": "gate_entity",
+        "plan": [
+          "barrier",
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 6084,
+        "remaining_mp": 104,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 53,
+        "gear": "chapter_one",
+        "hero_level": 43,
+        "hero_max_hp": 11948,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 2204,
+        "remaining_mp": 339,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 49,
+        "gear": "chapter_one",
+        "hero_level": 44,
+        "hero_max_hp": 12254,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8179,
+        "remaining_mp": 437,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 50,
+        "gear": "chapter_one",
+        "hero_level": 44,
+        "hero_max_hp": 12254,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8012,
+        "remaining_mp": 437,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 51,
+        "gear": "chapter_one",
+        "hero_level": 44,
+        "hero_max_hp": 12254,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7843,
+        "remaining_mp": 437,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 52,
+        "gear": "chapter_one",
+        "hero_level": 44,
+        "hero_max_hp": 12254,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7670,
+        "remaining_mp": 437,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 53,
+        "gear": "chapter_one",
+        "hero_level": 44,
+        "hero_max_hp": 12254,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7493,
+        "remaining_mp": 437,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 54,
+        "gear": "chapter_one",
+        "hero_level": 44,
+        "hero_max_hp": 12254,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 2372,
+        "remaining_mp": 437,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 50,
+        "gear": "chapter_one",
+        "hero_level": 45,
+        "hero_max_hp": 12562,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8414,
+        "remaining_mp": 537,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 51,
+        "gear": "chapter_one",
+        "hero_level": 45,
+        "hero_max_hp": 12562,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8249,
+        "remaining_mp": 537,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 52,
+        "gear": "chapter_one",
+        "hero_level": 45,
+        "hero_max_hp": 12562,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8079,
+        "remaining_mp": 537,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 53,
+        "gear": "chapter_one",
+        "hero_level": 45,
+        "hero_max_hp": 12562,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7907,
+        "remaining_mp": 537,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 54,
+        "gear": "chapter_one",
+        "hero_level": 45,
+        "hero_max_hp": 12562,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7731,
+        "remaining_mp": 537,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 55,
+        "gear": "chapter_one",
+        "hero_level": 45,
+        "hero_max_hp": 12562,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 2542,
+        "remaining_mp": 537,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 51,
+        "gear": "chapter_one",
+        "hero_level": 46,
+        "hero_max_hp": 12871,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8651,
+        "remaining_mp": 639,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 52,
+        "gear": "chapter_one",
+        "hero_level": 46,
+        "hero_max_hp": 12871,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8486,
+        "remaining_mp": 639,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 53,
+        "gear": "chapter_one",
+        "hero_level": 46,
+        "hero_max_hp": 12871,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8317,
+        "remaining_mp": 639,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 54,
+        "gear": "chapter_one",
+        "hero_level": 46,
+        "hero_max_hp": 12871,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8145,
+        "remaining_mp": 639,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 55,
+        "gear": "chapter_one",
+        "hero_level": 46,
+        "hero_max_hp": 12871,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 7970,
+        "remaining_mp": 639,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 56,
+        "gear": "chapter_one",
+        "hero_level": 46,
+        "hero_max_hp": 12871,
+        "monster": "gate_entity",
+        "plan": [
+          "barrier",
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 6523,
+        "remaining_mp": 389,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 52,
+        "gear": "chapter_one",
+        "hero_level": 47,
+        "hero_max_hp": 13181,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8889,
+        "remaining_mp": 744,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 53,
+        "gear": "chapter_one",
+        "hero_level": 47,
+        "hero_max_hp": 13181,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8724,
+        "remaining_mp": 744,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 54,
+        "gear": "chapter_one",
+        "hero_level": 47,
+        "hero_max_hp": 13181,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8556,
+        "remaining_mp": 744,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 55,
+        "gear": "chapter_one",
+        "hero_level": 47,
+        "hero_max_hp": 13181,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8385,
+        "remaining_mp": 744,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 56,
+        "gear": "chapter_one",
+        "hero_level": 47,
+        "hero_max_hp": 13181,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8210,
+        "remaining_mp": 744,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 57,
+        "gear": "chapter_one",
+        "hero_level": 47,
+        "hero_max_hp": 13181,
+        "monster": "gate_entity",
+        "plan": [
+          "barrier",
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 6745,
+        "remaining_mp": 489,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 53,
+        "gear": "chapter_one",
+        "hero_level": 48,
+        "hero_max_hp": 13493,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9129,
+        "remaining_mp": 851,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 54,
+        "gear": "chapter_one",
+        "hero_level": 48,
+        "hero_max_hp": 13493,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8964,
+        "remaining_mp": 851,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 55,
+        "gear": "chapter_one",
+        "hero_level": 48,
+        "hero_max_hp": 13493,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8796,
+        "remaining_mp": 851,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 56,
+        "gear": "chapter_one",
+        "hero_level": 48,
+        "hero_max_hp": 13493,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8626,
+        "remaining_mp": 851,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 57,
+        "gear": "chapter_one",
+        "hero_level": 48,
+        "hero_max_hp": 13493,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8452,
+        "remaining_mp": 851,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 58,
+        "gear": "chapter_one",
+        "hero_level": 48,
+        "hero_max_hp": 13493,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high",
+          "physical"
+        ],
+        "remaining_hp": 3057,
+        "remaining_mp": 851,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 54,
+        "gear": "chapter_one",
+        "hero_level": 49,
+        "hero_max_hp": 13806,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9370,
+        "remaining_mp": 960,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 55,
+        "gear": "chapter_one",
+        "hero_level": 49,
+        "hero_max_hp": 13806,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9205,
+        "remaining_mp": 960,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 56,
+        "gear": "chapter_one",
+        "hero_level": 49,
+        "hero_max_hp": 13806,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9038,
+        "remaining_mp": 960,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 57,
+        "gear": "chapter_one",
+        "hero_level": 49,
+        "hero_max_hp": 13806,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8868,
+        "remaining_mp": 960,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 58,
+        "gear": "chapter_one",
+        "hero_level": 49,
+        "hero_max_hp": 13806,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8694,
+        "remaining_mp": 960,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 59,
+        "gear": "chapter_one",
+        "hero_level": 49,
+        "hero_max_hp": 13806,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8518,
+        "remaining_mp": 960,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 55,
+        "gear": "chapter_one",
+        "hero_level": 50,
+        "hero_max_hp": 14120,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9611,
+        "remaining_mp": 1071,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 56,
+        "gear": "chapter_one",
+        "hero_level": 50,
+        "hero_max_hp": 14120,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9447,
+        "remaining_mp": 1071,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 57,
+        "gear": "chapter_one",
+        "hero_level": 50,
+        "hero_max_hp": 14120,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9281,
+        "remaining_mp": 1071,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 58,
+        "gear": "chapter_one",
+        "hero_level": 50,
+        "hero_max_hp": 14120,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9111,
+        "remaining_mp": 1071,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 59,
+        "gear": "chapter_one",
+        "hero_level": 50,
+        "hero_max_hp": 14120,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8938,
+        "remaining_mp": 1071,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 60,
+        "gear": "chapter_one",
+        "hero_level": 50,
+        "hero_max_hp": 14120,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 8762,
+        "remaining_mp": 1071,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 56,
+        "gear": "chapter_one",
+        "hero_level": 51,
+        "hero_max_hp": 14435,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9854,
+        "remaining_mp": 1184,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 57,
+        "gear": "chapter_one",
+        "hero_level": 51,
+        "hero_max_hp": 14435,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9690,
+        "remaining_mp": 1184,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 58,
+        "gear": "chapter_one",
+        "hero_level": 51,
+        "hero_max_hp": 14435,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9524,
+        "remaining_mp": 1184,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 59,
+        "gear": "chapter_one",
+        "hero_level": 51,
+        "hero_max_hp": 14435,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9355,
+        "remaining_mp": 1184,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 60,
+        "gear": "chapter_one",
+        "hero_level": 51,
+        "hero_max_hp": 14435,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9182,
+        "remaining_mp": 1184,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 61,
+        "gear": "chapter_one",
+        "hero_level": 51,
+        "hero_max_hp": 14435,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9007,
+        "remaining_mp": 1184,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 57,
+        "gear": "chapter_one",
+        "hero_level": 52,
+        "hero_max_hp": 14752,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10099,
+        "remaining_mp": 1299,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 58,
+        "gear": "chapter_one",
+        "hero_level": 52,
+        "hero_max_hp": 14752,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9935,
+        "remaining_mp": 1299,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 59,
+        "gear": "chapter_one",
+        "hero_level": 52,
+        "hero_max_hp": 14752,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9769,
+        "remaining_mp": 1299,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 60,
+        "gear": "chapter_one",
+        "hero_level": 52,
+        "hero_max_hp": 14752,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9600,
+        "remaining_mp": 1299,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 61,
+        "gear": "chapter_one",
+        "hero_level": 52,
+        "hero_max_hp": 14752,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9429,
+        "remaining_mp": 1299,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 62,
+        "gear": "chapter_one",
+        "hero_level": 52,
+        "hero_max_hp": 14752,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9254,
+        "remaining_mp": 1299,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 58,
+        "gear": "chapter_one",
+        "hero_level": 53,
+        "hero_max_hp": 15070,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10344,
+        "remaining_mp": 1416,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 59,
+        "gear": "chapter_one",
+        "hero_level": 53,
+        "hero_max_hp": 15070,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10181,
+        "remaining_mp": 1416,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 60,
+        "gear": "chapter_one",
+        "hero_level": 53,
+        "hero_max_hp": 15070,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10016,
+        "remaining_mp": 1416,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 61,
+        "gear": "chapter_one",
+        "hero_level": 53,
+        "hero_max_hp": 15070,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9847,
+        "remaining_mp": 1416,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 62,
+        "gear": "chapter_one",
+        "hero_level": 53,
+        "hero_max_hp": 15070,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9676,
+        "remaining_mp": 1416,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 63,
+        "gear": "chapter_one",
+        "hero_level": 53,
+        "hero_max_hp": 15070,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9502,
+        "remaining_mp": 1416,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 59,
+        "gear": "chapter_one",
+        "hero_level": 54,
+        "hero_max_hp": 15389,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10591,
+        "remaining_mp": 1536,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 60,
+        "gear": "chapter_one",
+        "hero_level": 54,
+        "hero_max_hp": 15389,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10428,
+        "remaining_mp": 1536,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 61,
+        "gear": "chapter_one",
+        "hero_level": 54,
+        "hero_max_hp": 15389,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10263,
+        "remaining_mp": 1536,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 62,
+        "gear": "chapter_one",
+        "hero_level": 54,
+        "hero_max_hp": 15389,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10095,
+        "remaining_mp": 1536,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 63,
+        "gear": "chapter_one",
+        "hero_level": 54,
+        "hero_max_hp": 15389,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9924,
+        "remaining_mp": 1536,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 64,
+        "gear": "chapter_one",
+        "hero_level": 54,
+        "hero_max_hp": 15389,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 9750,
+        "remaining_mp": 1536,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 60,
+        "gear": "chapter_one",
+        "hero_level": 55,
+        "hero_max_hp": 15710,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10839,
+        "remaining_mp": 1657,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 61,
+        "gear": "chapter_one",
+        "hero_level": 55,
+        "hero_max_hp": 15710,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10677,
+        "remaining_mp": 1657,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 62,
+        "gear": "chapter_one",
+        "hero_level": 55,
+        "hero_max_hp": 15710,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10512,
+        "remaining_mp": 1657,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 63,
+        "gear": "chapter_one",
+        "hero_level": 55,
+        "hero_max_hp": 15710,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10344,
+        "remaining_mp": 1657,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 64,
+        "gear": "chapter_one",
+        "hero_level": 55,
+        "hero_max_hp": 15710,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10174,
+        "remaining_mp": 1657,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 65,
+        "gear": "chapter_one",
+        "hero_level": 55,
+        "hero_max_hp": 15710,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10001,
+        "remaining_mp": 1657,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 61,
+        "gear": "chapter_one",
+        "hero_level": 56,
+        "hero_max_hp": 16031,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11169,
+        "remaining_mp": 1781,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 62,
+        "gear": "chapter_one",
+        "hero_level": 56,
+        "hero_max_hp": 16031,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11009,
+        "remaining_mp": 1781,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 63,
+        "gear": "chapter_one",
+        "hero_level": 56,
+        "hero_max_hp": 16031,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10847,
+        "remaining_mp": 1781,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 64,
+        "gear": "chapter_one",
+        "hero_level": 56,
+        "hero_max_hp": 16031,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10683,
+        "remaining_mp": 1781,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 65,
+        "gear": "chapter_one",
+        "hero_level": 56,
+        "hero_max_hp": 16031,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10516,
+        "remaining_mp": 1781,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 66,
+        "gear": "chapter_one",
+        "hero_level": 56,
+        "hero_max_hp": 16031,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10346,
+        "remaining_mp": 1781,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 62,
+        "gear": "chapter_one",
+        "hero_level": 57,
+        "hero_max_hp": 16354,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11421,
+        "remaining_mp": 1906,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 63,
+        "gear": "chapter_one",
+        "hero_level": 57,
+        "hero_max_hp": 16354,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11261,
+        "remaining_mp": 1906,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 64,
+        "gear": "chapter_one",
+        "hero_level": 57,
+        "hero_max_hp": 16354,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11100,
+        "remaining_mp": 1906,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 65,
+        "gear": "chapter_one",
+        "hero_level": 57,
+        "hero_max_hp": 16354,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10936,
+        "remaining_mp": 1906,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 66,
+        "gear": "chapter_one",
+        "hero_level": 57,
+        "hero_max_hp": 16354,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10769,
+        "remaining_mp": 1906,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 67,
+        "gear": "chapter_one",
+        "hero_level": 57,
+        "hero_max_hp": 16354,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10600,
+        "remaining_mp": 1906,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 63,
+        "gear": "chapter_one",
+        "hero_level": 58,
+        "hero_max_hp": 16678,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11673,
+        "remaining_mp": 2034,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 64,
+        "gear": "chapter_one",
+        "hero_level": 58,
+        "hero_max_hp": 16678,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11514,
+        "remaining_mp": 2034,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 65,
+        "gear": "chapter_one",
+        "hero_level": 58,
+        "hero_max_hp": 16678,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11353,
+        "remaining_mp": 2034,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 66,
+        "gear": "chapter_one",
+        "hero_level": 58,
+        "hero_max_hp": 16678,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11189,
+        "remaining_mp": 2034,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 67,
+        "gear": "chapter_one",
+        "hero_level": 58,
+        "hero_max_hp": 16678,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11023,
+        "remaining_mp": 2034,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 68,
+        "gear": "chapter_one",
+        "hero_level": 58,
+        "hero_max_hp": 16678,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 10854,
+        "remaining_mp": 2034,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 64,
+        "gear": "chapter_one",
+        "hero_level": 59,
+        "hero_max_hp": 17003,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11927,
+        "remaining_mp": 2163,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 65,
+        "gear": "chapter_one",
+        "hero_level": 59,
+        "hero_max_hp": 17003,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11768,
+        "remaining_mp": 2163,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 66,
+        "gear": "chapter_one",
+        "hero_level": 59,
+        "hero_max_hp": 17003,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11607,
+        "remaining_mp": 2163,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 67,
+        "gear": "chapter_one",
+        "hero_level": 59,
+        "hero_max_hp": 17003,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11444,
+        "remaining_mp": 2163,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 68,
+        "gear": "chapter_one",
+        "hero_level": 59,
+        "hero_max_hp": 17003,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11278,
+        "remaining_mp": 2163,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 69,
+        "gear": "chapter_one",
+        "hero_level": 59,
+        "hero_max_hp": 17003,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11109,
+        "remaining_mp": 2163,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 65,
+        "gear": "chapter_one",
+        "hero_level": 60,
+        "hero_max_hp": 17329,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 12181,
+        "remaining_mp": 2295,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 66,
+        "gear": "chapter_one",
+        "hero_level": 60,
+        "hero_max_hp": 17329,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 12023,
+        "remaining_mp": 2295,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 67,
+        "gear": "chapter_one",
+        "hero_level": 60,
+        "hero_max_hp": 17329,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11862,
+        "remaining_mp": 2295,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 68,
+        "gear": "chapter_one",
+        "hero_level": 60,
+        "hero_max_hp": 17329,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11699,
+        "remaining_mp": 2295,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 69,
+        "gear": "chapter_one",
+        "hero_level": 60,
+        "hero_max_hp": 17329,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11533,
+        "remaining_mp": 2295,
+        "won": true
+      },
+      {
+        "companion": "fei_yan",
+        "enemy_level": 70,
+        "gear": "chapter_one",
+        "hero_level": 60,
+        "hero_max_hp": 17329,
+        "monster": "gate_entity",
+        "plan": [
+          "light_super",
+          "light_high"
+        ],
+        "remaining_hp": 11365,
+        "remaining_mp": 2295,
+        "won": true
+      }
+    ],
+    "checks": 403,
+    "failures": [],
+    "method": "Production damage formula; deterministic action search, no dodge luck, no mid-battle refill, basic chapter-one equipment only. Fei support except first tutorial; trained barrier/mana-cycle allowed. Library uses low-tier spells only.",
+    "passed": true
+  },
+  "npc_behavior_checks": {
+    "actual_boss_battles": 5,
+    "checks": 4000,
+    "failures": [],
+    "motion_steps": 450,
+    "passed": true
+  },
+  "windows_pck_sha256": "17a5d11a87dacbf46b3bca4726477a346fdcaee38e087d42bd63f0a68cc729c9",
   "android_minimum": "7.0 / API 24",
   "orientation": "landscape",
   "original_assets_edited": false,
   "existing_zip_modified": false,
-  "device_attached": false
+  "device_attached": false,
+  "emulator_tested_this_version": false,
+  "android_test_policy": "No MuMu tests; signature, resources and desktop execution of exported APK content only.",
+  "campaign_save_checks": {
+    "checks": 36,
+    "failures": [],
+    "passed": true
+  },
+  "stream_recovery_checks": {
+    "actual_cinematic_and_exit_walk": true,
+    "checks": 1061,
+    "failures": [],
+    "max_active_regions": 1,
+    "max_decode_jobs": 2,
+    "passed": true,
+    "regions": [
+      {
+        "base_bytes": 344064,
+        "hd_bytes": 47902800,
+        "jobs_peak": 2,
+        "region": "B01"
+      },
+      {
+        "base_bytes": 436224,
+        "hd_bytes": 38322240,
+        "jobs_peak": 2,
+        "region": "B02"
+      },
+      {
+        "base_bytes": 571392,
+        "hd_bytes": 47902800,
+        "jobs_peak": 2,
+        "region": "B03"
+      },
+      {
+        "base_bytes": 1003520,
+        "hd_bytes": 38322240,
+        "jobs_peak": 2,
+        "region": "B04"
+      },
+      {
+        "base_bytes": 477184,
+        "hd_bytes": 47902800,
+        "jobs_peak": 2,
+        "region": "B05"
+      },
+      {
+        "base_bytes": 319488,
+        "hd_bytes": 38322240,
+        "jobs_peak": 2,
+        "region": "B06"
+      },
+      {
+        "base_bytes": 669696,
+        "hd_bytes": 47902800,
+        "jobs_peak": 2,
+        "region": "S01"
+      },
+      {
+        "base_bytes": 731136,
+        "hd_bytes": 38322240,
+        "jobs_peak": 2,
+        "region": "S05"
+      },
+      {
+        "base_bytes": 626688,
+        "hd_bytes": 47902800,
+        "jobs_peak": 2,
+        "region": "G01"
+      },
+      {
+        "base_bytes": 694272,
+        "hd_bytes": 38322240,
+        "jobs_peak": 2,
+        "region": "S06"
+      },
+      {
+        "base_bytes": 782336,
+        "hd_bytes": 51096320,
+        "jobs_peak": 2,
+        "region": "B07"
+      },
+      {
+        "base_bytes": 626688,
+        "hd_bytes": 47902800,
+        "jobs_peak": 2,
+        "region": "B09"
+      },
+      {
+        "base_bytes": 530432,
+        "hd_bytes": 47902800,
+        "jobs_peak": 2,
+        "region": "S07"
+      },
+      {
+        "base_bytes": 866304,
+        "hd_bytes": 38322240,
+        "jobs_peak": 2,
+        "region": "B08"
+      },
+      {
+        "base_bytes": 745472,
+        "hd_bytes": 38322240,
+        "jobs_peak": 2,
+        "region": "B10"
+      },
+      {
+        "base_bytes": 724992,
+        "hd_bytes": 51096320,
+        "jobs_peak": 2,
+        "region": "B16"
+      },
+      {
+        "base_bytes": 481280,
+        "hd_bytes": 47902800,
+        "jobs_peak": 2,
+        "region": "B12"
+      },
+      {
+        "base_bytes": 380928,
+        "hd_bytes": 47902800,
+        "jobs_peak": 2,
+        "region": "B13"
+      },
+      {
+        "base_bytes": 428032,
+        "hd_bytes": 63870400,
+        "jobs_peak": 2,
+        "region": "B15"
+      },
+      {
+        "base_bytes": 333824,
+        "hd_bytes": 47902800,
+        "jobs_peak": 2,
+        "region": "N02"
+      }
+    ]
+  },
+  "update_save_checks": {
+    "checks": 112,
+    "failures": [],
+    "passed": true,
+    "reader": false
+  },
+  "update_save_checks_restart": {
+    "checks": 7,
+    "failures": [],
+    "passed": true,
+    "reader": true
+  }
 }

@@ -10,7 +10,7 @@ static class Launcher {
         string engine = Path.Combine(root, "runtime", "engine.exe");
         string pack = Path.Combine(root, "runtime", "campus.pck");
         if (!File.Exists(engine) || !File.Exists(pack)) {
-            MessageBox.Show("游戏运行文件缺失，请保留完整的校园自由漫游文件夹。", "校园自由漫游");
+            MessageBox.Show("游戏运行文件缺失，请保留完整的游戏文件夹。", "gei子的冒险");
             return 1;
         }
         try {
@@ -27,7 +27,7 @@ static class Launcher {
             }
             return 0;
         } catch (Exception error) {
-            MessageBox.Show(error.Message, "校园自由漫游启动失败");
+            MessageBox.Show(error.Message, "gei子的冒险启动失败");
             return 1;
         }
     }

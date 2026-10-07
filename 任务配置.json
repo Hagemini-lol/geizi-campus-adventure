@@ -39,7 +39,7 @@
       ],
       "steps": [
         {
-          "hint": "第一章已结束。与费眼学习法术，与牢李委托制作物品，或找牢硕购买装备、学习战斗专精。后续剧情尚未开放。"
+          "hint": "第二章至终章已开放。按主线提示探索，菜单状态页可打开剧情手册、证据与伙伴服务。"
         }
       ]
     },
@@ -52,6 +52,237 @@
       "steps": [
         {
           "hint": "gei子，先自由探索校园，走近门口、告示牌或人物后按 E 交互。上午、下午可以到教学楼十班的白圈座位上课。"
+        }
+      ]
+    },
+    {
+      "id": "part_2",
+      "type": "main",
+      "title": "深夜刷怪与阳子启蒙",
+      "auto_start": true,
+      "prerequisites": [
+        "part_1"
+      ],
+      "steps": [
+        {
+          "hint": "深夜：实验楼第一战 → B02:1:corridor 白圈（E / X）",
+          "event": "campaign/night_hunt"
+        },
+        {
+          "hint": "回家 / 宿舍休息 → N02 白圈（E / X）",
+          "event": "campaign/next_dawn"
+        },
+        {
+          "hint": "阳子的连珠炮 → B01:3:0 白圈（E / X）",
+          "event": "campaign/yang_awakened"
+        }
+      ]
+    },
+    {
+      "id": "part_3",
+      "type": "main",
+      "title": "据点、人脉与异常点巡查",
+      "auto_start": true,
+      "prerequisites": [
+        "part_2"
+      ],
+      "steps": [
+        {
+          "hint": "主席台后的小会 → S02 白圈（E / X）",
+          "event": "campaign/team_meet"
+        },
+        {
+          "hint": "牢李：基础法术讲义 → B12:3:0 白圈（E / X）",
+          "event": "campaign/handout"
+        },
+        {
+          "hint": "巡查科技中心图书室 → B06:1:0 白圈（E / X）",
+          "event": "campaign/library_trace"
+        },
+        {
+          "hint": "巡查小仓库 → B04 白圈（E / X）",
+          "event": "campaign/warehouse_trace"
+        },
+        {
+          "hint": "实验楼：护壳教学 → B02:1:corridor 白圈（E / X）",
+          "event": "campaign/elite_lesson"
+        },
+        {
+          "hint": "向牢抽汇总线索 → B01:3:0 白圈（E / X）",
+          "event": "campaign/patrol_done"
+        },
+        {
+          "hint": "向费眼学习中级法术 → B01:3:0 白圈（E / X）",
+          "event": "campaign/medium_lesson"
+        }
+      ]
+    },
+    {
+      "id": "part_4",
+      "type": "main",
+      "title": "图书室·书与魔女",
+      "auto_start": true,
+      "prerequisites": [
+        "part_3"
+      ],
+      "steps": [
+        {
+          "hint": "图书室：选择进入办法 → B06 白圈（E / X）",
+          "event": "campaign/library_enter"
+        },
+        {
+          "hint": "书架间清除三只噬书怪 → B06:1:0 白圈（E / X）",
+          "event": "campaign/books_clear"
+        },
+        {
+          "hint": "阅览区：爱看书的 wr → B06:1:0 白圈（E / X）",
+          "event": "campaign/wr_meet"
+        },
+        {
+          "hint": "半地下书库：大噬书怪 → B06:1:1 白圈（E / X）",
+          "event": "campaign/book_queen"
+        }
+      ]
+    },
+    {
+      "id": "part_5",
+      "type": "main",
+      "title": "混沌之女·勾尬",
+      "auto_start": true,
+      "prerequisites": [
+        "part_4"
+      ],
+      "steps": [
+        {
+          "hint": "牢李被举报 → B01:3:0 白圈（E / X）",
+          "event": "campaign/li_start"
+        },
+        {
+          "hint": "班会：为牢李澄清 → B01:3:0 白圈（E / X）",
+          "event": "campaign/li_hearing"
+        },
+        {
+          "hint": "夜探办公楼 → B15:1:corridor 白圈（E / X）",
+          "event": "campaign/office_infiltrate"
+        },
+        {
+          "hint": "顶层仪式阵：老树枯枝 → B15:4:0 白圈（E / X）",
+          "event": "campaign/ancient"
+        }
+      ]
+    },
+    {
+      "id": "part_5_plus",
+      "type": "main",
+      "title": "白日审判",
+      "auto_start": true,
+      "prerequisites": [
+        "part_5"
+      ],
+      "steps": [
+        {
+          "hint": "公告栏：阳子被指控 → N02 白圈（E / X）",
+          "event": "campaign/yang_frame"
+        },
+        {
+          "hint": "政教处听证 → B15:1:0 白圈（E / X）",
+          "event": "campaign/yang_hearing"
+        }
+      ]
+    },
+    {
+      "id": "part_6",
+      "type": "main",
+      "title": "六边形战士·牢家的封印",
+      "auto_start": true,
+      "prerequisites": [
+        "part_5_plus"
+      ],
+      "steps": [
+        {
+          "hint": "牢董：等了两周 → B01:3:0 白圈（E / X）",
+          "event": "campaign/dong_talk"
+        },
+        {
+          "hint": "牢家旧宅 → STORY_HOUSE:1:0 白圈（E / X）",
+          "event": "campaign/dong_house"
+        },
+        {
+          "hint": "石室：补全符文数列 → STORY_SEAL:1:0 白圈（E / X）",
+          "event": "campaign/rune"
+        },
+        {
+          "hint": "守住封印表门 → STORY_SEAL:1:0 白圈（E / X）",
+          "event": "campaign/seal_defend"
+        }
+      ]
+    },
+    {
+      "id": "part_7",
+      "type": "main",
+      "title": "变身·夜守校园",
+      "auto_start": true,
+      "prerequisites": [
+        "part_6"
+      ],
+      "steps": [
+        {
+          "hint": "夜袭：实验楼防线 → B02:1:corridor 白圈（E / X）",
+          "event": "campaign/tide_lab"
+        },
+        {
+          "hint": "夜袭：南门与操场 → N02 白圈（E / X）",
+          "event": "campaign/tide_gate"
+        },
+        {
+          "hint": "夜袭：秋实楼楼梯口 → B01:1:corridor 白圈（E / X）",
+          "event": "campaign/tide_school"
+        },
+        {
+          "hint": "魔法少男变身 → B01:1:corridor 白圈（E / X）",
+          "event": "campaign/ao_transform"
+        },
+        {
+          "hint": "天亮：清点人数 → S01 白圈（E / X）",
+          "event": "campaign/tide_clear"
+        }
+      ]
+    },
+    {
+      "id": "part_8",
+      "type": "main",
+      "title": "期中考试与决战前夜",
+      "auto_start": true,
+      "prerequisites": [
+        "part_7"
+      ],
+      "steps": [
+        {
+          "hint": "期中考试 → B01:3:0 白圈（E / X）",
+          "event": "campaign/exam"
+        },
+        {
+          "hint": "决战前夜：准备与路线 → B01:3:0 白圈（E / X）",
+          "event": "campaign/preparation"
+        }
+      ]
+    },
+    {
+      "id": "part_9",
+      "type": "main",
+      "title": "门开之日",
+      "auto_start": true,
+      "prerequisites": [
+        "part_8"
+      ],
+      "steps": [
+        {
+          "hint": "门开之日：门扉战 → STORY_SEAL:1:0 白圈（E / X）",
+          "event": "campaign/gate"
+        },
+        {
+          "hint": "最终抉择 → STORY_SEAL:1:0 白圈（E / X）",
+          "event": "campaign/choice"
         }
       ]
     }

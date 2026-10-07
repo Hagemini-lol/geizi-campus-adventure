@@ -39,6 +39,7 @@ func start(record: Dictionary, key: String) -> bool:
 	var source: PackedScene=Assets.fetch("res://scenes/ui/battle/battle_interface.tscn")
 	if source==null:game.show_notice("战斗界面素材缺失");return false
 	monster=record["monster"];zone=key
+	game.record_game_event("monster_seen/"+str(monster["id"]))
 	enemy=game.combat_rules.monster_stats(monster["id"],int(monster["level"]))
 	enemy["hp_current"]=monster["hp"]
 	turn=1;busy=false;auto_battle=false;result="";history.clear();action_map.clear()
@@ -52,7 +53,12 @@ func start(record: Dictionary, key: String) -> bool:
 	punch_pose=Assets.fetch("res://assets/characters/hero/battle/zhao_mugei_punch.png")
 	dodge_pose=Assets.fetch("res://assets/characters/hero/battle/zhao_mugei_dodge.png")
 	interface.ally_slot.set_combatant("赵慕gei",base_pose)
-	interface.enemy_slot.set_combatant(enemy["name"],record["sprite"].texture)
+	var enemy_texture: Texture2D=record["sprite"].texture if record.has("sprite") else MonsterScene.portrait(game.battle_asset_root.path_join(game.combat_rules.data["monsters"][enemy["id"]]["art"]))
+	if enemy["id"]=="gate_entity":
+		var effect: Dictionary=game.story_system.effects["world_magic_circle"]
+		var art: Image=Image.load_from_file(game.battle_asset_root.path_join(str(effect["texture"]).trim_prefix("res://")))
+		var region: Array=effect["frame_regions"][1];art=art.get_region(Rect2i(region[0],region[1],region[2],region[3]));art.generate_mipmaps();enemy_texture=ImageTexture.create_from_image(art)
+	interface.enemy_slot.set_combatant(enemy["name"],enemy_texture)
 	interface.ally_slot.portrait_view.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	interface.enemy_slot.portrait_view.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	interface.action_selected.connect(selected)
@@ -92,7 +98,7 @@ func update_ui() -> void:
 	hero_label.text="赵慕gei  Lv.%d\nHP %d / %d    MP %d / %d\n精力 %d / %d    SAN %d / %d" % [hero["level"],hero["hp_current"],hero["hp"],hero["mp_current"],hero["mp"],hero["energy_current"],hero["energy"],hero["san_current"],hero["san"]]
 	hero_label.text+="\n经验 %d%s" % [hero["experience"],"（已满级）" if int(hero["level"])>=game.combat_rules.maximum_level() else " / "+str(game.combat_rules.experience_required(int(hero["level"])))]
 	enemy_label.text="%s  Lv.%d\nHP %d / %d" % [enemy["name"],enemy["level"],enemy["hp_current"],enemy["hp"]]
-	if enemy.get("rarity","")=="elite":enemy_label.text+="\n护壳：单次最多扣除 70% 生命"
+	if enemy.get("rarity","") in ["elite","boss"]:enemy_label.text+="\n护壳：单次最多扣除 70% 生命"
 	var weakness_names: Array[String]=[]
 	var element_names: Dictionary={"fire":"火","lightning":"电","frost":"冰","light":"光"}
 	for element: String in enemy.get("elemental_reductions",{}):
@@ -106,6 +112,7 @@ func update_ui() -> void:
 		var action: Dictionary={"id":id,"label":spec["name"],"category":"magic" if spec["kind"]=="magic" else "dodge","description":spec.get("description","")}
 		if spec["kind"]=="magic":
 			action.merge({"damage_kind":"magic","element":spec["element"],"tier":spec["tier"],"effect":spec["effect"],"mp_cost":game.combat_rules.spell_cost(spec["tier"],charge_toggle.button_pressed)})
+			if spec.get("element","")=="dark":action["mp_cost"]=maxi(1,int(action["mp_cost"])/2)
 			action["description"]="消耗 %d MP · %s" % [action["mp_cost"],"蓄力一回合后双倍伤害" if charge_toggle.button_pressed else "立即施法"]
 		else:
 			if id=="barrier":action["mp_cost"]=20+5*int(hero["level"])
@@ -149,6 +156,7 @@ func perform(id: String) -> void:
 	if int(cooldowns.get(id,0))>turn:append_log("技能正在冷却。");return
 	var hero: Dictionary=game.combat_rules.hero
 	if int(hero["mp_current"])<int(action.get("mp_cost",0)) or int(hero["energy_current"])<int(action.get("energy_cost",0)):append_log("资源不足，请先休整。");return
+	if game.campaign!=null and not game.campaign.before_action(action,charge_toggle.button_pressed):return
 	busy=true
 	hero["mp_current"]-=int(action.get("mp_cost",0));hero["energy_current"]-=int(action.get("energy_cost",0))
 	for key: String in ["mp","energy"]:hero[key+"_current"]=mini(int(hero[key]),int(hero[key+"_current"])+int(action.get(key+"_restore",0)))
@@ -163,6 +171,7 @@ func perform(id: String) -> void:
 		var multiplier:=1.0
 		if action.get("damage_kind","")=="magic":multiplier=float(game.combat_rules.data["magic_tiers"][action["tier"]]["multiplier"])
 		var amplifier: float=(2.0 if releasing else 1.0)*(1.25 if focus_ready and action.get("damage_kind","")=="magic" else 1.0)
+		if action.get("element","")=="lightning" and game.economy.quantity("insulation_bracer")>0:amplifier*=1.1
 		var damage: int=game.combat_rules.damage(hero,enemy,action["damage_kind"],0,str(action.get("element","")),multiplier,amplifier)
 		if action.get("damage_kind","")=="magic":focus_ready=false
 		enemy["hp_current"]=maxi(0,int(enemy["hp_current"])-damage);monster["hp"]=enemy["hp_current"]
@@ -176,6 +185,7 @@ func perform(id: String) -> void:
 	elif id=="mana_cycle":
 		hero["mp_current"]=mini(int(hero["mp"]),int(hero["mp_current"])+10+10*int(hero["level"]));cooldowns[id]=turn+3
 	elif id=="steady_guard":action["reduction"]=.65;cooldowns[id]=turn+3
+	if game.campaign!=null:game.campaign.ally_support(self)
 	append_log(message);update_ui()
 	await get_tree().create_timer(.3).timeout
 	interface.ally_slot.restore_pose()
@@ -185,6 +195,7 @@ func perform(id: String) -> void:
 	else:
 		var kind: String=game.combat_rules.data["monsters"][enemy["id"]].get("attack_kind","physical")
 		var reduction: float=maxf(float(action.get("reduction",0)),.5 if barrier_turns>0 else 0)
+		if game.campaign!=null:reduction=maxf(reduction,game.campaign.battle_reduction(enemy["id"]))
 		var damage: int=game.combat_rules.damage(enemy,hero,kind,reduction)
 		hero["hp_current"]=maxi(0,int(hero["hp_current"])-damage)
 		message+=" %s造成 %d 点伤害。" % [enemy["name"],damage]
@@ -225,6 +236,7 @@ func finish(outcome: String) -> void:
 			game.record_game_event("item_received/"+id,int(loot[id]))
 		game.monster_world.remove(zone,str(monster["uid"]))
 		var awarded: Dictionary=game.combat_rules.grant_kill_experience(int(enemy["hp"]))
+		if game.campaign!=null and game.campaign.active():game.campaign.change_san(0)
 		append_log("胜利！获得 %d 经验。%s" % [awarded["gained"],"升至 %d 级！" % [awarded["level"]] if int(awarded["levels"])>0 else ""])
 	elif outcome=="defeat":append_log("战斗失败。返回地图后恢复状态，回到南门。")
 	else:append_log("已撤离。双方保留剩余血量。")
@@ -233,10 +245,19 @@ func finish(outcome: String) -> void:
 func close() -> void:
 	if result.is_empty() or busy:return
 	var outcome:=result
+	var story_battle: bool=game.campaign!=null and game.campaign.is_story_battle()
+	var remaining: Dictionary=monster.duplicate(true)
 	hide();root_panel.queue_free();root_panel=null;interface=null
 	base_pose=null;punch_pose=null;dodge_pose=null
 	monster={};enemy={};action_map.clear()
 	game.gameplay_hud.show();game.refresh_player_freeze();game.interaction_delay=1.0
 	game.sync_monsters()
-	if outcome=="defeat":game.combat_rules.refill_hero();game.reset_player()
-	else:game.show_notice("战斗胜利" if outcome=="victory" else "已撤离战斗")
+	if game.campaign!=null and game.campaign.active() and game.campaign.san()<=0:game.campaign.present_ending("BE-2")
+	elif story_battle:game.campaign.battle_closed(outcome,remaining)
+	elif outcome=="defeat":
+		game.combat_rules.refill_hero()
+		if game.campaign!=null and game.campaign.active():game.campaign.change_san(0)
+		game.reset_player()
+	else:
+		if outcome=="victory" and game.campaign!=null and game.campaign.active():game.campaign.world_victory(remaining.get("id",""))
+		game.show_notice("战斗胜利" if outcome=="victory" else "已撤离战斗")

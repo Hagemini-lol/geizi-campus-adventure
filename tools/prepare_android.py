@@ -12,7 +12,7 @@ shutil.copytree(game/'资源',package/'资源',dirs_exist_ok=True)
 for name in ['素材引用.json','战斗与刷新配置.json','办公室配置.json','剧情配置.json','任务配置.json','物资与交易配置.json']:
     shutil.copy2(game/name,package/name)
 project=(stage/'project.godot').read_text(encoding='utf-8')
-project=project.replace('config/name="校园自由漫游"','config/name="校园自由漫游"\nconfig/mobile_bundle=true\nconfig/quit_on_go_back=false')
+project=project.replace('[application]','[application]\nconfig/mobile_bundle=true\nconfig/quit_on_go_back=false')
 project=project.replace('window/stretch/mode="canvas_items"','window/stretch/mode="canvas_items"\nwindow/stretch/aspect="expand"\nwindow/handheld/orientation=0')
 project=project.replace('[rendering]','[rendering]\ntextures/vram_compression/import_etc2_astc=true')
 project+='\n[input_devices]\npointing/emulate_mouse_from_touch=false\npointing/emulate_touch_from_mouse=false\n\n[editor_plugins]\nenabled=PackedStringArray("res://addons/raw_bundle/plugin.cfg")\n'
@@ -52,7 +52,7 @@ runnable=true
 export_filter="all_resources"
 include_filter=""
 exclude_filter="addons/*,tests/*,human_scale_details.gd"
-export_path="../校园自由漫游.apk"
+export_path="../gei子的冒险.apk"
 
 [preset.0.options]
 custom_template/release="{template}"
@@ -62,10 +62,10 @@ architectures/armeabi-v7a=true
 architectures/arm64-v8a=true
 architectures/x86=false
 architectures/x86_64=false
-version/code=2
-version/name="1.0.1"
+version/code=6
+version/name="1.2.2"
 package/unique_name="org.campus.gei.adventure"
-package/name="校园自由漫游"
+package/name="gei子的冒险"
 package/signed=true
 screen/immersive_mode=true
 screen/edge_to_edge=false

@@ -105,6 +105,87 @@
       "restore": {},
       "merchant": "lao_shuo",
       "plot_item": true
+    },
+    {
+      "id": "basic_spell_handout",
+      "name": "基础法术讲义",
+      "description": "阳子的四系入门讲义，可向牢李补印。",
+      "plot_item": true,
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {}
+    },
+    {
+      "id": "dark_page",
+      "name": "黑魔法残页",
+      "description": "wr 的赠物，魔女路线钥匙。",
+      "plot_item": true,
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {}
+    },
+    {
+      "id": "seal_shard",
+      "name": "守印碎片",
+      "description": "真实碎片；真结局需要四块，或三真一赝。",
+      "plot_item": true,
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {}
+    },
+    {
+      "id": "seal_shard_fake",
+      "name": "仿制守印碎片",
+      "description": "牢李的复刻品；真结局至多计一块。",
+      "plot_item": true,
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {}
+    },
+    {
+      "id": "book_core",
+      "name": "残缺书芯",
+      "description": "图书室虫巢残留的线索。",
+      "plot_item": true,
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {}
+    },
+    {
+      "id": "wood_heart",
+      "name": "枯木心",
+      "description": "老树枯枝留下的核心。",
+      "plot_item": true,
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {}
+    },
+    {
+      "id": "ritual_ash",
+      "name": "阵法残灰",
+      "description": "供牢抽分析魔力流向。",
+      "plot_item": true,
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {}
+    },
+    {
+      "id": "insulation_bracer",
+      "name": "绝缘护腕·清者自清",
+      "description": "牢李澄清后解锁；携带时电系伤害提高 10%。",
+      "plot_item": true,
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {}
+    },
+    {
+      "id": "flash_bomb",
+      "name": "一次性强光雷",
+      "description": "牢傲虚弱期间的光系替代，每场至多消耗一枚。",
+      "plot_item": true,
+      "buy_price": -1,
+      "sell_price": 0,
+      "restore": {}
     }
   ],
   "monster_loot": {

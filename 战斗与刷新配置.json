@@ -132,6 +132,78 @@
       "elemental_reductions": {
         "fire": -0.5
       }
+    },
+    "book_eater_queen": {
+      "name": "大噬书怪",
+      "rarity": "boss",
+      "art": "assets/characters/monsters/噬书怪.png",
+      "world_height": 48,
+      "multipliers": {
+        "hp": 2,
+        "attack": 1.2,
+        "defense": 1,
+        "magic_resistance": 0
+      },
+      "elemental_reductions": {
+        "fire": -0.5
+      },
+      "level_mode": "fixed",
+      "level": 8,
+      "scripted_only": true
+    },
+    "dry_branch_ancient": {
+      "name": "老树枯枝",
+      "rarity": "boss",
+      "art": "assets/characters/monsters/枯枝怪.png",
+      "world_height": 48,
+      "multipliers": {
+        "hp": 4,
+        "attack": 1,
+        "defense": 1.2,
+        "magic_resistance": 1
+      },
+      "physical_reduction": 0.2,
+      "magic_reduction": 0.2,
+      "elemental_reductions": {
+        "fire": -0.5
+      },
+      "level_mode": "fixed",
+      "level": 10,
+      "scripted_only": true
+    },
+    "empty_uniform_leader": {
+      "name": "升旗手",
+      "rarity": "boss",
+      "art": "assets/characters/monsters/空壳校服.png",
+      "world_height": 48,
+      "multipliers": {
+        "hp": 2,
+        "attack": 1.5,
+        "defense": 0.5,
+        "magic_resistance": 2
+      },
+      "elemental_reductions": {
+        "light": -0.5
+      },
+      "level_mode": "fixed",
+      "level": 15,
+      "scripted_only": true
+    },
+    "gate_entity": {
+      "name": "门扉之影",
+      "rarity": "boss",
+      "art": "assets/characters/monsters/空壳校服.png",
+      "world_height": 60,
+      "multipliers": {
+        "hp": 6,
+        "attack": 1.5,
+        "defense": 0.5,
+        "magic_resistance": 2
+      },
+      "elemental_reductions": {},
+      "level_mode": "hero_relative",
+      "level": 0,
+      "scripted_only": true
     }
   },
   "spawning": {
@@ -465,6 +537,17 @@
       "level": 1,
       "price": 30,
       "description": "消耗 30 精力，本次敌方攻击减伤 65%，冷却 3 回合"
+    },
+    "dark_flame": {
+      "name": "黑火转化",
+      "kind": "magic",
+      "element": "dark",
+      "tier": "high",
+      "effect": "fire_high",
+      "teacher": "wr",
+      "level": 1,
+      "price": 0,
+      "san_cost": 8
     }
   }
 }

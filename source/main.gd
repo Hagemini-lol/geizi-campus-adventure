@@ -18,6 +18,7 @@ const MonsterScene=preload("res://monster_scene.gd")
 const BattleView=preload("res://battle_view.gd")
 const LessonSystem=preload("res://lesson_system.gd")
 const StorySystem=preload("res://story_system.gd")
+var campaign: Node2D
 var story_system: Node2D
 var mobile_controls: Control
 const INTERACTION_RADIUS:=12.0
@@ -204,6 +205,8 @@ func _ready() -> void:
 	if not story_system.configure(package_root.path_join("剧情配置.json")):
 		fail("剧情素材或配置缺失");return
 	add_child(story_system)
+	campaign=preload("res://campaign.gd").new();campaign.game=self
+	campaign.configure(story_system.data.get("campaign",{}));add_child(campaign)
 	var mobile_layer:=CanvasLayer.new();mobile_layer.layer=99;add_child(mobile_layer)
 	mobile_controls=preload("res://mobile_controls.gd").new();mobile_controls.game=self
 	mobile_controls.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);mobile_layer.add_child(mobile_controls)
@@ -213,7 +216,7 @@ func _ready() -> void:
 	else:
 		player.hide();gameplay_hud.hide()
 		front_end.show_title()
-	DisplayServer.window_set_title("校园自由漫游")
+	DisplayServer.window_set_title("gei子的冒险")
 	print("CAMPUS_READY: 20 districts, viewport HD tiles, 17 corridors, 150 rooms, one active scene")
 
 func resolve_path(value: String) -> String:
@@ -241,8 +244,11 @@ func trade_supply(id: String, count: int, buying: bool) -> Dictionary:
 
 func use_supply(id: String) -> Dictionary:
 	if not game_started or transition_busy or front_end.visible or dialogue_view.visible or battle_view.visible or lesson_blocked():return {"ok":false,"message":"当前不能使用物资"}
+	var previous_san: int=int(combat_rules.hero["san_current"])
 	var result: Dictionary=economy.use(id,combat_rules.hero)
-	if result["ok"]:record_game_event("item_used/"+id)
+	if result["ok"]:
+		record_game_event("item_used/"+id)
+		if campaign!=null and campaign.active() and int(combat_rules.hero["san_current"])>previous_san:campaign.flags["SAN"]=clampi(ceili(float(combat_rules.hero["san_current"])*100/maxi(1,int(combat_rules.hero["san"]))),0,100)
 	show_notice(result["message"]);return result
 
 func purchase_equipment(id: String, merchant: String) -> Dictionary:
@@ -250,11 +256,19 @@ func purchase_equipment(id: String, merchant: String) -> Dictionary:
 	if not game_started or not menu_view.visible or menu_view.service_actor!=merchant or not story_system.reward_given or spec.get("merchant","")!=merchant:return {"ok":false,"message":"请与对应同学交谈"}
 	if economy.quantity(id)>0:return {"ok":false,"message":"已经拥有该装备"}
 	if id=="tech_amulet" and economy.quantity("ink_fragment")<2:return {"ok":false,"message":"需要 2 份墨渣才能委托制作"}
+	var extra: int=equipment_price(id)-int(spec.get("buy_price",0))
+	if economy.money<equipment_price(id):return {"ok":false,"message":"资金不足"}
 	var result: Dictionary=economy.trade(id,1,true)
 	if result["ok"]:
+		economy.money-=extra
 		if id=="tech_amulet":economy.inventory["ink_fragment"]=economy.quantity("ink_fragment")-2;economy.changed.emit()
 		combat_rules.equip(id);record_game_event("equipment_received/"+id)
 	return result
+
+func equipment_price(id: String) -> int:
+	var spec: Dictionary=economy.catalog.get(id,{})
+	var base: int=int(spec.get("buy_price",0))
+	return floori(base*1.2) if spec.get("merchant","")=="lao_li" and campaign!=null and campaign.active() and campaign.index>=15 and not campaign.flags["F_LI_CLEAR"] and not campaign.flags["F_LI_PARTIAL"] else base
 
 func learn_skill(id: String, teacher: String) -> Dictionary:
 	var spec: Dictionary=combat_rules.data.get("skills",{}).get(id,{})
@@ -417,6 +431,7 @@ func apply_pending_restore() -> void:
 func restore_position_if_blocked() -> void:
 	if not restore_position_guard:return
 	restore_position_guard=false
+	if not interior_state.is_empty() and not motion_navigation().walkable(player.position):place_player_safely(player.position)
 	var query:=PhysicsShapeQueryParameters2D.new()
 	var shape:=CircleShape2D.new()
 	shape.radius=Player.RADIUS
@@ -452,6 +467,12 @@ func restore_position_if_blocked() -> void:
 			if not get_world_2d().direct_space_state.intersect_shape(query,1).is_empty():continue
 			closest=candidate;best=distance
 	if is_finite(closest.x):player.position=closest;player.camera.reset_smoothing()
+
+func place_player_safely(preferred: Vector2) -> void:
+	var at: Vector2=safe_outdoor(preferred) if interior_state.is_empty() else motion_navigation().safe_landing(preferred)
+	if not is_finite(at.x):return
+	player.position=at;player.velocity=Vector2.ZERO;player.path.clear()
+	player.camera.reset_smoothing()
 
 func return_to_title() -> void:
 	if transition_busy or battle_view.visible or story_blocked():return
@@ -513,7 +534,7 @@ func create_ui() -> void:
 	hud.add_child(top)
 	var column := VBoxContainer.new()
 	top.add_child(column)
-	column.add_child(label("牙林校园  /  自由漫游", 23))
+	column.add_child(label("gei子的冒险", 23))
 	location_label = label("南门广场", 15)
 	location_label.modulate = Color("9ce0ce")
 	column.add_child(location_label)
@@ -601,7 +622,7 @@ func fail(message: String) -> void:
 	push_error(message)
 	var hud:=CanvasLayer.new()
 	add_child(hud)
-	var item:=label("无法打开校园漫游\n\n"+message,22)
+	var item:=label("无法打开gei子的冒险\n\n"+message,22)
 	item.position=Vector2(40,120)
 	hud.add_child(item)
 
@@ -727,6 +748,7 @@ func menu_action(action: String) -> void:
 		"south":close_menu();reset_player()
 		"fullscreen":toggle_fullscreen()
 		"preferences":front_end.open_settings()
+		"journal":campaign.open_journal()
 		"save":front_end.open_slots("save")
 		"load":front_end.open_slots("load")
 		"title":return_to_title()
@@ -790,6 +812,9 @@ func begin_transition(destination: int, landing: Vector2) -> void:
 func _input(event: InputEvent) -> void:
 	if player==null or menu_view==null or transition_busy:return
 	if story_blocked() and not dialogue_view.visible:
+		# A story choice is modal GUI: let its buttons receive mouse/touch input.
+		# World movement and interactions remain blocked by _unhandled_input.
+		if campaign!=null and is_instance_valid(campaign.panel):return
 		get_viewport().set_input_as_handled();return
 	if lesson_blocked():
 		if event is InputEventKey and event.pressed and not event.echo:
@@ -927,6 +952,7 @@ func approach_interaction(at: Vector2) -> PackedVector2Array:
 func sync_classroom_period() -> void:
 	if terrain==null or terrain.current_scene==null or interior_state.is_empty():return
 	var scene: Node2D=terrain.current_scene
+	if scene.has_method("refresh_cast"):scene.refresh_cast(self)
 	if scene.is_ten_class and not scene.is_office and scene.state["building"]!="B02":
 		scene.refresh_npcs(self)
 		terrain.active_texture_bytes=scene.texture_bytes
@@ -951,6 +977,7 @@ func interactions() -> Array[Dictionary]:
 			var seat: Vector2=terrain.current_scene.hero_seat
 			result.append({"action":"lesson","at":seat,"trigger":Rect2(),"art_rect":Rect2(seat-Vector2(8,8),Vector2(16,16))})
 		result.append_array(story_system.extra_interactions())
+		if campaign!=null:result.append_array(campaign.extra_interactions())
 		return result
 	var items: Array[Dictionary]=[]
 	for entry: Dictionary in interior_info["entrances"]:
@@ -960,11 +987,14 @@ func interactions() -> Array[Dictionary]:
 		if entry["has_interior"]:
 			items.append({"action":"entrance","building":entry["id"],"at":door+Vector2(0,25),"art_rect":Rect2(door+Vector2(-.95,-2.1)*24,Vector2(1.9,2.1)*24),"trigger":Rect2(door+Vector2(-20,8),Vector2(40,22))})
 	items.append_array(story_system.extra_interactions())
+	if campaign!=null:items.append_array(campaign.extra_interactions())
 	return items
 
 func click_interaction(at: Vector2) -> bool:
 	# Chapter seat/window markers take priority over artwork.
-	for item: Dictionary in story_system.extra_interactions():
+	var priority_markers: Array[Dictionary]=story_system.extra_interactions()
+	if campaign!=null:priority_markers.append_array(campaign.extra_interactions())
+	for item: Dictionary in priority_markers:
 		if item["art_rect"].has_point(at):
 			if within_interaction(item["at"]):execute_interaction(item)
 			else:player.path=approach_interaction(item["at"]);show_notice("到达白圈后按 E")
@@ -1021,6 +1051,7 @@ func click_interaction(at: Vector2) -> bool:
 	return false
 
 func interaction_text(item: Dictionary) -> String:
+	if item["action"] in ["campaign","campaign_house"]:return item.get("name","继续剧情")
 	var story_hint: String=story_system.interaction_label(item)
 	if not story_hint.is_empty():return story_hint
 	match str(item.get("action","")):
@@ -1044,6 +1075,7 @@ func interact() -> void:
 
 func execute_interaction(item: Dictionary) -> void:
 	if dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy or lesson_blocked() or not within_interaction(item["at"]):return
+	if campaign!=null and campaign.handle(item):return
 	if story_system.handle(item):return
 	var context: Dictionary=interior_state.duplicate()
 	match str(item["action"]):
@@ -1097,7 +1129,7 @@ func change_interior(context: Dictionary, landing: Vector2=Vector2(INF,INF), sid
 	await cover.finished
 	terrain.unload()
 	await get_tree().process_frame
-	var scene:=InteriorScene.new()
+	var scene: Node2D=preload("res://campaign_room.gd").new() if context["building"] in ["B06","B15","STORY_HOUSE","STORY_SEAL"] else InteriorScene.new()
 	if not scene.setup(interior_info,context,interior_directory,self):
 		scene.free()
 		fail("室内贴图加载失败")
@@ -1111,6 +1143,8 @@ func change_interior(context: Dictionary, landing: Vector2=Vector2(INF,INF), sid
 	interior_state=context.duplicate()
 	apply_time_lighting()
 	player.position=scene.landing(side) if landing.x==INF else landing
+	# Also repairs old saves made while stuck in the initiation cinematic.
+	if not scene.navigation.walkable(player.position):place_player_safely(player.position)
 	player.camera.limit_left=0
 	player.camera.limit_top=0
 	player.camera.limit_right=ceili(scene.dimensions.x)
@@ -1118,6 +1152,7 @@ func change_interior(context: Dictionary, landing: Vector2=Vector2(INF,INF), sid
 	player.camera.zoom=Vector2.ONE*2.4
 	apply_pending_restore()
 	sync_monsters()
+	restore_position_guard=true
 	player.camera.reset_smoothing()
 	interaction_delay=.7
 	await get_tree().physics_frame
