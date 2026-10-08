@@ -53,7 +53,7 @@ func find_plan(enemy: Dictionary, support: int, low_only: bool=false) -> Diction
 		actions.append({"id":element+"_"+tier,"damage_kind":"magic","element":element,"tier":tier,"mp_cost":rules.spell_cost(tier)})
 	if int(hero["level"])>=1:
 		actions.append({"id":"barrier","mp_cost":20+5*int(hero["level"])})
-		actions.append({"id":"mana_cycle","energy_cost":30,"mp_restore":10+10*int(hero["level"])})
+		actions.append({"id":"mana_cycle","energy_cost":rules.energy_cost(rules.data["skills"]["mana_cycle"]),"mp_restore":maxi(rules.spell_cost("low"),maxi(10+10*int(hero["level"]),floori(int(hero["mp"])*.12))),"reduction":.5})
 	var frontier: Array=[{"hp":hero["hp"],"mp":hero["mp"],"energy":hero["energy"],"enemy":enemy["hp"],"barrier":0,"barrier_cd":0,"mana_cd":0,"path":[]}]
 	for turn: int in range(1,21):
 		var next: Array=[];var seen: Dictionary={}
@@ -64,7 +64,7 @@ func find_plan(enemy: Dictionary, support: int, low_only: bool=false) -> Diction
 				if id=="barrier" and int(state["barrier_cd"])>turn or id=="mana_cycle" and int(state["mana_cd"])>turn:continue
 				var candidate: Dictionary=state.duplicate(true);candidate["path"].append(id)
 				candidate["mp"]=mini(int(hero["mp"]),int(state["mp"])-int(action.get("mp_cost",0))+int(action.get("mp_restore",0)))
-				candidate["energy"]=mini(int(hero["energy"]),int(state["energy"])-int(action.get("energy_cost",0))+int(action.get("energy_restore",0)))
+				candidate["energy"]=mini(int(hero["energy"]),int(state["energy"])-int(action.get("energy_cost",0))+rules.energy_recovery())
 				if id=="barrier":candidate["barrier"]=2;candidate["barrier_cd"]=turn+3
 				if id=="mana_cycle":candidate["mana_cd"]=turn+3
 				if action.has("damage_kind"):

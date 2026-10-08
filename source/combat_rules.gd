@@ -3,8 +3,8 @@ extends RefCounted
 var data: Dictionary={}
 var hero: Dictionary={}
 
-func configure(path: String) -> bool:
-	var parsed: Variant=JSON.parse_string(FileAccess.get_file_as_string(path))
+func configure(path: String, content: Dictionary={}) -> bool:
+	var parsed: Variant=content.duplicate(true) if not content.is_empty() else JSON.parse_string(FileAccess.get_file_as_string(path))
 	if not parsed is Dictionary:return false
 	data=parsed
 	if not data.get("monsters") is Dictionary or not data.get("hero") is Dictionary:return false
@@ -148,3 +148,15 @@ func learn(id: String) -> bool:
 func spell_cost(tier: String, doubled: bool=false) -> int:
 	var spec: Dictionary=data["magic_tiers"][tier]
 	return (int(spec["base"])+int(spec["growth"])*int(hero["level"]))* (2 if doubled else 1)
+
+func energy_cost(spec: Dictionary) -> int:
+	return int(spec.get("energy_cost",0))+ceili(int(hero["energy"])*float(spec.get("energy_ratio",0)))
+
+func energy_recovery() -> int:
+	var spec: Dictionary=data.get("energy_rules",{})
+	return maxi(int(spec.get("minimum",10)),floori(int(hero["energy"])*float(spec.get("turn_ratio",.03))))
+
+func recover_turn_energy() -> int:
+	var amount:=mini(energy_recovery(),int(hero["energy"])-int(hero["energy_current"]))
+	hero["energy_current"]+=amount
+	return amount

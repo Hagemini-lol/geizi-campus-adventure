@@ -5,6 +5,9 @@ var scene: Node2D
 var records: Array[Dictionary]=[]
 var key: String
 var textures: Dictionary={}
+var idle_frames: Dictionary={}
+var animation_clock:=0.0
+var animation_step:=0
 
 static func portrait(path: String) -> Texture2D:
 	var image:=Image.load_from_file(path)
@@ -23,7 +26,7 @@ func setup(owner_game: Node2D, owner_scene: Node2D) -> void:
 
 func refresh() -> void:
 	for child: Node in get_children():remove_child(child);child.queue_free()
-	records.clear();textures.clear()
+	records.clear();textures.clear();idle_frames.clear()
 	var rule: Dictionary=game.monster_world.zone_rule(game.interior_state)
 	if rule.is_empty():return
 	var population: Array=game.monster_world.activate(game.interior_state)
@@ -32,7 +35,9 @@ func refresh() -> void:
 		if not is_finite(at.x):continue
 		monster["position"]=[at.x,at.y]
 		var spec: Dictionary=game.combat_rules.data["monsters"][monster["id"]]
-		if not textures.has(monster["id"]):textures[monster["id"]]=portrait(game.battle_asset_root.path_join(spec["art"]))
+		if not textures.has(monster["id"]):
+			textures[monster["id"]]=portrait(game.battle_asset_root.path_join(spec["art"]))
+			load_idle_frames(str(monster["id"]),spec)
 		var texture: Texture2D=textures[monster["id"]]
 		if texture==null:continue
 		var sprite:=Sprite2D.new();sprite.texture=texture;sprite.z_index=10
@@ -41,6 +46,33 @@ func refresh() -> void:
 		sprite.scale=Vector2.ONE*height/texture.get_height();sprite.offset=Vector2(0,-texture.get_height()*.5)
 		sprite.position=at;add_child(sprite)
 		records.append({"uid":monster["uid"],"name":spec["name"],"at":at,"height":height,"width":texture.get_width()*sprite.scale.x,"monster":monster,"sprite":sprite})
+	set_process(not records.is_empty())
+
+func load_idle_frames(id: String, spec: Dictionary) -> void:
+	var path: String=spec.get("portrait_atlas","")
+	if path.is_empty():return
+	var image:=Image.load_from_file(game.battle_asset_root.path_join(path))
+	if image==null:return
+	# World animation only needs three small poses; it never uploads the
+	# full battle atlas into every monster's texture memory.
+	var frames: Array[Texture2D]=[]
+	for i: int in range(3):
+		var crop:=image.get_region(Rect2i(i*256,0,256,320));crop.resize(96,120,Image.INTERPOLATE_LANCZOS)
+		crop.generate_mipmaps();frames.append(ImageTexture.create_from_image(crop))
+	idle_frames[id]=frames
+
+func _process(delta: float) -> void:
+	if game.player.frozen or game.transition_busy:return
+	animation_clock+=delta
+	if animation_clock<1.0/3.0:return
+	animation_clock=fmod(animation_clock,1.0/3.0);animation_step=(animation_step+1)%2
+	for record: Dictionary in records:
+		var frames: Array=idle_frames.get(record["monster"]["id"],[])
+		if frames.is_empty():continue
+		var sprite: Sprite2D=record["sprite"]
+		var alert: bool=game.player.position.distance_squared_to(record["at"])<1600
+		sprite.texture=frames[2 if alert else animation_step]
+		sprite.scale=Vector2.ONE*float(record["height"])/120.0;sprite.offset=Vector2(0,-60)
 
 func spawn_point(monster: Dictionary, rule: Dictionary) -> Vector2:
 	var limits:=Rect2(Vector2.ZERO,scene.dimensions)

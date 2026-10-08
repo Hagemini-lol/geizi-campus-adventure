@@ -1,0 +1,33 @@
+{
+  "columns": 4,
+  "rows": 2,
+  "cell": [
+    256,
+    320
+  ],
+  "poses": {
+    "idle": [
+      0,
+      1
+    ],
+    "windup": [
+      2
+    ],
+    "attack": [
+      3
+    ],
+    "hit": [
+      5
+    ],
+    "guard": [
+      4
+    ],
+    "phase": [
+      6
+    ],
+    "defeat": [
+      7
+    ]
+  },
+  "fps": 6
+}

@@ -1,0 +1,10 @@
+{
+  "api": 1,
+  "id": "campus_example",
+  "name": "示例：广播台的一张便笺",
+  "version": "1.0.0",
+  "enabled": false,
+  "order": 100,
+  "requires": [],
+  "content": "content.json"
+}

@@ -52,7 +52,9 @@ func activate(context: Dictionary) -> Array:
 	# Reloading a zone does not reroll it or backfill unloaded time periods.
 	entry["last_period"]=period_serial
 	while entry["monsters"].size()>int(rule["capacity"]):entry["monsters"].pop_back()
-	return entry["monsters"]
+	# Removed data mods remain dormant in the save and become visible when
+	# reinstalled. Never render a definition that is currently unavailable.
+	return entry["monsters"].filter(func(monster: Dictionary):return rules.data["monsters"].has(monster["id"]))
 
 func advance(context: Dictionary) -> void:
 	period_serial+=1
@@ -112,7 +114,9 @@ func valid_snapshot(value: Variant) -> bool:
 		if not entry is Dictionary or not entry.get("monsters") is Array:return false
 		if entry["monsters"].size()>(2 if parts[2]=="classroom" else 3):return false
 		for monster: Variant in entry["monsters"]:
-			if not monster is Dictionary or not rules.data["monsters"].has(monster.get("id")) or not monster.get("uid") is String:return false
+			if not monster is Dictionary or not monster.get("id") is String or not monster.get("uid") is String:return false
+			var known: bool=rules.data["monsters"].has(monster["id"])
+			if not known and (not str(monster["id"]).contains(":") or str(monster["id"]).length()>97):return false
 			var uid: String=monster["uid"]
 			if not uid.is_valid_int() or int(uid)<1 or int(uid)>=int(value["next_uid"]) or seen.has(uid):return false
 			seen[uid]=true
@@ -120,7 +124,8 @@ func valid_snapshot(value: Variant) -> bool:
 				var n: Variant=monster.get(field)
 				if not (n is float or n is int) or not is_finite(float(n)) or float(n)!=floor(float(n)):return false
 			if int(monster["level"])<1 or int(monster["level"])>rules.maximum_monster_level():return false
-			if int(monster["hp"])<1 or int(monster["hp"])>int(rules.monster_stats(monster["id"],int(monster["level"]))["hp"]):return false
+			if int(monster["hp"])<1 or int(monster["hp"])>1000000000:return false
+			if known and int(monster["hp"])>int(rules.monster_stats(monster["id"],int(monster["level"]))["hp"]):return false
 			if monster.has("position"):
 				if not monster["position"] is Array or monster["position"].size()!=2:return false
 				for number: Variant in monster["position"]:

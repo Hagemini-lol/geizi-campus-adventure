@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "level_cap": 60,
   "monster_level_cap": 70,
   "hero": {
@@ -73,7 +73,7 @@
     "ink_slime": {
       "name": "墨泥怪",
       "rarity": "normal",
-      "art": "assets/characters/monsters/墨泥怪.png",
+      "art": "assets/characters/bosses/ink_slime/world.png",
       "world_height": 24,
       "multipliers": {
         "hp": 1,
@@ -84,12 +84,13 @@
       "physical_reduction": 0.5,
       "elemental_reductions": {
         "lightning": -1
-      }
+      },
+      "portrait_atlas": "assets/characters/bosses/ink_slime/atlas.png"
     },
     "book_eater": {
       "name": "噬书怪",
       "rarity": "normal",
-      "art": "assets/characters/monsters/噬书怪.png",
+      "art": "assets/characters/bosses/book_eater/world.png",
       "world_height": 32,
       "multipliers": {
         "hp": 1,
@@ -99,12 +100,13 @@
       },
       "elemental_reductions": {
         "fire": -1
-      }
+      },
+      "portrait_atlas": "assets/characters/bosses/book_eater/atlas.png"
     },
     "empty_uniform": {
       "name": "空壳校服",
       "rarity": "elite",
-      "art": "assets/characters/monsters/空壳校服.png",
+      "art": "assets/characters/bosses/empty_uniform/world.png",
       "world_height": 40.8,
       "multipliers": {
         "hp": 2,
@@ -114,12 +116,13 @@
       },
       "elemental_reductions": {
         "light": -0.5
-      }
+      },
+      "portrait_atlas": "assets/characters/bosses/empty_uniform/atlas.png"
     },
     "dry_branch": {
       "name": "枯枝怪",
       "rarity": "elite",
-      "art": "assets/characters/monsters/枯枝怪.png",
+      "art": "assets/characters/bosses/dry_branch/world.png",
       "world_height": 45.6,
       "multipliers": {
         "hp": 4,
@@ -131,12 +134,13 @@
       "magic_reduction": 0.2,
       "elemental_reductions": {
         "fire": -0.5
-      }
+      },
+      "portrait_atlas": "assets/characters/bosses/dry_branch/atlas.png"
     },
     "book_eater_queen": {
       "name": "大噬书怪",
       "rarity": "boss",
-      "art": "assets/characters/monsters/噬书怪.png",
+      "art": "assets/characters/bosses/book_eater_queen/world.png",
       "world_height": 48,
       "multipliers": {
         "hp": 2,
@@ -149,12 +153,48 @@
       },
       "level_mode": "fixed",
       "level": 8,
-      "scripted_only": true
+      "scripted_only": true,
+      "tactics": {
+        "break_limit": 2,
+        "intro": "它吞下的不是知识，是许多没写完的话。",
+        "patterns": [
+          {
+            "name": "吞页筑甲",
+            "kind": "physical",
+            "power": 0.65,
+            "counters": [
+              "fire"
+            ],
+            "hint": "小火拆开纸甲；无需大火烧书。"
+          },
+          {
+            "name": "纸刃风暴",
+            "kind": "physical",
+            "power": 1.35,
+            "counters": [
+              "frost",
+              "fire"
+            ],
+            "hint": "冰封纸刃或精准火破招；也可防守。"
+          },
+          {
+            "name": "空白吞读",
+            "kind": "magic",
+            "power": 0.85,
+            "counters": [
+              "light"
+            ],
+            "hint": "光照露出书脊，清明印可预防封蓝。",
+            "status": "seal"
+          }
+        ]
+      },
+      "portrait_atlas": "assets/characters/bosses/book_eater_queen/atlas.png"
     },
     "dry_branch_ancient": {
       "name": "老树枯枝",
       "rarity": "boss",
-      "art": "assets/characters/monsters/枯枝怪.png",
+      "art": "assets/characters/bosses/dry_branch_ancient/world.png",
       "world_height": 48,
       "multipliers": {
         "hp": 4,
@@ -169,12 +209,49 @@
       },
       "level_mode": "fixed",
       "level": 10,
-      "scripted_only": true
+      "scripted_only": true,
+      "tactics": {
+        "break_limit": 2,
+        "intro": "每一下根须收紧，都把退路挤掉一点。",
+        "patterns": [
+          {
+            "name": "盘根束足",
+            "kind": "physical",
+            "power": 0.8,
+            "counters": [
+              "fire"
+            ],
+            "hint": "火断根；蹬地撤步可保住退路。",
+            "status": "vulnerable"
+          },
+          {
+            "name": "旧铃回声",
+            "kind": "magic",
+            "power": 0.7,
+            "counters": [
+              "lightning",
+              "light"
+            ],
+            "hint": "电断铃声或光照符纸。"
+          },
+          {
+            "name": "倒木重锤",
+            "kind": "physical",
+            "power": 1.45,
+            "counters": [
+              "frost",
+              "fire"
+            ],
+            "hint": "蓄势明显，冰火反制或稳固防线。"
+          }
+        ]
+      },
+      "portrait_atlas": "assets/characters/bosses/dry_branch_ancient/atlas.png"
     },
     "empty_uniform_leader": {
       "name": "升旗手",
       "rarity": "boss",
-      "art": "assets/characters/monsters/空壳校服.png",
+      "art": "assets/characters/bosses/empty_uniform_leader/world.png",
       "world_height": 48,
       "multipliers": {
         "hp": 2,
@@ -187,23 +264,217 @@
       },
       "level_mode": "fixed",
       "level": 15,
-      "scripted_only": true
+      "scripted_only": true,
+      "tactics": {
+        "break_limit": 2,
+        "intro": "空校服也在点名，却没有一个名字得到回答。",
+        "patterns": [
+          {
+            "name": "列队号令",
+            "kind": "magic",
+            "power": 0.75,
+            "counters": [
+              "lightning",
+              "light"
+            ],
+            "hint": "电断号令，光拆空壳。",
+            "status": "seal"
+          },
+          {
+            "name": "旗枪横扫",
+            "kind": "physical",
+            "power": 1.35,
+            "counters": [
+              "frost"
+            ],
+            "hint": "冰迟滞挥旗，蹬地撤步能完全躲开。"
+          },
+          {
+            "name": "空名敬礼",
+            "kind": "magic",
+            "power": 0.95,
+            "counters": [
+              "light"
+            ],
+            "hint": "光点亮真正的名字。"
+          }
+        ]
+      },
+      "portrait_atlas": "assets/characters/bosses/empty_uniform_leader/atlas.png"
     },
     "gate_entity": {
-      "name": "门扉之影",
+      "name": "勾尬 · 门底失衡",
       "rarity": "boss",
-      "art": "assets/characters/monsters/空壳校服.png",
-      "world_height": 60,
+      "art": "assets/characters/bosses/gou_ga_boss/world.png",
+      "world_height": 48,
       "multipliers": {
-        "hp": 6,
-        "attack": 1.5,
-        "defense": 0.5,
-        "magic_resistance": 2
+        "hp": 8,
+        "attack": 0.8,
+        "defense": 1,
+        "magic_resistance": 1
       },
       "elemental_reductions": {},
       "level_mode": "hero_relative",
       "level": 0,
-      "scripted_only": true
+      "scripted_only": true,
+      "tactics": {
+        "break_limit": 2,
+        "phase_at": 0.5,
+        "intro": "她依旧穿着那件校服。恶意与求救挤在同一句话里。",
+        "phase_line": "勾尬：别用那种眼神看我！我不需要你们替我决定！\n阳子：那你也不能再替别人决定受伤。门底失衡，招式已换。",
+        "patterns": [
+          {
+            "name": "流言倒灌",
+            "kind": "magic",
+            "power": 0.65,
+            "counters": [
+              "light"
+            ],
+            "hint": "光揭破假指认；清明印能消除封蓝。",
+            "status": "seal",
+            "mp_drain": 0.06
+          },
+          {
+            "name": "借刀牵线",
+            "kind": "magic",
+            "power": 0.9,
+            "counters": [
+              "lightning"
+            ],
+            "hint": "电切断紫色牵线；护盾能挡伤害和干扰。",
+            "status": "vulnerable"
+          },
+          {
+            "name": "锁门地缚",
+            "kind": "physical",
+            "power": 1.25,
+            "counters": [
+              "frost"
+            ],
+            "hint": "冰冻地缚；蹬地撤步越过锁线，或守住阵位。"
+          }
+        ],
+        "phase_patterns": [
+          {
+            "name": "无声点名",
+            "kind": "magic",
+            "power": 1.0,
+            "counters": [
+              "light"
+            ],
+            "hint": "光让每个名字被听见；防守或屏障保住理智。",
+            "status": "seal",
+            "mp_drain": 0.08
+          },
+          {
+            "name": "撕约返潮",
+            "kind": "magic",
+            "power": 1.2,
+            "counters": [
+              "lightning"
+            ],
+            "hint": "电切断门与她的回路；共鸣破印能多拆一层。",
+            "status": "vulnerable"
+          },
+          {
+            "name": "门底坠落",
+            "kind": "physical",
+            "power": 1.55,
+            "counters": [
+              "frost"
+            ],
+            "hint": "最强蓄势：冰破招、蹬地撤步，或稳固防线。"
+          }
+        ]
+      },
+      "portrait_atlas": "assets/characters/bosses/gou_ga_boss/atlas.png"
+    },
+    "gou_ga_boss": {
+      "name": "勾尬 · 门底失衡",
+      "rarity": "boss",
+      "art": "assets/characters/bosses/gou_ga_boss/world.png",
+      "world_height": 48,
+      "multipliers": {
+        "hp": 8,
+        "attack": 0.8,
+        "defense": 1,
+        "magic_resistance": 1
+      },
+      "elemental_reductions": {},
+      "level_mode": "hero_relative",
+      "level": 0,
+      "scripted_only": true,
+      "tactics": {
+        "break_limit": 2,
+        "phase_at": 0.5,
+        "intro": "她依旧穿着那件校服。恶意与求救挤在同一句话里。",
+        "phase_line": "勾尬：别用那种眼神看我！我不需要你们替我决定！\n阳子：那你也不能再替别人决定受伤。门底失衡，招式已换。",
+        "patterns": [
+          {
+            "name": "流言倒灌",
+            "kind": "magic",
+            "power": 0.65,
+            "counters": [
+              "light"
+            ],
+            "hint": "光揭破假指认；清明印能消除封蓝。",
+            "status": "seal",
+            "mp_drain": 0.06
+          },
+          {
+            "name": "借刀牵线",
+            "kind": "magic",
+            "power": 0.9,
+            "counters": [
+              "lightning"
+            ],
+            "hint": "电切断紫色牵线；护盾能挡伤害和干扰。",
+            "status": "vulnerable"
+          },
+          {
+            "name": "锁门地缚",
+            "kind": "physical",
+            "power": 1.25,
+            "counters": [
+              "frost"
+            ],
+            "hint": "冰冻地缚；蹬地撤步越过锁线，或守住阵位。"
+          }
+        ],
+        "phase_patterns": [
+          {
+            "name": "无声点名",
+            "kind": "magic",
+            "power": 1.0,
+            "counters": [
+              "light"
+            ],
+            "hint": "光让每个名字被听见；防守或屏障保住理智。",
+            "status": "seal",
+            "mp_drain": 0.08
+          },
+          {
+            "name": "撕约返潮",
+            "kind": "magic",
+            "power": 1.2,
+            "counters": [
+              "lightning"
+            ],
+            "hint": "电切断门与她的回路；共鸣破印能多拆一层。",
+            "status": "vulnerable"
+          },
+          {
+            "name": "门底坠落",
+            "kind": "physical",
+            "power": 1.55,
+            "counters": [
+              "frost"
+            ],
+            "hint": "最强蓄势：冰破招、蹬地撤步，或稳固防线。"
+          }
+        ]
+      },
+      "portrait_atlas": "assets/characters/bosses/gou_ga_boss/atlas.png"
     }
   },
   "spawning": {
@@ -257,17 +528,15 @@
       "id": "guard",
       "category": "dodge",
       "label": "防守",
-      "description": "本次敌方攻击减伤 50%，恢复 15 精力",
-      "reduction": 0.5,
-      "energy_restore": 15
+      "description": "防御，本次减伤50%；精力只按回合自然恢复",
+      "reduction": 0.5
     },
     {
       "id": "rest",
       "category": "items",
       "label": "休整",
-      "description": "恢复 20 MP、50 精力；敌方仍会行动",
-      "mp_restore": 20,
-      "energy_restore": 50
+      "description": "恢复至少20或上限5%的MP；精力只按回合自然恢复，敌方仍会行动",
+      "mp_restore": 20
     },
     {
       "id": "escape",
@@ -520,7 +789,8 @@
       "teacher": "fei_yan",
       "level": 1,
       "price": 20,
-      "description": "消耗 20 精力，下一次法术伤害提高 25%，冷却 3 回合；本回合敌方行动"
+      "description": "集中注意力，下一次法术伤害+25%，消耗8%精力，冷却3回合",
+      "energy_ratio": 0.08
     },
     "mana_cycle": {
       "name": "魔力回流",
@@ -528,7 +798,8 @@
       "teacher": "fei_yan",
       "level": 1,
       "price": 30,
-      "description": "消耗 30 精力，恢复 10+10×等级 MP，冷却 3 回合；本回合敌方行动"
+      "description": "集中注意力引导回路，消耗8%精力，回复至少一次低级施法的MP；本次减伤50%，冷却3回合",
+      "energy_ratio": 0.08
     },
     "steady_guard": {
       "name": "稳固防线",
@@ -536,7 +807,8 @@
       "teacher": "lao_shuo",
       "level": 1,
       "price": 30,
-      "description": "消耗 30 精力，本次敌方攻击减伤 65%，冷却 3 回合"
+      "description": "收紧全身保持稳固防线，消耗14%精力，本次攻击减伤65%，冷却3回合",
+      "energy_ratio": 0.14
     },
     "dark_flame": {
       "name": "黑火转化",
@@ -548,6 +820,101 @@
       "level": 1,
       "price": 0,
       "san_cost": 8
+    },
+    "second_wind": {
+      "name": "稳息",
+      "kind": "support",
+      "teacher": "fei_yan",
+      "level": 1,
+      "price": 0,
+      "mp_base": 15,
+      "mp_growth": 2,
+      "cooldown": 3,
+      "description": "治疗最大 HP 的18%，本次减伤35%；冷却3回合",
+      "chapter_reward": true
+    },
+    "clarity": {
+      "name": "清明印",
+      "kind": "support",
+      "teacher": "fei_yan",
+      "level": 1,
+      "price": 0,
+      "mp_base": 10,
+      "mp_growth": 1,
+      "cooldown": 3,
+      "description": "净化封蓝/易伤并免疫两次干扰，本次减伤35%；不额外回复精力",
+      "chapter_reward": true
+    },
+    "wind_step": {
+      "name": "蹬地撤步",
+      "kind": "support",
+      "teacher": "lao_shuo",
+      "level": 1,
+      "price": 0,
+      "cooldown": 3,
+      "description": "短距离爆发换位，消耗18%精力，必定避开本次攻击与附加干扰，冷却3回合；不回复MP",
+      "chapter_reward": true,
+      "energy_ratio": 0.18
+    },
+    "resonance_break": {
+      "name": "共鸣破印",
+      "kind": "support",
+      "teacher": "fei_yan",
+      "level": 1,
+      "price": 0,
+      "mp_base": 15,
+      "mp_growth": 2,
+      "cooldown": 3,
+      "description": "弱点魔力造成0.6倍攻击伤害，额外拆1层架势；冷却3回合",
+      "chapter_reward": true
+    },
+    "shoulder_check": {
+      "name": "沉肩撞击",
+      "kind": "physical",
+      "teacher": "lao_shuo",
+      "level": 1,
+      "price": 0,
+      "chapter_reward": true,
+      "energy_ratio": 0.18,
+      "cooldown": 3,
+      "multiplier": 1.45,
+      "description": "收肩蹬地撞开架势，1.45倍物理伤害；本次物理反击减伤65%，无法截住法术；消耗18%精力，冷却3回合"
+    },
+    "short_combo": {
+      "name": "短拳连打",
+      "kind": "physical",
+      "teacher": "lao_shuo",
+      "level": 1,
+      "price": 0,
+      "chapter_reward": true,
+      "energy_ratio": 0.24,
+      "cooldown": 3,
+      "multiplier": 1.85,
+      "description": "贴身两记短拳，合计1.85倍物理伤害，一并结算护壳；消耗24%精力，冷却3回合，出拳时无法格挡"
+    },
+    "brace_guard": {
+      "name": "架臂格挡",
+      "kind": "support",
+      "teacher": "lao_shuo",
+      "level": 1,
+      "price": 0,
+      "chapter_reward": true,
+      "energy_ratio": 0.12,
+      "cooldown": 2,
+      "description": "架臂护住要害，本次物理减伤70%、法术减伤30%；消耗12%精力，冷却2回合"
     }
+  },
+  "tactical_rules": {
+    "counter_reduction": 0.65,
+    "frost_reduction": 0.2,
+    "status_turns": 2,
+    "phase_grace": true,
+    "mp_recovery_ratio": 0.12,
+    "heal_ratio": 0.18
+  },
+  "energy_rules": {
+    "turn_ratio": 0.03,
+    "minimum": 10,
+    "settlement": "Only a completed living battle turn; no recovery on opening, cancelling, retreating or failed actions. Items consume one battle turn."
   }
 }

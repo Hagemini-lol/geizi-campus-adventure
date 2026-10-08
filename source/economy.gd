@@ -9,8 +9,8 @@ var money:=0
 var day_serial:=0
 var last_allowance_day:=-1
 
-func configure(path: String) -> bool:
-	var parsed: Variant=JSON.parse_string(FileAccess.get_file_as_string(path))
+func configure(path: String, content: Dictionary={}) -> bool:
+	var parsed: Variant=content.duplicate(true) if not content.is_empty() else JSON.parse_string(FileAccess.get_file_as_string(path))
 	if not parsed is Dictionary or not parsed.get("items") is Array:return false
 	data=parsed;catalog={}
 	if int(data.get("daily_allowance",50))<0:return false
@@ -21,6 +21,8 @@ func configure(path: String) -> bool:
 		if int(value.get("buy_price",-1))>=0 and int(value.get("sell_price",0))>int(value["buy_price"]):return false
 		for stat: String in value.get("restore",{}):
 			if not stat in ["hp","mp","energy","san"] or int(value["restore"][stat])<=0:return false
+		for stat: String in value.get("restore_ratio",{}):
+			if not stat in ["hp","mp","energy","san"] or float(value["restore_ratio"][stat])<=0 or float(value["restore_ratio"][stat])>1:return false
 		catalog[value["id"]]=value.duplicate(true)
 	reset();return true
 
@@ -64,12 +66,16 @@ func can_use(id: String, hero: Dictionary) -> bool:
 	if not catalog.has(id) or quantity(id)<=0:return false
 	for stat: String in catalog[id].get("restore",{}):
 		if int(hero[stat+"_current"])<int(hero[stat]):return true
+	for stat: String in catalog[id].get("restore_ratio",{}):
+		if int(hero[stat+"_current"])<int(hero[stat]):return true
 	return false
 
 func use(id: String, hero: Dictionary) -> Dictionary:
 	if not can_use(id,hero):return {"ok":false,"message":"该物资无法使用，或相关状态已满"}
 	for stat: String in catalog[id]["restore"]:
 		hero[stat+"_current"]=mini(int(hero[stat]),int(hero[stat+"_current"])+int(catalog[id]["restore"][stat]))
+	for stat: String in catalog[id].get("restore_ratio",{}):
+		hero[stat+"_current"]=mini(int(hero[stat]),int(hero[stat+"_current"])+floori(int(hero[stat])*float(catalog[id]["restore_ratio"][stat])))
 	inventory[id]=quantity(id)-1;changed.emit()
 	return {"ok":true,"message":"使用了"+str(catalog[id]["name"])}
 

@@ -48,8 +48,18 @@ func run() -> void:
 			if state.has("combat"):
 				var saved_hero: Dictionary=state["combat"]["hero"]
 				for key: String in ["experience","equipment","skills"]:
-					if saved_hero.has(key):check(normalized(game.combat_rules.hero[key])==saved_hero[key],"old hero "+key+" preserved "+name)
-			if state.get("story",{}).has("campaign"):check(normalized(game.campaign.snapshot())==state["story"]["campaign"],"old campaign flags and evidence preserved "+name)
+					if not saved_hero.has(key):continue
+					if key=="skills":
+						var earned: Array=[]
+						for event_id: String in game.campaign.data.get("skill_milestones",{}):
+							if event_id in game.campaign.done:earned.append_array(game.campaign.data["skill_milestones"][event_id])
+						check(saved_hero[key].all(func(id: String):return id in game.combat_rules.hero["skills"]),"all old learned skills preserved "+name)
+						check(game.combat_rules.hero["skills"].all(func(id: String):return id in saved_hero["skills"] or id in earned),"only already earned chapter skills added "+name)
+					else:check(normalized(game.combat_rules.hero[key])==saved_hero[key],"old hero "+key+" preserved "+name)
+			if state.get("story",{}).has("campaign"):
+				var original_campaign: Dictionary=state["story"]["campaign"].duplicate(true)
+				if original_campaign.get("saved_enemy",{}).get("id","")=="gate_entity":original_campaign["saved_enemy"]["id"]="gou_ga_boss"
+				check(normalized(game.campaign.snapshot())==original_campaign,"old campaign flags and evidence preserved "+name)
 			game.interaction_delay=1000
 			var before: Vector2=game.player.position
 			var routed:=false

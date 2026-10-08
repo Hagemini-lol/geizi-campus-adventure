@@ -6,6 +6,7 @@ var desired_choice:=""
 var auto_dialog:=true
 var selection_sent:=false
 var last_panel_id:=0
+var puzzle_answers: Array[String]=[]
 
 func _initialize() -> void:call_deferred("run")
 func check(ok: bool, label: String) -> void:
@@ -16,7 +17,7 @@ func _process(_delta: float) -> bool:
 	if game.dialogue_view!=null and game.dialogue_view.visible and auto_dialog:game.dialogue_view.accept()
 	if game.campaign!=null and is_instance_valid(game.campaign.panel) and game.campaign.panel.get_instance_id()!=last_panel_id:
 		last_panel_id=game.campaign.panel.get_instance_id()
-		var answer: String=desired_choice
+		var answer: String=puzzle_answers.pop_front() if not puzzle_answers.is_empty() else desired_choice
 		var buttons: Array=game.campaign.panel.find_children("*","Button",true,false)
 		var valid:=false
 		for button: Button in buttons:
@@ -40,6 +41,24 @@ func go(location: String) -> void:
 	var at: Vector2=game.campaign.marker_point()
 	check(game.motion_navigation().walkable(at),"walkable marker "+location)
 	game.player.position=at
+
+func bridge_quest(id: String) -> void:
+	var q: Dictionary=game.task_system.definitions[id]
+	desired_choice="accept"
+	await game.side_quests.service(q["side_story"]["owner"],id)
+	check(game.task_system.entries.get(id,{}).get("status")=="active","chapter investigation accepted "+id)
+	for n: int in range(q["steps"].size()):
+		var step: Dictionary=q["steps"][n]
+		var location: String=step.get("location",game.campaign.scheduled_location(step.get("actor","")))
+		var parts:=location.split(":")
+		if parts.size()==1:await game.begin_transition(game.navigation.region_at(game.campaign.outdoor_point(location)),game.campaign.outdoor_point(location))
+		else:await game.change_interior({"building":parts[0],"floor":int(parts[1]),"kind":"corridor" if parts[2]=="corridor" else "classroom","room":-1 if parts[2]=="corridor" else int(parts[2])})
+		while game.transition_busy:await process_frame
+		desired_choice="right"
+		puzzle_answers.assign(preload("res://tests/puzzle_solver.gd").actions(step["puzzle"]) if step.has("puzzle") else [])
+		await game.side_quests.perform_step(id,n)
+		check(game.task_system.entries[id]["step"]==n+1,"chapter investigation advances "+id+"/"+str(n))
+	check(game.task_system.entries[id].get("reward_claimed",false),"chapter investigation claimed once "+id)
 
 func run() -> void:
 	game=load("res://main.tscn").instantiate();root.add_child(game)
@@ -66,6 +85,8 @@ func run() -> void:
 		game.day_clock.current_period=int(node["timeWindow"][0]);campaign.last_slot=-1
 		if node["id"]=="li_hearing":campaign.evidence["li"]=["lao_chou","lao_li","la_jiao"]
 		if node["id"]=="yang_hearing":campaign.evidence["yang"]=["lao_chou","lao_li","fei_yan"]
+		if node.has("bridge_quest"):await bridge_quest(node["bridge_quest"])
+		game.day_clock.current_period=int(node["timeWindow"][0]);campaign.last_slot=-1
 		await go(node["location"])
 		check(not campaign.extra_interactions().is_empty(),"main interaction "+node["id"])
 		var guard:=0
@@ -79,8 +100,17 @@ func run() -> void:
 				if not game.battle_view.result.is_empty():
 					desired_choice="ask";game.battle_view.close();await process_frame;break
 				var skill: String="physical"
-				for candidate: String in ["fire_super","fire_high","fire_medium","fire_low"]:
-					if game.battle_view.action_map.has(candidate) and int(game.combat_rules.hero["mp_current"])>=int(game.battle_view.action_map[candidate].get("mp_cost",0)):skill=candidate;break
+				var view: Control=game.battle_view
+				var hero: Dictionary=game.combat_rules.hero
+				var counters: Array=view.tactics.intent.get("counters",[])
+				var element: String=counters[0] if not counters.is_empty() else "fire"
+				if float(hero["hp_current"])/int(hero["hp"])<.55 and int(view.cooldowns.get("second_wind",0))<=view.turn and int(hero["mp_current"])>=int(view.action_map["second_wind"].get("mp_cost",0)):skill="second_wind"
+				elif int(hero["mp_current"])<game.combat_rules.spell_cost("low") and int(view.cooldowns.get("mana_cycle",0))<=view.turn:skill="mana_cycle"
+				elif int(hero["mp_current"])<game.combat_rules.spell_cost("low"):skill="rest"
+				else:
+					for tier: String in ["super","high","medium","low"]:
+						var candidate:=element+"_"+tier
+						if view.action_map.has(candidate) and int(hero["mp_current"])>=int(view.action_map[candidate].get("mp_cost",0)):skill=candidate;break
 				await game.battle_view.perform(skill)
 			await process_frame
 		check(campaign.index==expected+1,"event completed "+node["id"])

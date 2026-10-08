@@ -18421,11 +18421,191 @@
       "file": "资源/地图/高清区块/tree.png",
       "bytes": 1825536,
       "sha256": "2e73eabbec6c35f6b766c1658855368b2a0555669c096e4e2c4cb5e42d1aac1e"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/book_eater/atlas.png",
+      "bytes": 500859,
+      "sha256": "1b80a36f4fe6403a4ff624313beb5527f63d40053119b92d5dccad2fd85323ed"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/book_eater/motion.json",
+      "bytes": 345,
+      "sha256": "abea5e7f67e800eb545d665724912b0e242498e4576e63f7f8d010bb688ce25b"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/book_eater/portrait.png",
+      "bytes": 81323,
+      "sha256": "6091b4005497c5866260d9f299fb90e8e6742eb33fcf2c53d8083ce443cf14fd"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/book_eater/world.png",
+      "bytes": 169814,
+      "sha256": "093d497ae03f280128f8ca09af6e046e689ca11c4b53b1de9db7a3129d0a1473"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/book_eater_queen/atlas.png",
+      "bytes": 683830,
+      "sha256": "9d288be186543fa2f8d3afb9b72dc9c22fe06ba3616402568d2027223fc41737"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/book_eater_queen/motion.json",
+      "bytes": 345,
+      "sha256": "abea5e7f67e800eb545d665724912b0e242498e4576e63f7f8d010bb688ce25b"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/book_eater_queen/portrait.png",
+      "bytes": 128273,
+      "sha256": "b81e6671f926876d9b0f08f767be58dcc8809f75493085052670589437f50dbe"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/book_eater_queen/world.png",
+      "bytes": 263620,
+      "sha256": "31e65bd771f46089bd6ef578aa631ac297801f020611b64351ca4b72f9df339f"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/dry_branch/atlas.png",
+      "bytes": 594330,
+      "sha256": "931b28547aaf06297a0cfb44932e757fea3fe5243023051a0ce217ce24d1362e"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/dry_branch/motion.json",
+      "bytes": 345,
+      "sha256": "abea5e7f67e800eb545d665724912b0e242498e4576e63f7f8d010bb688ce25b"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/dry_branch/portrait.png",
+      "bytes": 120094,
+      "sha256": "08a0e70090450dcb63ba0fc27866a30422ac318c0fcb915ac72a0ae893fcaa41"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/dry_branch/world.png",
+      "bytes": 246337,
+      "sha256": "179d271f9eaafa8b548d7c8ec1abafc28f3b5e65ab2a1a7706fd91c0c44c4920"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/dry_branch_ancient/atlas.png",
+      "bytes": 754012,
+      "sha256": "51431ed43a6c16caa1d993c8942ed4af09d77d35638927343d84f5837c0a325d"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/dry_branch_ancient/motion.json",
+      "bytes": 345,
+      "sha256": "abea5e7f67e800eb545d665724912b0e242498e4576e63f7f8d010bb688ce25b"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/dry_branch_ancient/portrait.png",
+      "bytes": 137724,
+      "sha256": "3b884e6e5cc3b6193907afb841cd3fdaba56a2e9354e4db48536cf1860ae5260"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/dry_branch_ancient/world.png",
+      "bytes": 282714,
+      "sha256": "d1f7c317639bd749405ccb04f8de90708a0dcdd84c55e79f622c12738d723a01"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/empty_uniform/atlas.png",
+      "bytes": 494130,
+      "sha256": "5687cc25ae62475c091fabb9af2579dd530faa35d20b67c33d89dc6ce9857028"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/empty_uniform/motion.json",
+      "bytes": 345,
+      "sha256": "abea5e7f67e800eb545d665724912b0e242498e4576e63f7f8d010bb688ce25b"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/empty_uniform/portrait.png",
+      "bytes": 85845,
+      "sha256": "a69a57dc298ab1c98a4aba72a17ba49788e880a2759ede32e29b197478e9f82b"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/empty_uniform/world.png",
+      "bytes": 178022,
+      "sha256": "44d23ba1597ccddd42d6d3ec53baa1d27ff21073507e9224a56e81028af8a493"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/empty_uniform_leader/atlas.png",
+      "bytes": 475038,
+      "sha256": "46db88bb2b06f0c731b554a3e6c231ca443ab9511bd7acadb6a0e50c81851988"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/empty_uniform_leader/motion.json",
+      "bytes": 345,
+      "sha256": "abea5e7f67e800eb545d665724912b0e242498e4576e63f7f8d010bb688ce25b"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/empty_uniform_leader/portrait.png",
+      "bytes": 93786,
+      "sha256": "0d574685fb7c92ce6df0abd8c7502b825e830bab4daeda9ebef1b032fb453cfd"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/empty_uniform_leader/world.png",
+      "bytes": 193728,
+      "sha256": "eb2cde385899b105ee1b7553d6aa305357805297892f11ac128757cc6649995a"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/gou_ga_boss/atlas.png",
+      "bytes": 1009053,
+      "sha256": "7ee502bdc6105320eee38f70772042f4ee3e46292eaba24ec8b9d9140c4569b4"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/gou_ga_boss/motion.json",
+      "bytes": 345,
+      "sha256": "3d925e2d19ecb517585e070bc485b52b002f40ccac5dfd858c09ff64f284f31b"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/gou_ga_boss/portrait.png",
+      "bytes": 85886,
+      "sha256": "2dcb9ce89640423356a61f6ffc6c69e59121272afe45aa10452997fdf2fbf10d"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/gou_ga_boss/world.png",
+      "bytes": 178514,
+      "sha256": "fe15b677b788ec40886f41923f54d99f00e7c910db290f91716ec38cafde65cf"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/ink_slime/atlas.png",
+      "bytes": 355029,
+      "sha256": "78034a19ede28e62d1e380f864d5d411f23041b3404c35e912a7d01163f96c76"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/ink_slime/motion.json",
+      "bytes": 345,
+      "sha256": "abea5e7f67e800eb545d665724912b0e242498e4576e63f7f8d010bb688ce25b"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/ink_slime/portrait.png",
+      "bytes": 60924,
+      "sha256": "58e1863acbd230722927c2112b27644f1d166ad9256aa440723a087bba64202a"
+    },
+    {
+      "file": "资源/原项目/assets/characters/bosses/ink_slime/world.png",
+      "bytes": 127434,
+      "sha256": "dd1ab41f61bf49e6a63900a32d3f2bb1b86f975063d7ccf09043a50dd8743d45"
+    },
+    {
+      "file": "资源/原项目/assets/characters/hero/battle/actions-v2/atlas.png",
+      "bytes": 533570,
+      "sha256": "7111358c99d91ad14e082d2a434a1a6c56d4bf30f09a36b9c22227830d07dcd1"
+    },
+    {
+      "file": "资源/原项目/assets/characters/hero/battle/actions-v2/motion.json",
+      "bytes": 367,
+      "sha256": "584f9836021226d46486f5fd6efda88d4f6f1742ef1a2af9736749d6e0cabb17"
+    },
+    {
+      "file": "资源/原项目/assets/characters/hero/battle/actions-v2/portrait.png",
+      "bytes": 67261,
+      "sha256": "8236bf020d8c06425d9cfa9d997cfc9102aa4eb99932fca1085aaee466f25701"
+    },
+    {
+      "file": "资源/原项目/assets/characters/hero/battle/actions-v2/world.png",
+      "bytes": 140236,
+      "sha256": "f520f42e42eac9e5630b151192309f179b9d65e4ab0d8c5843e16437ba96f227"
     }
   ],
-  "total_bytes": 334152214,
+  "total_bytes": 342196727,
   "source_files_preserved": true,
   "zip_frozen": true,
   "local_sports_background_repair": "runtime/stadium_repair.json",
-  "file_count": 3684
+  "file_count": 3720
 }

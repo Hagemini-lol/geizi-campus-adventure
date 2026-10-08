@@ -26,8 +26,8 @@ var black_durations: Array[float]=[]
 var draw_stamp:=""
 var redraw_elapsed:=0.0
 
-func configure(path: String) -> bool:
-	var parsed: Variant=JSON.parse_string(FileAccess.get_file_as_string(path))
+func configure(path: String, content: Dictionary={}) -> bool:
+	var parsed: Variant=content.duplicate(true) if not content.is_empty() else JSON.parse_string(FileAccess.get_file_as_string(path))
 	if not parsed is Dictionary:return false
 	data=parsed
 	var index: Variant=JSON.parse_string(FileAccess.get_file_as_string(game.resolve_path(data["effects_index"])))

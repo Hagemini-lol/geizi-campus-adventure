@@ -1,0 +1,293 @@
+{
+  "version": "1.4.0",
+  "content_audit": {
+    "version": "1.4.0",
+    "main": {
+      "lines": 673,
+      "unique_lines": 670,
+      "characters": 23112,
+      "chinese_characters": 20293
+    },
+    "main_chapters": [
+      {
+        "id": "part_2",
+        "title": "深夜刷怪与阳子启蒙",
+        "events": 3,
+        "lines": 51,
+        "unique_lines": 51,
+        "characters": 1840,
+        "chinese_characters": 1614
+      },
+      {
+        "id": "part_3",
+        "title": "据点、人脉与异常点巡查",
+        "events": 7,
+        "lines": 119,
+        "unique_lines": 119,
+        "characters": 4306,
+        "chinese_characters": 3777
+      },
+      {
+        "id": "part_4",
+        "title": "图书室·书与魔女",
+        "events": 4,
+        "lines": 70,
+        "unique_lines": 70,
+        "characters": 2501,
+        "chinese_characters": 2202
+      },
+      {
+        "id": "part_5",
+        "title": "混沌之女·勾尬",
+        "events": 4,
+        "lines": 67,
+        "unique_lines": 67,
+        "characters": 2509,
+        "chinese_characters": 2210
+      },
+      {
+        "id": "part_5_plus",
+        "title": "白日审判",
+        "events": 2,
+        "lines": 34,
+        "unique_lines": 34,
+        "characters": 1301,
+        "chinese_characters": 1148
+      },
+      {
+        "id": "part_6",
+        "title": "六边形战士·牢家的封印",
+        "events": 4,
+        "lines": 65,
+        "unique_lines": 65,
+        "characters": 2496,
+        "chinese_characters": 2196
+      },
+      {
+        "id": "part_7",
+        "title": "变身·夜守校园",
+        "events": 5,
+        "lines": 81,
+        "unique_lines": 81,
+        "characters": 2939,
+        "chinese_characters": 2570
+      },
+      {
+        "id": "part_8",
+        "title": "期中考试与决战前夜",
+        "events": 2,
+        "lines": 33,
+        "unique_lines": 33,
+        "characters": 1256,
+        "chinese_characters": 1104
+      },
+      {
+        "id": "part_9",
+        "title": "门前的同学 · 勾尬决战",
+        "events": 2,
+        "lines": 37,
+        "unique_lines": 37,
+        "characters": 1549,
+        "chinese_characters": 1359
+      }
+    ],
+    "main_events": 33,
+    "side": {
+      "lines": 698,
+      "unique_lines": 698,
+      "characters": 25655,
+      "chinese_characters": 22723
+    },
+    "chapter_investigations": 9,
+    "chapter_investigation_steps": 36,
+    "personal_stories": 27,
+    "personal_story_steps": 80,
+    "daily_jobs": 2,
+    "side_steps": 121,
+    "total": {
+      "lines": 1371,
+      "unique_lines": 1368,
+      "characters": 48767,
+      "chinese_characters": 43016
+    },
+    "interactive_puzzles": 8,
+    "reading_minutes_at_300_cpm": 162.6,
+    "reading_minutes_at_220_cpm": 221.7,
+    "method": "Unique authored dialogue strings only. Includes mutually exclusive endings and replayable daily dialogue, so total reading time is NOT a single-route playtime. Excludes menus, hints, descriptions, docs, duplicate sentences and travelling/waiting. Actual 4-hour playtime has not been measured.",
+    "single_route": {
+      "ending": "GE-H",
+      "required_main_and_investigations": {
+        "lines": 837,
+        "unique_lines": 834,
+        "characters": 31791,
+        "chinese_characters": 28007
+      },
+      "normal_with_personal_episodes": 18,
+      "normal_dialogue": {
+        "lines": 1065,
+        "unique_lines": 1062,
+        "characters": 39165,
+        "chinese_characters": 34502
+      },
+      "completion_with_personal_episodes": 27,
+      "completion_dialogue": {
+        "lines": 1185,
+        "unique_lines": 1182,
+        "characters": 43901,
+        "chinese_characters": 38718
+      },
+      "main_battle_waves": 20,
+      "normal_extra_required_kills": 5,
+      "excludes": "Other endings, alternate branches, retry dialogue, daily jobs, banter, optional epilogue revisits, grinding, AFK and waiting for real time."
+    },
+    "playtime_estimates": [
+      {
+        "profile": "main_only_standard",
+        "dialogue_characters": 31791,
+        "reading_cpm": 250,
+        "reading_minutes": 127.2,
+        "travel_minutes": 25,
+        "combat_minutes": 25,
+        "decision_minutes": 26,
+        "management_minutes": 15,
+        "total_minutes": 218.2,
+        "measured": false
+      },
+      {
+        "profile": "normal_standard",
+        "dialogue_characters": 39165,
+        "reading_cpm": 250,
+        "reading_minutes": 156.7,
+        "travel_minutes": 40,
+        "combat_minutes": 30,
+        "decision_minutes": 37,
+        "management_minutes": 20,
+        "total_minutes": 283.7,
+        "measured": false
+      },
+      {
+        "profile": "normal_leisurely",
+        "dialogue_characters": 39165,
+        "reading_cpm": 220,
+        "reading_minutes": 178.0,
+        "travel_minutes": 55,
+        "combat_minutes": 40,
+        "decision_minutes": 50,
+        "management_minutes": 25,
+        "total_minutes": 348.0,
+        "measured": false
+      },
+      {
+        "profile": "normal_fast_reading_and_travel",
+        "dialogue_characters": 39165,
+        "reading_cpm": 300,
+        "reading_minutes": 130.6,
+        "travel_minutes": 20,
+        "combat_minutes": 20,
+        "decision_minutes": 17,
+        "management_minutes": 10,
+        "total_minutes": 197.6,
+        "measured": false
+      },
+      {
+        "profile": "all_personal_stories_standard",
+        "dialogue_characters": 43901,
+        "reading_cpm": 250,
+        "reading_minutes": 175.6,
+        "travel_minutes": 50,
+        "combat_minutes": 30,
+        "decision_minutes": 42,
+        "management_minutes": 20,
+        "total_minutes": 317.6,
+        "measured": false
+      }
+    ],
+    "playtime_method": "Planning estimates, not observed human playthroughs. Normal profile completes main + 9 chapter investigations + the first two personal episodes for all 9 classmates (18/27 episodes). Non-reading budgets are explicit assumptions for movement, 25 compulsory encounters, choices and inventory/skill preparation. Reading assumes characters including punctuation per minute; fast/skip play can be under 4 hours. In-game active clock now enables real timing, excluding background/pause and inactivity beyond 60 seconds.",
+    "before_expansion": {
+      "dialogue_characters": 14085,
+      "main_events": 33,
+      "personal_stories": 9,
+      "daily_jobs": 2,
+      "side_steps": 31
+    }
+  },
+  "checks": {
+    "campaign": {
+      "checks": 304,
+      "passed": true
+    },
+    "sidequest": {
+      "checks": 478,
+      "passed": true
+    },
+    "puzzle": {
+      "checks": 92,
+      "passed": true
+    },
+    "mod": {
+      "checks": 33,
+      "passed": true
+    },
+    "campaign_behavior": {
+      "checks": 4439,
+      "passed": true
+    },
+    "campaign_save": {
+      "checks": 36,
+      "passed": true
+    },
+    "update_save": {
+      "checks": 117,
+      "passed": true
+    },
+    "balance": {
+      "checks": 403,
+      "passed": true
+    },
+    "stamina": {
+      "checks": 392,
+      "passed": true
+    },
+    "expansion": {
+      "checks": 118,
+      "passed": true
+    },
+    "stream_recovery": {
+      "checks": 1066,
+      "passed": true
+    },
+    "economy": {
+      "checks": 55,
+      "passed": true
+    },
+    "update_save_restart": {
+      "checks": 7,
+      "passed": true
+    }
+  },
+  "unchanged_mechanics_checks_reused_from_local_1_3": [
+    "balance",
+    "stamina",
+    "expansion",
+    "stream_recovery",
+    "economy"
+  ],
+  "windows_launcher_passed": true,
+  "windows_pck_sha256": "c4d273ffc130e0efc288e1e8214caab1406d0deeb5a0d03b8fb1358f50f2a1da",
+  "apk_sha256": "3504b04982c27682b37825cba528c39b85658ccb1222a5f5039b4c18708d9db6",
+  "android_version_code": 8,
+  "original_android_identity_and_signature_verified": true,
+  "exported_apk_desktop_checks": {
+    "touch_standard": 36,
+    "touch_wide": 36,
+    "mod_runtime": 33
+  },
+  "runtime_asset_hashes_verified": 3720,
+  "original_assets_modified": false,
+  "personal_files_unchanged": true,
+  "existing_share_zip_unchanged": true,
+  "four_hour_human_playthrough_measured": false,
+  "physical_android_device_tested": false,
+  "android_emulator_tested": false,
+  "notes": "Playtime is an explicit content estimate. APK runtime checks use the exported payload on the desktop engine; they are not Android device tests."
+}

@@ -1,12 +1,12 @@
 {
-  "game_version": "1.2.2",
+  "game_version": "1.4.0",
   "game_name": "gei子的冒险",
   "windows_launcher_passed": true,
-  "windows_pck_sha256": "17a5d11a87dacbf46b3bca4726477a346fdcaee38e087d42bd63f0a68cc729c9",
-  "apk_sha256": "e2a8fad53ebf41bde47208308d0654db36b83d0ef6fed3db224da14a5509d4f4",
+  "windows_pck_sha256": "c4d273ffc130e0efc288e1e8214caab1406d0deeb5a0d03b8fb1358f50f2a1da",
+  "apk_sha256": "3504b04982c27682b37825cba528c39b85658ccb1222a5f5039b4c18708d9db6",
   "checks": {
     "campaign": {
-      "checks": 250,
+      "checks": 304,
       "failures": [],
       "passed": true
     },
@@ -3547,7 +3547,7 @@
           "won": true
         },
         {
-          "companion": "lao_shuo",
+          "companion": "fei_yan",
           "enemy_level": 10,
           "gear": "chapter_one",
           "hero_level": 8,
@@ -3556,12 +3556,12 @@
           "plan": [
             "barrier",
             "fire_medium",
-            "fire_low",
-            "physical",
+            "mana_cycle",
+            "fire_medium",
             "physical"
           ],
-          "remaining_hp": 277,
-          "remaining_mp": 32,
+          "remaining_hp": 189,
+          "remaining_mp": 82,
           "won": true
         },
         {
@@ -3618,11 +3618,13 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_medium",
+            "mana_cycle",
+            "light_high",
+            "physical",
             "physical"
           ],
-          "remaining_hp": 2579,
-          "remaining_mp": 391,
+          "remaining_hp": 2812,
+          "remaining_mp": 351,
           "won": true
         },
         {
@@ -3634,11 +3636,13 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_medium",
+            "mana_cycle",
+            "light_high",
+            "physical",
             "physical"
           ],
-          "remaining_hp": 2231,
-          "remaining_mp": 391,
+          "remaining_hp": 2475,
+          "remaining_mp": 351,
           "won": true
         },
         {
@@ -3650,443 +3654,468 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
+            "physical",
             "mana_cycle",
-            "light_high"
-          ],
-          "remaining_hp": 1873,
-          "remaining_mp": 1,
-          "won": true
-        },
-        {
-          "companion": "lao_shuo",
-          "enemy_level": 43,
-          "gear": "chapter_one",
-          "hero_level": 35,
-          "hero_max_hp": 9551,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "guard",
-            "light_high"
-          ],
-          "remaining_hp": 1107,
-          "remaining_mp": 1,
-          "won": true
-        },
-        {
-          "companion": "lao_shuo",
-          "enemy_level": 44,
-          "gear": "purchased_250g_and_2ink",
-          "hero_level": 35,
-          "hero_max_hp": 9551,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high",
-            "physical"
-          ],
-          "remaining_hp": 1079,
-          "remaining_mp": 1,
-          "won": true
-        },
-        {
-          "companion": "lao_shuo",
-          "enemy_level": 45,
-          "gear": "purchased_250g_and_2ink",
-          "hero_level": 35,
-          "hero_max_hp": 9551,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high",
-            "physical"
-          ],
-          "remaining_hp": 695,
-          "remaining_mp": 1,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 41,
-          "gear": "chapter_one",
-          "hero_level": 36,
-          "hero_max_hp": 9845,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_medium",
-            "physical"
-          ],
-          "remaining_hp": 2729,
-          "remaining_mp": 490,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 42,
-          "gear": "chapter_one",
-          "hero_level": 36,
-          "hero_max_hp": 9845,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_medium",
-            "physical"
-          ],
-          "remaining_hp": 2381,
-          "remaining_mp": 490,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 43,
-          "gear": "chapter_one",
-          "hero_level": 36,
-          "hero_max_hp": 9845,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high"
-          ],
-          "remaining_hp": 2025,
-          "remaining_mp": 90,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 44,
-          "gear": "chapter_one",
-          "hero_level": 36,
-          "hero_max_hp": 9845,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high"
-          ],
-          "remaining_hp": 1661,
-          "remaining_mp": 90,
-          "won": true
-        },
-        {
-          "companion": "lao_shuo",
-          "enemy_level": 45,
-          "gear": "purchased_250g_and_2ink",
-          "hero_level": 36,
-          "hero_max_hp": 9845,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high",
-            "physical"
-          ],
-          "remaining_hp": 1235,
-          "remaining_mp": 90,
-          "won": true
-        },
-        {
-          "companion": "lao_shuo",
-          "enemy_level": 46,
-          "gear": "purchased_250g_and_2ink",
-          "hero_level": 36,
-          "hero_max_hp": 9845,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high",
-            "physical"
-          ],
-          "remaining_hp": 854,
-          "remaining_mp": 90,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 42,
-          "gear": "chapter_one",
-          "hero_level": 37,
-          "hero_max_hp": 10141,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_medium",
-            "physical"
-          ],
-          "remaining_hp": 2879,
-          "remaining_mp": 591,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 43,
-          "gear": "chapter_one",
-          "hero_level": 37,
-          "hero_max_hp": 10141,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_medium",
-            "physical"
-          ],
-          "remaining_hp": 2533,
-          "remaining_mp": 591,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 44,
-          "gear": "chapter_one",
-          "hero_level": 37,
-          "hero_max_hp": 10141,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high"
-          ],
-          "remaining_hp": 2179,
-          "remaining_mp": 181,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 45,
-          "gear": "chapter_one",
-          "hero_level": 37,
-          "hero_max_hp": 10141,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high"
-          ],
-          "remaining_hp": 1817,
-          "remaining_mp": 181,
-          "won": true
-        },
-        {
-          "companion": "lao_shuo",
-          "enemy_level": 46,
-          "gear": "purchased_250g_and_2ink",
-          "hero_level": 37,
-          "hero_max_hp": 10141,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high",
-            "physical"
-          ],
-          "remaining_hp": 1393,
-          "remaining_mp": 181,
-          "won": true
-        },
-        {
-          "companion": "lao_shuo",
-          "enemy_level": 47,
-          "gear": "purchased_250g_and_2ink",
-          "hero_level": 37,
-          "hero_max_hp": 10141,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high",
-            "physical"
-          ],
-          "remaining_hp": 1012,
-          "remaining_mp": 181,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 43,
-          "gear": "chapter_one",
-          "hero_level": 38,
-          "hero_max_hp": 10438,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_medium",
-            "physical"
-          ],
-          "remaining_hp": 3030,
-          "remaining_mp": 694,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 44,
-          "gear": "chapter_one",
-          "hero_level": 38,
-          "hero_max_hp": 10438,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_medium",
-            "physical"
-          ],
-          "remaining_hp": 2686,
-          "remaining_mp": 694,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 45,
-          "gear": "chapter_one",
-          "hero_level": 38,
-          "hero_max_hp": 10438,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high"
-          ],
-          "remaining_hp": 2334,
-          "remaining_mp": 274,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 46,
-          "gear": "chapter_one",
-          "hero_level": 38,
-          "hero_max_hp": 10438,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high"
-          ],
-          "remaining_hp": 1974,
-          "remaining_mp": 274,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 47,
-          "gear": "chapter_one",
-          "hero_level": 38,
-          "hero_max_hp": 10438,
-          "monster": "gate_entity",
-          "plan": [
             "barrier",
-            "light_super",
-            "mana_cycle",
-            "light_high"
-          ],
-          "remaining_hp": 501,
-          "remaining_mp": 64,
-          "won": true
-        },
-        {
-          "companion": "lao_shuo",
-          "enemy_level": 48,
-          "gear": "purchased_250g_and_2ink",
-          "hero_level": 38,
-          "hero_max_hp": 10438,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
             "light_high",
             "physical"
           ],
-          "remaining_hp": 1171,
-          "remaining_mp": 274,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 44,
-          "gear": "chapter_one",
-          "hero_level": 39,
-          "hero_max_hp": 10737,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_medium",
-            "physical"
-          ],
-          "remaining_hp": 3183,
-          "remaining_mp": 801,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 45,
-          "gear": "chapter_one",
-          "hero_level": 39,
-          "hero_max_hp": 10737,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_medium",
-            "physical"
-          ],
-          "remaining_hp": 2841,
-          "remaining_mp": 801,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 46,
-          "gear": "chapter_one",
-          "hero_level": 39,
-          "hero_max_hp": 10737,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_medium",
-            "physical"
-          ],
-          "remaining_hp": 2489,
-          "remaining_mp": 801,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 47,
-          "gear": "chapter_one",
-          "hero_level": 39,
-          "hero_max_hp": 10737,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "mana_cycle",
-            "light_high"
-          ],
-          "remaining_hp": 2131,
-          "remaining_mp": 371,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 48,
-          "gear": "chapter_one",
-          "hero_level": 39,
-          "hero_max_hp": 10737,
-          "monster": "gate_entity",
-          "plan": [
-            "barrier",
-            "light_super",
-            "mana_cycle",
-            "light_high"
-          ],
-          "remaining_hp": 643,
+          "remaining_hp": 1620,
           "remaining_mp": 156,
           "won": true
         },
         {
           "companion": "lao_shuo",
-          "enemy_level": 49,
-          "gear": "purchased_250g_and_2ink",
+          "enemy_level": 43,
+          "gear": "chapter_one",
+          "hero_level": 35,
+          "hero_max_hp": 9551,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical",
+            "physical",
+            "physical"
+          ],
+          "remaining_hp": 1619,
+          "remaining_mp": 351,
+          "won": true
+        },
+        {
+          "companion": "lao_shuo",
+          "enemy_level": 44,
+          "gear": "chapter_one",
+          "hero_level": 35,
+          "hero_max_hp": 9551,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "physical",
+            "physical",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 1922,
+          "remaining_mp": 161,
+          "won": true
+        },
+        {
+          "companion": "lao_shuo",
+          "enemy_level": 45,
+          "gear": "chapter_one",
+          "hero_level": 35,
+          "hero_max_hp": 9551,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "physical",
+            "physical",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 1574,
+          "remaining_mp": 161,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 41,
+          "gear": "chapter_one",
+          "hero_level": 36,
+          "hero_max_hp": 9845,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "physical",
+            "mana_cycle",
+            "light_high",
+            "physical"
+          ],
+          "remaining_hp": 2965,
+          "remaining_mp": 450,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 42,
+          "gear": "chapter_one",
+          "hero_level": 36,
+          "hero_max_hp": 9845,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical",
+            "physical"
+          ],
+          "remaining_hp": 2631,
+          "remaining_mp": 450,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 43,
+          "gear": "chapter_one",
+          "hero_level": 36,
+          "hero_max_hp": 9845,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "barrier",
+            "light_high",
+            "physical",
+            "physical"
+          ],
+          "remaining_hp": 1766,
+          "remaining_mp": 250,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 44,
+          "gear": "chapter_one",
+          "hero_level": 36,
+          "hero_max_hp": 9845,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical",
+            "mana_cycle",
+            "light_medium"
+          ],
+          "remaining_hp": 571,
+          "remaining_mp": 50,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 45,
+          "gear": "chapter_one",
+          "hero_level": 36,
+          "hero_max_hp": 9845,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "barrier",
+            "physical",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 1860,
+          "remaining_mp": 80,
+          "won": true
+        },
+        {
+          "companion": "lao_shuo",
+          "enemy_level": 46,
+          "gear": "chapter_one",
+          "hero_level": 36,
+          "hero_max_hp": 9845,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "physical",
+            "physical",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 1745,
+          "remaining_mp": 280,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 42,
+          "gear": "chapter_one",
+          "hero_level": 37,
+          "hero_max_hp": 10141,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical",
+            "physical"
+          ],
+          "remaining_hp": 3123,
+          "remaining_mp": 551,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 43,
+          "gear": "chapter_one",
+          "hero_level": 37,
+          "hero_max_hp": 10141,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical",
+            "physical"
+          ],
+          "remaining_hp": 2786,
+          "remaining_mp": 551,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 44,
+          "gear": "chapter_one",
+          "hero_level": 37,
+          "hero_max_hp": 10141,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "barrier",
+            "physical",
+            "physical"
+          ],
+          "remaining_hp": 1914,
+          "remaining_mp": 346,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 45,
+          "gear": "chapter_one",
+          "hero_level": 37,
+          "hero_max_hp": 10141,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical",
+            "mana_cycle",
+            "light_medium"
+          ],
+          "remaining_hp": 710,
+          "remaining_mp": 141,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 46,
+          "gear": "chapter_one",
+          "hero_level": 37,
+          "hero_max_hp": 10141,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "barrier",
+            "physical",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 2027,
+          "remaining_mp": 196,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 47,
+          "gear": "chapter_one",
+          "hero_level": 37,
+          "hero_max_hp": 10141,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "barrier",
+            "physical",
+            "mana_cycle",
+            "guard",
+            "light_super"
+          ],
+          "remaining_hp": 162,
+          "remaining_mp": 196,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 43,
+          "gear": "chapter_one",
+          "hero_level": 38,
+          "hero_max_hp": 10438,
+          "monster": "gate_entity",
+          "plan": [
+            "barrier",
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical"
+          ],
+          "remaining_hp": 4761,
+          "remaining_mp": 444,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 44,
+          "gear": "chapter_one",
+          "hero_level": 38,
+          "hero_max_hp": 10438,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical",
+            "physical"
+          ],
+          "remaining_hp": 2945,
+          "remaining_mp": 654,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 45,
+          "gear": "chapter_one",
+          "hero_level": 38,
+          "hero_max_hp": 10438,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical",
+            "physical"
+          ],
+          "remaining_hp": 2605,
+          "remaining_mp": 654,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 46,
+          "gear": "chapter_one",
+          "hero_level": 38,
+          "hero_max_hp": 10438,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical",
+            "mana_cycle",
+            "light_medium"
+          ],
+          "remaining_hp": 847,
+          "remaining_mp": 234,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 47,
+          "gear": "chapter_one",
+          "hero_level": 38,
+          "hero_max_hp": 10438,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "barrier",
+            "physical",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 2195,
+          "remaining_mp": 314,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 48,
+          "gear": "chapter_one",
+          "hero_level": 38,
+          "hero_max_hp": 10438,
+          "monster": "gate_entity",
+          "plan": [
+            "barrier",
+            "light_super",
+            "mana_cycle",
+            "barrier",
+            "physical",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 1234,
+          "remaining_mp": 104,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 44,
+          "gear": "chapter_one",
+          "hero_level": 39,
+          "hero_max_hp": 10737,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "barrier",
+            "light_high",
+            "physical"
+          ],
+          "remaining_hp": 4946,
+          "remaining_mp": 546,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 45,
+          "gear": "chapter_one",
+          "hero_level": 39,
+          "hero_max_hp": 10737,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "physical",
+            "mana_cycle",
+            "light_high",
+            "physical"
+          ],
+          "remaining_hp": 3103,
+          "remaining_mp": 761,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 46,
+          "gear": "chapter_one",
+          "hero_level": 39,
+          "hero_max_hp": 10737,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "physical",
+            "mana_cycle",
+            "light_high",
+            "physical"
+          ],
+          "remaining_hp": 2766,
+          "remaining_mp": 761,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 47,
+          "gear": "chapter_one",
           "hero_level": 39,
           "hero_max_hp": 10737,
           "monster": "gate_entity",
@@ -4094,10 +4123,50 @@
             "light_super",
             "mana_cycle",
             "light_high",
-            "physical"
+            "physical",
+            "mana_cycle",
+            "light_medium"
           ],
-          "remaining_hp": 1329,
-          "remaining_mp": 371,
+          "remaining_hp": 984,
+          "remaining_mp": 331,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 48,
+          "gear": "chapter_one",
+          "hero_level": 39,
+          "hero_max_hp": 10737,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_high",
+            "physical",
+            "mana_cycle",
+            "light_medium"
+          ],
+          "remaining_hp": 568,
+          "remaining_mp": 331,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 49,
+          "gear": "chapter_one",
+          "hero_level": 39,
+          "hero_max_hp": 10737,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "barrier",
+            "physical",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 2017,
+          "remaining_mp": 436,
           "won": true
         },
         {
@@ -4109,9 +4178,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_high",
+            "mana_cycle",
+            "light_low"
           ],
-          "remaining_hp": 7188,
+          "remaining_hp": 5649,
           "remaining_mp": 59,
           "won": true
         },
@@ -4124,9 +4195,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_high",
+            "physical",
+            "physical"
           ],
-          "remaining_hp": 7017,
+          "remaining_hp": 4606,
           "remaining_mp": 59,
           "won": true
         },
@@ -4139,9 +4212,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_high",
+            "physical",
+            "physical"
           ],
-          "remaining_hp": 6842,
+          "remaining_hp": 4327,
           "remaining_mp": 59,
           "won": true
         },
@@ -4154,9 +4229,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_high",
+            "physical",
+            "physical",
+            "physical"
           ],
-          "remaining_hp": 6664,
+          "remaining_hp": 1706,
           "remaining_mp": 59,
           "won": true
         },
@@ -4170,9 +4248,11 @@
           "plan": [
             "light_super",
             "light_high",
+            "physical",
+            "physical",
             "physical"
           ],
-          "remaining_hp": 1924,
+          "remaining_hp": 1318,
           "remaining_mp": 59,
           "won": true
         },
@@ -4185,11 +4265,14 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high",
-            "physical"
+            "mana_cycle",
+            "barrier",
+            "physical",
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 1552,
-          "remaining_mp": 59,
+          "remaining_hp": 2185,
+          "remaining_mp": 559,
           "won": true
         },
         {
@@ -4201,10 +4284,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 7417,
-          "remaining_mp": 150,
+          "remaining_hp": 7941,
+          "remaining_mp": 80,
           "won": true
         },
         {
@@ -4216,10 +4300,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 7247,
-          "remaining_mp": 150,
+          "remaining_hp": 7793,
+          "remaining_mp": 80,
           "won": true
         },
         {
@@ -4231,10 +4316,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 7072,
-          "remaining_mp": 150,
+          "remaining_hp": 7642,
+          "remaining_mp": 80,
           "won": true
         },
         {
@@ -4246,10 +4332,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 6895,
-          "remaining_mp": 150,
+          "remaining_hp": 5117,
+          "remaining_mp": 80,
           "won": true
         },
         {
@@ -4261,11 +4349,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high",
+            "mana_cycle",
+            "light_super",
             "physical"
           ],
-          "remaining_hp": 2086,
-          "remaining_mp": 150,
+          "remaining_hp": 4864,
+          "remaining_mp": 80,
           "won": true
         },
         {
@@ -4277,11 +4366,13 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high",
+            "mana_cycle",
+            "light_super",
+            "guard",
             "physical"
           ],
-          "remaining_hp": 1716,
-          "remaining_mp": 150,
+          "remaining_hp": 3000,
+          "remaining_mp": 80,
           "won": true
         },
         {
@@ -4293,10 +4384,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 7647,
-          "remaining_mp": 243,
+          "remaining_hp": 8180,
+          "remaining_mp": 193,
           "won": true
         },
         {
@@ -4308,10 +4400,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 7477,
-          "remaining_mp": 243,
+          "remaining_hp": 8033,
+          "remaining_mp": 193,
           "won": true
         },
         {
@@ -4323,10 +4416,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 7303,
-          "remaining_mp": 243,
+          "remaining_hp": 7883,
+          "remaining_mp": 193,
           "won": true
         },
         {
@@ -4338,10 +4432,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 7126,
-          "remaining_mp": 243,
+          "remaining_hp": 5320,
+          "remaining_mp": 193,
           "won": true
         },
         {
@@ -4352,12 +4448,13 @@
           "hero_max_hp": 11643,
           "monster": "gate_entity",
           "plan": [
-            "barrier",
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 5771,
-          "remaining_mp": 13,
+          "remaining_hp": 5068,
+          "remaining_mp": 193,
           "won": true
         },
         {
@@ -4369,11 +4466,13 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high",
+            "mana_cycle",
+            "light_super",
+            "guard",
             "physical"
           ],
-          "remaining_hp": 1879,
-          "remaining_mp": 243,
+          "remaining_hp": 3183,
+          "remaining_mp": 193,
           "won": true
         },
         {
@@ -4385,10 +4484,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 7945,
-          "remaining_mp": 339,
+          "remaining_hp": 8479,
+          "remaining_mp": 309,
           "won": true
         },
         {
@@ -4400,10 +4500,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 7778,
-          "remaining_mp": 339,
+          "remaining_hp": 8334,
+          "remaining_mp": 309,
           "won": true
         },
         {
@@ -4415,10 +4516,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 7608,
-          "remaining_mp": 339,
+          "remaining_hp": 8187,
+          "remaining_mp": 309,
           "won": true
         },
         {
@@ -4430,10 +4532,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 7434,
-          "remaining_mp": 339,
+          "remaining_hp": 5630,
+          "remaining_mp": 309,
           "won": true
         },
         {
@@ -4444,12 +4548,13 @@
           "hero_max_hp": 11948,
           "monster": "gate_entity",
           "plan": [
-            "barrier",
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 6084,
-          "remaining_mp": 104,
+          "remaining_hp": 5381,
+          "remaining_mp": 309,
           "won": true
         },
         {
@@ -4461,11 +4566,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high",
+            "mana_cycle",
+            "light_super",
             "physical"
           ],
-          "remaining_hp": 2204,
-          "remaining_mp": 339,
+          "remaining_hp": 5128,
+          "remaining_mp": 309,
           "won": true
         },
         {
@@ -4477,10 +4583,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8179,
-          "remaining_mp": 437,
+          "remaining_hp": 8723,
+          "remaining_mp": 427,
           "won": true
         },
         {
@@ -4492,10 +4599,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8012,
-          "remaining_mp": 437,
+          "remaining_hp": 8578,
+          "remaining_mp": 427,
           "won": true
         },
         {
@@ -4507,10 +4615,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 7843,
-          "remaining_mp": 437,
+          "remaining_hp": 8431,
+          "remaining_mp": 427,
           "won": true
         },
         {
@@ -4522,10 +4631,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 7670,
-          "remaining_mp": 437,
+          "remaining_hp": 5836,
+          "remaining_mp": 427,
           "won": true
         },
         {
@@ -4537,10 +4648,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 7493,
-          "remaining_mp": 437,
+          "remaining_hp": 5589,
+          "remaining_mp": 427,
           "won": true
         },
         {
@@ -4552,11 +4665,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high",
+            "mana_cycle",
+            "light_super",
             "physical"
           ],
-          "remaining_hp": 2372,
-          "remaining_mp": 437,
+          "remaining_hp": 5337,
+          "remaining_mp": 427,
           "won": true
         },
         {
@@ -4568,10 +4682,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8414,
-          "remaining_mp": 537,
+          "remaining_hp": 8968,
+          "remaining_mp": 547,
           "won": true
         },
         {
@@ -4583,10 +4698,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8249,
-          "remaining_mp": 537,
+          "remaining_hp": 8825,
+          "remaining_mp": 547,
           "won": true
         },
         {
@@ -4598,10 +4714,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8079,
-          "remaining_mp": 537,
+          "remaining_hp": 8678,
+          "remaining_mp": 547,
           "won": true
         },
         {
@@ -4613,10 +4730,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 7907,
-          "remaining_mp": 537,
+          "remaining_hp": 6047,
+          "remaining_mp": 547,
           "won": true
         },
         {
@@ -4628,10 +4747,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 7731,
-          "remaining_mp": 537,
+          "remaining_hp": 5800,
+          "remaining_mp": 547,
           "won": true
         },
         {
@@ -4643,11 +4764,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high",
+            "mana_cycle",
+            "light_super",
             "physical"
           ],
-          "remaining_hp": 2542,
-          "remaining_mp": 537,
+          "remaining_hp": 5548,
+          "remaining_mp": 547,
           "won": true
         },
         {
@@ -4659,10 +4781,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8651,
-          "remaining_mp": 639,
+          "remaining_hp": 9215,
+          "remaining_mp": 669,
           "won": true
         },
         {
@@ -4674,10 +4797,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8486,
-          "remaining_mp": 639,
+          "remaining_hp": 9071,
+          "remaining_mp": 669,
           "won": true
         },
         {
@@ -4689,10 +4813,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8317,
-          "remaining_mp": 639,
+          "remaining_hp": 8925,
+          "remaining_mp": 669,
           "won": true
         },
         {
@@ -4704,10 +4829,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 8145,
-          "remaining_mp": 639,
+          "remaining_hp": 6256,
+          "remaining_mp": 669,
           "won": true
         },
         {
@@ -4719,10 +4846,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 7970,
-          "remaining_mp": 639,
+          "remaining_hp": 6012,
+          "remaining_mp": 669,
           "won": true
         },
         {
@@ -4733,12 +4862,13 @@
           "hero_max_hp": 12871,
           "monster": "gate_entity",
           "plan": [
-            "barrier",
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 6523,
-          "remaining_mp": 389,
+          "remaining_hp": 5760,
+          "remaining_mp": 669,
           "won": true
         },
         {
@@ -4750,9 +4880,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_high",
+            "physical"
           ],
-          "remaining_hp": 8889,
+          "remaining_hp": 8603,
           "remaining_mp": 744,
           "won": true
         },
@@ -4765,10 +4896,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8724,
-          "remaining_mp": 744,
+          "remaining_hp": 9319,
+          "remaining_mp": 794,
           "won": true
         },
         {
@@ -4780,10 +4912,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8556,
-          "remaining_mp": 744,
+          "remaining_hp": 9174,
+          "remaining_mp": 794,
           "won": true
         },
         {
@@ -4795,10 +4928,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super"
           ],
-          "remaining_hp": 8385,
-          "remaining_mp": 744,
+          "remaining_hp": 9025,
+          "remaining_mp": 794,
           "won": true
         },
         {
@@ -4810,10 +4944,12 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 8210,
-          "remaining_mp": 744,
+          "remaining_hp": 6222,
+          "remaining_mp": 794,
           "won": true
         },
         {
@@ -4824,92 +4960,18 @@
           "hero_max_hp": 13181,
           "monster": "gate_entity",
           "plan": [
-            "barrier",
             "light_super",
-            "light_high"
+            "mana_cycle",
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 6745,
-          "remaining_mp": 489,
+          "remaining_hp": 5973,
+          "remaining_mp": 794,
           "won": true
         },
         {
           "companion": "fei_yan",
           "enemy_level": 53,
-          "gear": "chapter_one",
-          "hero_level": 48,
-          "hero_max_hp": 13493,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9129,
-          "remaining_mp": 851,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 54,
-          "gear": "chapter_one",
-          "hero_level": 48,
-          "hero_max_hp": 13493,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 8964,
-          "remaining_mp": 851,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 55,
-          "gear": "chapter_one",
-          "hero_level": 48,
-          "hero_max_hp": 13493,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 8796,
-          "remaining_mp": 851,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 56,
-          "gear": "chapter_one",
-          "hero_level": 48,
-          "hero_max_hp": 13493,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 8626,
-          "remaining_mp": 851,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 57,
-          "gear": "chapter_one",
-          "hero_level": 48,
-          "hero_max_hp": 13493,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 8452,
-          "remaining_mp": 851,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 58,
           "gear": "chapter_one",
           "hero_level": 48,
           "hero_max_hp": 13493,
@@ -4919,8 +4981,90 @@
             "light_high",
             "physical"
           ],
-          "remaining_hp": 3057,
+          "remaining_hp": 8839,
           "remaining_mp": 851,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 54,
+          "gear": "chapter_one",
+          "hero_level": 48,
+          "hero_max_hp": 13493,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 9569,
+          "remaining_mp": 921,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 55,
+          "gear": "chapter_one",
+          "hero_level": 48,
+          "hero_max_hp": 13493,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 9423,
+          "remaining_mp": 921,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 56,
+          "gear": "chapter_one",
+          "hero_level": 48,
+          "hero_max_hp": 13493,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_super"
+          ],
+          "remaining_hp": 9275,
+          "remaining_mp": 921,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 57,
+          "gear": "chapter_one",
+          "hero_level": 48,
+          "hero_max_hp": 13493,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 6437,
+          "remaining_mp": 921,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 58,
+          "gear": "chapter_one",
+          "hero_level": 48,
+          "hero_max_hp": 13493,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "mana_cycle",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 6188,
+          "remaining_mp": 921,
           "won": true
         },
         {
@@ -4932,10 +5076,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 9370,
-          "remaining_mp": 960,
+          "remaining_hp": 11440,
+          "remaining_mp": 60,
           "won": true
         },
         {
@@ -4947,835 +5091,854 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9205,
-          "remaining_mp": 960,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 56,
-          "gear": "chapter_one",
-          "hero_level": 49,
-          "hero_max_hp": 13806,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9038,
-          "remaining_mp": 960,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 57,
-          "gear": "chapter_one",
-          "hero_level": 49,
-          "hero_max_hp": 13806,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 8868,
-          "remaining_mp": 960,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 58,
-          "gear": "chapter_one",
-          "hero_level": 49,
-          "hero_max_hp": 13806,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 8694,
-          "remaining_mp": 960,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 59,
-          "gear": "chapter_one",
-          "hero_level": 49,
-          "hero_max_hp": 13806,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 8518,
-          "remaining_mp": 960,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 55,
-          "gear": "chapter_one",
-          "hero_level": 50,
-          "hero_max_hp": 14120,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9611,
-          "remaining_mp": 1071,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 56,
-          "gear": "chapter_one",
-          "hero_level": 50,
-          "hero_max_hp": 14120,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9447,
-          "remaining_mp": 1071,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 57,
-          "gear": "chapter_one",
-          "hero_level": 50,
-          "hero_max_hp": 14120,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9281,
-          "remaining_mp": 1071,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 58,
-          "gear": "chapter_one",
-          "hero_level": 50,
-          "hero_max_hp": 14120,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9111,
-          "remaining_mp": 1071,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 59,
-          "gear": "chapter_one",
-          "hero_level": 50,
-          "hero_max_hp": 14120,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 8938,
-          "remaining_mp": 1071,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 60,
-          "gear": "chapter_one",
-          "hero_level": 50,
-          "hero_max_hp": 14120,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 8762,
-          "remaining_mp": 1071,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 56,
-          "gear": "chapter_one",
-          "hero_level": 51,
-          "hero_max_hp": 14435,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9854,
-          "remaining_mp": 1184,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 57,
-          "gear": "chapter_one",
-          "hero_level": 51,
-          "hero_max_hp": 14435,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9690,
-          "remaining_mp": 1184,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 58,
-          "gear": "chapter_one",
-          "hero_level": 51,
-          "hero_max_hp": 14435,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9524,
-          "remaining_mp": 1184,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 59,
-          "gear": "chapter_one",
-          "hero_level": 51,
-          "hero_max_hp": 14435,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9355,
-          "remaining_mp": 1184,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 60,
-          "gear": "chapter_one",
-          "hero_level": 51,
-          "hero_max_hp": 14435,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9182,
-          "remaining_mp": 1184,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 61,
-          "gear": "chapter_one",
-          "hero_level": 51,
-          "hero_max_hp": 14435,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9007,
-          "remaining_mp": 1184,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 57,
-          "gear": "chapter_one",
-          "hero_level": 52,
-          "hero_max_hp": 14752,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10099,
-          "remaining_mp": 1299,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 58,
-          "gear": "chapter_one",
-          "hero_level": 52,
-          "hero_max_hp": 14752,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9935,
-          "remaining_mp": 1299,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 59,
-          "gear": "chapter_one",
-          "hero_level": 52,
-          "hero_max_hp": 14752,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9769,
-          "remaining_mp": 1299,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 60,
-          "gear": "chapter_one",
-          "hero_level": 52,
-          "hero_max_hp": 14752,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9600,
-          "remaining_mp": 1299,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 61,
-          "gear": "chapter_one",
-          "hero_level": 52,
-          "hero_max_hp": 14752,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9429,
-          "remaining_mp": 1299,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 62,
-          "gear": "chapter_one",
-          "hero_level": 52,
-          "hero_max_hp": 14752,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9254,
-          "remaining_mp": 1299,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 58,
-          "gear": "chapter_one",
-          "hero_level": 53,
-          "hero_max_hp": 15070,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10344,
-          "remaining_mp": 1416,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 59,
-          "gear": "chapter_one",
-          "hero_level": 53,
-          "hero_max_hp": 15070,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10181,
-          "remaining_mp": 1416,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 60,
-          "gear": "chapter_one",
-          "hero_level": 53,
-          "hero_max_hp": 15070,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10016,
-          "remaining_mp": 1416,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 61,
-          "gear": "chapter_one",
-          "hero_level": 53,
-          "hero_max_hp": 15070,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9847,
-          "remaining_mp": 1416,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 62,
-          "gear": "chapter_one",
-          "hero_level": 53,
-          "hero_max_hp": 15070,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9676,
-          "remaining_mp": 1416,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 63,
-          "gear": "chapter_one",
-          "hero_level": 53,
-          "hero_max_hp": 15070,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9502,
-          "remaining_mp": 1416,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 59,
-          "gear": "chapter_one",
-          "hero_level": 54,
-          "hero_max_hp": 15389,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10591,
-          "remaining_mp": 1536,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 60,
-          "gear": "chapter_one",
-          "hero_level": 54,
-          "hero_max_hp": 15389,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10428,
-          "remaining_mp": 1536,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 61,
-          "gear": "chapter_one",
-          "hero_level": 54,
-          "hero_max_hp": 15389,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10263,
-          "remaining_mp": 1536,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 62,
-          "gear": "chapter_one",
-          "hero_level": 54,
-          "hero_max_hp": 15389,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10095,
-          "remaining_mp": 1536,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 63,
-          "gear": "chapter_one",
-          "hero_level": 54,
-          "hero_max_hp": 15389,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9924,
-          "remaining_mp": 1536,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 64,
-          "gear": "chapter_one",
-          "hero_level": 54,
-          "hero_max_hp": 15389,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 9750,
-          "remaining_mp": 1536,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 60,
-          "gear": "chapter_one",
-          "hero_level": 55,
-          "hero_max_hp": 15710,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10839,
-          "remaining_mp": 1657,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 61,
-          "gear": "chapter_one",
-          "hero_level": 55,
-          "hero_max_hp": 15710,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10677,
-          "remaining_mp": 1657,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 62,
-          "gear": "chapter_one",
-          "hero_level": 55,
-          "hero_max_hp": 15710,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10512,
-          "remaining_mp": 1657,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 63,
-          "gear": "chapter_one",
-          "hero_level": 55,
-          "hero_max_hp": 15710,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10344,
-          "remaining_mp": 1657,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 64,
-          "gear": "chapter_one",
-          "hero_level": 55,
-          "hero_max_hp": 15710,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10174,
-          "remaining_mp": 1657,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 65,
-          "gear": "chapter_one",
-          "hero_level": 55,
-          "hero_max_hp": 15710,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10001,
-          "remaining_mp": 1657,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 61,
-          "gear": "chapter_one",
-          "hero_level": 56,
-          "hero_max_hp": 16031,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 11169,
-          "remaining_mp": 1781,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 62,
-          "gear": "chapter_one",
-          "hero_level": 56,
-          "hero_max_hp": 16031,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 11009,
-          "remaining_mp": 1781,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 63,
-          "gear": "chapter_one",
-          "hero_level": 56,
-          "hero_max_hp": 16031,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10847,
-          "remaining_mp": 1781,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 64,
-          "gear": "chapter_one",
-          "hero_level": 56,
-          "hero_max_hp": 16031,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10683,
-          "remaining_mp": 1781,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 65,
-          "gear": "chapter_one",
-          "hero_level": 56,
-          "hero_max_hp": 16031,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10516,
-          "remaining_mp": 1781,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 66,
-          "gear": "chapter_one",
-          "hero_level": 56,
-          "hero_max_hp": 16031,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10346,
-          "remaining_mp": 1781,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 62,
-          "gear": "chapter_one",
-          "hero_level": 57,
-          "hero_max_hp": 16354,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 11421,
-          "remaining_mp": 1906,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 63,
-          "gear": "chapter_one",
-          "hero_level": 57,
-          "hero_max_hp": 16354,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 11261,
-          "remaining_mp": 1906,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 64,
-          "gear": "chapter_one",
-          "hero_level": 57,
-          "hero_max_hp": 16354,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 11100,
-          "remaining_mp": 1906,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 65,
-          "gear": "chapter_one",
-          "hero_level": 57,
-          "hero_max_hp": 16354,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10936,
-          "remaining_mp": 1906,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 66,
-          "gear": "chapter_one",
-          "hero_level": 57,
-          "hero_max_hp": 16354,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10769,
-          "remaining_mp": 1906,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 67,
-          "gear": "chapter_one",
-          "hero_level": 57,
-          "hero_max_hp": 16354,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 10600,
-          "remaining_mp": 1906,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 63,
-          "gear": "chapter_one",
-          "hero_level": 58,
-          "hero_max_hp": 16678,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 11673,
-          "remaining_mp": 2034,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 64,
-          "gear": "chapter_one",
-          "hero_level": 58,
-          "hero_max_hp": 16678,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
-          ],
-          "remaining_hp": 11514,
-          "remaining_mp": 2034,
-          "won": true
-        },
-        {
-          "companion": "fei_yan",
-          "enemy_level": 65,
-          "gear": "chapter_one",
-          "hero_level": 58,
-          "hero_max_hp": 16678,
-          "monster": "gate_entity",
-          "plan": [
-            "light_super",
-            "light_high"
+            "light_super"
           ],
           "remaining_hp": 11353,
-          "remaining_mp": 2034,
+          "remaining_mp": 60,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 56,
+          "gear": "chapter_one",
+          "hero_level": 49,
+          "hero_max_hp": 13806,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 11263,
+          "remaining_mp": 60,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 57,
+          "gear": "chapter_one",
+          "hero_level": 49,
+          "hero_max_hp": 13806,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 8538,
+          "remaining_mp": 60,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 58,
+          "gear": "chapter_one",
+          "hero_level": 49,
+          "hero_max_hp": 13806,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 8354,
+          "remaining_mp": 60,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 59,
+          "gear": "chapter_one",
+          "hero_level": 49,
+          "hero_max_hp": 13806,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 8166,
+          "remaining_mp": 60,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 55,
+          "gear": "chapter_one",
+          "hero_level": 50,
+          "hero_max_hp": 14120,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 11716,
+          "remaining_mp": 171,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 56,
+          "gear": "chapter_one",
+          "hero_level": 50,
+          "hero_max_hp": 14120,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 11628,
+          "remaining_mp": 171,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 57,
+          "gear": "chapter_one",
+          "hero_level": 50,
+          "hero_max_hp": 14120,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 11539,
+          "remaining_mp": 171,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 58,
+          "gear": "chapter_one",
+          "hero_level": 50,
+          "hero_max_hp": 14120,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 11449,
+          "remaining_mp": 171,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 59,
+          "gear": "chapter_one",
+          "hero_level": 50,
+          "hero_max_hp": 14120,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 8592,
+          "remaining_mp": 171,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 60,
+          "gear": "chapter_one",
+          "hero_level": 50,
+          "hero_max_hp": 14120,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 8406,
+          "remaining_mp": 171,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 56,
+          "gear": "chapter_one",
+          "hero_level": 51,
+          "hero_max_hp": 14435,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 11992,
+          "remaining_mp": 284,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 57,
+          "gear": "chapter_one",
+          "hero_level": 51,
+          "hero_max_hp": 14435,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 11905,
+          "remaining_mp": 284,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 58,
+          "gear": "chapter_one",
+          "hero_level": 51,
+          "hero_max_hp": 14435,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 11816,
+          "remaining_mp": 284,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 59,
+          "gear": "chapter_one",
+          "hero_level": 51,
+          "hero_max_hp": 14435,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 11726,
+          "remaining_mp": 284,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 60,
+          "gear": "chapter_one",
+          "hero_level": 51,
+          "hero_max_hp": 14435,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 8833,
+          "remaining_mp": 284,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 61,
+          "gear": "chapter_one",
+          "hero_level": 51,
+          "hero_max_hp": 14435,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 8645,
+          "remaining_mp": 284,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 57,
+          "gear": "chapter_one",
+          "hero_level": 52,
+          "hero_max_hp": 14752,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12270,
+          "remaining_mp": 399,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 58,
+          "gear": "chapter_one",
+          "hero_level": 52,
+          "hero_max_hp": 14752,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12183,
+          "remaining_mp": 399,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 59,
+          "gear": "chapter_one",
+          "hero_level": 52,
+          "hero_max_hp": 14752,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12095,
+          "remaining_mp": 399,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 60,
+          "gear": "chapter_one",
+          "hero_level": 52,
+          "hero_max_hp": 14752,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12005,
+          "remaining_mp": 399,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 61,
+          "gear": "chapter_one",
+          "hero_level": 52,
+          "hero_max_hp": 14752,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 9074,
+          "remaining_mp": 399,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 62,
+          "gear": "chapter_one",
+          "hero_level": 52,
+          "hero_max_hp": 14752,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 8888,
+          "remaining_mp": 399,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 58,
+          "gear": "chapter_one",
+          "hero_level": 53,
+          "hero_max_hp": 15070,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12550,
+          "remaining_mp": 516,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 59,
+          "gear": "chapter_one",
+          "hero_level": 53,
+          "hero_max_hp": 15070,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12463,
+          "remaining_mp": 516,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 60,
+          "gear": "chapter_one",
+          "hero_level": 53,
+          "hero_max_hp": 15070,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12375,
+          "remaining_mp": 516,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 61,
+          "gear": "chapter_one",
+          "hero_level": 53,
+          "hero_max_hp": 15070,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12285,
+          "remaining_mp": 516,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 62,
+          "gear": "chapter_one",
+          "hero_level": 53,
+          "hero_max_hp": 15070,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 9316,
+          "remaining_mp": 516,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 63,
+          "gear": "chapter_one",
+          "hero_level": 53,
+          "hero_max_hp": 15070,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 9132,
+          "remaining_mp": 516,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 59,
+          "gear": "chapter_one",
+          "hero_level": 54,
+          "hero_max_hp": 15389,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12830,
+          "remaining_mp": 636,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 60,
+          "gear": "chapter_one",
+          "hero_level": 54,
+          "hero_max_hp": 15389,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12743,
+          "remaining_mp": 636,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 61,
+          "gear": "chapter_one",
+          "hero_level": 54,
+          "hero_max_hp": 15389,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12655,
+          "remaining_mp": 636,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 62,
+          "gear": "chapter_one",
+          "hero_level": 54,
+          "hero_max_hp": 15389,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12566,
+          "remaining_mp": 636,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 63,
+          "gear": "chapter_one",
+          "hero_level": 54,
+          "hero_max_hp": 15389,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 9561,
+          "remaining_mp": 636,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 64,
+          "gear": "chapter_one",
+          "hero_level": 54,
+          "hero_max_hp": 15389,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 9375,
+          "remaining_mp": 636,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 60,
+          "gear": "chapter_one",
+          "hero_level": 55,
+          "hero_max_hp": 15710,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13113,
+          "remaining_mp": 757,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 61,
+          "gear": "chapter_one",
+          "hero_level": 55,
+          "hero_max_hp": 15710,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13026,
+          "remaining_mp": 757,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 62,
+          "gear": "chapter_one",
+          "hero_level": 55,
+          "hero_max_hp": 15710,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12938,
+          "remaining_mp": 757,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 63,
+          "gear": "chapter_one",
+          "hero_level": 55,
+          "hero_max_hp": 15710,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 12849,
+          "remaining_mp": 757,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 64,
+          "gear": "chapter_one",
+          "hero_level": 55,
+          "hero_max_hp": 15710,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 9806,
+          "remaining_mp": 757,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 65,
+          "gear": "chapter_one",
+          "hero_level": 55,
+          "hero_max_hp": 15710,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 9620,
+          "remaining_mp": 757,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 61,
+          "gear": "chapter_one",
+          "hero_level": 56,
+          "hero_max_hp": 16031,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13438,
+          "remaining_mp": 881,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 62,
+          "gear": "chapter_one",
+          "hero_level": 56,
+          "hero_max_hp": 16031,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13353,
+          "remaining_mp": 881,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 63,
+          "gear": "chapter_one",
+          "hero_level": 56,
+          "hero_max_hp": 16031,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13267,
+          "remaining_mp": 881,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 64,
+          "gear": "chapter_one",
+          "hero_level": 56,
+          "hero_max_hp": 16031,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13179,
+          "remaining_mp": 881,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 65,
+          "gear": "chapter_one",
+          "hero_level": 56,
+          "hero_max_hp": 16031,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 10149,
+          "remaining_mp": 881,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 66,
+          "gear": "chapter_one",
+          "hero_level": 56,
+          "hero_max_hp": 16031,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 9967,
+          "remaining_mp": 881,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 62,
+          "gear": "chapter_one",
+          "hero_level": 57,
+          "hero_max_hp": 16354,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13723,
+          "remaining_mp": 1006,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 63,
+          "gear": "chapter_one",
+          "hero_level": 57,
+          "hero_max_hp": 16354,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13638,
+          "remaining_mp": 1006,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 64,
+          "gear": "chapter_one",
+          "hero_level": 57,
+          "hero_max_hp": 16354,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13552,
+          "remaining_mp": 1006,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 65,
+          "gear": "chapter_one",
+          "hero_level": 57,
+          "hero_max_hp": 16354,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13464,
+          "remaining_mp": 1006,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 66,
+          "gear": "chapter_one",
+          "hero_level": 57,
+          "hero_max_hp": 16354,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 10396,
+          "remaining_mp": 1006,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 67,
+          "gear": "chapter_one",
+          "hero_level": 57,
+          "hero_max_hp": 16354,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super",
+            "physical"
+          ],
+          "remaining_hp": 10216,
+          "remaining_mp": 1006,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 63,
+          "gear": "chapter_one",
+          "hero_level": 58,
+          "hero_max_hp": 16678,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 14009,
+          "remaining_mp": 1134,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 64,
+          "gear": "chapter_one",
+          "hero_level": 58,
+          "hero_max_hp": 16678,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13924,
+          "remaining_mp": 1134,
+          "won": true
+        },
+        {
+          "companion": "fei_yan",
+          "enemy_level": 65,
+          "gear": "chapter_one",
+          "hero_level": 58,
+          "hero_max_hp": 16678,
+          "monster": "gate_entity",
+          "plan": [
+            "light_super",
+            "light_super"
+          ],
+          "remaining_hp": 13838,
+          "remaining_mp": 1134,
           "won": true
         },
         {
@@ -5787,10 +5950,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 11189,
-          "remaining_mp": 2034,
+          "remaining_hp": 13751,
+          "remaining_mp": 1134,
           "won": true
         },
         {
@@ -5802,10 +5965,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 11023,
-          "remaining_mp": 2034,
+          "remaining_hp": 13662,
+          "remaining_mp": 1134,
           "won": true
         },
         {
@@ -5817,10 +5980,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 10854,
-          "remaining_mp": 2034,
+          "remaining_hp": 10466,
+          "remaining_mp": 1134,
           "won": true
         },
         {
@@ -5832,10 +5996,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 11927,
-          "remaining_mp": 2163,
+          "remaining_hp": 14296,
+          "remaining_mp": 1263,
           "won": true
         },
         {
@@ -5847,10 +6011,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 11768,
-          "remaining_mp": 2163,
+          "remaining_hp": 14211,
+          "remaining_mp": 1263,
           "won": true
         },
         {
@@ -5862,10 +6026,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 11607,
-          "remaining_mp": 2163,
+          "remaining_hp": 14125,
+          "remaining_mp": 1263,
           "won": true
         },
         {
@@ -5877,10 +6041,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 11444,
-          "remaining_mp": 2163,
+          "remaining_hp": 14038,
+          "remaining_mp": 1263,
           "won": true
         },
         {
@@ -5892,10 +6056,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 11278,
-          "remaining_mp": 2163,
+          "remaining_hp": 13950,
+          "remaining_mp": 1263,
           "won": true
         },
         {
@@ -5907,10 +6071,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 11109,
-          "remaining_mp": 2163,
+          "remaining_hp": 10717,
+          "remaining_mp": 1263,
           "won": true
         },
         {
@@ -5922,10 +6087,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 12181,
-          "remaining_mp": 2295,
+          "remaining_hp": 14584,
+          "remaining_mp": 1395,
           "won": true
         },
         {
@@ -5937,10 +6102,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 12023,
-          "remaining_mp": 2295,
+          "remaining_hp": 14499,
+          "remaining_mp": 1395,
           "won": true
         },
         {
@@ -5952,10 +6117,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 11862,
-          "remaining_mp": 2295,
+          "remaining_hp": 14414,
+          "remaining_mp": 1395,
           "won": true
         },
         {
@@ -5967,10 +6132,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 11699,
-          "remaining_mp": 2295,
+          "remaining_hp": 14327,
+          "remaining_mp": 1395,
           "won": true
         },
         {
@@ -5982,10 +6147,10 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super"
           ],
-          "remaining_hp": 11533,
-          "remaining_mp": 2295,
+          "remaining_hp": 14238,
+          "remaining_mp": 1395,
           "won": true
         },
         {
@@ -5997,10 +6162,11 @@
           "monster": "gate_entity",
           "plan": [
             "light_super",
-            "light_high"
+            "light_super",
+            "physical"
           ],
-          "remaining_hp": 11365,
-          "remaining_mp": 2295,
+          "remaining_hp": 10969,
+          "remaining_mp": 1395,
           "won": true
         }
       ],
@@ -6010,8 +6176,8 @@
       "passed": true
     },
     "campaign_behavior": {
-      "actual_boss_battles": 5,
-      "checks": 4000,
+      "actual_boss_battles": 3,
+      "checks": 4439,
       "failures": [],
       "motion_steps": 450,
       "passed": true
@@ -6044,7 +6210,7 @@
     },
     "stream_recovery": {
       "actual_cinematic_and_exit_walk": true,
-      "checks": 1061,
+      "checks": 1066,
       "failures": [],
       "max_active_regions": 1,
       "max_decode_jobs": 2,
@@ -6173,7 +6339,7 @@
       ]
     },
     "update_save": {
-      "checks": 112,
+      "checks": 117,
       "failures": [],
       "passed": true,
       "reader": false

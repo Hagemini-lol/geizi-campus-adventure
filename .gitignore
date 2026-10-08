@@ -21,3 +21,6 @@ credentials.json
 .env.*
 /runtime_cache/
 /_sc_/
+
+# Local thread checkpoint contains scheduling/account context, not game data.
+/开发续做.md

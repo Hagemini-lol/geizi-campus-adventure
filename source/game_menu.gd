@@ -146,6 +146,14 @@ func _ready() -> void:
 	task_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL;pages["status"].add_child(task_label)
 	var journal_button:=Button.new();journal_button.text="剧情手册 · 证据 / 图鉴 / 伙伴";journal_button.custom_minimum_size.y=46
 	journal_button.pressed.connect(func():game.campaign.open_journal());pages["status"].add_child(journal_button)
+	var side_button:=Button.new();side_button.text="同学支线 · 可接任务 / 进度 / 每日委托";side_button.custom_minimum_size.y=46
+	side_button.pressed.connect(func():game.side_quests.open_journal());pages["status"].add_child(side_button)
+	var mod_label: Label=game.label(game.mods.status_text(),16);mod_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;pages["status"].add_child(mod_label)
+	var example_mod:=Button.new();example_mod.text="安装示例 Mod（重启生效）";example_mod.custom_minimum_size.y=46
+	example_mod.pressed.connect(func():game.show_notice(game.mods.install_bundle(FileAccess.get_file_as_string("res://mod_example.json"))))
+	pages["status"].add_child(example_mod)
+	var import_mod:=Button.new();import_mod.text="导入 Mod JSON（粘贴数据包）";import_mod.custom_minimum_size.y=46
+	import_mod.pressed.connect(open_mod_import);pages["status"].add_child(import_mod)
 	pages["status"].add_child(game.label("常态移动  4.2 米/秒\nShift 奔跑  8.4 米/秒\n点击寻路  21 米/秒",19))
 	pages["status"].add_child(game.label("WASD 移动 · E 门 / 楼梯 / 告示牌\nM 校园全图 · 滚轮缩放 · F3 碰撞显示",18))
 	pages["equipment"].add_child(game.label("装备与委托",24))
@@ -223,6 +231,7 @@ func refresh_status() -> void:
 		attribute_labels[pair[0]].text="%s %d/%d" % [pair[0],hero[stat+"_current"],hero[stat]]
 	status_label.text="等级 %d    攻击 %d    防御 %d\n法术抗性 %d    攻击穿透 %d" % [hero["level"],hero["attack"],hero["defense"],hero["magic_resistance"],hero["penetration"]]
 	status_label.text+="\n经验 %d%s" % [hero["experience"],"（已满级）" if int(hero["level"])>=game.combat_rules.maximum_level() else " / "+str(game.combat_rules.experience_required(int(hero["level"])))]
+	status_label.text+="\n"+game.play_clock.display()
 	location.text="当前位置："+(game.terrain.current_scene.title if not game.interior_state.is_empty() else str(game.model["regions"][game.terrain.current_id]["name"]))+"    资金 %dg" % game.economy.money
 
 func refresh_tasks() -> void:
@@ -250,7 +259,7 @@ func refresh_supplies() -> void:
 		description.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;row.add_child(description)
 		var controls:=HBoxContainer.new();controls.add_theme_constant_override("separation",12);row.add_child(controls)
 		if supply_mode=="bag":
-			if not spec.get("restore",{}).is_empty():
+			if not spec.get("restore",{}).is_empty() or not spec.get("restore_ratio",{}).is_empty():
 				var button:=Button.new();button.text="使用";button.custom_minimum_size=Vector2(110,38)
 				button.disabled=not game.economy.can_use(id,game.combat_rules.hero);button.pressed.connect(func():feedback(game.use_supply(id)))
 				controls.add_child(button);use_buttons[id]=button
@@ -272,6 +281,19 @@ func select_tab(id: String) -> void:
 	for key: String in tabs:
 		tabs[key].button_pressed=key==id
 		pages[key].visible=key==id
+
+func open_mod_import() -> void:
+	var layer:=CanvasLayer.new();layer.layer=101;game.add_child(layer)
+	var shade:=ColorRect.new();shade.color=Color(.02,.025,.03,1);shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);layer.add_child(shade)
+	var box:=VBoxContainer.new();box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	box.offset_left=60;box.offset_right=-60;box.offset_top=25;box.offset_bottom=-25;shade.add_child(box)
+	var caption: Label=game.label("粘贴 Mod JSON：{manifest:{...},content:{...}} · API 1 · 最多 2MB · 安装后重启",18)
+	caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;box.add_child(caption)
+	var input:=TextEdit.new();input.size_flags_vertical=Control.SIZE_EXPAND_FILL;input.add_theme_font_size_override("font_size",18);box.add_child(input)
+	var result_label: Label=game.label("",18);result_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;box.add_child(result_label)
+	var install:=Button.new();install.text="校验并安装";install.custom_minimum_size.y=48
+	install.pressed.connect(func():result_label.text=game.mods.install_bundle(input.text));box.add_child(install)
+	var close:=Button.new();close.text="关闭";close.custom_minimum_size.y=48;close.pressed.connect(func():layer.queue_free());box.add_child(close)
 
 func open_service(actor: String) -> void:
 	service_actor=actor;game.paused=false;game.overlay.hide()
@@ -316,6 +338,7 @@ func refresh_progression() -> void:
 	explanation.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;skill_rows.add_child(explanation)
 	for id: String in rules.data.get("skills",{}):
 		var skill: Dictionary=rules.data["skills"][id]
+		if skill.get("chapter_reward",false) and not id in rules.hero.get("skills",[]):continue
 		var learned: bool=id in hero.get("skills",[])
 		if not learned and skill.get("teacher","")!=service_actor:continue
 		var row:=HBoxContainer.new();row.add_theme_constant_override("separation",12);skill_rows.add_child(row)

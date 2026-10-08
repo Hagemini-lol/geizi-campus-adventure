@@ -70,7 +70,7 @@ func location_matches(value: String) -> bool:
 func location_name(value: String) -> String:
 	var parts:=value.split(":")
 	if parts.size()>1:
-		return str(game.interior_info["buildings"][parts[0]]["name"])+" %s楼 · " % parts[1]+("走廊" if parts[2]=="corridor" else "十班" if parts[0] in ["B01","B12"] else "书库" if parts[0]=="B06" and parts[2]=="1" else "房间")
+		return str(game.interior_info["buildings"][parts[0]]["name"])+" %s楼 · " % parts[1]+("走廊" if parts[2]=="corridor" else "十班" if parts[0] in ["B01","B12"] else ("书库" if parts[2]=="1" else "图书室") if parts[0]=="B06" else "房间")
 	for region: Dictionary in game.model["regions"]:
 		if region["id"]==value:return region["name"]
 	for zone: Dictionary in game.data["zones"]:
@@ -114,6 +114,7 @@ func marker_point() -> Vector2:
 func extra_interactions() -> Array[Dictionary]:
 	var result: Array[Dictionary]=[]
 	if not active() or not ending.is_empty():return result
+	result.append_array(game.side_quests.interactions())
 	var node:=current()
 	if not node.is_empty() and location_matches(node["location"]):
 		var at:=marker_point()
@@ -126,6 +127,7 @@ func extra_interactions() -> Array[Dictionary]:
 func handle(item: Dictionary) -> bool:
 	if not active():return false
 	if game.story_system.running:return true
+	if item["action"]=="side_quest":game.side_quests.handle(item);return true
 	if item["action"]=="campaign":run_event();return true
 	if item["action"]=="campaign_house":game.change_interior({"building":"STORY_HOUSE","floor":1,"kind":"classroom","room":0});return true
 	if game.interior_state.get("building","").begins_with("STORY_") and item["action"] in ["corridor","outside"]:
@@ -137,6 +139,9 @@ func handle(item: Dictionary) -> bool:
 	if item["action"]=="npc":
 		var record: Dictionary=game.terrain.current_scene.npcs.find(item["uid"])
 		var node:=current()
+		var bridge: String=str(node.get("bridge_quest",""))
+		if not bridge.is_empty() and game.task_system.entries.get(bridge,{}).get("status","")!="completed" and not game.side_quests.options_for(str(record.get("character",""))).is_empty():
+			npc_service(record["character"]);return true
 		if record.get("character","") in node.get("cast",[]) and location_matches(node.get("location","")) and not node.get("require_medium",false) and not node.has("battle"):
 			run_event();return true
 		if record.get("character","") in ["lao_li","lao_chou","la_jiao","fei_yan","lao_dong","lao_shuo","wr","gou_ga","yang_zi","lao_ao"]:
@@ -154,11 +159,16 @@ func _process(_delta: float) -> void:
 func _draw() -> void:
 	if not active() or not game.game_started or game.transition_busy:return
 	for item: Dictionary in extra_interactions():
-		draw_arc(item["at"],6,0,TAU,40,Color("f9edd0"),1.3,true)
-		draw_string(game.ui_font,item["at"]+Vector2(10,-12),item["name"],HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color("fff6d7"))
+		var ink:=Color("94d9c8") if item["action"]=="side_quest" else Color("f9edd0")
+		draw_arc(item["at"],6,0,TAU,40,ink,1.3,true)
+		draw_string_outline(game.ui_font,item["at"]+Vector2(10,-12),item["name"],HORIZONTAL_ALIGNMENT_LEFT,-1,11,3,Color("152d2b"))
+		draw_string(game.ui_font,item["at"]+Vector2(10,-12),item["name"],HORIZONTAL_ALIGNMENT_LEFT,-1,11,ink)
 
 func dialog(lines: Array) -> void:
+	if lines.is_empty():return
+	lines=lines.duplicate(true)
 	for line: Dictionary in lines:
+		if line.get("actor","")=="hero":line["actor"]="zhao_mugei"
 		notes.append(str(game.npc_catalog.characters.get(line.get("actor",""),{}).get("display_name","提示"))+"："+str(line["text"]))
 	while notes.size()>150:notes.pop_front()
 	game.dialogue_view.begin_script(lines)
@@ -203,16 +213,25 @@ func run_event() -> void:
 	if not available_now(node):
 		if await choose("现在不是行动窗口。事件会保留，等待不会丢失任务。",[["wait","确认：休息到可用时间段"],["cancel","取消：继续自由探索"]])=="wait":await wait_window(node)
 		game.story_system.end_sequence();return
+	var bridge: String=str(node.get("bridge_quest",""))
+	if not bridge.is_empty() and game.task_system.entries.get(bridge,{}).get("status","")!="completed":
+		var spec: Dictionary=game.task_system.definitions[bridge]
+		var entry: Dictionary=game.task_system.entries.get(bridge,{})
+		var owner: String=spec["side_story"]["owner"]
+		var next: String=game.side_quests.hint_for(spec,entry) if not entry.is_empty() else "找"+str(game.npc_catalog.characters[owner]["display_name"])+"接取 → "+location_name(scheduled_location(owner))
+		await dialog([{"actor":"system","text":"章节调查 · "+str(spec["title"])+"\n"+next+"\n可在菜单“同学支线”查看进度。调查完成后返回主线标记。"}]);game.story_system.end_sequence();return
 	if int(game.combat_rules.hero["level"])<int(node.get("require_level",0)) or (node.get("require_medium",false) and not has_medium()):
 		await dialog(node["dialogue"]);game.story_system.end_sequence();return
 	if int(node.get("cost",0))>game.economy.money or not has_materials(node.get("materials",{})):
 		await dialog([{ "actor":"lao_li","text":"讲义需要 20g 和一份墨渣。委托一直留着，生活费或卖墨渣都能凑齐。"}]);game.story_system.end_sequence();return
-	if wave_node!=str(node["id"]) and not str(node["id"]) in done:
+	if wave_node!=str(node["id"]) and not str(node["id"]) in done and not flags.get("intro/"+str(node["id"]),false):
 		await dialog(node["dialogue"])
+		if not node.get("long_dialogue",[]).is_empty():await dialog(node["long_dialogue"])
 		if node.has("extra"):
 			var lines: Array=[]
 			for pair: Array in node["extra"]:lines.append({"actor":pair[0],"text":pair[1]})
 			await dialog(lines)
+		flags["intro/"+str(node["id"])]=true
 	if node.has("choice") and not await resolve_choice(node["choice"]):game.story_system.end_sequence();return
 	if node.has("effect"):await game.story_system.play_effect(node["effect"],marker_point()-Vector2(0,15),90,.8)
 	if node.get("rest",false):
@@ -256,7 +275,7 @@ func prepare_battle(node: Dictionary) -> bool:
 	return false
 
 func battle_reduction(enemy_id: String) -> float:
-	return .2 if active() and enemy_id=="gate_entity" else 0.0
+	return .2 if active() and enemy_id in ["gate_entity","gou_ga_boss"] else 0.0
 func has_materials(materials: Dictionary) -> bool:
 	for id: String in materials:
 		if game.economy.quantity(id)<int(materials[id]):return false
@@ -281,6 +300,12 @@ func complete_node() -> void:
 		if not flags["F_CIVILIAN_SAFE"]:notes.append("点名未完成，同学们对指挥失去信任。需要补证和修复羁绊，再找辣椒重新点名。")
 	if node["id"]=="li_start" or node["id"]=="yang_frame":case_day=game.economy.day_serial
 	if node.get("choice_after","")=="gou":await resolve_choice("gou")
+	if node["id"] in ["li_hearing","yang_hearing"]:
+		var cleared: bool=flags["F_LI_CLEAR" if node["id"]=="li_hearing" else "F_YANG_CLEAR"]
+		await dialog([{"actor":"la_jiao" if node["id"]=="li_hearing" else "wen_cong","text":"核验完成，原指控撤回，错误的记录会更正。受伤的人不该再替误会承担代价。" if cleared else "目前还不能撤掉疑点。先保留原件，你们可以继续找独立证据；未核实的指控也不能当作定论。"}])
+	for id: String in node.get("learn_skills",[]):
+		if game.combat_rules.learn(id):notes.append("习得："+str(game.combat_rules.data["skills"][id]["name"]))
+	if node.has("after_dialogue"):await dialog(node["after_dialogue"])
 	done.append(node["id"]);index+=1;wave=0;wave_node="";battle_uid="";last_slot=phase_slot();saved_enemy={}
 	if node["id"]=="preparation":failures=0
 	game.record_game_event("campaign/"+str(node["id"]))
@@ -298,7 +323,9 @@ func start_wave(node: Dictionary) -> void:
 	var stats: Dictionary=game.combat_rules.monster_stats(enemy_id,level)
 	var uid: String=str(game.monster_world.next_uid);game.monster_world.next_uid+=1;battle_uid=uid
 	var monster: Dictionary={"uid":uid,"id":enemy_id,"level":level,"hp":stats["hp"],"campaign":node["id"]}
-	if saved_enemy.get("id","")==enemy_id:monster["hp"]=saved_enemy["hp"];monster["level"]=saved_enemy["level"]
+	if saved_enemy.get("id","")==enemy_id:
+		monster["hp"]=saved_enemy["hp"];monster["level"]=saved_enemy["level"]
+		if saved_enemy.has("tactics_state"):monster["tactics_state"]=saved_enemy["tactics_state"].duplicate(true)
 	# Story waves are one at a time, including outdoor defence; they never add
 	# creatures to a loaded classroom/corridor above its architectural capacity.
 	game.battle_view.start({"monster":monster},"campaign/"+str(node["id"]))
@@ -411,7 +438,10 @@ func npc_service(actor: String) -> void:
 	if actor in ["lao_chou","lao_li","wr"] and index>=28:options.append(["truth","复核碎片与内鬼线索"])
 	if actor in ["wr","lao_dong","gou_ga"] and index>=23:options.append(["gou","追问勾尬与门底的联系"])
 	if actor=="la_jiao" and index>=29 and not flags["F_CIVILIAN_SAFE"]:options.append(["recount","补证之后，重新组织点名"])
+	options.append_array(game.side_quests.options_for(actor))
 	var answer: String=await choose(game.npc_catalog.characters[actor]["display_name"],options)
+	if answer.begins_with("side/"):
+		await game.side_quests.service(actor,answer.trim_prefix("side/"));game.story_system.end_sequence();return
 	if answer=="shop":game.story_system.end_sequence();game.story_system.named_conversation({"character":actor});return
 	if answer=="cancel":game.story_system.end_sequence();return
 	if int(repeats.get(actor+"/"+answer,-1))==game.economy.day_serial:
@@ -464,7 +494,12 @@ func npc_service(actor: String) -> void:
 			adjust({"RP_"+route:8})
 			var reply: String="明天一起站住。该补的证据，该找的碎片，我们一件一件来。" if index>=29 else "先把眼前的线索理清。遇到危险就回来找大家，一起想办法。"
 			if actor_weak(actor):reply="你先坐着休息，这几天的巡查我们来。恢复了再一起行动。"
-			await dialog([{"actor":actor,"text":game.story_system.data["role_greetings"][actor][0]},{"actor":"zhao_mugei","text":reply}])
+			var conversations: Array=data.get("banter",{}).get(actor,[])
+			if not conversations.is_empty():
+				var sequence: int=int(flags.get("talk_count/"+actor,0))
+				await dialog(conversations[sequence%conversations.size()])
+				flags["talk_count/"+actor]=mini(100,sequence+1)
+			else:await dialog([{"actor":actor,"text":game.story_system.data["role_greetings"][actor][0]},{"actor":"zhao_mugei","text":reply}])
 		"recount":
 			if flags["F_LI_CLEAR"] or flags["F_YANG_CLEAR"] or low_bonds()<3:flags["F_CIVILIAN_SAFE"]=true;adjust({"RP_H":10})
 			else:succeeded=false
@@ -538,6 +573,7 @@ func present_ending(id: String) -> void:
 	var was_running: bool=game.story_system.running
 	if not was_running:game.story_system.begin_sequence()
 	await dialog([{"actor":"system","text":END_NAMES[id]+"\n\n"+lines[id]}])
+	if data.get("ending_dialogues",{}).has(id):await dialog(data["ending_dialogues"][id])
 	await game.story_system.black_scene(id+" · "+END_NAMES[id]+"\n\n结局已记录。原存档保留，可在剧情手册继续准备。")
 	if not was_running:game.story_system.end_sequence()
 
@@ -582,7 +618,11 @@ func classmates_for(context: Dictionary) -> Array:
 func scheduled_location(id: String) -> String:
 	if id=="wen_cong":return "B15:1:0"
 	var home: String="B06:1:0" if id=="wr" and index>=12 else "B01:3:0"
-	return current().get("location",home) if id in current().get("cast",[]) else home
+	var at: String=current().get("location",home) if id in current().get("cast",[]) else home
+	var parts:=at.split(":")
+	# Outdoor/corridor story appearances are scripted portraits; persistent
+	# service actors must remain findable in an actual room. Labs stay empty.
+	return at if parts.size()==3 and parts[2]!="corridor" and parts[0]!="B02" else home
 
 func actor_weak(id: String) -> bool:
 	return active() and id=="lao_ao" and game.economy.day_serial<ao_until
@@ -640,6 +680,11 @@ func restore(value: Dictionary) -> void:
 	for key: String in repeats:repeats[key]=int(repeats[key])
 	wave=int(value["wave"]);wave_node=value["wave_node"];failures=int(value["failures"]);ending=value["ending"];started_day=int(value["started_day"]);case_day=int(value["case_day"]);ao_until=int(value["ao_until"]);last_slot=int(value["last_slot"])
 	saved_enemy=value.get("saved_enemy",{}).duplicate()
+	if saved_enemy.get("id","")=="gate_entity":saved_enemy["id"]="gou_ga_boss"
 	for key: String in ["hp","level"]:
 		if saved_enemy.has(key):saved_enemy[key]=int(saved_enemy[key])
 	support_id=value.get("support_id","fei_yan");change_san(0)
+	# Old saves receive chapter rewards they already earned, exactly once.
+	for event_id: String in data.get("skill_milestones",{}):
+		if event_id in done:
+			for skill: String in data["skill_milestones"][event_id]:game.combat_rules.learn(skill)

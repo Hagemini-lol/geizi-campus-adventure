@@ -40,7 +40,7 @@ func run() -> void:
 	rules.hero["hp_current"]=900;rules.hero["energy_current"]=160
 	check(game.use_supply("bread")["ok"] and rules.hero["hp_current"]==1000 and rules.hero["energy_current"]==200 and economy.quantity("bread")==0,"bread restores both stats and clamps maximum")
 	unchanged=economy.snapshot();check(not game.use_supply("water")["ok"] and economy.snapshot()==unchanged,"full-state supplies not wasted")
-	rules.hero["energy_current"]=140;check(game.use_supply("water")["ok"] and rules.hero["energy_current"]==170 and economy.quantity("water")==2,"water consumes one and restores energy")
+	rules.hero["energy_current"]=100;check(game.use_supply("water")["ok"] and rules.hero["energy_current"]==170 and economy.quantity("water")==2,"water consumes one and restores flat plus proportional energy")
 	check(game.event_state.get("items_bought/water")==2 and game.event_state.get("item_used/water")==1,"trading and use publish future task events")
 	for rarity: String in ["normal","elite","boss"]:
 		var count: int=economy.quantity("ink_fragment");var loot: Dictionary=economy.award_loot(rarity)
@@ -66,7 +66,7 @@ func run() -> void:
 	await shot("物品页_校园商店")
 	await click(game.menu_view.bag_button);rules.hero["energy_current"]=100;game.menu_view.refresh_supplies();await frames()
 	owned=economy.quantity("water");await click(game.menu_view.use_buttons["water"])
-	check(rules.hero["energy_current"]==130 and economy.quantity("water")==owned-1 and game.menu_view.attribute_labels["精力"].text.contains("130/200"),"actual UI consumption refreshes hero status")
+	check(rules.hero["energy_current"]==170 and economy.quantity("water")==owned-1 and game.menu_view.attribute_labels["精力"].text.contains("170/200"),"actual UI consumption refreshes hero status")
 	game.close_menu();money=economy.money
 	for i: int in range(5):game.advance_time_period();await transition()
 	check(game.day_clock.current_period==1 and economy.day_serial==1 and economy.money==money+50,"one five-period cycle pays exactly one daily allowance")

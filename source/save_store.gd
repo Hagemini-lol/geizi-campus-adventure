@@ -2,7 +2,7 @@ extends RefCounted
 
 const SLOT_COUNT:=5
 const FORMAT_VERSION:=1
-const MAX_BYTES:=131072
+const MAX_BYTES:=2097152
 var directory: String
 
 func configure(path: String) -> void:directory=path

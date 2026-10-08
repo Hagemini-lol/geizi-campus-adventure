@@ -86,21 +86,22 @@ func run() -> void:
 	await campaign.npc_service("wr")
 	check(game.economy.quantity("seal_shard")==previous,"same-day repeated service cannot duplicate rewards")
 	# Replay deterministic plans through real battle UI with the same attainable loadout.
-	var balance: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(game.package_root.path_join("runtime/balance_checks.json")))
+	var balance: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(game.package_root.path_join("runtime/expansion_checks.json")))
 	var battles:=0
-	for spec: Dictionary in balance["cases"]:
-		if not spec["monster"] in ["book_eater_queen","dry_branch_ancient","gate_entity"]:continue
-		if spec["monster"]=="gate_entity" and not (int(spec["hero_level"])==35 and int(spec["enemy_level"])==45):continue
-		campaign.index=13 if spec["monster"]=="book_eater_queen" else 16 if spec["monster"]=="dry_branch_ancient" else 31
+	for spec: Dictionary in balance["actual_ui_battle_cases"]:
+		if not spec["id"] in ["book_eater_queen","dry_branch_ancient","gou_ga_boss"]:continue
+		if spec["id"]=="gou_ga_boss" and int(spec["hero_level"])!=35:continue
+		campaign.index=13 if spec["id"]=="book_eater_queen" else 17 if spec["id"]=="dry_branch_ancient" else 31
+		campaign.flags["FINAL_ROUTE"]="H"
 		campaign.support_id=spec["companion"]
 		var rules: RefCounted=game.combat_rules
 		rules.reset_hero();rules.set_hero_level(spec["hero_level"],true)
 		rules.equip("tech_amulet" if spec["gear"]!="chapter_one" else "basic_amulet");rules.equip("patrol_uniform" if spec["gear"]!="chapter_one" else "special_uniform");rules.refill_hero()
 		for id: String in rules.data["skills"]:
 			if int(rules.data["skills"][id].get("level",1))<=int(spec["hero_level"]):rules.learn(id)
-		var monster: Dictionary={"uid":"balance/"+str(battles),"id":spec["monster"],"level":spec["enemy_level"],"hp":rules.monster_stats(spec["monster"],spec["enemy_level"])["hp"]}
+		var monster: Dictionary={"uid":"balance/"+str(battles),"id":spec["id"],"level":spec["enemy_level"],"hp":rules.monster_stats(spec["id"],spec["enemy_level"])["hp"]}
 		check(game.battle_view.start({"monster":monster},"balance"),"actual battle opens")
-		for action: String in spec["plan"]:await game.battle_view.perform(action)
+		for action: String in spec["path"]:await game.battle_view.perform(action)
 		check(game.battle_view.result=="victory","real UI wins at recommended level: "+str(spec))
 		check(int(rules.hero["hp_current"])>0,"victory retains positive HP")
 		game.battle_view.close();await process_frame;battles+=1

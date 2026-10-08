@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "tasks": [
     {
       "id": "part_1",
@@ -285,6 +285,5653 @@
           "event": "campaign/choice"
         }
       ]
+    },
+    {
+      "id": "side_li_radio",
+      "type": "side",
+      "title": "不是万能的维修员",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B04",
+          "hint": "去小仓库检查报废广播的零件",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "报废箱里没有完好的整机，只有一只还能用的旋钮和接线图。"
+            },
+            {
+              "actor": "hero",
+              "text": "我把可用件单独装好，没把仓库当成免费的货架；借用登记也得补上。"
+            }
+          ],
+          "event": "side/li_radio/0"
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "找牢抽核对电路图",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "先断电。你看这条回路线，故障可能在接触点，不是牢李技术不行。"
+            },
+            {
+              "actor": "hero",
+              "text": "你能把这句写大点吗？他应该比机器更需要这张检修单。"
+            },
+            {
+              "actor": "lao_chou",
+              "text": "那就写：两人复核，尚待验证。咱们也别装万能。"
+            }
+          ],
+          "event": "side/li_radio/1"
+        },
+        {
+          "actor": "lao_li",
+          "hint": "把零件和检修单交给牢李",
+          "dialogue": [
+            {
+              "actor": "lao_li",
+              "text": "这回有图、有登记，也有人肯替我查错。"
+            },
+            {
+              "actor": "hero",
+              "text": "广播修好了，维修员也该下班了。"
+            }
+          ],
+          "event": "side/li_radio/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_li",
+        "description": "旧广播机在异常发生后坏了。牢李想修好它，却不肯把自己的困难写进报修单。",
+        "min_index": 3,
+        "intro": [
+          {
+            "actor": "lao_li",
+            "text": "这机器不是拧两颗螺丝就能好。我拆了一晚上，还是没声。"
+          },
+          {
+            "actor": "hero",
+            "text": "你也有修不好的东西？"
+          },
+          {
+            "actor": "lao_li",
+            "text": "有。可大家都说找牢李就行，我就不太好意思说没有配件。"
+          },
+          {
+            "actor": "hero",
+            "text": "这次别一个人包了。缺什么，咱们一起找。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "lao_li",
+            "text": "线路接通了。我会把还没修好的几台列出来，明天请人一起做。"
+          },
+          {
+            "actor": "hero",
+            "text": "他把维修费分了我一份。这次他没有说“顺手的”。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "给你两份墨渣和回路糖，都是结余登记过的，放心拿。"
+          }
+        ],
+        "reward": {
+          "g": 60,
+          "items": {
+            "ink_fragment": 2,
+            "concentration_candy": 1
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "lao_li",
+            "text": "广播今天又卡了一下。我先断电，再找了人一起检查。"
+          },
+          {
+            "actor": "hero",
+            "text": "没通宵？"
+          },
+          {
+            "actor": "lao_li",
+            "text": "没。机器能等到明天，我也能。"
+          }
+        ],
+        "daily": false
+      }
+    },
+    {
+      "id": "side_chou_proof",
+      "type": "side",
+      "title": "答案之外的署名",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B06:1:0",
+          "hint": "在科技中心图书室核对旧习题册",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "两本书的解法一样，其中一本页角写着值日日期，另一页只有复印印痕。"
+            },
+            {
+              "actor": "hero",
+              "text": "直接按字漂亮不漂亮认人，好像不太可靠。"
+            }
+          ],
+          "question": "如何判断原件？",
+          "choices": [
+            [
+              "right",
+              "比较日期、压痕和借阅记录"
+            ],
+            [
+              "wrong",
+              "选字最漂亮的一页"
+            ],
+            [
+              "cancel",
+              "暂时离开"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "先拍下页角，再记下借阅号。要问人，也得带着能核验的东西。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "字体能模仿，漂亮更不能证明是谁写的。还是回头查记录。"
+            }
+          ],
+          "event": "side/chou_proof/0"
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "请辣椒核对当年的借阅与值日记录",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "那天是普通同学帮忙整理书架，老师还没到。原作者的名字在借阅卡背面。"
+            },
+            {
+              "actor": "hero",
+              "text": "我把名字抄下来，也把同意公开署名的确认记好了。"
+            }
+          ],
+          "event": "side/chou_proof/1"
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "把原作者的确认交给牢抽",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "原来我第一步就猜错了。"
+            },
+            {
+              "actor": "hero",
+              "text": "你最后肯改答案，比第一步就猜中更厉害。"
+            }
+          ],
+          "event": "side/chou_proof/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_chou",
+        "description": "牢抽发现一本旧习题册的解法被人误署名。他想找出原作者，也要学着承认自己的猜测。",
+        "min_index": 3,
+        "intro": [
+          {
+            "actor": "lao_chou",
+            "text": "这道题我会做，可页边的解法比我的简洁。"
+          },
+          {
+            "actor": "hero",
+            "text": "学霸发现隐藏大佬了？"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "我猜是老师写的。可“猜”不是证据，想请你帮我找原册。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "lao_chou",
+            "text": "我会把署名改正，写清楚自己用了谁的思路。"
+          },
+          {
+            "actor": "hero",
+            "text": "他把“标准答案”划掉，改成了“目前能证明的答案”。"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "这笔整理资料的酬劳，咱们一人一半。"
+          }
+        ],
+        "reward": {
+          "g": 50,
+          "items": {
+            "concentration_candy": 2
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "lao_chou",
+            "text": "那位同学又送来一种解法。我没急着比较谁更聪明，先请他讲完了。"
+          },
+          {
+            "actor": "hero",
+            "text": "学霸也有听课的一天。"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "挺好，比一个人对着答案发愁强。"
+          }
+        ],
+        "daily": false
+      }
+    },
+    {
+      "id": "side_fei_precision",
+      "type": "side",
+      "title": "不会爆炸的示范课",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B02:1:corridor",
+          "hint": "在实验楼走廊整理安全示范流程",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "板上写着：先退路，再目标，最后施法。旁边还有费眼涂掉的大爆炸草图。"
+            }
+          ],
+          "question": "第一堂课先展示什么？",
+          "choices": [
+            [
+              "right",
+              "低功率、清晰退路和停止口令"
+            ],
+            [
+              "wrong",
+              "全力爆破让新人服气"
+            ],
+            [
+              "cancel",
+              "暂时离开"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我把停止口令写在第一行。会停手，才有下一堂课。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "威力越大，围观的人越危险。费眼要教的是能活着学会的办法。"
+            }
+          ],
+          "event": "side/fei_precision/0"
+        },
+        {
+          "hint": "接取后击败两只墨泥怪，验证新人也能处理的目标；实验楼或正常刷怪区",
+          "event": "monster_defeated/ink_slime",
+          "count": 2
+        },
+        {
+          "actor": "fei_yan",
+          "hint": "向费眼交回两次低风险巡查记录",
+          "dialogue": [
+            {
+              "actor": "fei_yan",
+              "text": "不用漂亮战绩，就写你什么时候想撤、什么时候重新站稳。"
+            },
+            {
+              "actor": "hero",
+              "text": "我写了“第一次看错距离”。你敢拿去教人吗？"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "这段最该教。"
+            }
+          ],
+          "event": "side/fei_precision/2"
+        }
+      ],
+      "side_story": {
+        "owner": "fei_yan",
+        "description": "费眼为巡查新人备课。他不想拿天赋与主角比较，想把能安全学会的东西教出来。",
+        "min_index": 7,
+        "intro": [
+          {
+            "actor": "fei_yan",
+            "text": "下次示范我准备整点大的——算了，新人看完只会更怕。"
+          },
+          {
+            "actor": "hero",
+            "text": "你终于觉得一边打怪一边说笑容易误导人了？"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "我也紧张。帮我把课做成谁都跟得上的，别只适合你这天才。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "fei_yan",
+            "text": "天赋是你的，讲清楚风险是我的本事。以前总觉得教不过你，倒把这个忘了。"
+          },
+          {
+            "actor": "hero",
+            "text": "他没有再把自己扮成丑角，只把板书认真擦了一遍。"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "巡查经费批下来了。这份劳务费和急救包，你拿着。"
+          }
+        ],
+        "reward": {
+          "g": 55,
+          "items": {
+            "first_aid": 2,
+            "concentration_candy": 1
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "fei_yan",
+            "text": "新人的第一句问题是“什么时候该停”。这课没白备。"
+          },
+          {
+            "actor": "hero",
+            "text": "那第二句呢？"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "问我板上的小人是不是你。这个我没承认。"
+          }
+        ],
+        "daily": false
+      }
+    },
+    {
+      "id": "side_ao_beat",
+      "type": "side",
+      "title": "停在长按之前",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "S02",
+          "hint": "到主席台安静处录下广播的三次节拍",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "我按同样的间隔敲了三下，只记录差值，没有越敲越快。"
+            },
+            {
+              "actor": "hero",
+              "text": "牢傲的留言写着：节拍准，比按得猛更重要。"
+            }
+          ],
+          "event": "side/ao_beat/0"
+        },
+        {
+          "actor": "lao_li",
+          "hint": "找牢李检查耳机接点",
+          "dialogue": [
+            {
+              "actor": "lao_li",
+              "text": "只是插头松了。校准时别开最大音量，耳朵也不是耗材。"
+            },
+            {
+              "actor": "hero",
+              "text": "我把延迟记录交给他，顺手把音量调低了一格。"
+            }
+          ],
+          "event": "side/ao_beat/1"
+        },
+        {
+          "actor": "lao_ao",
+          "hint": "把修好的耳机和校准记录交给牢傲",
+          "dialogue": [
+            {
+              "actor": "lao_ao",
+              "text": "这次对上了。能陪我听完这一小段吗？坐着就行。"
+            },
+            {
+              "actor": "hero",
+              "text": "行，不拼分数，也不比谁能撑到最后。"
+            }
+          ],
+          "event": "side/ao_beat/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_ao",
+        "description": "牢傲的练习耳机坏了。节奏和休息都不是逞强，虚弱期间他也能坐着把这件事做好。",
+        "min_index": 3,
+        "intro": [
+          {
+            "actor": "lao_ao",
+            "text": "耳机左边总慢半拍。我昨天还以为是自己状态不好。"
+          },
+          {
+            "actor": "hero",
+            "text": "你平时脾气这么好，判定一歪也会生气？"
+          },
+          {
+            "actor": "lao_ao",
+            "text": "会。但机器错了就修机器，不能冲旁边的人发火。帮我测一下延迟吧。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "lao_ao",
+            "text": "有些长按可以松手。休息不是把别人丢下。"
+          },
+          {
+            "actor": "hero",
+            "text": "他把耳机分给我一只，播放完就合上了屏幕。"
+          },
+          {
+            "actor": "lao_ao",
+            "text": "校准是有酬劳的。补给也给你，别空着肚子巡查。"
+          }
+        ],
+        "reward": {
+          "g": 35,
+          "items": {
+            "water": 3,
+            "bread": 2
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "lao_ao",
+            "text": "最近听一小段就收起来。能安稳坐一会儿，也算今天的满连。"
+          },
+          {
+            "actor": "hero",
+            "text": "那这一段我负责不抢拍。"
+          }
+        ],
+        "daily": false
+      }
+    },
+    {
+      "id": "side_shuo_load",
+      "type": "side",
+      "title": "背包里要有别人的位置",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B04",
+          "hint": "在小仓库核对绳带和药包重量",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "我把需要随身的和留在据点的分开，坏扣带也单独挑了出来。"
+            },
+            {
+              "actor": "hero",
+              "text": "最重的不是护具，是他替每个人多备的一份水。"
+            }
+          ],
+          "event": "side/shuo_load/0"
+        },
+        {
+          "location": "S02",
+          "hint": "带一瓶饮用水到主席台，完成补给分配；消耗饮用水×1",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "我把水交到补给箱，不去证明自己能一趟搬完。"
+            }
+          ],
+          "consume": {
+            "water": 1
+          },
+          "question": "如何安排补给？",
+          "choices": [
+            [
+              "right",
+              "按体力分担，留一人检查退路"
+            ],
+            [
+              "wrong",
+              "让最壮的人全部扛走"
+            ],
+            [
+              "cancel",
+              "暂时离开"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "重的分开，急救包放在都摸得到的位置。没人需要靠逞强证明有用。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "最壮的人也要战斗。把他累倒，大家反而都没了退路。"
+            }
+          ],
+          "event": "side/shuo_load/1"
+        },
+        {
+          "actor": "lao_shuo",
+          "hint": "向牢硕交回分配清单",
+          "dialogue": [
+            {
+              "actor": "lao_shuo",
+              "text": "我原来以为多扛一点就是负责。"
+            },
+            {
+              "actor": "hero",
+              "text": "有人愿意帮你扛，你也得给他留个位置。"
+            }
+          ],
+          "event": "side/shuo_load/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_shuo",
+        "description": "牢硕要整理巡查装备。他得学会让大家分担，而不是把所有重量背到自己身上。",
+        "min_index": 3,
+        "intro": [
+          {
+            "actor": "lao_shuo",
+            "text": "这些绳子、水和药包我一个人背就行。"
+          },
+          {
+            "actor": "hero",
+            "text": "你是去巡查，还是去搬家？"
+          },
+          {
+            "actor": "lao_shuo",
+            "text": "装备不能缺。"
+          },
+          {
+            "actor": "hero",
+            "text": "人也不能累垮。咱们先算算怎么分。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "lao_shuo",
+            "text": "明天轮着背，出发前互相检查。训练是为了把人带回来。"
+          },
+          {
+            "actor": "hero",
+            "text": "他第一次把最重的包放到了地上。"
+          },
+          {
+            "actor": "lao_shuo",
+            "text": "仓库整理的报酬和补给，按登记领。"
+          }
+        ],
+        "reward": {
+          "g": 60,
+          "items": {
+            "water": 3,
+            "bread": 1,
+            "field_ration": 1
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "lao_shuo",
+            "text": "今天我背药包，别人背水。队伍走得比以前整齐。"
+          },
+          {
+            "actor": "hero",
+            "text": "也没人落在后面了。"
+          }
+        ],
+        "daily": false
+      }
+    },
+    {
+      "id": "side_yang_pace",
+      "type": "side",
+      "title": "跑在同一个速度里",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "S02",
+          "hint": "在主席台旁选择适合两人的短距离路线",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "地上还有昨晚的积水。近路更短，却看不见拐角。"
+            }
+          ],
+          "question": "选择怎样的路线？",
+          "choices": [
+            [
+              "right",
+              "可见退路，跑走交替，累了就停"
+            ],
+            [
+              "wrong",
+              "穿过湿滑近路拼最快"
+            ],
+            [
+              "cancel",
+              "暂时离开"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我给转角留了步行段。阳子回了句：行，今天不计时。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "湿滑近路省下的几秒，可能要拿伤来换。"
+            }
+          ],
+          "event": "side/yang_pace/0"
+        },
+        {
+          "actor": "lao_shuo",
+          "hint": "请牢硕确认路线和停止口令",
+          "dialogue": [
+            {
+              "actor": "lao_shuo",
+              "text": "短跑用精力爆发，长时间追击就要留恢复。停止口令说出口，所有人都得听。"
+            },
+            {
+              "actor": "hero",
+              "text": "我把“喘不上气就停”写进计划，没再用笑话糊弄。"
+            }
+          ],
+          "event": "side/yang_pace/1"
+        },
+        {
+          "actor": "yang_zi",
+          "hint": "把共同路线交给阳子",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "原来你真的怕跟不上。"
+            },
+            {
+              "actor": "hero",
+              "text": "是。我力气大，可不是什么都能撑。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "那就不催。以后你也别一个人把难处藏起来。"
+            }
+          ],
+          "event": "side/yang_pace/2"
+        }
+      ],
+      "side_story": {
+        "owner": "yang_zi",
+        "description": "阳子想用跑步找回节奏，主角却不擅长长跑。两人需要一条能一起走完的路线。",
+        "min_index": 3,
+        "intro": [
+          {
+            "actor": "yang_zi",
+            "text": "陪我绕主席台跑一圈？慢一点就行。"
+          },
+          {
+            "actor": "hero",
+            "text": "你这个“慢”，可能是我的遗言速度。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "那这回你定速度。我也想试试，不用每次都跑到最前面。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "hero",
+            "text": "我们没跑完一整圈。到第二个路口就停下喝水，反而第一次把话说完。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "体育组的路线整理费有你一份。下回还按这个速度。"
+          }
+        ],
+        "reward": {
+          "g": 40,
+          "items": {
+            "water": 3,
+            "field_ration": 1
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "yang_zi",
+            "text": "今天也不计时。你走慢点，我正好把昨天那个点子说完。"
+          },
+          {
+            "actor": "hero",
+            "text": "这回你别一口气说三百字，我连听都喘。"
+          }
+        ],
+        "daily": false
+      }
+    },
+    {
+      "id": "side_dong_box",
+      "type": "side",
+      "title": "锁着的家常",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "STORY_HOUSE:1:0",
+          "hint": "在已开放的牢家旧宅找到普通木箱",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "箱盖没有法阵，只有反复摸亮的木纹。信里叮嘱带伞，连最普通的家常话都留着。"
+            }
+          ],
+          "question": "如何处理私人旧信？",
+          "choices": [
+            [
+              "right",
+              "封好带回，让牢董自己决定读哪封"
+            ],
+            [
+              "wrong",
+              "先拆开所有信替他找答案"
+            ],
+            [
+              "cancel",
+              "暂时离开"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我没有把他的家事当作待解的谜题，按原样封好了。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "帮忙不等于替他决定。私人信件还是留给本人。"
+            }
+          ],
+          "event": "side/dong_box/0"
+        },
+        {
+          "actor": "lao_dong",
+          "hint": "把木箱交回牢董",
+          "dialogue": [
+            {
+              "actor": "lao_dong",
+              "text": "原来没有考核，也没有训诫。只是叫我天冷多穿一点。"
+            },
+            {
+              "actor": "hero",
+              "text": "你可以先做个想家的人，再做那个什么都能处理的人。"
+            }
+          ],
+          "event": "side/dong_box/1"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_dong",
+        "description": "牢董想整理旧宅的一只木箱，里面的东西比家族法术更难开口。",
+        "min_index": 21,
+        "intro": [
+          {
+            "actor": "lao_dong",
+            "text": "旧宅有只箱子，锁没坏，是我一直没开。"
+          },
+          {
+            "actor": "hero",
+            "text": "里面封着危险的法术？"
+          },
+          {
+            "actor": "lao_dong",
+            "text": "应该是饭票和旧信。可我总想着，家里会不会只记得我做得不够好。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "lao_dong",
+            "text": "今晚我会回一封信。不谈守印，只说最近吃了什么。"
+          },
+          {
+            "actor": "hero",
+            "text": "他把箱子放到身边，没有再锁上。"
+          },
+          {
+            "actor": "lao_dong",
+            "text": "这是整理旧宅的报酬。家里备的补给，也分你一份。"
+          }
+        ],
+        "reward": {
+          "g": 70,
+          "items": {
+            "first_aid": 2,
+            "field_ration": 2
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "lao_dong",
+            "text": "信寄出去了。写得很短，家里却回了三页。"
+          },
+          {
+            "actor": "hero",
+            "text": "都说什么？"
+          },
+          {
+            "actor": "lao_dong",
+            "text": "说米够不够吃。挺好。"
+          }
+        ],
+        "daily": false
+      }
+    },
+    {
+      "id": "side_jiao_duty",
+      "type": "side",
+      "title": "空出来的一格",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B01:3:0",
+          "hint": "在秋实楼十班核对告示栏的三张值日表",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "班里大多数空格不是没人愿意做，是从来没问到本人。"
+            },
+            {
+              "actor": "hero",
+              "text": "我没有代签名字，只把待确认的格子圈了出来。"
+            }
+          ],
+          "event": "side/jiao_duty/0"
+        },
+        {
+          "actor": "lao_shuo",
+          "hint": "请牢硕确认钥匙与安全检查轮值",
+          "dialogue": [
+            {
+              "actor": "lao_shuo",
+              "text": "我负责核对钥匙。其余岗位也该问问本人，别全压给班长。"
+            },
+            {
+              "actor": "hero",
+              "text": "签名和同意都齐了，这才算排班。"
+            }
+          ],
+          "event": "side/jiao_duty/1"
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "把本人确认过的轮值表交给辣椒",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "你没替别人填名字？"
+            },
+            {
+              "actor": "hero",
+              "text": "没，也没替你把休息划掉。"
+            }
+          ],
+          "event": "side/jiao_duty/2"
+        }
+      ],
+      "side_story": {
+        "owner": "la_jiao",
+        "description": "辣椒的值日表没有给自己留休息。她需要学会把班级的事分给班级的人。",
+        "min_index": 3,
+        "intro": [
+          {
+            "actor": "la_jiao",
+            "text": "别在门口堵着。我还要补三张表。"
+          },
+          {
+            "actor": "hero",
+            "text": "你自己的休息那一栏怎么全是空的？"
+          },
+          {
+            "actor": "la_jiao",
+            "text": "写了也没用，总有人忘带钥匙、忘交记录。"
+          },
+          {
+            "actor": "hero",
+            "text": "那先把这些“总有人”写进轮值里。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "la_jiao",
+            "text": "那今天最后十分钟，我也坐下来。谁临时缺席，先找当班的人。"
+          },
+          {
+            "actor": "hero",
+            "text": "她把笔递给接班同学，手松开时还有点不习惯。"
+          },
+          {
+            "actor": "la_jiao",
+            "text": "文具整理和登记的劳务费在这，别说我又自己包办了。"
+          }
+        ],
+        "reward": {
+          "g": 45,
+          "items": {
+            "bread": 2,
+            "concentration_candy": 1
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "la_jiao",
+            "text": "今天有人来找我，我先让他看轮值表了。事情照样办完。"
+          },
+          {
+            "actor": "hero",
+            "text": "你终于不用随身带着整个班了。"
+          }
+        ],
+        "daily": false
+      }
+    },
+    {
+      "id": "side_wr_bookmark",
+      "type": "side",
+      "title": "书页没有替你回答",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B06:1:0",
+          "hint": "在图书室比对小说两种版本的结尾",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "旧版书页缺了一角，新版补回了离别的段落。书签背面却写着“我想让她回来”。"
+            }
+          ],
+          "question": "怎样写读书会的提问？",
+          "choices": [
+            [
+              "right",
+              "先问读者为什么改写，再分清原文与愿望"
+            ],
+            [
+              "wrong",
+              "宣布只有原文正确，愿望毫无意义"
+            ],
+            [
+              "cancel",
+              "暂时离开"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我把原文和改写分开装好。事实不能乱写，心愿也不该被当笑话。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "读书会不是审判。分清原文之后，也可以听听为什么想改。"
+            }
+          ],
+          "event": "side/wr_bookmark/0"
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "请牢抽核验版本差异，不猜测读者隐私",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "能确定的是版本缺页，不能确定的是他经历过什么。别把推理写到别人的伤口上。"
+            },
+            {
+              "actor": "hero",
+              "text": "我只带走可公开的版本记录。"
+            }
+          ],
+          "event": "side/wr_bookmark/1"
+        },
+        {
+          "actor": "wr",
+          "hint": "把版本记录和读书会提问交给wr",
+          "dialogue": [
+            {
+              "actor": "wr",
+              "text": "不靠法术去看别人的秘密，反而要认真等他自己开口。"
+            },
+            {
+              "actor": "hero",
+              "text": "你也可以只等，不一定每次都要猜中。"
+            }
+          ],
+          "event": "side/wr_bookmark/2"
+        }
+      ],
+      "side_story": {
+        "owner": "wr",
+        "description": "wr借出的一本小说回来了，夹着一张把结局抄错的书签。她想知道读者为何需要那个假结局。",
+        "min_index": 12,
+        "intro": [
+          {
+            "actor": "wr",
+            "text": "这个读者把悲剧抄成了团圆。你觉得他没读懂？"
+          },
+          {
+            "actor": "hero",
+            "text": "也可能是看懂了，所以不甘心。"
+          },
+          {
+            "actor": "wr",
+            "text": "我原本想直接纠正他。现在有点好奇，能请你查查这张书签的来处吗？不许偷看借阅者私信。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "wr",
+            "text": "读书会我会先说明哪段是原文，再让人说自己的结局。愿望不是证据，可也不是罪。"
+          },
+          {
+            "actor": "hero",
+            "text": "她把那张书签夹回书里，露出没有写答案的一面。"
+          },
+          {
+            "actor": "wr",
+            "text": "整理书目的酬劳和读书会补给。别以为魔女请人帮忙就可以不给钱。"
+          }
+        ],
+        "reward": {
+          "g": 60,
+          "items": {
+            "concentration_candy": 2,
+            "bread": 1
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "wr",
+            "text": "他今天愿意说为什么改了。我们没替他施法，只听到散场。"
+          },
+          {
+            "actor": "hero",
+            "text": "也算一种挺难的魔法。"
+          },
+          {
+            "actor": "wr",
+            "text": "这个不用蓝。"
+          }
+        ],
+        "daily": false
+      }
+    },
+    {
+      "id": "side_daily_supply",
+      "type": "side",
+      "title": "日常 · 据点补给登记",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B04",
+          "hint": "到小仓库核对今日补给清单",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "我查了日期和数量，没有把昨天的登记重新交一遍。"
+            }
+          ],
+          "event": "side/daily_supply/0"
+        },
+        {
+          "location": "S02",
+          "hint": "带饮用水×1到主席台补给箱；交付后消耗",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "水放进箱里，记录也写上了今天的日期。"
+            }
+          ],
+          "consume": {
+            "water": 1
+          },
+          "event": "side/daily_supply/1"
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "找辣椒交回补给签收单",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "数量对上了。劳务费和你的路上补给分开记，明天需要再来。"
+            }
+          ],
+          "event": "side/daily_supply/2"
+        }
+      ],
+      "side_story": {
+        "owner": "la_jiao",
+        "description": "核对仓库，再送一瓶水到主席台，回来签收。每日一次，不和生活费重复计算。",
+        "min_index": 3,
+        "intro": [
+          {
+            "actor": "la_jiao",
+            "text": "据点补给要实物签收，不能在表上随手画个勾。"
+          },
+          {
+            "actor": "hero",
+            "text": "行，这次我带一瓶水过去，回来交签收记录。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "hero",
+            "text": "这次的报酬结清了。表上的一个勾，终于对应了一件真做完的事。"
+          }
+        ],
+        "reward": {
+          "g": 30,
+          "items": {
+            "water": 1,
+            "bread": 1
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "la_jiao",
+            "text": "今天这份已经结清。明天有新清单再接，别拿同一张重复报账。"
+          }
+        ],
+        "daily": true
+      }
+    },
+    {
+      "id": "side_daily_cleanup",
+      "type": "side",
+      "title": "日常 · 巡查残留回收",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B02:1:corridor",
+          "hint": "到实验楼走廊确认回收区安全",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "我确认了退路和封装箱；材料不够，可以在正常巡查中收集，不能凭空填数。"
+            }
+          ],
+          "event": "side/daily_cleanup/0"
+        },
+        {
+          "actor": "lao_shuo",
+          "hint": "带墨渣×2找牢硕交付；实际扣除两份材料",
+          "dialogue": [
+            {
+              "actor": "lao_shuo",
+              "text": "封口齐全，两份材料入库。战斗和回收的风险都算在补贴里。"
+            }
+          ],
+          "consume": {
+            "ink_fragment": 2
+          },
+          "event": "side/daily_cleanup/1"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_shuo",
+        "description": "清点实验楼安全区，交回两份墨渣。每天一单，回收物不可同时出售。",
+        "min_index": 3,
+        "intro": [
+          {
+            "actor": "lao_shuo",
+            "text": "回收物要密封登记。两份墨渣换一笔清理补贴，今天只收一单。"
+          },
+          {
+            "actor": "hero",
+            "text": "先去实验楼看一眼，再把材料带回来，明白。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "hero",
+            "text": "材料入了库，不能再拿去卖一次。清理补贴比直接出售多一点，但得完成安全检查。"
+          }
+        ],
+        "reward": {
+          "g": 45,
+          "items": {
+            "water": 1
+          }
+        },
+        "epilogue": [
+          {
+            "actor": "lao_shuo",
+            "text": "今天结过这一单了。先留些材料，明天按新任务再来。"
+          }
+        ],
+        "daily": true
+      }
+    },
+    {
+      "id": "chapter_signal",
+      "type": "side",
+      "title": "第一份共同署名的巡查图",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B04",
+          "hint": "到小仓库检查补给点与借用登记",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "仓库的补给箱旁有一本旧册，最后一次记录停在三周前。箱里实际还剩四瓶水，册上却记着六瓶。页边还有两张没贴好的借条，日期比盘点晚一天。"
+            },
+            {
+              "actor": "hero",
+              "text": "先别写少了两瓶。我把借条和最后盘点放到一起，恰好补上差额。东西没丢，流程却让每个人都得重新猜一遍。"
+            },
+            {
+              "actor": "system",
+              "text": "货架后的门很近，推开却是一条被杂物堵住的狭缝。纸上画出来它能通行，站在这里才发现背着伤员根本转不了身。"
+            },
+            {
+              "actor": "hero",
+              "text": "这段记“仅一人空手通过，不作为撤离路”。地图上多一道线，看起来安心，真用的时候却未必帮忙。"
+            }
+          ],
+          "question": "补给数目有差异，哪一种记法能让后来的人核验？",
+          "choices": [
+            [
+              "right",
+              "保留盘点数与借条，分别标注时间"
+            ],
+            [
+              "wrong",
+              "把旧数改成现存数，省掉差额说明"
+            ],
+            [
+              "cancel",
+              "暂时离开，稍后再查"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我把两张借条编号贴在旁边，改数时没有盖掉旧数。后面的人能看见这次差异怎么来的。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "只留最后一个数字，就算这次改对了，下次也分不清是借用、丢失还是上次记错。先回头对时间。"
+            }
+          ],
+          "event": "side/chapter_signal/0"
+        },
+        {
+          "location": "B02:1:corridor",
+          "hint": "到实验楼一层走廊实地确认撤离通道",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "实验楼两扇门从里面看一模一样。一扇门边有新鲜的清扫痕，另一扇的台阶下积着水。风把门吹得一开一合，只有第一扇的门栓能可靠地固定。"
+            },
+            {
+              "actor": "hero",
+              "text": "我沿墙走到门外，再回头看。手电一关，墙上箭头就看不清了；低处那条白线反而还能辨认。"
+            },
+            {
+              "actor": "system",
+              "text": "费眼留下的练习目标挡在原定路线中间。我没有替他移到别处，先给他发了位置，得到确认后才把目标挪到标线外。"
+            },
+            {
+              "actor": "hero",
+              "text": "别人摆的东西不一定是乱放，我改了路线也不能只改自己手里的那张。把位置发回去，让所有副本一起改。"
+            }
+          ],
+          "event": "side/chapter_signal/1",
+          "puzzle": {
+            "kind": "switches",
+            "title": "广播台的反向指示",
+            "description": "测试回路只连着四盏纸模指示灯。拨动一次开关，会同时改变两盏灯的亮暗。让四盏灯都亮，核验广播里的方向。",
+            "initial": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "target": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "controls": [
+              "A：广播端",
+              "B：过道端",
+              "C：门栓端"
+            ],
+            "clues": [
+              {
+                "title": "牢李的测试接线卡",
+                "text": "A连1、2号灯；B连2、3号灯；C连3、4号灯。拨动会翻转所连灯的状态，不是永远打开。没有真实设备带电，这里只是测试纸模。"
+              },
+              {
+                "title": "门外的旧标牌",
+                "text": "标牌的正面写“西门”，背面新贴的箭头却朝东。广播录音里有人把“向东”剪到了西门之后。先核验接线，不要跟着声音走。"
+              },
+              {
+                "title": "备用电源说明",
+                "text": "每盏灯都要亮，才能说明两个端点都接通。只亮中间两盏是没有连接出口的假成功。开关可以反复拨，不消耗道具。"
+              }
+            ],
+            "hint": "先看最外侧：1号灯只有A能改变，4号灯只有C能改变。A和C各拨一次，看看中间是否还需要B。",
+            "helper": "lao_li",
+            "success": [
+              {
+                "actor": "lao_li",
+                "text": "四盏都亮了。测试回路没坏，错的是广播中的剪接顺序。我们把反向箭头保留作证，不再直接按最响的声音画路线。"
+              }
+            ],
+            "failure": [
+              {
+                "actor": "system",
+                "text": "灯没有全部连通，广播却先响起了“安全”两个字。这个词不是核验结果；检查最外侧的灯。"
+              }
+            ],
+            "links": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ]
+          }
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "找牢抽复核巡查图上的已知与未知",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "你写的路线是白天确认，夜里照明还没验。不能把“白天能走”缩成“能走”。我在条件一栏补一句，等晚上的人核验。"
+            },
+            {
+              "actor": "hero",
+              "text": "这么写，整张图全是小字，不像英雄作战地图。"
+            },
+            {
+              "actor": "lao_chou",
+              "text": "它是让人用的，像不像英雄不重要。我也加了名字，万一推断错了，能知道找谁说明，不用去骂那条没有脸的线。"
+            },
+            {
+              "actor": "hero",
+              "text": "那就把每个人的电话和集合口令也留上。纸丢了还能问人，不能只有一份答案。"
+            }
+          ],
+          "event": "side/chapter_signal/2"
+        },
+        {
+          "actor": "lao_li",
+          "hint": "向牢李交回有复核署名的试行巡查图",
+          "dialogue": [
+            {
+              "actor": "lao_li",
+              "text": "这里的留白你没偷偷补上。挺好，我知道下一班该查哪里了。以前我交东西，总怕别人先看见缺点。"
+            },
+            {
+              "actor": "hero",
+              "text": "现在缺点写出来，才好一起补。我没把你的“试行”两字擦掉，咱们还真不是无所不能。"
+            },
+            {
+              "actor": "lao_li",
+              "text": "那我去印。印费有账，巡查劳务费也有账，谁都别再用“顺手”把人的劳动抹了。"
+            }
+          ],
+          "event": "side/chapter_signal/3"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_li",
+        "min_index": 3,
+        "chapter_bridge": true,
+        "description": "章节调查：沿线核验线索并回访，完成后继续主线。无计时失败；错误判断可重新核验。",
+        "intro": [
+          {
+            "actor": "lao_li",
+            "text": "讲义我能印，里面的路线却不能凭记忆画。我以前总觉得多做一份，别人就少麻烦一点，这次路画错了，麻烦可能就是把人领进死角。"
+          },
+          {
+            "actor": "hero",
+            "text": "你要我跑一趟？先说好，走一趟行，跑一趟我得收喘气费。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "不是让你一个人跑完。请你查仓库和实验楼，再找牢抽核一下。每段写上谁确认过，没确认的留白。空白可能不好看，但比假线安全。"
+          },
+          {
+            "actor": "hero",
+            "text": "那你自己的名字也写上。图不是打印机做的，坏了也不是打印机负责。我们一起署名，一起改。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "行。我把第一张叫试行图。有人找到更好的路线，就留个改动说明，不必先证明比我懂。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "第一版图订在讲义后面。不同笔迹挤在一起，边角有几个空白，却没有一处写着“出了事自行负责”。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "这份图明天还会改，但今天用的人至少知道，它是怎么被确认的。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_li",
+            "text": "有人把西门照明补验了，留了自己的名字。我没把他那一行重抄成我的字。"
+          },
+          {
+            "actor": "hero",
+            "text": "这图越来越不像你一个人的作品了。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "是啊，反而能睡着觉。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "water": 1,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "chapter_reader",
+      "type": "side",
+      "title": "缺页里没有写出的名字",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B06:1:0",
+          "hint": "到阅览区查公开借阅册与归还箱",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "借阅册有三个日期被水浸开，但对应的归还条还在。有人用铅笔加了“已还”，没有补签名字。归还箱最底下压着一本缺封面的小说，页角写着同样的铅笔字。"
+            },
+            {
+              "actor": "hero",
+              "text": "登记缺了名字，不等于人没回来。我把日期和书号一一对应，留下缺签的部分，没有凭字迹补一个名字。"
+            },
+            {
+              "actor": "system",
+              "text": "缺页的位置正好在角色告别之前。后面没有结局，不是空白纸，而是整叠被整齐裁走的纸根。旁边另一册的破口却参差不齐，像被硬撕下。"
+            },
+            {
+              "actor": "hero",
+              "text": "这两种损坏不能混记。先拍清楚切口，再查修补记录，别把所有坏书都归给一个怪。"
+            }
+          ],
+          "question": "现有材料最可靠地说明什么？",
+          "choices": [
+            [
+              "right",
+              "有人归还过书；两种缺页方式需要分别查"
+            ],
+            [
+              "wrong",
+              "字迹相似，足以认定同一个人藏了借阅卡"
+            ],
+            [
+              "cancel",
+              "暂时离开，稍后再查"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我在两张记录上分别写“裁切”和“撕裂”，不写动机。动机得等人或别的材料来补。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "相似字迹可以是线索，还不是认人的结果。先别让一个顺口的故事替我们填空。"
+            }
+          ],
+          "event": "side/chapter_reader/0"
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "向辣椒核对公开的读书会出勤",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "签到是自愿公开的，但请假理由不是。能给你的是人数、时间和活动地点，谁因为什么没来，得本人同意。"
+            },
+            {
+              "actor": "hero",
+              "text": "名单上最后一个名字没写全。你知道是谁吗？"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "我知道，可这不代表可以告诉你。你要核的是有没有人到过，不是挖他的全部经历。我能确认那天人数对得上，散场也点过一遍。"
+            },
+            {
+              "actor": "hero",
+              "text": "那这条写“人数核验完成，身份未公开”。查不全也得允许，不能把人的边界当成他可疑。"
+            }
+          ],
+          "event": "side/chapter_reader/1"
+        },
+        {
+          "location": "B04",
+          "hint": "到仓库检查书籍修补工具的借用单",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "修补箱里的裁刀刚换过刀片，借用单上写着“清理霉页，指导老师在场”。作业结束的时间早于异常出现，书号只对应其中一本。"
+            },
+            {
+              "actor": "hero",
+              "text": "整齐切口有正常来源，不能因此把两种缺页都解释完。另一本撕裂的书仍要保留，交给图书室管理人。"
+            },
+            {
+              "actor": "system",
+              "text": "箱底还有一张失败的补页：胶涂得太多，字透不过来。下面有人写“重做，不交给读者”。"
+            },
+            {
+              "actor": "hero",
+              "text": "原来别人也在认真救这些纸，只是我们之前只看见它们坏了。回去得先问一声，别把所有好事都算在今天调查的人头上。"
+            }
+          ],
+          "event": "side/chapter_reader/2"
+        },
+        {
+          "actor": "wr",
+          "hint": "把缺页核验结果交给wr，保留未解部分",
+          "dialogue": [
+            {
+              "actor": "wr",
+              "text": "所以有正常修补，也有仍不清楚的损坏。不是所有缺席都有阴谋，不是所有名字都能交给我们。"
+            },
+            {
+              "actor": "hero",
+              "text": "你听起来有一点失望。"
+            },
+            {
+              "actor": "wr",
+              "text": "有。我以为查出一个坏人，事情就会简单。结果只是看见很多人在做小事，其中有几件没做完。我得学着接受不够像故事的答案。"
+            },
+            {
+              "actor": "hero",
+              "text": "那下一次进去，我们不只带法术，也带修补记录。能还给谁就还给谁，不能还的写清楚。"
+            }
+          ],
+          "event": "side/chapter_reader/3"
+        }
+      ],
+      "side_story": {
+        "owner": "wr",
+        "min_index": 10,
+        "chapter_bridge": true,
+        "description": "章节调查：沿线核验线索并回访，完成后继续主线。无计时失败；错误判断可重新核验。",
+        "intro": [
+          {
+            "actor": "wr",
+            "text": "图书室出事之前，有人把几本书的借阅卡取走了。我知道你们要进去打怪，但先帮我查一件小事：丢的是书，还是有人故意不想让名字留下。"
+          },
+          {
+            "actor": "hero",
+            "text": "两件事不可能同时发生？"
+          },
+          {
+            "actor": "wr",
+            "text": "当然可能。我就是怕自己已经决定了答案，看哪条线索都像它。你不欠我一个好听的结论，只要把不同的可能留着。"
+          },
+          {
+            "actor": "hero",
+            "text": "我查公开借阅册和归还箱。私人信不拆，谁不愿说也不逼。要是有人只想找回那本书，不想被我们写进案子呢？"
+          },
+          {
+            "actor": "wr",
+            "text": "那就先还书。不是每个人都必须给这个故事提供一段秘密。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "wr没有把调查写成一个揭露秘密的故事。她在封面背后贴了修补者的署名，又把不愿公开的那行完整遮住。"
+          },
+          {
+            "actor": "wr",
+            "text": "这不是少查了一步，是知道哪一步不能替别人走。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "wr",
+            "text": "那位读者来取书了。他没解释请假的理由，我们也没问。坐了十分钟，就很普通地走了。"
+          },
+          {
+            "actor": "hero",
+            "text": "普通到没法写一个反转。"
+          },
+          {
+            "actor": "wr",
+            "text": "挺好。不是每次来这里，都要付一个秘密。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "water": 1,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "chapter_record",
+      "type": "side",
+      "title": "把一张截图拆回一天",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B12:3:0",
+          "hint": "到牢李常用的十班打印点核对设备日志",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "机器上显示的时间比标准时间快七分钟。当天的打印任务有两条，第一条来自公共账号，第二条才有牢李自己的署名。两张纸的边角都带着同样的墨线，截图只截了第二条的用户名。"
+            },
+            {
+              "actor": "hero",
+              "text": "我能说明机器时钟偏差，不能反推每个文件都在同一台机器上生成。公共账号用过的人不止一个，也不能直接写“不是他”。"
+            },
+            {
+              "actor": "system",
+              "text": "插座旁还有一张更早的检修单，写着重启后时钟需要校准。牢李当时提醒过，却没确认后来的人是否校准成功。"
+            },
+            {
+              "actor": "hero",
+              "text": "提醒过是事实，确认不足也是事实。我把两条并排抄下来。留着错误不等于承认盗用，遮掉错误却会让后面的真话也显得可疑。"
+            }
+          ],
+          "event": "side/chapter_record/0",
+          "puzzle": {
+            "kind": "sequence",
+            "title": "七分钟能改变哪件事",
+            "description": "四张来源不同的卡片混在一起。交换相邻卡片，还原实际发生的先后；不能直接按屏幕显示的钟排序。",
+            "initial": [
+              2,
+              3,
+              0,
+              1
+            ],
+            "target": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "controls": [
+              "交换1与2",
+              "交换2与3",
+              "交换3与4"
+            ],
+            "clues": [
+              {
+                "title": "公共打印日志",
+                "text": "公共账号任务的机器显示时间是07:57。当天这台机器比标准时间快7分钟；日志原件没有牢李个人用户名。"
+              },
+              {
+                "title": "封存与到场记录",
+                "text": "材料封存时间07:53，使用标准时间。牢李到打印点的时间08:00，由独立出勤条确认。"
+              },
+              {
+                "title": "照片原文件",
+                "text": "拍下封存袋的照片时间08:05，使用已校准的设备。截图后来又拼上了第二次复印的用户名，不能把照片和打印日志当同一来源。"
+              }
+            ],
+            "hint": "只把机器日志减7分钟：公共打印实际07:50，接着07:53封存、08:00到场、08:05拍照。用相邻交换把四张排回去。",
+            "helper": "lao_chou",
+            "success": [
+              {
+                "actor": "lao_chou",
+                "text": "打印在封存前，到场在封存后。原图把两次任务拼成了一次。这个顺序不能证明一切，却拆掉了“他在照片里，所以之前一定是他”的关键跳步。"
+              }
+            ],
+            "failure": [
+              {
+                "actor": "system",
+                "text": "时间线自相矛盾：有一张卡用了偏快的机器钟。不要修正所有卡，只修正那个明确有偏差的来源。"
+              }
+            ],
+            "pieces": [
+              "公共账号打印",
+              "材料封存",
+              "牢李到场",
+              "拍摄封存袋"
+            ]
+          }
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "请辣椒核对当天出勤与钥匙交接",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "牢李那节课确实被叫去检修，我签过外出。钥匙是另一个时段交的，中间有一次代领，代领人也写了名字。"
+            },
+            {
+              "actor": "hero",
+              "text": "能不能直接算牢李不在作案地点？"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "只能算那一段有人确认他在别处。别把我记得的十分钟扩成一整天。还有，外出条缺了返班签，我应该当时追问，是我的流程没做完。"
+            },
+            {
+              "actor": "hero",
+              "text": "这条也写？他们会不会抓着它说大家都串好了？"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "越怕被抓，就越容易只留完美的部分。我会自己说明，不能让牢李替我的漏项背着。"
+            }
+          ],
+          "event": "side/chapter_record/1"
+        },
+        {
+          "location": "B04",
+          "hint": "到小仓库比对实物领用与支出原册",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "支出册上有一笔器件钱，金额与传言相同，日期却是订货日，不是付款日。对应包装还在，里面的零件数量与领用单相符，未用部分封在小袋里。"
+            },
+            {
+              "actor": "hero",
+              "text": "不能只拿“东西还在”证明没有盗款，付款链也得对。收货和支付是两步，传言恰好把两步剪成了一步。"
+            },
+            {
+              "actor": "system",
+              "text": "我把包装编号、收货签名、支付凭条分别装好，没有把它们重新粘成一张看起来更有说服力的图。"
+            },
+            {
+              "actor": "hero",
+              "text": "回去让牢抽看原件，公开时再遮私人信息。我们想拆的是错误的叙述，不是把所有人的账都晒出来取乐。"
+            }
+          ],
+          "event": "side/chapter_record/2"
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "与牢抽整理可提交、待核实和不可公开的材料",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "这条证据不够。我很想把它填进结论，刚才差点直接用了。"
+            },
+            {
+              "actor": "hero",
+              "text": "先放待核实。缺一条就按缺一条提交，不能让牢李的清白靠我们编一个最聪明的故事。"
+            },
+            {
+              "actor": "lao_chou",
+              "text": "你记得我也会想走捷径，反而让我放心。以前大家都说我聪明，我就不好意思承认看不出来。"
+            },
+            {
+              "actor": "hero",
+              "text": "那今天你负责说哪些看不出来。我负责提醒自己，声音大不会让材料多一张。"
+            }
+          ],
+          "event": "side/chapter_record/3"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_chou",
+        "min_index": 14,
+        "chapter_bridge": true,
+        "description": "章节调查：沿线核验线索并回访，完成后继续主线。无计时失败；错误判断可重新核验。",
+        "intro": [
+          {
+            "actor": "lao_chou",
+            "text": "牢李的事有三条时间线：文件生成、机器显示、当事人的行动。现在群里把它们剪成了一个时间。我想请你分别去核验，别一开始就强行对齐。"
+          },
+          {
+            "actor": "hero",
+            "text": "如果核出来对他不利呢？"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "也带回来。我想帮他，但不想做另一张只留有利部分的截图。你愿意陪我把这一点守住吗？"
+          },
+          {
+            "actor": "hero",
+            "text": "愿意。说得轻松，真看见他失望的时候，可能还是会想改。我把原件留给你一份，你也看着我。"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "好。这不是不信任朋友，是不让“帮朋友”变成我们什么都敢做的理由。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "证据袋分成三层，最上面是可核验原件，后面是待查问题，最后一层封着不该公开的个人信息。它不够痛快，却足够让下一次核查接着做。"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "现在可以去班会了。我们交材料，也接受别人按同样的方法查我们。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_chou",
+            "text": "有人来问我“最关键的反转”是什么。我给他看了三条时间线，他嫌太长。"
+          },
+          {
+            "actor": "hero",
+            "text": "你没给他编一个爽的？"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "没有。嫌长也得从完整的材料开始。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "water": 1,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "chapter_witness",
+      "type": "side",
+      "title": "伤口以外的证词",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "S02",
+          "hint": "到主席台旁复核当时能看见的路段",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "站在阳子标的位置，只能看见器材架的一半。另一半被临时堆放的道具挡住，照片里却像没有遮挡。我往旁边走了几步，找到能拍到相同角度的位置，那里离原标记差了很远。"
+            },
+            {
+              "actor": "hero",
+              "text": "角度不一致，是需要解释的差异，不等于已经知道谁拍了照。先记下遮挡和实际距离，不给它配一个没看见的摄影师。"
+            },
+            {
+              "actor": "system",
+              "text": "路边有一处深色擦痕，阳子说自己在那里摔过。我拿当天的天气记录核对，雨是在他摔倒之后才下的，现在这道水痕不能直接当成当天的地面情况。"
+            },
+            {
+              "actor": "hero",
+              "text": "脚下的东西会变，回忆也会补。我们需要当时的记录，不是让他今天重新摔一遍，证明痛是真的。"
+            }
+          ],
+          "question": "怎样展示照片视角与证词的差异？",
+          "choices": [
+            [
+              "right",
+              "标明拍摄位置与遮挡，保留不能确认的拍摄时间"
+            ],
+            [
+              "wrong",
+              "复拍一张相似照片并宣布原照片伪造"
+            ],
+            [
+              "cancel",
+              "暂时离开，稍后再查"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "复拍是说明视角的工具，不是过去的录像。两张分开标注，别让我们自己也把演示当原件。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "只凭今天能拍出另一张，不能确定过去怎样拍。回头把位置、时间和来源拆开。"
+            }
+          ],
+          "event": "side/chapter_witness/0"
+        },
+        {
+          "location": "B04",
+          "hint": "到小仓库核对当天器材搬运与归还顺序",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "器材架的领用单有两次签收，第二次在阳子受伤之后。归还单上写着“右轮卡滞”，与照片里倒下的方向相符，却没有写故障何时发生。"
+            },
+            {
+              "actor": "hero",
+              "text": "故障可能早就有，也可能那时才有，不能挑一个对朋友有利的猜测填进去。我要带回的是故障记录和检查人，时间空着让本人说。"
+            },
+            {
+              "actor": "system",
+              "text": "值班同学愿意说明自己看见了阳子扶架子，不愿猜是谁先碰倒。他反复问这会不会得罪人。我把记录读回给他听，删掉了自己顺手添上的“因此”。"
+            },
+            {
+              "actor": "hero",
+              "text": "证词写到他真的看到的那一步。剩下的连接，由别的材料来做，不能塞进一个不敢拒绝的人嘴里。"
+            }
+          ],
+          "event": "side/chapter_witness/1"
+        },
+        {
+          "actor": "fei_yan",
+          "hint": "向费眼核对救助时间，区分观察与推测",
+          "dialogue": [
+            {
+              "actor": "fei_yan",
+              "text": "我到场时架子已经倒了，阳子还扶着一个人。伤的位置和受力能对应，但我没看见起因。之前我说“肯定是有人害他”，那是我的怀疑，不是目击。"
+            },
+            {
+              "actor": "hero",
+              "text": "你当时很生气。"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "现在也生气，所以更不能把自己写成什么都看见的人。我救得晚，心里有愧，差点想靠一个很肯定的判断把愧补回去。"
+            },
+            {
+              "actor": "hero",
+              "text": "你把到场后的救助写全，之前的留给之前在场的人。帮忙不是每个空缺都得自己填。"
+            }
+          ],
+          "event": "side/chapter_witness/2"
+        },
+        {
+          "actor": "yang_zi",
+          "hint": "向阳子复述完整材料，让他确认自己的证词",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "这里我说得太满了。当时听见勾尬笑，但没看见她手上动作。你保留“听见笑”，把“她推了架子”改成待核实。"
+            },
+            {
+              "actor": "hero",
+              "text": "你不怕这样让她跑掉？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "怕。但我不想别人以后拿我这一处猜测，否定我真的被伤害。还有，听证时我自己讲，你坐旁边，别替我把所有话接完。"
+            },
+            {
+              "actor": "hero",
+              "text": "行。需要我接的时候看我一下，不需要的时候，我负责闭嘴。"
+            }
+          ],
+          "event": "side/chapter_witness/3"
+        }
+      ],
+      "side_story": {
+        "owner": "yang_zi",
+        "min_index": 18,
+        "chapter_bridge": true,
+        "description": "章节调查：沿线核验线索并回访，完成后继续主线。无计时失败；错误判断可重新核验。",
+        "intro": [
+          {
+            "actor": "yang_zi",
+            "text": "这次别让我只是坐着等人救。我跑不了，能把当时的路线说清楚，也能告诉你哪一段我根本没看见。"
+          },
+          {
+            "actor": "hero",
+            "text": "我以为让你休息就是帮忙，结果连你知道的事也没问。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "你怕我一开口就难受，我怕一难受就没人肯听。咱们都绕开了正事。你查南门、仓库，再找费眼，我只负责自己的部分，不替整段空白写答案。"
+          },
+          {
+            "actor": "hero",
+            "text": "如果问到你不想说的呢？"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "我会说先停。你不用提前替我停一切，也别拿我愿意讲一次当成以后都能问。先把完整照片找出来，受伤不是作假，也不是万能证据。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "阳子把自己的证词重新签名，日期没有沿用最早那版。修改处都保留着，能看出他在哪些地方变得更谨慎。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "不是越讲越弱，是终于能分清哪些话真的是我的。走吧，这次我自己进门。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "yang_zi",
+            "text": "后来有人说，我还肯替勾尬留“未核实”，是不是心软。我说不是替她，是守住自己的话。"
+          },
+          {
+            "actor": "hero",
+            "text": "这句你讲得比我清楚。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "也不枉我练了那么多次开口。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "water": 1,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "chapter_legacy",
+      "type": "side",
+      "title": "守印人也要有退路",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B06:1:0",
+          "hint": "到图书室查公开校史中的地下修缮记录",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "校史把三次地下修缮写成“加固完成”，工程附页却分别列了封闭、替换和分流。最后一次备注写着“新方案待复核”，后面没有完成标记。"
+            },
+            {
+              "actor": "hero",
+              "text": "不是所有旧方案都失败，有些只是没接着做。我们以前把一句“祖传办法”当成了其他办法都试过的证明。"
+            },
+            {
+              "actor": "system",
+              "text": "附页中的术语与牢董家谱不完全相同，同一个符号在公开记录里被叫作压力节点，家谱里却叫血脉节点。两者是否等同，需要实际验证。"
+            },
+            {
+              "actor": "hero",
+              "text": "先抄双重名称和对应图，不把其中一种当另一种的翻译。名字能把责任说得很神圣，也能把本来能换的人固定在那里。"
+            }
+          ],
+          "event": "side/chapter_legacy/0",
+          "puzzle": {
+            "kind": "dials",
+            "title": "名字不是锁孔",
+            "description": "校史的压力图和家谱上的“血脉节点”指向同一组训练旋钮。每钮取0～3，找到总压平衡的一组，验证功能是否真的只能靠家系触发。",
+            "initial": [
+              0,
+              0,
+              0
+            ],
+            "target": [
+              2,
+              1,
+              3
+            ],
+            "controls": [
+              "左节点",
+              "中节点",
+              "右节点"
+            ],
+            "clues": [
+              {
+                "title": "公开修缮图",
+                "text": "三处数值合计为6。左节点比中节点高1，右节点比左节点高1。这里记的是压力差，并没有要求流血或交出姓名。"
+              },
+              {
+                "title": "家谱旧注",
+                "text": "节点名在后来的抄本中被改过。最早那页仍写“校验可由受训者完成”。家印用于确认记录来源，不是旋钮的第四个开关。"
+              },
+              {
+                "title": "训练装置标签",
+                "text": "这是离线训练回路，不会改变真正封印。每次转动只前进一格，3之后回到0；填对后才会亮出校验图。"
+              }
+            ],
+            "hint": "把中节点当成x，则左是x+1，右是x+2。三项合计6，所以中1、左2、右3。",
+            "helper": "lao_dong",
+            "success": [
+              {
+                "actor": "lao_dong",
+                "text": "没有调用血脉法，校验图仍亮了。至少基础检验不是天生只能由我完成。家族守过门的功劳是真的，“只有我们能懂”却需要重新核实。"
+              }
+            ],
+            "failure": [
+              {
+                "actor": "system",
+                "text": "校验图没有亮。右节点不是越高越好，三个差值和总和都要同时成立。"
+              }
+            ],
+            "tokens": [
+              [
+                "0",
+                "1",
+                "2",
+                "3"
+              ],
+              [
+                "0",
+                "1",
+                "2",
+                "3"
+              ],
+              [
+                "0",
+                "1",
+                "2",
+                "3"
+              ]
+            ]
+          }
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "请牢抽比较校史图与家族笔记的缺口",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "这里少了一项轮换记录。图上能换手，文字却始终写同一个家系。我不能据此宣布血脉没用，但至少该问为什么从来不记交接。"
+            },
+            {
+              "actor": "hero",
+              "text": "牢董会不会觉得我们在否定他家这些年做的事？"
+            },
+            {
+              "actor": "lao_chou",
+              "text": "尊重做过的事，和必须照着再做一代，不是同一句话。我会把结论写成问题，让他也能反驳，不做一张逼他解放的命令。"
+            },
+            {
+              "actor": "hero",
+              "text": "解放也不能替人决定，听起来真麻烦。"
+            },
+            {
+              "actor": "lao_chou",
+              "text": "麻烦是因为人能说不。要是图省事，总能编一个大家都没得选的答案。"
+            }
+          ],
+          "event": "side/chapter_legacy/1"
+        },
+        {
+          "location": "B04",
+          "hint": "到小仓库核对旧修缮物资与应急标记",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "旧箱子里有几件常规绝缘工具，不带家纹，也没有法力。领用说明写着“任何经过培训的人可操作”，下面附着停止条件和事故报告格式。"
+            },
+            {
+              "actor": "hero",
+              "text": "原来以前也有人想过，让更多人能帮忙。箱子后来被挪到角落，说明书还在，只是大家都不再问它为什么在这里。"
+            },
+            {
+              "actor": "system",
+              "text": "我没有直接把工具拿走。把型号和说明拍好，请牢李检查老化，再按现行借用流程登记。一个好想法放久了，也不能跳过今天的安全检查。"
+            },
+            {
+              "actor": "hero",
+              "text": "回去告诉牢董，不是我们已经替他找到自由，是这里有一小部分责任，本来就可以有人一起接。"
+            }
+          ],
+          "event": "side/chapter_legacy/2"
+        },
+        {
+          "actor": "lao_dong",
+          "hint": "与牢董确定进入旧宅的知情与退出条件",
+          "dialogue": [
+            {
+              "actor": "lao_dong",
+              "text": "我原来准备把钥匙交给你，然后说家里就靠你了。现在听起来，跟以前把我留在门口的话没什么不同。"
+            },
+            {
+              "actor": "hero",
+              "text": "你可以请我帮忙，不能把我帮过一次写成我以后都同意。咱们把每个人能做的事写明，做不到就换，不是谁更能忍谁接最后一班。"
+            },
+            {
+              "actor": "lao_dong",
+              "text": "还有一条，我也能退出。不是所有人都走了以后，我还得留在门里证明没有辜负祖先。"
+            },
+            {
+              "actor": "hero",
+              "text": "写大点。你自己签，也让我们签，免得你到时候又忘了问自己。"
+            }
+          ],
+          "event": "side/chapter_legacy/3"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_dong",
+        "min_index": 20,
+        "chapter_bridge": true,
+        "description": "章节调查：沿线核验线索并回访，完成后继续主线。无计时失败；错误判断可重新核验。",
+        "intro": [
+          {
+            "actor": "lao_dong",
+            "text": "旧宅可以进去，但我想先改一条规矩。以前来的人只知道进去要做什么，不知道做不到时谁接手。我们家把这个叫守住，很多时候只是没人敢先走。"
+          },
+          {
+            "actor": "hero",
+            "text": "你想我们查接班的人？"
+          },
+          {
+            "actor": "lao_dong",
+            "text": "先查接班为什么总落在同一家。有没有别的安排被试过，失败在哪里，是确实不可行，还是没人继续问。我不能保证查完就能改变，但不想再把沉默当同意。"
+          },
+          {
+            "actor": "hero",
+            "text": "那我们分着查。资料里要是有家里的难堪，也带回来？"
+          },
+          {
+            "actor": "lao_dong",
+            "text": "带。我可以难堪，也可以不同意别人公开家事，但不能要求你们按着我家的面子守门。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "进入条件第一次附上了退出条件。牢董把家纹压在页角，又在它旁边签下自己的名字，两处都没有盖住另一处。"
+          },
+          {
+            "actor": "lao_dong",
+            "text": "家里教会我的东西我会带着，但未来不能只由这枚印记替我决定。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_dong",
+            "text": "我把交接问题写回家里，暂时没收到同意。可他们回信开始问方案，而不是只叫我懂事。"
+          },
+          {
+            "actor": "hero",
+            "text": "那就接着谈。"
+          },
+          {
+            "actor": "lao_dong",
+            "text": "嗯。没立刻改变，也不是白谈。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "water": 1,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "chapter_protocol",
+      "type": "side",
+      "title": "把停止口令交给每个人",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B04",
+          "hint": "在小仓库查护具、食品和应急包的分配",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "护具标签写着挡物理冲击，旁边的宣传小纸却写“全面保护”。两者放在一起，容易让人以为一件校服连法术干扰也能挡。牢硕把宣传纸划掉，留下实际参数。"
+            },
+            {
+              "actor": "hero",
+              "text": "精力食品也分固定回复和比例回复，不能只看图画大不大。水便宜，回一口气；野餐包按上限回得多，但一次同样要占行动。"
+            },
+            {
+              "actor": "system",
+              "text": "我们把急救包放在袋口，补给分到每个人能触到的位置。最珍贵的道具没有单独锁进最结实的盒子，因为需要时打不开，就等于没有带。"
+            },
+            {
+              "actor": "hero",
+              "text": "留一人确认消耗，不在乱中重复用。吃东西那一回合也会挨打，准备使用的人先喊一声，别人知道给他留空间。"
+            }
+          ],
+          "event": "side/chapter_protocol/0"
+        },
+        {
+          "actor": "fei_yan",
+          "hint": "请费眼核对技能的适用条件与恢复节奏",
+          "dialogue": [
+            {
+              "actor": "fei_yan",
+              "text": "架臂对身体冲击有效，对法术只有一点帮助；沉肩借的是身体，不会撞掉一团在远处形成的咒。撤步避开一次攻击，不是下一回合也无敌。"
+            },
+            {
+              "actor": "hero",
+              "text": "那每回合恢复的精力，能不能靠打开菜单再关掉刷？"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "你在原地折腾界面，肺不会因此多喘一口。得完成一回合行动并活下来，才恢复那一份。休整回的是魔力，不会凭空把累过的肌肉重置。"
+            },
+            {
+              "actor": "hero",
+              "text": "记下了。精力低就用防守等节奏，不是非得喝到满再动。法术省下来的 MP，也得留一份给净念和屏障。"
+            }
+          ],
+          "question": "看到敌人准备魔力吸取，哪种准备合理？",
+          "choices": [
+            [
+              "right",
+              "按预告选择破招或屏障，保留解除干扰的资源"
+            ],
+            [
+              "wrong",
+              "以为体力格挡能完全挡住所有魔法"
+            ],
+            [
+              "cancel",
+              "暂时离开，稍后再查"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我在清单上把物理与法术分别写开。名字像防御，不代表能挡同一种伤害。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "体术依赖身体，敌人的魔力干扰不必碰到手臂。重新看预告对应的防护方式。"
+            }
+          ],
+          "event": "side/chapter_protocol/1"
+        },
+        {
+          "location": "B02:1:corridor",
+          "hint": "到实验楼走廊模拟交接与停止口令",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "练习不用真怪，费眼用一盏小灯代表来袭方向。第一轮阳子喊停，牢硕还往前挪了一步。他解释只是把最后一脚站稳，阳子却说自己不知道那一步是不是继续攻击。"
+            },
+            {
+              "actor": "hero",
+              "text": "停止不是让你立刻摔倒，是让动作意图清楚。需要稳住就说“稳住再退”，别让别人猜你是不是没听见。"
+            },
+            {
+              "actor": "system",
+              "text": "第二轮我当守位，肩膀一酸就下意识笑。牢硕叫停，指出我笑完把状态报告省了。我们把谁先露出疲态记下来，没有排名。"
+            },
+            {
+              "actor": "hero",
+              "text": "我还剩一次撞击的力气，不能连打。现在说出来，比真用完时叫救命容易，得趁容易的时候练。"
+            }
+          ],
+          "event": "side/chapter_protocol/2"
+        },
+        {
+          "actor": "lao_shuo",
+          "hint": "交回交接核验，让牢硕也接受同伴叫停",
+          "dialogue": [
+            {
+              "actor": "lao_shuo",
+              "text": "刚才阳子喊的时候，我第一反应是他没受过训练。然后才想起，我教他的就是要敢说。他要先被我认可才有权叫停，那口令就只剩一个人的。"
+            },
+            {
+              "actor": "hero",
+              "text": "你现在认可了也不够，下回紧张还会反射。我们一起盯，谁不听就再练，不拿一次保证代替习惯。"
+            },
+            {
+              "actor": "lao_shuo",
+              "text": "好。强壮的人多出力，不等于最有权决定别人该撑多久。我把这条也抄进轮换表。"
+            }
+          ],
+          "event": "side/chapter_protocol/3"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_shuo",
+        "min_index": 22,
+        "chapter_bridge": true,
+        "description": "章节调查：沿线核验线索并回访，完成后继续主线。无计时失败；错误判断可重新核验。",
+        "intro": [
+          {
+            "actor": "lao_shuo",
+            "text": "石室守住以后，最怕大家一放松，就以为还能再撑。我想在真正反扑之前做一次交接核验，不练谁更能抗，练谁发现问题能叫停。"
+          },
+          {
+            "actor": "hero",
+            "text": "你也听口令？还是又当那个说“我还能”的？"
+          },
+          {
+            "actor": "lao_shuo",
+            "text": "所以请你来查我。我嘴上说轮换，背包还是习惯装两个人的东西。训练过的习惯，也有不适合队伍的地方。"
+          },
+          {
+            "actor": "hero",
+            "text": "那先把停止口令写得谁都能用。不是只有你承认累了才换人，我看见你站不稳，也能叫。"
+          },
+          {
+            "actor": "lao_shuo",
+            "text": "可以。喊停的人不需要先证明自己更懂，停下来再核验。宁可多问一次，也不把同伴的担心当怯战。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "训练结束，最显眼的记录不是成功次数，是每个人说过的限制。纸张边角被汗浸软，牢硕仍把它平整夹好。"
+          },
+          {
+            "actor": "lao_shuo",
+            "text": "这张比一张谁都没喊过停的成绩单更让我放心。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_shuo",
+            "text": "今天巡查有人提前换位，没等真站不住。我第一句差点问为什么，后来先说“收到”。"
+          },
+          {
+            "actor": "hero",
+            "text": "有进步，下次我也先说收到。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "water": 1,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "chapter_evacuation",
+      "type": "side",
+      "title": "点名册上的空格不能代签",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B01:1:corridor",
+          "hint": "到秋实楼一层核对第一份撤离记录",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "第一份记录是班级名单，第二份按经过楼梯口的顺序写。重复的名字不是造假，而是有人先出来，又回去接同学。没有备注，两个真记录合起来也会变成假人数。"
+            },
+            {
+              "actor": "hero",
+              "text": "我给每个确认写地点和最后时间，重复经过另记。不能让接人的人因为做了两次好事，就替队伍多长出一个人。"
+            },
+            {
+              "actor": "system",
+              "text": "一位老师问能不能先写齐，免得别的班以为这里出事。我把两份原件递过去，说明未知就要留空。老师沉默了一会儿，自己把刚补的勾擦掉。"
+            },
+            {
+              "actor": "hero",
+              "text": "空格不是难看，是提醒还得有人去找。全写满以后再私下记一张缺人条，接班的人可能只看见满的那张。"
+            }
+          ],
+          "question": "同一个名字被两处确认，应该怎样处理？",
+          "choices": [
+            [
+              "right",
+              "保留两处来源，以最后可核验位置汇总"
+            ],
+            [
+              "wrong",
+              "算作两人，先让各点人数都对上"
+            ],
+            [
+              "cancel",
+              "暂时离开，稍后再查"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "人数来自人，不来自勾。重复记录留下用途，不重复制造一个“已安全”的人。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "总数暂时对上，会让真正缺的人更难被发现。回到姓名与最后位置核对。"
+            }
+          ],
+          "event": "side/chapter_evacuation/0"
+        },
+        {
+          "actor": "yang_zi",
+          "hint": "请阳子核对南门分流路线，保留伤员通道",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "近路有积水，最窄处只能过一人。平时跑得快，夜里人一多，就变成谁都走不了。东路绕一点，但能让担架通过。"
+            },
+            {
+              "actor": "hero",
+              "text": "你不去领跑？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "我站在看得见两队的地方报方向。腿还没好，没必要靠再受伤一次证明积极。你要是看我偷偷追出去，就提醒我，我也会忘。"
+            },
+            {
+              "actor": "hero",
+              "text": "收到。路线我按现有条件标，不写永远最优。哪边堵了，由现场确认的人报，不听最响的那个喊。"
+            }
+          ],
+          "event": "side/chapter_evacuation/1",
+          "puzzle": {
+            "kind": "dials",
+            "title": "三条路，六个小组",
+            "description": "每次提示将一个小组改派到对应通道，0～3循环。东、西、北三路要各在容量内，并给伤员保留不走台阶的路。这里先在纸图演练，不移动真实人群。",
+            "initial": [
+              2,
+              2,
+              2
+            ],
+            "target": [
+              3,
+              2,
+              1
+            ],
+            "controls": [
+              "东侧宽道组数",
+              "西侧短道组数",
+              "北侧平道组数"
+            ],
+            "clues": [
+              {
+                "title": "现场容量",
+                "text": "共有6个小组，其中1组是伤员。东侧这次最多3组，西侧最多2组，北侧最多1组。每条都要在容量内，不留一组在待分流栏。"
+              },
+              {
+                "title": "地面与台阶",
+                "text": "西侧有台阶；北侧是唯一无台阶通道，需留给伤员组。东侧虽宽，也不能让后排临时逆行来回换路。"
+              },
+              {
+                "title": "确认口令",
+                "text": "先在纸图核验人数与容量，实际通行由各点逐组确认。这不是把人的行动变成几个数字，而是避免一个好看的总数掩盖过载的出口。"
+              }
+            ],
+            "hint": "先把伤员1组放北路。还剩5组，东最多3、西最多2，只有东3、西2能全部通过且不超载。",
+            "helper": "yang_zi",
+            "success": [
+              {
+                "actor": "yang_zi",
+                "text": "东3、西2、北1，六组都有位置。你看，最短的路没有分最多的人。按这张发出口令，后面的指控不能再拿“阳子只会往前跑”当全部证词。"
+              }
+            ],
+            "failure": [
+              {
+                "actor": "system",
+                "text": "总数或容量不对。纸图还没影响真实人群，先核北路的伤员位置，再核剩下5组。"
+              }
+            ],
+            "tokens": [
+              [
+                "0",
+                "1",
+                "2",
+                "3"
+              ],
+              [
+                "0",
+                "1",
+                "2",
+                "3"
+              ],
+              [
+                "0",
+                "1",
+                "2",
+                "3"
+              ]
+            ]
+          }
+        },
+        {
+          "location": "S02",
+          "hint": "到主席台核查临时补给点与后备集合位",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "主席台下放着水，标签却被倒放的箱子挡住。我们把箱子移开，留出能坐人的位置，并把伤员与普通集合点分开，避免大家围过来确认时堵住通道。"
+            },
+            {
+              "actor": "hero",
+              "text": "这里不能只有一张写满术语的图。方向箭头朝人来的那边，口令短一点，没听清的人也能看手势。"
+            },
+            {
+              "actor": "system",
+              "text": "一个同学主动拿起补给登记本，又问错记了会不会挨骂。我把修改方法示范给他：不撕页，划线，补日期，找第二个人复核。"
+            },
+            {
+              "actor": "hero",
+              "text": "愿意帮忙的人也会怕犯错。让错误能改，比告诉所有人“不许出错”更能留住人手。"
+            }
+          ],
+          "event": "side/chapter_evacuation/2"
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "交回来源一致的撤离清单，与辣椒完成轮换",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "现在还缺一处确认。我先不把它补满，接班的人会知道去哪问。你真的记得提醒我喝水。"
+            },
+            {
+              "actor": "hero",
+              "text": "别当额外的人情，也写进流程。报完一轮换人，谁都能执行，不等班长渴到说不出话。"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "那这一轮你报，我听。名字读慢一点，没人应就再核，不许因为熟就替他答。"
+            },
+            {
+              "actor": "system",
+              "text": "她第一次把笔交出去之后，没有立即伸手拿回。我们一人读，一人核，声音不整齐，名单却比刚才清楚。"
+            }
+          ],
+          "event": "side/chapter_evacuation/3"
+        }
+      ],
+      "side_story": {
+        "owner": "la_jiao",
+        "min_index": 24,
+        "chapter_bridge": true,
+        "description": "章节调查：沿线核验线索并回访，完成后继续主线。无计时失败；错误判断可重新核验。",
+        "intro": [
+          {
+            "actor": "la_jiao",
+            "text": "实验楼已经开始撤人，南门那边的名单却有两个版本。一样的总人数，不一样的名字。有人为了快，把未确认的人直接抄成了已到。"
+          },
+          {
+            "actor": "hero",
+            "text": "我去把两个名单合成一份？"
+          },
+          {
+            "actor": "la_jiao",
+            "text": "合并之前先找来源。不然同一个人被点两次，另一个人一次也没有。我要的是谁在哪里被谁确认，不是一张让主任看着安心的总数。"
+          },
+          {
+            "actor": "hero",
+            "text": "你声音都哑了，下一段我来报，你复核。"
+          },
+          {
+            "actor": "la_jiao",
+            "text": "行。还有，请你查完回来时问我有没有喝水。我一忙起来，总觉得自己停一口气，事情就会全散。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "撤离图贴好以后，辣椒亲手把一处“已确认”改成“待复核”。这不是退步，是接班的人终于能看见真正剩下的工作。"
+          },
+          {
+            "actor": "la_jiao",
+            "text": "我休息十分钟。不是事情都完了，是还没完的事也有人接着做。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "la_jiao",
+            "text": "那个临时帮忙的同学今天自己来问轮值，不用我追着找了。大概是知道犯错能改，就没那么怕。"
+          },
+          {
+            "actor": "hero",
+            "text": "那给他也留休息格。"
+          },
+          {
+            "actor": "la_jiao",
+            "text": "留了，我的也留了。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "water": 1,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "chapter_morning",
+      "type": "side",
+      "title": "掌声之后的第一个早晨",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "actor": "la_jiao",
+          "hint": "向辣椒核对请假、补考和探望安排",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "补考已经留了位置，作业按恢复情况交，不追一天补一天。我想排一个探望表，又怕排完他不好意思拒绝。"
+            },
+            {
+              "actor": "hero",
+              "text": "改成自愿留言，他自己选什么时候看。送资料的人送到就走，不要求合照，也不要求他再讲一次经历。"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "那我把恢复细节从公开表上拿掉，老师那里保留必要说明。其他人只需要知道他在休养，不需要知道哪一次站起来会头晕。"
+            },
+            {
+              "actor": "hero",
+              "text": "不是秘密越多越好，是信息给真需要的人。别人关心，也不能自动换到全部病情。"
+            }
+          ],
+          "event": "side/chapter_morning/0"
+        },
+        {
+          "location": "B04",
+          "hint": "到仓库检查休养补给的标签与取用方式",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "有人送了一箱特别补给，标签写得像能立刻恢复全部体力。成分却只是水和普通糖。牢李看过以后，把夸大的纸去掉，按实际用途重新标。"
+            },
+            {
+              "actor": "hero",
+              "text": "补给不能把一周虚弱喝没，水也不是让人立即再变身的理由。能缓解的写缓解，不能代替休养的也写清楚。"
+            },
+            {
+              "actor": "system",
+              "text": "我们把箱子分成小袋，放在牢傲坐着能拿到的高度。最底下留一块空处，不塞满礼物，让他的书包还有地方放。"
+            },
+            {
+              "actor": "hero",
+              "text": "帮忙要给生活腾位置，不是用我们的关心把他的桌子挤成纪念馆。最后这一袋先不搬，等问过本人再放。"
+            }
+          ],
+          "question": "有人要求牢傲演示一次变身以激励大家，怎么回应？",
+          "choices": [
+            [
+              "right",
+              "由牢傲自主决定，恢复期不安排演示或参战"
+            ],
+            [
+              "wrong",
+              "补给够多就能抵消虚弱，短演示没有关系"
+            ],
+            [
+              "cancel",
+              "暂时离开，稍后再查"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我把“恢复期不参战”写进交接，不给后面的人留一条“特殊情况再叫他”的暗口。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "虚弱不是耗空一条资源条，不能靠多送几瓶水换一次表演。先守住休养安排。"
+            }
+          ],
+          "event": "side/chapter_morning/1"
+        },
+        {
+          "actor": "fei_yan",
+          "hint": "请费眼确认恢复期不再借用牢傲的力量",
+          "dialogue": [
+            {
+              "actor": "fei_yan",
+              "text": "我以前会说“真有危险再叫你”。听着像体贴，其实让休息的人一直值着班。今天这句我撤回，危险由能行动的人处理。"
+            },
+            {
+              "actor": "hero",
+              "text": "那你自己也轮换。你别替别人争到休息，转头把自己安排成一周全天候。"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "你最近越来越难糊弄。行，我把我的班拆开，也留一个能找别人接手的号码。"
+            },
+            {
+              "actor": "hero",
+              "text": "我们不是因为他救过人，才给他正常休息的资格。不救人也能请假，这条别忘了。"
+            }
+          ],
+          "event": "side/chapter_morning/2"
+        },
+        {
+          "actor": "lao_ao",
+          "hint": "把休养安排交给牢傲，由他确定探望边界",
+          "dialogue": [
+            {
+              "actor": "lao_ao",
+              "text": "今天我想一个人听一段音乐，明天可以来两个人。那一晚的事以后再讲，不用替我说是心理阴影，我只是还没整理好。"
+            },
+            {
+              "actor": "hero",
+              "text": "行。我把想问的话收着，不抢你的恢复时间。"
+            },
+            {
+              "actor": "lao_ao",
+              "text": "还有，那段节拍的名字不是“救命曲”。就是以前练的一首歌。你们要听我可以分享，但别让我以后每次听见都得想起楼梯口。"
+            },
+            {
+              "actor": "hero",
+              "text": "知道了。你可以把英雄下线，账号里还得有普通的自己。"
+            }
+          ],
+          "event": "side/chapter_morning/3"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_ao",
+        "min_index": 29,
+        "chapter_bridge": true,
+        "description": "章节调查：沿线核验线索并回访，完成后继续主线。无计时失败；错误判断可重新核验。",
+        "intro": [
+          {
+            "actor": "lao_ao",
+            "text": "大家昨天都说我厉害，今天见面却像不知道该说什么。有人想问变身，有人不敢问我疼不疼。我也不知道怎么回答，所以先问你一件普通的事：能帮我安排这几天补课吗？"
+          },
+          {
+            "actor": "hero",
+            "text": "能。你不是应该先休息？"
+          },
+          {
+            "actor": "lao_ao",
+            "text": "休息也得知道之后的生活接得上。我不想一醒来就发现自己只剩“救过大家”这一个身份。上课、耳机、吃饭，哪件都还属于我。"
+          },
+          {
+            "actor": "hero",
+            "text": "那我们先收作业安排、补给和复诊时间。你决定要谁来，不把探望排成又一场必须坚持的活动。"
+          },
+          {
+            "actor": "lao_ao",
+            "text": "谢谢。还有，别把我的拒绝说成身体太弱。我有时候只是今天不想说那一晚。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "休养安排里最醒目的一行是“本人可随时调整”。牢傲看完，把笔放下，说今天想吃普通面包，不用加一个令人感动的包装。"
+          },
+          {
+            "actor": "hero",
+            "text": "那我去买。买完就走，绝不附赠一场感谢会。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_ao",
+            "text": "昨天我没听那首歌，改打了一局很简单的。成绩一般，心情挺好。"
+          },
+          {
+            "actor": "hero",
+            "text": "你没跟它较劲？"
+          },
+          {
+            "actor": "lao_ao",
+            "text": "今天不用证明我状态恢复。一般也能算过完一天。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "water": 1,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "chapter_promise",
+      "type": "side",
+      "title": "不拿明天当抵押",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "actor": "wr",
+          "hint": "向wr核对黑魔法的停止条件与监督人",
+          "dialogue": [
+            {
+              "actor": "wr",
+              "text": "理智到限就停，谁看见异常都能提醒，不只由我自己宣布。今天不作永久契约，不用“事后都还你”这样的空话借力量。"
+            },
+            {
+              "actor": "hero",
+              "text": "如果真只差一次呢？"
+            },
+            {
+              "actor": "wr",
+              "text": "那就承认我们只剩一次也做不到的可能。你可以再问，我也可以拒绝。别让一声“只差”把前面所有代价都说小了。"
+            },
+            {
+              "actor": "system",
+              "text": "她把写了一半的契约翻过来，在空白处列出替代办法。它们都没有黑魔法快，但每个都有一个能接手的人。"
+            },
+            {
+              "actor": "hero",
+              "text": "我记下来。你不是备用电源，也不是牺牲以后能把剧情推过去的按钮。"
+            }
+          ],
+          "question": "如何写最后的协作约定？",
+          "choices": [
+            [
+              "right",
+              "写清上限、停止条件与可以重新商量的安排"
+            ],
+            [
+              "wrong",
+              "要求谁都不后退，以免最后功亏一篑"
+            ],
+            [
+              "cancel",
+              "暂时离开，稍后再查"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我删掉了“必须坚持到底”，改成“发现限制立即报告”。坚持不能把报告困难的人变成叛徒。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "人人不许退，最先到限的人就只能隐瞒。回去把能停下来核验的条件写清楚。"
+            }
+          ],
+          "event": "side/chapter_promise/0"
+        },
+        {
+          "actor": "lao_dong",
+          "hint": "向牢董核对封印方案与之后的交接",
+          "dialogue": [
+            {
+              "actor": "lao_dong",
+              "text": "今天关门，明天就要开始培训别人。家里的原件我会保管，操作方法要公开给通过培训的人，不能再把名字当唯一资格。"
+            },
+            {
+              "actor": "hero",
+              "text": "有人不同意你这样做呢？"
+            },
+            {
+              "actor": "lao_dong",
+              "text": "可以谈，不能拿祖先会失望堵住所有问题。我也不宣布从此不用守印，责任还在，只是分法要能变。"
+            },
+            {
+              "actor": "hero",
+              "text": "你最希望我们别替你许什么？"
+            },
+            {
+              "actor": "lao_dong",
+              "text": "别说我会永远留下。今天愿意，是今天的我愿意。以后有一天想走，不该被这一夜绑回来。"
+            }
+          ],
+          "event": "side/chapter_promise/1"
+        },
+        {
+          "actor": "yang_zi",
+          "hint": "向阳子核对伤害、原谅与最后的退路",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "我能跟你们走到门前，具体位置按恢复情况安排。勾尬要是求原谅，我不保证给。别替我说“大家都原谅了”，也别拿我不原谅当你们无法收尾的理由。"
+            },
+            {
+              "actor": "hero",
+              "text": "你不希望我替你报复？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "我希望她停止伤人，承担做过的事。你要真为我把自己也变成只剩复仇的人，之后谁陪我慢慢走路？"
+            },
+            {
+              "actor": "hero",
+              "text": "那我把这个当回来要做的事，不当出发前必须壮烈的台词。"
+            },
+            {
+              "actor": "system",
+              "text": "他把那张折过许多次的路线图递来，背面写着一家炒饭店的营业时间。我们没有约一个必胜的结局，只约了一个回来还能商量的晚饭。"
+            }
+          ],
+          "event": "side/chapter_promise/2"
+        },
+        {
+          "actor": "fei_yan",
+          "hint": "回到费眼处汇总各人的边界与替代方案",
+          "dialogue": [
+            {
+              "actor": "fei_yan",
+              "text": "你都问了？有没有哪句让你失望？"
+            },
+            {
+              "actor": "hero",
+              "text": "有。我想有人告诉我绝对能赢，结果大家只告诉我怎么输得不把别人也赔进去。听完更怕，也更知道该做什么。"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "这比一句必胜难。害怕可以带进去，假的保证留在这里。"
+            },
+            {
+              "actor": "hero",
+              "text": "还有我自己的限制：我不想替所有人做最后决定。能问的时候要问，来不及的时候先保人，事后把我做的选择完整说出来，接受他们不同意。"
+            }
+          ],
+          "event": "side/chapter_promise/3"
+        }
+      ],
+      "side_story": {
+        "owner": "fei_yan",
+        "min_index": 30,
+        "chapter_bridge": true,
+        "description": "章节调查：沿线核验线索并回访，完成后继续主线。无计时失败；错误判断可重新核验。",
+        "intro": [
+          {
+            "actor": "fei_yan",
+            "text": "决战前我还有一件事想让你做。不是把大家的战意煽起来，是分别问清楚：如果今天做不到，他们希望怎样撤，哪些承诺不能替他们说。"
+          },
+          {
+            "actor": "hero",
+            "text": "会不会越问越怕，最后谁都不想去？"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "那也得允许。不能因为怕人不来，就等走进门里才告诉代价。你是主角也一样，别人都看着你，不代表你不能改变决定。"
+          },
+          {
+            "actor": "hero",
+            "text": "我去问。但我也要你答：如果我不是你想象中的天才，没能一次解决，你会不会觉得白教了？"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "不会。我教你是希望你活着过日子，不是找一个替我完成旧事的人。这句话我应该早说。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "最后的计划没有盖上“万无一失”。我们各自签名，旁边留着能改的空白，写下之后还要回来核对的事。"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "走吧。你不是一个负责让所有人满意的天才，是一个知道谁在身边、也愿意听他们说不的人。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "fei_yan",
+            "text": "以后要是有人把这一晚讲得太神，我就把大家出发前纠结买什么面包的部分补进去。"
+          },
+          {
+            "actor": "hero",
+            "text": "也把你紧张得找不到钥匙，最后发现挂在脖子上的事加上。"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "行，留着。英雄故事也得能查原件。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "water": 1,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_li_deadline",
+      "type": "side",
+      "title": "维修员也会误判",
+      "auto_start": false,
+      "prerequisites": [
+        "side_li_radio"
+      ],
+      "steps": [
+        {
+          "location": "B04",
+          "hint": "在仓库核对两批外形相同的备用件",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "两批旋钮长得一样，标签却有一个数不同。牢李凭外形拿了旧批次，电压范围正好不适合临时回路。旧标签被新箱盖挡住，不打开根本看不见。"
+            },
+            {
+              "actor": "hero",
+              "text": "这不是换一个人更仔细就能永久解决的错。先把两批分开，标签朝外，再查已经领走的有没有混用。"
+            }
+          ],
+          "event": "side/side_li_deadline/0",
+          "puzzle": {
+            "kind": "switches",
+            "title": "外壳相同的备用件",
+            "description": "三只离线测试开关连着四个状态格。目标是“暗、亮、亮、暗”，表示两端断开、中间测试可用。不要按外壳颜色猜。",
+            "initial": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "target": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "controls": [
+              "旧批次A",
+              "公共测试B",
+              "新批次C"
+            ],
+            "clues": [
+              {
+                "title": "接点图",
+                "text": "A翻转1、2格，B翻转2、3格，C翻转3、4格。翻转两次会回到原样。"
+              },
+              {
+                "title": "测试要求",
+                "text": "这次只做中间接触点测试，两端必须保持暗，防止把临时测试当作整机可用。所需状态：暗、亮、亮、暗。"
+              },
+              {
+                "title": "牢李的草稿",
+                "text": "草稿先圈了A和C，因为外壳看起来更新。参数检查没有支持这个判断，技术担当也可能被好看的外观带偏。"
+              }
+            ],
+            "hint": "只开B会改变中间2、3格，两端不动。A与C会碰到这次不该接通的端点。",
+            "helper": "lao_li",
+            "success": [
+              {
+                "actor": "lao_li",
+                "text": "是B，不是我先圈的两只。错不在没人相信我，是我把外观当了参数。我会在延期说明里写清这一点，不再说只是运气不好。"
+              }
+            ],
+            "failure": [
+              {
+                "actor": "system",
+                "text": "一端仍亮，或中间没有同时亮。这种状态拿去整机使用，会把一次试验误报成可交付。"
+              }
+            ],
+            "links": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ]
+          }
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "请牢抽复核误判是否影响已经交付的设备",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "已经交出去的两台参数吻合，暂时没有同一问题。可“暂时”不能删，复测结果要另记。你们准备公开怎么说？"
+            },
+            {
+              "actor": "hero",
+              "text": "说这次延误来自误判，后续时间待确认。不能为了不吓人把原因藏了，也不夸成所有设备都危险。"
+            },
+            {
+              "actor": "lao_chou",
+              "text": "那我陪他去说明。一个人认错容易把自己骂成废物，两个人能把话留在具体的问题上。"
+            }
+          ],
+          "event": "side/side_li_deadline/1"
+        },
+        {
+          "actor": "lao_li",
+          "hint": "陪牢李决定如何发布延期说明",
+          "dialogue": [
+            {
+              "actor": "lao_li",
+              "text": "我写了两版。一版我当面讲，一版贴在广播旁请值班老师转达。都写清原因和复测，我不知道选哪版才不算躲。"
+            }
+          ],
+          "question": "选择说明方式（两种都承担责任）：",
+          "choices": [
+            [
+              "right",
+              "陪他当面向使用者说明"
+            ],
+            [
+              "other",
+              "帮助整理书面说明并约好答疑时间"
+            ],
+            [
+              "cancel",
+              "稍后再决定"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "我们一起去，先讲误判，再讲已复测的范围。有人失望，也有人说以后别硬报时间。牢李没躲在我后面，我也没替他说完。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "说明贴好，答疑时间写在下面。牢李准时坐在那里，接了几个难听的问题。书面不是躲开，只要还愿意出来答。"
+              }
+            ]
+          },
+          "event": "side/side_li_deadline/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_li",
+        "min_index": 14,
+        "intro": [
+          {
+            "actor": "lao_li",
+            "text": "广播又坏了，不是缺件，是我把一段线路判断错了。我答应今天修好，刚才听见人问，就说快好了。其实还没找到问题。"
+          },
+          {
+            "actor": "hero",
+            "text": "我以为你上次已经学会求助了。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "会说不等于每次都敢。现在最难的不是拆机器，是出去把那句“快好了”收回。你陪我查两处，再帮我看着，别让我偷偷熬到明天假装守约。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "lao_li",
+            "text": "别人没有因为我认错就都喜欢我。可我不必再一边拧螺丝，一边怕谁突然问一句进度。"
+          },
+          {
+            "actor": "hero",
+            "text": "这段也留着。以后你再说快好了，我要多问一句“真的，还是不好意思说没好”。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_li",
+            "text": "今天我说了“还不确定”，说完心里发虚。后来真的提前修好，反而不用再编解释。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 50,
+          "items": {
+            "ink_fragment": 2,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_li_apprentice",
+      "type": "side",
+      "title": "留给下一双手",
+      "auto_start": false,
+      "prerequisites": [
+        "side_li_deadline"
+      ],
+      "steps": [
+        {
+          "location": "B04",
+          "hint": "在仓库按说明检查一个不通电的练习机盒",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "说明第一句写“按常规拆开”。我看着三种螺丝，常规了半天，没敢下手。第二句写“复原即可”，可旧线根本没有标颜色。"
+            },
+            {
+              "actor": "hero",
+              "text": "我把卡住的地方圈出来，没有为了装懂把它弄坏。会做的人省掉的那一步，刚好是后来的人最需要的一步。"
+            }
+          ],
+          "event": "side/side_li_apprentice/0"
+        },
+        {
+          "actor": "lao_shuo",
+          "hint": "请牢硕检查新人维护与断电流程",
+          "dialogue": [
+            {
+              "actor": "lao_shuo",
+              "text": "先确认断电，再检查残余能量，工具也得对应。老师站旁边不是省略步骤的理由，老师不在的时候才最需要它们。"
+            },
+            {
+              "actor": "hero",
+              "text": "那我们拍实际位置，不只放一张漂亮示意图。需要两个人复核的写两人，别把熟练工的单手操作拿去教新人。"
+            }
+          ],
+          "question": "“常规拆卸”应改成什么？",
+          "choices": [
+            [
+              "right",
+              "标出工具、断电确认、拆卸顺序与停止条件"
+            ],
+            [
+              "wrong",
+              "写成“很简单，小心一点即可”"
+            ],
+            [
+              "cancel",
+              "先离开，回来再试"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "新说明多了半页，却少了三次猜。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "小心是一种态度，不是可执行步骤。还是把具体操作补齐。"
+            }
+          ],
+          "event": "side/side_li_apprentice/1"
+        },
+        {
+          "actor": "lao_li",
+          "hint": "把新人试读记录交给牢李",
+          "dialogue": [
+            {
+              "actor": "lao_li",
+              "text": "这几处我真没想到。以前别人不会，我总以为讲过一遍了，怎么还要问。"
+            },
+            {
+              "actor": "hero",
+              "text": "因为你讲的是你知道的，不是他听得懂的。不是让你永远重复，是把下一个人能独立做的那一步留下。"
+            },
+            {
+              "actor": "lao_li",
+              "text": "那明天从不通电的练习开始。我也不把他的字重抄成我的，说明可以越来越不像我一个人。"
+            }
+          ],
+          "event": "side/side_li_apprentice/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_li",
+        "min_index": 30,
+        "intro": [
+          {
+            "actor": "lao_li",
+            "text": "有人想跟我学修东西，我第一反应是说忙。不是不愿教，是怕教完别人发现，我也靠试错，不是拿起螺丝刀就知道。"
+          },
+          {
+            "actor": "hero",
+            "text": "你把说明给我，我找个不会修的人照着做。先说好，我可能就是那个不会的。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "那最好。看你卡在哪一步，我就知道哪一步其实只写给了我自己看。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "广播台旁多了一本维护手册，封面签着两个人的名字。牢李关门前没有再回头确认一遍每个开关，接班的人正在做。"
+          },
+          {
+            "actor": "hero",
+            "text": "技术担当下班了，先去吃饭。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_li",
+            "text": "昨天新人发现了我漏标的一根线，直接写进修订表。我没觉得丢脸，反而省了一下午。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 60,
+          "items": {
+            "field_ration": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "side_chou_error",
+      "type": "side",
+      "title": "一题算错以后",
+      "auto_start": false,
+      "prerequisites": [
+        "side_chou_proof"
+      ],
+      "steps": [
+        {
+          "location": "B06:1:0",
+          "hint": "到图书室找被引用的第一版巡查副本",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "第一版把两处不同日期的黑点连成同一条移动路线。复印边角裁掉日期，读者不知道区别，后面的推论因此看起来很完整。"
+            },
+            {
+              "actor": "hero",
+              "text": "错误不在某个算式，是来源一开始就混了。把日期补回去，再算一遍，不能只把结论换个词。"
+            }
+          ],
+          "question": "更正时需要留下什么？",
+          "choices": [
+            [
+              "right",
+              "原版本号、错误原因与新证据的范围"
+            ],
+            [
+              "wrong",
+              "只保留新的漂亮结论，避免继续传播旧错"
+            ],
+            [
+              "cancel",
+              "先离开，回来再试"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我在原页贴更正，不撕原页。拿过旧版的人能知道自己看过哪一版。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "旧版已经被引用，删掉只会让别人无处核对。先找出版本的连接。"
+            }
+          ],
+          "event": "side/side_chou_error/0"
+        },
+        {
+          "actor": "lao_li",
+          "hint": "找牢李确认副本发放范围",
+          "dialogue": [
+            {
+              "actor": "lao_li",
+              "text": "发了六份，三份借给别组。我有领用单，能按范围通知，不用把别人的手机号公开。"
+            },
+            {
+              "actor": "hero",
+              "text": "牢抽怕别人笑他。"
+            },
+            {
+              "actor": "lao_li",
+              "text": "会有人笑。但我也希望有人告诉我拿到的是旧版，别让我带着他的错去说服下一拨人。帮他把通知送到，不等于替他挡掉所有难听话。"
+            }
+          ],
+          "event": "side/side_chou_error/1"
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "让牢抽亲自确认更正文字",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "我写“由于资料不全导致判断偏差”，听起来像资料自己走错了。改成“我没有核对日期，就把两条记录连在一起”。"
+            },
+            {
+              "actor": "hero",
+              "text": "这句更难说。"
+            },
+            {
+              "actor": "lao_chou",
+              "text": "也更能让后来的人知道该怎么避免。错的是这一步，不是世界上从此没有我会做的事。"
+            }
+          ],
+          "event": "side/side_chou_error/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_chou",
+        "min_index": 15,
+        "intro": [
+          {
+            "actor": "lao_chou",
+            "text": "巡查报告里有一个结论是我推错的。我发现了，但有人正拿那一段夸我，我没立即打断。现在每多过一会儿，就越难说。"
+          },
+          {
+            "actor": "hero",
+            "text": "原来你也会舍不得一个好看答案。"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "我还想过先改电子版，假装别人记错。这个念头让我更不敢开口。请你帮我找最初两份记录，别让我把它偷偷抹掉。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "更正发出去后，有人只回了“收到”，没有责备，也没有安慰。牢抽盯着这两个字，看了很久。"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "原来别人需要的，可能只是我把错改清楚，不是表演多么羞愧。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_chou",
+            "text": "现在写报告我会先看版本号。不是从此不出错，是出了错能找到谁拿过哪一版。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 45,
+          "items": {
+            "concentration_candy": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "side_chou_unsolved",
+      "type": "side",
+      "title": "允许一道题没有解",
+      "auto_start": false,
+      "prerequisites": [
+        "side_chou_error"
+      ],
+      "steps": [
+        {
+          "location": "B06:1:0",
+          "hint": "到图书室整理同一事件的两份不同视角材料",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "两段叙述没有谁撒谎，只是一个人站在门内，一个人在门外。前者听见停下，后者看见仍在移动。单独读都能得出很确定的指责。"
+            },
+            {
+              "actor": "hero",
+              "text": "把视角写在开头，先请人说缺什么。不是训练大家怀疑一切，是练习在材料不够的时候不要把话说满。"
+            }
+          ],
+          "event": "side/side_chou_unsolved/0"
+        },
+        {
+          "actor": "wr",
+          "hint": "请wr试读开放讨论的问题",
+          "dialogue": [
+            {
+              "actor": "wr",
+              "text": "如果问“谁更自私”，大家会先站队。如果问“各自不知道什么”，才有机会接着补。我也会忍不住替故事里的角色解释，你可以提醒我。"
+            },
+            {
+              "actor": "hero",
+              "text": "那主持人不是把大家引到正确立场，是让没说完的人有机会说。"
+            }
+          ],
+          "question": "讨论最后怎么收尾？",
+          "choices": [
+            [
+              "right",
+              "每人写一个仍需核实的问题"
+            ],
+            [
+              "other",
+              "共同列出两种暂不能排除的解释"
+            ],
+            [
+              "cancel",
+              "稍后再决定"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "问题贴在板上，不投票选最聪明的一条。牢抽第一次不用宣布标准答案，散场时反而有人留下继续问。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "两种解释并排保留，各写需要补的材料。分歧没有被一句“都对”抹掉，也没逼人当场分胜负。"
+              }
+            ]
+          },
+          "event": "side/side_chou_unsolved/1"
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "把试读意见与讨论结果交回牢抽",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "中间安静了快一分钟，我手都伸到答案页上了。后来一个平时不说话的同学开始讲，我要是先讲，他可能就不说了。"
+            },
+            {
+              "actor": "hero",
+              "text": "你这次解决的是自己忍不住抢答的问题。"
+            },
+            {
+              "actor": "lao_chou",
+              "text": "对。这题我还得练，不是今天会了就永远会。"
+            }
+          ],
+          "event": "side/side_chou_unsolved/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_chou",
+        "min_index": 30,
+        "intro": [
+          {
+            "actor": "lao_chou",
+            "text": "今晚的读书会想留一道开放题。我拟了一份答案，又觉得把它拿去，大家最后还是会问我哪一个最正确。"
+          },
+          {
+            "actor": "hero",
+            "text": "你不带答案就行。"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "我怕冷场。没人回答的时候，我总忍不住把沉默填满。帮我试一次，只给材料，不给结论。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "牢抽把答案夹回包里，留下大家的问题。纸张很乱，他没有替每一种笔迹重写成统一格式。"
+          },
+          {
+            "actor": "hero",
+            "text": "学霸下次当听众，报名费照付。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_chou",
+            "text": "那道开放题还没结论，有人说我退步。我知道自己这次没有躲在答案后面。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 55,
+          "items": {
+            "bread": 2,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_fei_rehearsal",
+      "type": "side",
+      "title": "笑话接不住的时候",
+      "auto_start": false,
+      "prerequisites": [
+        "side_fei_precision"
+      ],
+      "steps": [
+        {
+          "location": "B02:1:corridor",
+          "hint": "到实验楼核对失误位置与停止步骤",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "演示目标离书桌太近，火苗被侧风带偏。费眼原计划用屏障挡，临时又改成更漂亮的转向，新人只记住了那一下转向。"
+            },
+            {
+              "actor": "hero",
+              "text": "教学不该把临时救场当标准动作。错误那一步保留，画出本来该停的位置，再从停手开始重教。"
+            }
+          ],
+          "question": "补课先练哪一项？",
+          "choices": [
+            [
+              "right",
+              "偏离目标后立即停止，确认旁人安全再重试"
+            ],
+            [
+              "wrong",
+              "加大威力，让偏转不影响击杀"
+            ],
+            [
+              "cancel",
+              "先离开，回来再试"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我把练习目标缩小，先练火灭掉，再练火落准。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "打死目标也可能伤人。补课要改的是停止条件，不是伤害不够高。"
+            }
+          ],
+          "event": "side/side_fei_rehearsal/0"
+        },
+        {
+          "hint": "接取后实际击败两只噬书怪，记录精准低级火的效果；实验楼或正常刷新区",
+          "event": "monster_defeated/book_eater",
+          "count": 2
+        },
+        {
+          "actor": "fei_yan",
+          "hint": "与费眼重做安全示范，承认第一次演示失误",
+          "dialogue": [
+            {
+              "actor": "fei_yan",
+              "text": "我直接说了“刚才那一步是我判断错”，新人反而开始问问题。以前我总觉得老师一错，大家就不信了。"
+            },
+            {
+              "actor": "hero",
+              "text": "这回没人笑场？"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "有，他们笑我板上的小人太胖。我也笑，但笑完继续讲错在哪，不拿胖小人把正事带走。"
+            }
+          ],
+          "event": "side/side_fei_rehearsal/2"
+        }
+      ],
+      "side_story": {
+        "owner": "fei_yan",
+        "min_index": 16,
+        "intro": [
+          {
+            "actor": "fei_yan",
+            "text": "我今天演示出了点错，想说个笑话带过去，结果新人都跟着笑，没人知道该怎么处理那个错。后来一个人照着做，差点烫到手。"
+          },
+          {
+            "actor": "hero",
+            "text": "你是不是最怕大家突然安静地看你？"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "怕。我一安静，就觉得自己只剩那个天赋不够的老师。请你跟我补一次课，这次不靠逗笑把难处抹过去。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "演示记录里多了“失误复盘”，费眼把署名写在下面。那张纸比成功截图难看，却被新人拍得最多。"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "天赋我教不了，怎么从错里停下来，我至少得教清楚。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "fei_yan",
+            "text": "今天有人叫我慢一点，我真的重讲了。不是觉得他跟不上，是终于承认我也可能没讲明白。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 60,
+          "items": {
+            "first_aid": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "side_fei_equal",
+      "type": "side",
+      "title": "师父也可以问学生",
+      "auto_start": false,
+      "prerequisites": [
+        "side_fei_rehearsal"
+      ],
+      "steps": [
+        {
+          "location": "B06:1:0",
+          "hint": "到图书室比较两份法术回路的差异",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "费眼的回路留了很多校正点，我本能的做法却直接绕过其中一段。省下的步骤难以解释，新人照着学会少一个保护。"
+            },
+            {
+              "actor": "hero",
+              "text": "我能做到，不代表它适合作教材。两种方案分开写，标明谁测试过、什么条件下能用。我的快不能拿来证明他的慢多余。"
+            }
+          ],
+          "event": "side/side_fei_equal/0"
+        },
+        {
+          "actor": "lao_li",
+          "hint": "请牢李制作可观察的低功率回路示意",
+          "dialogue": [
+            {
+              "actor": "lao_li",
+              "text": "我做两路指示灯，一步一步亮。这样不用天赋感受，也能看出能量走哪边。材料普通，谁来都能复测。"
+            },
+            {
+              "actor": "hero",
+              "text": "那咱们把一眼看懂变成别人也能看到的过程。不能因为我解释不出来，就说别人悟性不够。"
+            }
+          ],
+          "question": "给初学者保留哪一版？",
+          "choices": [
+            [
+              "right",
+              "保留可逐步校验的方案，进阶版注明条件"
+            ],
+            [
+              "wrong",
+              "只保留主角最快的一版，其他都淘汰"
+            ],
+            [
+              "cancel",
+              "先离开，回来再试"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "教学版先保住检查点，进阶版另页讨论。不同用途不用抢一个唯一答案。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "最快可能依赖个人天赋。先问使用者是谁，再决定省哪一步。"
+            }
+          ],
+          "event": "side/side_fei_equal/1"
+        },
+        {
+          "actor": "fei_yan",
+          "hint": "把对照实验交给费眼，一起完成新版讲义",
+          "dialogue": [
+            {
+              "actor": "fei_yan",
+              "text": "原来我能问你，不一定就退成旁边那个没用的人。你把直觉拆出来也需要我。"
+            },
+            {
+              "actor": "hero",
+              "text": "需要啊。我负责看见捷径，你负责问捷径上有没有坑。但你看见更好的路，也别为了当师父硬守旧的。"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "成交。下次我先问，不先扮丑。"
+            }
+          ],
+          "event": "side/side_fei_equal/2"
+        }
+      ],
+      "side_story": {
+        "owner": "fei_yan",
+        "min_index": 30,
+        "intro": [
+          {
+            "actor": "fei_yan",
+            "text": "有个法术回路我想问你。我绕了很久，你可能一眼能看出来。不过先别笑，我刚才已经在门口给自己排练三遍怎么开口。"
+          },
+          {
+            "actor": "hero",
+            "text": "你问。我答不出来也不影响你晚饭请我。"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "行。其实我最怕的不是你会，是你会了以后再也不需要我。我把这个念头带进教学，就老想多留一手。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "新版讲义的作者栏没有师徒排序，只写了各自负责的部分。费眼看完，第一次没把自己的名字缩小。"
+          },
+          {
+            "actor": "hero",
+            "text": "现在可以请饭了。教学平等，饭钱照旧。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "fei_yan",
+            "text": "有个新人问了我不会的问题，我说咱们一起查。他没露出失望的脸，是我以前自己先替他失望了。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 65,
+          "items": {
+            "concentration_candy": 2,
+            "field_ration": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_ao_record",
+      "type": "side",
+      "title": "那一拍不是奇迹",
+      "auto_start": false,
+      "prerequisites": [
+        "side_ao_beat"
+      ],
+      "steps": [
+        {
+          "location": "B01:3:0",
+          "hint": "到十班告示栏核对公开转发的版本",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "三个版本用了同一段声音，一个剪掉停顿，一个加了惊叫，还有一个把标题写成“还能再来一次”。评论里有人已经在问下一次什么时候表演。"
+            },
+            {
+              "actor": "hero",
+              "text": "我只记录公开版本和发布者，不收集围观者名单。删掉尖叫也不等于得到授权，先把版本送回牢傲，让他决定怎么说明。"
+            }
+          ],
+          "event": "side/side_ao_record/0"
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "与辣椒讨论活动记录的授权和撤回方式",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "学校想留夜袭纪念，我先没把这段交上去。集体经历里也有个人的声音，不能因为大家都在，就当每个人都同意。"
+            },
+            {
+              "actor": "hero",
+              "text": "他如果只许文字说明，不给录音，也得算有效的纪念。不能一说不愿意，就让他负责解释为什么不配合。"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "我去补授权表，允许后来撤回，不把一次点头写成永久许可。"
+            }
+          ],
+          "question": "牢傲目前愿意怎样保留记录？",
+          "choices": [
+            [
+              "right",
+              "只保留文字与节拍谱，不公开原录音"
+            ],
+            [
+              "other",
+              "由本人保留完整录音，公开片段暂时撤下"
+            ],
+            [
+              "cancel",
+              "稍后再决定"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "他选择让后来的人看见步骤，不再听见那晚的惊叫。谱子没有神迹，只有每次停下等人的空拍。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "完整录音封存给他，公开页写明暂时撤回。他还没准备好听，也不用今天决定永远不听。"
+              }
+            ]
+          },
+          "event": "side/side_ao_record/1"
+        },
+        {
+          "actor": "lao_ao",
+          "hint": "向牢傲交回处理结果，确认不再代他授权",
+          "dialogue": [
+            {
+              "actor": "lao_ao",
+              "text": "有人说我这样让大家失望。我确实不喜欢听，但更不喜欢每次听见，都有人盯着我等一个表情。"
+            },
+            {
+              "actor": "hero",
+              "text": "你不用替他们演感动。我也把刚才想夸的那一长段收回，今天想聊普通歌曲就聊。"
+            },
+            {
+              "actor": "lao_ao",
+              "text": "聊。不过不许说它简单，你上次两拍都没跟上。"
+            }
+          ],
+          "event": "side/side_ao_record/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_ao",
+        "min_index": 29,
+        "intro": [
+          {
+            "actor": "lao_ao",
+            "text": "有人把楼梯口的节拍录下来，配了很吓人的标题。我听见的时候，第一反应不是感动，是不想再听。你能帮我找公开转发的源头吗？不用替我查谁私下收藏。"
+          },
+          {
+            "actor": "hero",
+            "text": "要我让他们全删了？"
+          },
+          {
+            "actor": "lao_ao",
+            "text": "先让我知道有哪些。我可能留一份，也可能今天一份都不看。救人是真的，不代表那段声音从此属于所有人。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "标题撤下以后，那段节拍没有消失，只是回到愿意听的人手里。牢傲打开新歌，把音量调到两人都舒服的位置。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_ao",
+            "text": "今天自己听了前半段，没有坚持听完。能随时停，比一口气听到底更像我自己的东西。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 45,
+          "items": {
+            "water": 2,
+            "bread": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "side_ao_blank",
+      "type": "side",
+      "title": "没有满连的一天",
+      "auto_start": false,
+      "prerequisites": [
+        "side_ao_record"
+      ],
+      "steps": [
+        {
+          "actor": "yang_zi",
+          "hint": "找阳子准备不以速度排名的活动方式",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "我可以做一段拍手节奏，坐着能玩，站着也能玩。别为了照顾人，特意宣布这是简单模式，听着像先给人降了级。"
+            },
+            {
+              "actor": "hero",
+              "text": "那写可选方式，不写高低档。你跑得快的优点今天先放包里，留点让别人慢慢加入的时间。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "行，不过你错拍的时候我还是会笑。笑错拍，不笑人不行。"
+            }
+          ],
+          "event": "side/side_ao_blank/0"
+        },
+        {
+          "location": "S02",
+          "hint": "到主席台测试音量、座位和节拍提示",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "音箱朝外时很热闹，台阶下的人却只听见一团混响。我们调低音量，把提示灯挪到坐着也看见的位置。两人试了一遍，最难的是错拍后不慌着追。"
+            },
+            {
+              "actor": "hero",
+              "text": "我一追就越追越错，停两拍反而能回来。这招怎么连打游戏都能提醒我别硬撑。"
+            }
+          ],
+          "event": "side/side_ao_blank/1",
+          "puzzle": {
+            "kind": "sequence",
+            "title": "空拍也算一拍",
+            "description": "把四张提示卡排成能重新加入的节奏。不是反应速度测试，没有倒计时；可以坐着观察，错拍后也不用从头罚练。",
+            "initial": [
+              3,
+              1,
+              0,
+              2
+            ],
+            "target": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "controls": [
+              "交换1与2",
+              "交换2与3",
+              "交换3与4"
+            ],
+            "clues": [
+              {
+                "title": "阳子的口头节拍",
+                "text": "先“看灯”，然后“轻拍”，中间留一个“不拍”的空拍，最后“双拍”。重入提示从看灯开始，不从最响的双拍开始。"
+              },
+              {
+                "title": "牢傲的旧谱",
+                "text": "空拍不是没写完，是让上一拍来不及的人能赶上的位置。删掉它，节奏变短，参与者反而更难回来。"
+              },
+              {
+                "title": "现场试拍",
+                "text": "“轻拍”和“双拍”是动作强度，不是高低分。不能为了显得厉害，把双拍搬到每一格。四张提示各用一次。"
+              }
+            ],
+            "hint": "目标顺序是看灯、轻拍、空拍、双拍。用相邻交换把卡片慢慢挪回去，不用抢时间。",
+            "helper": "lao_ao",
+            "success": [
+              {
+                "actor": "lao_ao",
+                "text": "这次没漏掉空拍。以前我追满连，最讨厌空着；现在这里正好能等一个人回来。活动不用演示变身，也能把那晚留下的一点东西变得不那么疼。"
+              }
+            ],
+            "failure": [
+              {
+                "actor": "system",
+                "text": "顺序还接不上：有人会在没有看到重入提示前就被要求拍。给“看灯”和空拍留出位置。"
+              }
+            ],
+            "pieces": [
+              "看灯",
+              "轻拍",
+              "空拍",
+              "双拍"
+            ]
+          }
+        },
+        {
+          "actor": "lao_ao",
+          "hint": "把活动方案交给牢傲，由他决定当天目标",
+          "dialogue": [
+            {
+              "actor": "lao_ao",
+              "text": "我本来想证明自己状态回来了，现在改成听完一首喜欢的。成绩就存给自己，不放大屏幕。"
+            },
+            {
+              "actor": "hero",
+              "text": "我目标是不把拍手拍成打蚊子。"
+            },
+            {
+              "actor": "lao_ao",
+              "text": "这个有点难。我陪你，但不代打。"
+            }
+          ],
+          "event": "side/side_ao_blank/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_ao",
+        "min_index": 30,
+        "intro": [
+          {
+            "actor": "lao_ao",
+            "text": "我想办一次不排名的小活动。有人说音游不看分数，还有什么意思。我也犹豫，自己平时就爱追满连，别把别人不舒服的规则换成我喜欢的规则。"
+          },
+          {
+            "actor": "hero",
+            "text": "那让来的人各定一个目标，分数、节奏、听完都行。我负责当最不会玩的，让场面别太像高手展示会。"
+          },
+          {
+            "actor": "lao_ao",
+            "text": "你不用故意输。真的不会就行。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "活动结束，没有合照要求，也没有获奖榜。牢傲错了一拍，抬头笑了笑，继续听下一段。他没有急着再开一局把错补掉。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_ao",
+            "text": "那天有人只坐了五分钟，后来问还办不办。原来不把每个人留到最后，也能让人愿意再来。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 55,
+          "items": {
+            "field_ration": 1,
+            "water": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "side_shuo_uniform",
+      "type": "side",
+      "title": "穿上去以前",
+      "auto_start": false,
+      "prerequisites": [
+        "side_shuo_load"
+      ],
+      "steps": [
+        {
+          "location": "B04",
+          "hint": "到仓库核对巡查校服的实际保护范围",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "校服夹层有加固，袖口却需要活动，不能处处厚。标签上写了物理冲击和磨损条件，没有写无敌。拍照时最显眼的肩章，实际不提供防护。"
+            },
+            {
+              "actor": "hero",
+              "text": "先教这些，再说形象。穿衣服的人有资格知道哪里挡得住，哪里只是看起来可靠。"
+            }
+          ],
+          "event": "side/side_shuo_uniform/0"
+        },
+        {
+          "hint": "接取后实际击败一只空壳校服精英，观察物理格挡与光系破壳；实验楼或精英刷新区",
+          "event": "monster_defeated/empty_uniform",
+          "count": 1
+        },
+        {
+          "actor": "lao_shuo",
+          "hint": "与牢硕整理借用讲解，决定如何向同学道歉",
+          "dialogue": [
+            {
+              "actor": "lao_shuo",
+              "text": "我想告诉他，衣服不是让人变英雄的道具。也想承认我吼得过头了，不把道歉藏在后面的教育里。"
+            }
+          ],
+          "question": "怎样开始这次谈话？",
+          "choices": [
+            [
+              "right",
+              "先为当众吼人道歉，再说明借用要求"
+            ],
+            [
+              "other",
+              "私下约谈，先听他为什么想穿这件衣服"
+            ],
+            [
+              "cancel",
+              "稍后再决定"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "牢硕先把道歉说完整，停住，没有接一个“但是”。等对方点头，才拿出标签讲实际用途。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "对方说自己平时被嫌胆小，穿上觉得也能帮忙。牢硕听完，先道歉，再邀请他从不危险的登记岗试起。"
+              }
+            ]
+          },
+          "event": "side/side_shuo_uniform/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_shuo",
+        "min_index": 17,
+        "intro": [
+          {
+            "actor": "lao_shuo",
+            "text": "有同学借巡查校服拍照，我当场把他吼走了。他说只是想显得厉害，我听了更生气。现在想想，我还没问他知不知道那件衣服是做什么的。"
+          },
+          {
+            "actor": "hero",
+            "text": "你觉得他把你想当军人的事当玩笑？"
+          },
+          {
+            "actor": "lao_shuo",
+            "text": "有一点。我把自己的愿望也吼进去了。帮我查完护具和一次真实巡查，再找他讲，不然我怕只剩一句穿着就得像样。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "lao_shuo",
+            "text": "我想保家卫国，不是想先把身边的人管得像我脑子里的队伍。愿意保护人，得先让人敢站在我旁边。"
+          },
+          {
+            "actor": "hero",
+            "text": "这句比肩章好看。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_shuo",
+            "text": "他现在做领用登记，字比我规整。不是每个想帮忙的人都得先练成我这样。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 55,
+          "items": {
+            "first_aid": 1,
+            "field_ration": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_shuo_vacation",
+      "type": "side",
+      "title": "今天不值班",
+      "auto_start": false,
+      "prerequisites": [
+        "side_shuo_uniform"
+      ],
+      "steps": [
+        {
+          "actor": "la_jiao",
+          "hint": "与辣椒确认轮休表和接班人员",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "有人愿意接，他每次都说辛苦了，然后自己提前把事做完。久了别人会觉得名字只是在表上装饰。"
+            },
+            {
+              "actor": "hero",
+              "text": "那这次留给接班的人实际做。牢硕可以答问题，不能手一伸就全拿回来。"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "你也一样，别陪他休息时又聊下一场危险。休息要真的有别的内容。"
+            }
+          ],
+          "event": "side/side_shuo_vacation/0"
+        },
+        {
+          "location": "B04",
+          "hint": "把当班装备按清单交给接班位",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "我按清单放好药包和手电，少一副旧手套。接班同学说新手套已经领过，让我看登记。我差点又凭熟悉程度替他检查一遍全包。"
+            },
+            {
+              "actor": "hero",
+              "text": "核对同一标准，不是用老成员的眼睛把新人再审一轮。清单齐了就交接，给人真能上手的空间。"
+            }
+          ],
+          "question": "接班完成后怎样处理空出来的时间？",
+          "choices": [
+            [
+              "right",
+              "按轮休离开，约定必要联络与明确应急条件"
+            ],
+            [
+              "wrong",
+              "留在旁边全程盯着，免得新人独立操作"
+            ],
+            [
+              "cancel",
+              "先离开，回来再试"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "我把应急条件读回确认，其他事由当班人决定。交接不是换一个人拿包，原来的人继续指挥。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "一直站在身后，会让接班只剩名义。先把需要联络的条件写具体，再真的离开。"
+            }
+          ],
+          "event": "side/side_shuo_vacation/1"
+        },
+        {
+          "actor": "lao_shuo",
+          "hint": "陪牢硕决定一个与巡查无关的下午",
+          "dialogue": [
+            {
+              "actor": "lao_shuo",
+              "text": "我想看个讲模型的展册，不用研究它能不能实际作战。以前总觉得玩得太认真，就不像有理想的人。"
+            },
+            {
+              "actor": "hero",
+              "text": "那我看球。你不用把爱好也改造成备战，想守护的日子里得有想玩的东西。"
+            },
+            {
+              "actor": "lao_shuo",
+              "text": "手机我留着，但不每两分钟看一次。有人接班，不等于我失职。"
+            }
+          ],
+          "event": "side/side_shuo_vacation/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_shuo",
+        "min_index": 30,
+        "intro": [
+          {
+            "actor": "lao_shuo",
+            "text": "我在排决战后的轮休，把自己填在所有空班。辣椒看见就把表拿走了。我说闲着也闲着，她说我是不是不会别的生活。"
+          },
+          {
+            "actor": "hero",
+            "text": "说中了？"
+          },
+          {
+            "actor": "lao_shuo",
+            "text": "有一点。我怕不站岗，大家就不需要我。你帮我确认接班和装备，我试着空出一个下午，不临时找事补回去。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "牢硕翻到一艘并不实用的小模型，认真研究了半小时。电话没响，他也没有为了证明还重要，主动打回去问有没有事。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_shuo",
+            "text": "那个下午什么事也没发生。以前我会觉得空，现在想想，没发生事就是轮换正常。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 60,
+          "items": {
+            "bread": 2,
+            "field_ration": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_yang_prank",
+      "type": "side",
+      "title": "没接住的笑话",
+      "auto_start": false,
+      "prerequisites": [
+        "side_yang_pace"
+      ],
+      "steps": [
+        {
+          "location": "B01:3:0",
+          "hint": "到十班告示栏撤换带戏称的巡查分工表",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "外号写在最显眼的一栏，正式姓名反而挤在下面。任务记录看着热闹，却把人固定成胆小、慢、笨这些角色。改掉一个，还得查其他地方有没有抄去。"
+            },
+            {
+              "actor": "hero",
+              "text": "我保留工作内容和本人同意的名字，不写“他不让开玩笑所以改”。那样等于在新表上再给他贴一张标签。"
+            }
+          ],
+          "event": "side/side_yang_prank/0"
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "请辣椒帮助传达可撤回的称呼与公开更正",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "我以前也觉得有个外号方便记人，没有问本人。现在公开表统一用确认过的名字，私下叫法也不能因为全班都用就默认同意。"
+            },
+            {
+              "actor": "hero",
+              "text": "更正说表格本身不合适，不点名谁来投诉。别人找人算账，就又变成不舒服的人惹了麻烦。"
+            }
+          ],
+          "question": "阳子准备怎样道歉？",
+          "choices": [
+            [
+              "right",
+              "私下说明自己具体错在哪，不要求回应"
+            ],
+            [
+              "other",
+              "写下可由对方选择是否阅读的短笺"
+            ],
+            [
+              "cancel",
+              "稍后再决定"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "阳子当面说了三句话，没有一句“你别太敏感”。对方只点了头，他也没追问是不是没事了。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "短笺没有夹礼物，写明无需回复。阳子把决定什么时候看、要不要再谈的权利交了出去。"
+              }
+            ]
+          },
+          "event": "side/side_yang_prank/1"
+        },
+        {
+          "actor": "yang_zi",
+          "hint": "与阳子聊这次没有被接住的笑话",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "我有点失落，改了表，他还是没来。我是不是在等一个证明自己道歉成功的结果？"
+            },
+            {
+              "actor": "hero",
+              "text": "可能。我以前逗笑大家，就以为自己永远是讨喜的那个。真有人不笑，还会觉得是他难相处。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "那这回让失落自己待一会儿。下次点子出口前，多问一句本人愿不愿意。"
+            }
+          ],
+          "event": "side/side_yang_prank/2"
+        }
+      ],
+      "side_story": {
+        "owner": "yang_zi",
+        "min_index": 20,
+        "intro": [
+          {
+            "actor": "yang_zi",
+            "text": "我给巡查队起了几个外号，群里笑得挺开心。一个同学后来不肯来了，我才知道他真讨厌那个名字。我说大家没恶意，他就更不说话了。"
+          },
+          {
+            "actor": "hero",
+            "text": "这句我也常说。像是我没想伤人，别人就得自动不疼。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "你陪我把公开名单改掉，再找他说清楚。不要求他立刻回来，也不拿道歉换一个合群的表情。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "新分工表没那么有梗，却没有人再被笑声挡在名单外。阳子还是讲笑话，只开始留意谁一直没有笑。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "yang_zi",
+            "text": "他昨天回来帮了一小会儿，没提道歉。我也没把这事宣布成我们和好了。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 45,
+          "items": {
+            "water": 2,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_yang_walk",
+      "type": "side",
+      "title": "这次由你领路",
+      "auto_start": false,
+      "prerequisites": [
+        "side_yang_prank"
+      ],
+      "steps": [
+        {
+          "location": "S02",
+          "hint": "到主席台旁选择一处能停留的路线节点",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "台阶边换了一块新的防滑条，旁边仍有当晚留下的浅痕。我以为阳子会停很久，他只看了一眼，就开始讲上周一场球的离谱失误。"
+            },
+            {
+              "actor": "hero",
+              "text": "我没有把话拽回伤口。有时候愿意再来，是想把这里重新用成普通地方，不是每次都得重新讲一遍遭遇。"
+            }
+          ],
+          "question": "今天选哪一种步行安排？",
+          "choices": [
+            [
+              "right",
+              "沿熟悉的短路慢慢走，允许随时掉头"
+            ],
+            [
+              "other",
+              "换一条明亮的新路，不要求经过原来地点"
+            ],
+            [
+              "cancel",
+              "稍后再决定"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "我们沿短路走，每过一个口子都问要不要继续。原路没有变成必须通关的考验，只是一种可以选的路。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "新路绕了一点，多了个能看树影的台阶。没有经过旧处，也不等于阳子失败，他今天就是想看看别的。"
+              }
+            ]
+          },
+          "event": "side/side_yang_walk/0"
+        },
+        {
+          "actor": "lao_shuo",
+          "hint": "请牢硕帮忙核实路线的新障碍，不安排体能考核",
+          "dialogue": [
+            {
+              "actor": "lao_shuo",
+              "text": "下午有器材搬运，南侧暂时封着。你们换东边，来回都能休息。没有距离目标，别偷偷变成恢复训练。"
+            },
+            {
+              "actor": "hero",
+              "text": "听见了，今天成绩按吃饭前有没有好好聊天算。"
+            },
+            {
+              "actor": "lao_shuo",
+              "text": "那也别把聊天做成任务。想安静走，就安静走。"
+            }
+          ],
+          "event": "side/side_yang_walk/1"
+        },
+        {
+          "actor": "yang_zi",
+          "hint": "把步行记录交回阳子，约下一次普通出门",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "今天没走多远，心里却比跑完全程轻一点。我一直以为恢复就是回到受伤前那样，现在可能只是能选怎么走。"
+            },
+            {
+              "actor": "hero",
+              "text": "我以前怕你跑远了不等我。现在你慢下来，我反而急着把你修回去。以后不催了，你想快再说。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "行。但饭别等恢复完再吃，我现在就饿。"
+            }
+          ],
+          "event": "side/side_yang_walk/2"
+        }
+      ],
+      "side_story": {
+        "owner": "yang_zi",
+        "min_index": 30,
+        "intro": [
+          {
+            "actor": "yang_zi",
+            "text": "我想把旧路线再走一次，不跑，也不证明什么。你挑路，我跟着。要是走到一半觉得不舒服，我就说，不用装成玩笑。"
+          },
+          {
+            "actor": "hero",
+            "text": "终于轮到我领跑——领走。先说好，路线可能只到饭店门口。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "也行。上次我们只顾查哪里危险，这次看看哪里还适合坐一会儿。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "路线图背面多了一家饭店和营业时间，没有终点成绩。阳子把它折好，说下次也可以什么都不查，只出来走走。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "yang_zi",
+            "text": "今天跑了一小段，没人计时。我知道什么时候停，也知道有人不会因为我停了就走掉。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 55,
+          "items": {
+            "bread": 2,
+            "field_ration": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_dong_soup",
+      "type": "side",
+      "title": "六边形战士不会煮汤",
+      "auto_start": false,
+      "prerequisites": [
+        "side_dong_box"
+      ],
+      "steps": [
+        {
+          "location": "STORY_HOUSE:1:0",
+          "hint": "到旧宅厨房核对食谱的用量与旧量具",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "食谱写着“水两碗”，柜里却有三种不同的碗。最旧的一只比牢董用的大近一倍，边沿刻了一条浅线。火候一栏只有“别走开”。"
+            },
+            {
+              "actor": "hero",
+              "text": "家常话默认写给知道家常的人。咱们先量出毫升，再写看见什么算小火。祖传食谱也能加单位，不会气坏祖先。"
+            }
+          ],
+          "event": "side/side_dong_soup/0",
+          "puzzle": {
+            "kind": "dials",
+            "title": "祖传的“两碗”有多大",
+            "description": "按旧量杯与清楚的火候说明设置试煮记录。只调纸面参数，不启动炉具；先知道为什么失败，再决定下一锅。",
+            "initial": [
+              0,
+              2,
+              0
+            ],
+            "target": [
+              2,
+              0,
+              1
+            ],
+            "controls": [
+              "加水量",
+              "火候",
+              "等待时间"
+            ],
+            "clues": [
+              {
+                "title": "量杯刻线",
+                "text": "旧碗一碗300毫升，食谱要两碗。牢董第一次拿的是150毫升小碗，只有一半水。两碗旧量应记600毫升。"
+              },
+              {
+                "title": "修补后的食谱",
+                "text": "保温阶段用小火，等待6分钟，不是开到最大就能快点。温度和时间不能用魔法补偿，否则别人无法复做。"
+              },
+              {
+                "title": "失败记录",
+                "text": "第一锅300毫升、大火、9分钟，水干了。下一次先恢复食谱条件：600毫升、小火、6分钟；其他配料不变。"
+              }
+            ],
+            "hint": "把两只旧碗换算成600毫升，火候选小火，时间选6分钟。三个都核对，不只改那个最刺眼的焦味。",
+            "helper": "lao_dong",
+            "success": [
+              {
+                "actor": "lao_dong",
+                "text": "原来不是我连做饭的天赋都没有，是把家里默认知道的碗拿错了。把单位补齐，祖传食谱也可以让不认识祖先的人做出一锅汤。"
+              }
+            ],
+            "failure": [
+              {
+                "actor": "system",
+                "text": "参数仍与食谱不一致。旧碗比这次用的小碗大一倍，大火也不能替代规定时间。"
+              }
+            ],
+            "tokens": [
+              [
+                "300毫升",
+                "450毫升",
+                "600毫升"
+              ],
+              [
+                "小火",
+                "中火",
+                "大火"
+              ],
+              [
+                "3分钟",
+                "6分钟",
+                "9分钟"
+              ]
+            ]
+          }
+        },
+        {
+          "actor": "lao_li",
+          "hint": "请牢李检查旧炉具，确认可以普通方式使用",
+          "dialogue": [
+            {
+              "actor": "lao_li",
+              "text": "开关接触差，先修。不能拿法术补火，那样下次没法术的人照着做，还会错。我把修好的范围写在旁边，其他老化件得换。"
+            },
+            {
+              "actor": "hero",
+              "text": "我们以前查旧宅总找法阵，原来普通插头也会闹事。"
+            },
+            {
+              "actor": "lao_li",
+              "text": "厉害的家里也有坏插头。你们别把危险都想得特别神秘。"
+            }
+          ],
+          "event": "side/side_dong_soup/1"
+        },
+        {
+          "actor": "lao_dong",
+          "hint": "把明确用量的食谱交给牢董，接受普通失败",
+          "dialogue": [
+            {
+              "actor": "lao_dong",
+              "text": "这次淡了点，但能喝。我想再加一味把它修到完美，你先尝。"
+            },
+            {
+              "actor": "hero",
+              "text": "留到下一锅。现在饿的人需要能喝的汤，不需要一个永远调试中的六边形晚餐。"
+            },
+            {
+              "actor": "lao_dong",
+              "text": "那今天就这样。失败过两次，不妨碍第三次请人一起吃。"
+            }
+          ],
+          "event": "side/side_dong_soup/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_dong",
+        "min_index": 23,
+        "intro": [
+          {
+            "actor": "lao_dong",
+            "text": "旧宅的食谱我想试一次。家里说很简单，我照着做，水烧干了。你要笑可以笑，别告诉阳子，他能给这锅汤编三集连续剧。"
+          },
+          {
+            "actor": "hero",
+            "text": "你这保密要求很具体。我先去找清楚用量，再请牢李看炉子。做饭不在你的家族秘术范围里？"
+          },
+          {
+            "actor": "lao_dong",
+            "text": "可能祖先也失败过，只没写下来。这比学不会法术更让我不好意思，好像连普通日子都不会过。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "牢董给家里发了一张不太好看的汤照，没有拍法阵和成果。他收到的第一句回复是“锅记得洗”，看完笑了很久。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_dong",
+            "text": "这次我按量做了，还是有一点淡。家里说有人爱淡，有人爱咸，不必让一锅汤适合所有人。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 50,
+          "items": {
+            "bread": 2,
+            "field_ration": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_dong_reply",
+      "type": "side",
+      "title": "不盖家印的回信",
+      "auto_start": false,
+      "prerequisites": [
+        "side_dong_soup"
+      ],
+      "steps": [
+        {
+          "actor": "lao_chou",
+          "hint": "请牢抽检查回信中的事实与拟实施条件",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "你写“全部公开”太宽，培训资料和危险的完整操作不是同一层。先列能给谁、需要什么验证、什么时候停止。不是为了讨好，是让反对有具体对象。"
+            },
+            {
+              "actor": "hero",
+              "text": "也把家里担心的风险逐项回应，别把他们全写成不懂现在的人。"
+            },
+            {
+              "actor": "lao_chou",
+              "text": "有些问题暂时回答不了就留着。回信不是必须一次把亲情和制度都解完。"
+            }
+          ],
+          "event": "side/side_dong_reply/0"
+        },
+        {
+          "location": "STORY_HOUSE:1:0",
+          "hint": "到旧宅整理可共享的基础笔记与私人原件",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "基础笔记里夹着祖母的手写提醒，内容可用于培训，署名却属于她自己。牢董没有直接抹掉名字，也没有连私人信一起扫描。"
+            },
+            {
+              "actor": "hero",
+              "text": "共享方法不等于没收所有人的过去。分清用途，征求能征求的同意，来不及的先不公开。改革也不能把家里变成没有边界的仓库。"
+            }
+          ],
+          "question": "回信怎样表达分歧？",
+          "choices": [
+            [
+              "right",
+              "先说明仍会承担当期守印，再提出试行方案"
+            ],
+            [
+              "other",
+              "先说明不会作终身承诺，再邀请家人共同核验"
+            ],
+            [
+              "cancel",
+              "稍后再决定"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "信从今天能负责的部分开始，没有顺口把明天、后天也答应下去。试行期和复核人列在后面。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "信把最难的一句放在前面：我爱这个家，但不能因此取消以后说不的资格。接着才附上愿一起核验的方案。"
+              }
+            ]
+          },
+          "event": "side/side_dong_reply/1"
+        },
+        {
+          "actor": "lao_dong",
+          "hint": "把回信交回牢董，由他自己寄出",
+          "dialogue": [
+            {
+              "actor": "lao_dong",
+              "text": "他们可能还是不喜欢。我原来总想找一种谁也不难受的写法。"
+            },
+            {
+              "actor": "hero",
+              "text": "那封信可能不存在。你可以把话说清楚，不一定能把他们的失望也管好。"
+            },
+            {
+              "actor": "lao_dong",
+              "text": "嗯。这次不盖家印，签我的名字。不是断绝，是让他们知道写信的人终于不是家谱上的一个位置。"
+            }
+          ],
+          "event": "side/side_dong_reply/2"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_dong",
+        "min_index": 30,
+        "intro": [
+          {
+            "actor": "lao_dong",
+            "text": "家里回信了，不同意开放守印方法，说我把祖传的东西看轻。我想回得很硬，写了半页，又全撕了。你愿意陪我把能说清的部分理一遍吗？不是替我骂他们。"
+          },
+          {
+            "actor": "hero",
+            "text": "你先别撕下一版。生气那版也留着，至少知道自己在气什么。"
+          },
+          {
+            "actor": "lao_dong",
+            "text": "我气他们只看到我不听话，也怕他们真觉得这些年白教了。我不是不想回家，只是不想一回去，就只能把自己折回原来的形状。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "信没有立刻得到同意，牢董也没有把钥匙扔掉。分歧留下来，家常的问候也留下来，两者暂时一起过日子。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_dong",
+            "text": "他们又问汤做得怎样，我回了。守印的分歧继续谈，吃饭不用等观点完全一致。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 60,
+          "items": {
+            "first_aid": 2,
+            "concentration_candy": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_jiao_resign",
+      "type": "side",
+      "title": "班长想空一节课",
+      "auto_start": false,
+      "prerequisites": [
+        "side_jiao_duty"
+      ],
+      "steps": [
+        {
+          "location": "B01:3:0",
+          "hint": "到十班核对班长实际承担的工作，分出正式与默认职责",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "表格上有考勤、资料、钥匙，还有替人找丢失物、催饭、调解私人争执。后面几项从没正式分配，却每次都自动变成“找班长”。"
+            },
+            {
+              "actor": "hero",
+              "text": "我把岗位工作和个人帮忙分开。过去帮过，不等于以后每次都欠着。没有接手人的先留空，让班级一起决定要不要保留。"
+            }
+          ],
+          "question": "如何安排临时接手？",
+          "choices": [
+            [
+              "right",
+              "按具体工作征求同意，写明期限与求助方式"
+            ],
+            [
+              "wrong",
+              "找一个最听话的人，把全部工作交给他"
+            ],
+            [
+              "cancel",
+              "先离开，回来再试"
+            ]
+          ],
+          "correct": "right",
+          "resolution": [
+            {
+              "actor": "hero",
+              "text": "接班不是再造一个不敢拒绝的辣椒。每项只填本人确认过的名字。"
+            }
+          ],
+          "retry": [
+            {
+              "actor": "hero",
+              "text": "换一个人全扛，问题会按原样再来。先把工作拆开再问。"
+            }
+          ],
+          "event": "side/side_jiao_resign/0"
+        },
+        {
+          "actor": "lao_shuo",
+          "hint": "请牢硕确认安全与钥匙职责能够正式移交",
+          "dialogue": [
+            {
+              "actor": "lao_shuo",
+              "text": "这两项我接，但只能接到周五。之后按轮值，不把一次帮忙写成永久默认。你们别担心我说期限就不热心。"
+            },
+            {
+              "actor": "hero",
+              "text": "恰好相反，有期限才知道下次什么时候重新问。辣椒以前就是每次不好意思说完，最后全接了。"
+            }
+          ],
+          "event": "side/side_jiao_resign/1"
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "把可行的交接方案交给辣椒，由她决定去留",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "我看完，才发现原来真的能离开一会儿。现在我想先请一周轮休，再决定要不要继续，不立刻用“还是我来吧”把表抢回来。"
+            },
+            {
+              "actor": "hero",
+              "text": "你可以改主意，大家也要学会跟没有随叫随到的班长相处。"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "那今天下一节课，我只当一个做题的人。有人问钥匙，先看表。"
+            }
+          ],
+          "event": "side/side_jiao_resign/2"
+        }
+      ],
+      "side_story": {
+        "owner": "la_jiao",
+        "min_index": 21,
+        "intro": [
+          {
+            "actor": "la_jiao",
+            "text": "我今天想辞班长。不是威胁谁，也不是等人说辛苦了。我看着所有表，忽然觉得自己从来没选过，是因为没人接就一直做。"
+          },
+          {
+            "actor": "hero",
+            "text": "那你可以辞。要我帮你做交接，还是陪你先空一节课？"
+          },
+          {
+            "actor": "la_jiao",
+            "text": "先做交接。我还不知道辞不辞，但想知道如果真的不做，班里会不会就把我当成不负责的人。"
+          },
+          {
+            "actor": "hero",
+            "text": "我们不能保证没人这样说，可以把工作拆出来，别让一个职位靠你不敢走来维持。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "辣椒坐回座位，第一分钟还不断看门口。等有人主动按表找到了当班者，她终于低头，把没看完的题读完。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "la_jiao",
+            "text": "有人说换人麻烦，我让他把麻烦写进意见，不再拿我整天有空当解决办法。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 45,
+          "items": {
+            "bread": 2,
+            "water": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "side_jiao_return",
+      "type": "side",
+      "title": "回来也有条件",
+      "auto_start": false,
+      "prerequisites": [
+        "side_jiao_resign"
+      ],
+      "steps": [
+        {
+          "actor": "wr",
+          "hint": "请wr试读班级轮值提案，检查是否给人选择",
+          "dialogue": [
+            {
+              "actor": "wr",
+              "text": "这里写“每个人都必须参与”，可有人确实有不便，不能让他公开私人原因才拿到豁免。加一个私下说明和替代工作渠道。"
+            },
+            {
+              "actor": "hero",
+              "text": "规则不是越整齐越公平。班长也不能为了证明没偏心，把每个人不同的难处都抹平。"
+            },
+            {
+              "actor": "wr",
+              "text": "还有，你们给辣椒留了下班时间，给接班的人也得留。"
+            }
+          ],
+          "event": "side/side_jiao_return/0"
+        },
+        {
+          "location": "B01:3:0",
+          "hint": "在十班告示栏核对提案、反馈与修改版本",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "反馈里有一句“以前班长都会帮”。辣椒在旁边写“以前可以感谢，以后需要重新问”，又担心语气太硬，想擦。我把她的手拦下，让她先念完。"
+            },
+            {
+              "actor": "hero",
+              "text": "硬不硬可以讨论，别先把意思擦没。别人的习惯不能自动把你重新塞回旧位置。"
+            }
+          ],
+          "question": "提案如何开放讨论？",
+          "choices": [
+            [
+              "right",
+              "先试行一周，公布反馈时间与可修改部分"
+            ],
+            [
+              "other",
+              "开短会逐项表决，保留未同意者的具体意见"
+            ],
+            [
+              "cancel",
+              "稍后再决定"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "试行表列出复核日期，不拿“试行”当永远不结束的拖延。第一条反馈先从实际做事的人收。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "短会没有用掌声代替同意，反对理由写在旁边。没能当场解决的分歧留下继续问，不宣布全票通过。"
+              }
+            ]
+          },
+          "event": "side/side_jiao_return/1"
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "将修改后的提案交回辣椒，确认她自己的界限",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "以前我总希望大家满意，后来希望大家别再来找我。现在我想要的是，能找到我的时候明确，找不到也有别的办法。"
+            },
+            {
+              "actor": "hero",
+              "text": "班长的目标终于不是让班级完全围着你转，也不是自己消失。"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "对。还有我说话凶的时候，你可以提醒。但提醒语气，不代表我拒绝的事就变成必须答应。"
+            }
+          ],
+          "event": "side/side_jiao_return/2"
+        }
+      ],
+      "side_story": {
+        "owner": "la_jiao",
+        "min_index": 30,
+        "intro": [
+          {
+            "actor": "la_jiao",
+            "text": "轮休结束，我决定继续当班长，但不恢复以前所有默认工作。有人说既然回来了，何必讲条件，好像我突然变难相处。"
+          },
+          {
+            "actor": "hero",
+            "text": "你准备怎么说？"
+          },
+          {
+            "actor": "la_jiao",
+            "text": "我想让他们看见，这不是为我一个人争轻松，是以后换谁都不该无止境。我怕自己讲着讲着又开始替全班做决定，帮我试读一下。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "新的轮值表上，辣椒的名字仍在，却不再占满每一列。她把多余的备用笔交到公用盒，书包第一次轻了一点。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "la_jiao",
+            "text": "今天我忘带一份表，值班同学从副本补上了。我道歉并改了，不用再靠从不出错证明配当班长。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 55,
+          "items": {
+            "concentration_candy": 2,
+            "bread": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_wr_margin",
+      "type": "side",
+      "title": "读懂别人之前",
+      "auto_start": false,
+      "prerequisites": [
+        "side_wr_bookmark"
+      ],
+      "steps": [
+        {
+          "location": "B06:1:0",
+          "hint": "到图书室核对已获授权的公开批注",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "同一句“别回来”在三个位置出现，旁边分别标着作息、剧情和借阅提醒。离开上下文，任何一句都能被讲成一段受伤的往事。"
+            },
+            {
+              "actor": "hero",
+              "text": "我把页码和前后文补齐，人物身份不写猜测。能解释一种读法，不代表解释了写字的人。"
+            }
+          ],
+          "event": "side/side_wr_margin/0",
+          "puzzle": {
+            "kind": "sequence",
+            "title": "被剪走的上下文",
+            "description": "四张书页批注脱离了各自的页码。恢复一段作息便笺的先后，看看“别回来”究竟指向谁。先不要为作者发明一场告别。",
+            "initial": [
+              1,
+              3,
+              2,
+              0
+            ],
+            "target": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "controls": [
+              "交换1与2",
+              "交换2与3",
+              "交换3与4"
+            ],
+            "clues": [
+              {
+                "title": "页码与句首",
+                "text": "第一页写“十点合书”，第二页接“离开阅览室”。这两页的边缘号码仍能对应，不需要猜私人经历。"
+              },
+              {
+                "title": "借阅便笺背面",
+                "text": "第三页写“忘了笔也别回来熬夜”，第四页写“明早再取”。“别回来”前后都在安排作息，不是在给某个人判离别。"
+              },
+              {
+                "title": "wr原来的批注",
+                "text": "她先读到了第三页，写“作者在拒绝某人”。后面的肯定语气比材料走得远，改正不必先证明读者有什么秘密。"
+              }
+            ],
+            "hint": "按完整行动还原：十点合书、离开阅览室、别回来熬夜、明早再取。先看页码与前后句，再谈其他读法。",
+            "helper": "wr",
+            "success": [
+              {
+                "actor": "wr",
+                "text": "我把一句作息提醒读成了感情谜案。越会讲故事，越可能把空白讲得像事实。这页我会更正，也不会施法去看他心里到底想什么。"
+              }
+            ],
+            "failure": [
+              {
+                "actor": "system",
+                "text": "句子还没有接回作息顺序。注意“明早”必须在离开和提醒之后，不能把第三页当整个故事的开头。"
+              }
+            ],
+            "pieces": [
+              "十点合书",
+              "离开阅览室",
+              "别回来熬夜",
+              "明早再取"
+            ]
+          }
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "请牢抽试查书页解读中的跳步",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "从“句子里有告别”跳到“写字的人被抛弃”，中间没有证据。我也常把最能解释一切的推断，当成最接近事实的推断。"
+            },
+            {
+              "actor": "hero",
+              "text": "那就列两种读法，写清需要本人说明的部分。不能用“我是在理解你”堵住对方说不是。"
+            }
+          ],
+          "event": "side/side_wr_margin/1"
+        },
+        {
+          "actor": "wr",
+          "hint": "把修订批注交给wr，询问她愿意怎样说明越界念头",
+          "dialogue": [
+            {
+              "actor": "wr",
+              "text": "我可以不说差点施法，没人知道。但以后每次别人夸我懂人，我都会想起自己只差一点就偷看了。"
+            }
+          ],
+          "question": "如何修正对读者的解释？",
+          "choices": [
+            [
+              "right",
+              "公开更正文字中的臆测，不点读者身份"
+            ],
+            [
+              "other",
+              "向本人说明越界念头并询问所需补救"
+            ],
+            [
+              "cancel",
+              "稍后再决定"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "更正只指向自己的推断，不再公开读者细节。wr没有拿诚实告白再换一次围观。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "本人不想展开，只要求别再用自己的字举例。wr答应了，没有追问是不是已经原谅。"
+              }
+            ]
+          },
+          "event": "side/side_wr_margin/2"
+        }
+      ],
+      "side_story": {
+        "owner": "wr",
+        "min_index": 18,
+        "intro": [
+          {
+            "actor": "wr",
+            "text": "我猜错一个人了。他在小说旁写“别回来”，我以为是在说谁，差点用魔法查他的情绪。后来知道，他只是提醒自己别再熬夜回来刷题。"
+          },
+          {
+            "actor": "hero",
+            "text": "差点是哪一步？"
+          },
+          {
+            "actor": "wr",
+            "text": "已经准备施法，又停了。我讨厌被别人一眼看透，自己却把理解当成窥看的好理由。帮我把读书会批注改好，这次不替读者发明一生。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "wr",
+            "text": "黑魔法最容易让人以为省下了询问，实际上也省掉了别人说不的机会。今天没施法，不代表我天生自制，得留个能被提醒的地方。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "wr",
+            "text": "昨天有人说我没以前懂他了。我问想不想自己讲，他说想。猜少一点，话反而多了。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 50,
+          "items": {
+            "concentration_candy": 2,
+            "water": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "side_wr_afterword",
+      "type": "side",
+      "title": "故事可以不在这里结束",
+      "auto_start": false,
+      "prerequisites": [
+        "side_wr_margin"
+      ],
+      "steps": [
+        {
+          "actor": "yang_zi",
+          "hint": "向阳子征求允许写进后记的未竟之事",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "可以写我还没完全恢复，也还没原谅。但别写成只要陪我走一圈，我就突然好了。你们帮了我，没把我修成一个再也不生气的人。"
+            },
+            {
+              "actor": "hero",
+              "text": "那结尾写什么？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "写明天还约了饭。人没全好，也能有下一天。"
+            }
+          ],
+          "event": "side/side_wr_afterword/0"
+        },
+        {
+          "actor": "lao_dong",
+          "hint": "向牢董征求守印交接仍在讨论的公开内容",
+          "dialogue": [
+            {
+              "actor": "lao_dong",
+              "text": "可以写方案还在复核，家里也没全同意。别把我写成一夜之间斩断过去的人。我还回信，还会想家，跟他们争也没停止吃饭。"
+            },
+            {
+              "actor": "hero",
+              "text": "看来故事得容下不整齐的后半段。"
+            },
+            {
+              "actor": "lao_dong",
+              "text": "要是只能选完全继承和完全离开，那不是我的生活，是别人替我画的两扇门。"
+            }
+          ],
+          "event": "side/side_wr_afterword/1"
+        },
+        {
+          "location": "B06:1:0",
+          "hint": "在图书室决定后记形式，并留下读者可回应的空白",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "wr把结尾页拆成几张卡片。没有一个共同的大团圆，只有各人愿意公开的一点以后。最后一张空着，不是等最聪明的人来补标准答案。"
+            }
+          ],
+          "question": "后记选择哪种形式？",
+          "choices": [
+            [
+              "right",
+              "保留每个人不同的短句，不作统一结论"
+            ],
+            [
+              "other",
+              "写一场普通的散场，让未解决之事留在对话里"
+            ],
+            [
+              "cancel",
+              "稍后再决定"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "短句各自署名，彼此没有替对方保证。不同意见并排时，这群人反而更像还会继续说话的同学。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "散场有人催饭，有人收表，有人说今天不谈。门关上的声音很轻，没有替谁宣布从此幸福。"
+              }
+            ]
+          },
+          "event": "side/side_wr_afterword/2"
+        }
+      ],
+      "side_story": {
+        "owner": "wr",
+        "min_index": 30,
+        "intro": [
+          {
+            "actor": "wr",
+            "text": "读书会想把夜袭写成故事，请我做结尾。我第一版写得很漂亮：所有人理解彼此，门关上，误会消失。然后自己删了。"
+          },
+          {
+            "actor": "hero",
+            "text": "我们有这么省心？阳子现在还记得我欠他一瓶水。"
+          },
+          {
+            "actor": "wr",
+            "text": "所以请你帮我找三件没有解决的小事。不是破坏纪念，是别让还在生活的人被一个好结局关起来。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "wr",
+            "text": "这次我不靠一个漂亮结局证明自己会讲故事。能让人继续写自己的后话，也许更难。"
+          },
+          {
+            "actor": "hero",
+            "text": "那写完去吃饭。后记最重要的证据，是作者没把自己饿着。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "wr",
+            "text": "有人说结尾不够圆，我说这是第一版，还能加。可下一段得等人真的生活过，不能现在替他们许。"
+          }
+        ],
+        "description": "同学连续故事：需要先完成上一段。选择会保存在任务记录中，两种合理处理都能继续，不要求统一答案。",
+        "reward": {
+          "g": 60,
+          "items": {
+            "concentration_candy": 2,
+            "field_ration": 1
+          }
+        }
+      }
     }
   ]
 }

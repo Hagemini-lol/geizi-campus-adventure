@@ -2,6 +2,15 @@ extends Control
 
 const Assets=preload("res://external_battle_assets.gd")
 const MonsterScene=preload("res://monster_scene.gd")
+const Tactics=preload("res://tactical_combat.gd")
+const Motion=preload("res://battle_motion.gd")
+var tactics:=Tactics.new()
+var enemy_motion: RefCounted
+var hero_motion: RefCounted
+var ailments: Dictionary={}
+var clarity_turns:=0
+var intent_label: Label
+var combat_start_level:=0
 var game: Node2D
 var interface: Control
 var enemy: Dictionary={}
@@ -44,6 +53,9 @@ func start(record: Dictionary, key: String) -> bool:
 	enemy["hp_current"]=monster["hp"]
 	turn=1;busy=false;auto_battle=false;result="";history.clear();action_map.clear()
 	pending_spell={};cooldowns={};barrier_turns=0;focus_ready=false
+	ailments={};clarity_turns=0;combat_start_level=int(game.combat_rules.hero["level"])
+	tactics.setup(game.combat_rules.data["monsters"][enemy["id"]],monster.get("tactics_state",{}))
+	turn=int(tactics.state["turn"]);tactics.begin_turn(enemy,turn)
 	root_panel=Control.new();root_panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(root_panel)
 	var background:=ColorRect.new();background.color=Color("202b2e")
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);root_panel.add_child(background)
@@ -54,11 +66,10 @@ func start(record: Dictionary, key: String) -> bool:
 	dodge_pose=Assets.fetch("res://assets/characters/hero/battle/zhao_mugei_dodge.png")
 	interface.ally_slot.set_combatant("赵慕gei",base_pose)
 	var enemy_texture: Texture2D=record["sprite"].texture if record.has("sprite") else MonsterScene.portrait(game.battle_asset_root.path_join(game.combat_rules.data["monsters"][enemy["id"]]["art"]))
-	if enemy["id"]=="gate_entity":
-		var effect: Dictionary=game.story_system.effects["world_magic_circle"]
-		var art: Image=Image.load_from_file(game.battle_asset_root.path_join(str(effect["texture"]).trim_prefix("res://")))
-		var region: Array=effect["frame_regions"][1];art=art.get_region(Rect2i(region[0],region[1],region[2],region[3]));art.generate_mipmaps();enemy_texture=ImageTexture.create_from_image(art)
 	interface.enemy_slot.set_combatant(enemy["name"],enemy_texture)
+	if enemy.get("rarity","")=="boss":interface.stage.set_composition(Vector2(.25,.90),Vector2(.73,.64),.91,.53)
+	enemy_motion=Motion.new();enemy_motion.configure(game.battle_asset_root,game.combat_rules.data["monsters"][enemy["id"]],interface.enemy_slot)
+	hero_motion=Motion.new();hero_motion.configure(game.battle_asset_root,{"portrait_atlas":"assets/characters/hero/battle/actions-v2/atlas.png"},interface.ally_slot)
 	interface.ally_slot.portrait_view.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	interface.enemy_slot.portrait_view.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	interface.action_selected.connect(selected)
@@ -67,9 +78,11 @@ func start(record: Dictionary, key: String) -> bool:
 	interface.category_buttons["surrender"].text="撤离"
 	hero_label=game.label("",17);hero_label.position=Vector2(22,14);root_panel.add_child(hero_label)
 	enemy_label=game.label("",17);enemy_label.anchor_left=.73;enemy_label.anchor_right=.99;enemy_label.offset_top=14;root_panel.add_child(enemy_label)
-	log_label=game.label("",17);log_label.anchor_left=.05;log_label.anchor_right=.95;log_label.anchor_top=.59;log_label.anchor_bottom=.65
+	log_label=game.label("",17);log_label.anchor_left=.05;log_label.anchor_right=.95;log_label.anchor_top=.615;log_label.anchor_bottom=.655
 	log_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;log_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	root_panel.add_child(log_label)
+	intent_label=game.label("",16);intent_label.anchor_left=.40;intent_label.anchor_right=.66;intent_label.offset_top=145;intent_label.offset_bottom=310
+	intent_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;intent_label.add_theme_color_override("font_color",Color("ffdd9c"));root_panel.add_child(intent_label)
 	charge_toggle=CheckButton.new();charge_toggle.text="蓄力施法（双倍 MP / 等待一回合）"
 	charge_toggle.position=Vector2(420,72);charge_toggle.add_theme_font_override("font",game.ui_font)
 	charge_toggle.add_theme_font_size_override("font_size",17);root_panel.add_child(charge_toggle)
@@ -86,17 +99,27 @@ func start(record: Dictionary, key: String) -> bool:
 	game.pending_npc_talk="";game.pending_monster="";game.player.path.clear();game.player.velocity=Vector2.ZERO
 	game.gameplay_hud.hide();show();game.refresh_player_freeze();game.update_time_display()
 	append_log("遭遇 "+enemy["name"]+"。请选择操作。")
+	if not tactics.spec.is_empty():append_log(str(tactics.spec.get("intro",""))+" 看右侧预告选择反制元素。")
 	update_ui()
 	return true
 
+func _process(delta: float) -> void:
+	if not visible or interface==null or not result.is_empty():return
+	if enemy_motion!=null:enemy_motion.tick(delta)
+	if hero_motion!=null and not busy:hero_motion.tick(delta)
+
 func append_log(text_value: String) -> void:
 	history.append(text_value)
+	while history.size()>100:history.pop_front()
 	log_label.text=text_value
 
 func update_ui() -> void:
 	var hero: Dictionary=game.combat_rules.hero
 	hero_label.text="赵慕gei  Lv.%d\nHP %d / %d    MP %d / %d\n精力 %d / %d    SAN %d / %d" % [hero["level"],hero["hp_current"],hero["hp"],hero["mp_current"],hero["mp"],hero["energy_current"],hero["energy"],hero["san_current"],hero["san"]]
 	hero_label.text+="\n经验 %d%s" % [hero["experience"],"（已满级）" if int(hero["level"])>=game.combat_rules.maximum_level() else " / "+str(game.combat_rules.experience_required(int(hero["level"])))]
+	hero_label.text+=" · 每回合回精 %d" % game.combat_rules.energy_recovery()
+	if not ailments.is_empty():hero_label.text+="\n状态："+" / ".join(ailments.keys())
+	intent_label.text=tactics.description()
 	enemy_label.text="%s  Lv.%d\nHP %d / %d" % [enemy["name"],enemy["level"],enemy["hp_current"],enemy["hp"]]
 	if enemy.get("rarity","") in ["elite","boss"]:enemy_label.text+="\n护壳：单次最多扣除 70% 生命"
 	var weakness_names: Array[String]=[]
@@ -109,16 +132,28 @@ func update_ui() -> void:
 	var available: Array=game.combat_rules.data["actions"].duplicate(true)
 	for id: String in hero.get("skills",[]):
 		var spec: Dictionary=game.combat_rules.data["skills"][id]
-		var action: Dictionary={"id":id,"label":spec["name"],"category":"magic" if spec["kind"]=="magic" else "dodge","description":spec.get("description","")}
+		var action: Dictionary={"id":id,"label":spec["name"],"category":"magic" if spec["kind"]=="magic" else "attack" if spec["kind"]=="physical" else "dodge","description":spec.get("description","")}
 		if spec["kind"]=="magic":
 			action.merge({"damage_kind":"magic","element":spec["element"],"tier":spec["tier"],"effect":spec["effect"],"mp_cost":game.combat_rules.spell_cost(spec["tier"],charge_toggle.button_pressed)})
 			if spec.get("element","")=="dark":action["mp_cost"]=maxi(1,int(action["mp_cost"])/2)
 			action["description"]="消耗 %d MP · %s" % [action["mp_cost"],"蓄力一回合后双倍伤害" if charge_toggle.button_pressed else "立即施法"]
 		else:
-			if id=="barrier":action["mp_cost"]=20+5*int(hero["level"])
-			elif id=="focus":action["energy_cost"]=20
-			else:action["energy_cost"]=30
+			if spec.has("mp_base"):action["mp_cost"]=int(spec["mp_base"])+int(spec.get("mp_growth",0))*int(hero["level"])
+			elif id=="barrier":action["mp_cost"]=20+5*int(hero["level"])
+			else:action["energy_cost"]=game.combat_rules.energy_cost(spec)
+			if spec["kind"]=="physical":action.merge({"damage_kind":"physical","multiplier":spec["multiplier"]})
+			if spec.has("cooldown"):action["cooldown"]=spec["cooldown"]
+			action["description"]+=" · %s" % (str(action["mp_cost"])+" MP" if action.has("mp_cost") else str(action.get("energy_cost",0))+" 精力")
 		available.append(action)
+	for item_id: String in game.economy.catalog:
+		var item: Dictionary=game.economy.catalog[item_id]
+		if item.get("plot_item",false) or item.get("restore",{}).is_empty() and item.get("restore_ratio",{}).is_empty():continue
+		if game.economy.quantity(item_id)<=0:continue
+		available.append({"id":"supply/"+item_id,"label":str(item["name"])+" ×"+str(game.economy.quantity(item_id)),"category":"items","item_id":item_id,"description":str(item["description"])+" · 消耗一回合，敌方仍会行动"})
+	if int(ailments.get("封蓝",0))>=turn:
+		for action: Dictionary in available:
+			if action.get("damage_kind","")=="magic":
+				action["mp_cost"]=ceili(int(action.get("mp_cost",0))*1.3);action["description"]+=" · 封蓝耗蓝+30%"
 	if not pending_spell.is_empty():available.append({"id":"release_spell","category":"magic","label":"释放 · "+str(pending_spell["label"]),"description":"已支付 MP，释放双倍伤害"})
 	action_map.clear()
 	charge_toggle.disabled=busy or not result.is_empty() or not pending_spell.is_empty()
@@ -127,9 +162,23 @@ func update_ui() -> void:
 		var category: String=action["category"]
 		if not categories.has(category):categories[category]=[]
 		var enabled:=int(hero["mp_current"])>=int(action.get("mp_cost",0)) and int(hero["energy_current"])>=int(action.get("energy_cost",0))
+		if action.has("item_id"):enabled=game.economy.can_use(action["item_id"],hero)
 		if int(cooldowns.get(action["id"],0))>turn:enabled=false;action["description"]+=" · 冷却 %d 回合" % (int(cooldowns[action["id"]])-turn)
 		if not pending_spell.is_empty() and not action["id"] in ["release_spell","escape","auto"]:enabled=false
-		categories[category].append({"id":action["id"],"label":action["label"],"description":action.get("description",""),"enabled":enabled})
+		var caption: String=action["label"]
+		if action.has("energy_cost"):caption+=" · %d精" % int(action["energy_cost"])
+		elif action.has("mp_cost"):caption+=" · %dMP" % int(action["mp_cost"])
+		if int(cooldowns.get(action["id"],0))>turn:caption+="（冷%d）" % (int(cooldowns[action["id"]])-turn)
+		var move_hints: Dictionary={"shoulder_check":"1.45倍物伤 · 抗物理反击","short_combo":"1.85倍物伤 · 出拳不格挡","brace_guard":"物理减伤70% / 法术30%","wind_step":"必闪一次 · 冷却3回合"}
+		if move_hints.has(action["id"]):caption+="\n"+str(move_hints[action["id"]])
+		if action.has("item_id"):
+			var item: Dictionary=game.economy.catalog[action["item_id"]]
+			var amounts: Array[String]=[]
+			for stat: String in ["hp","mp","energy","san"]:
+				var amount:=int(item.get("restore",{}).get(stat,0))+floori(int(hero[stat])*float(item.get("restore_ratio",{}).get(stat,0)))
+				if amount>0:amounts.append(str(amount)+str({"hp":"HP","mp":"MP","energy":"精","san":"SAN"}[stat]))
+			caption+="\n回 "+" / ".join(amounts)+" · 占一回合"
+		categories[category].append({"id":action["id"],"label":caption,"description":action.get("description",""),"enabled":enabled})
 	for category: String in categories:
 		var entries: Array[Dictionary]=[];entries.assign(categories[category]);interface.set_category_entries(category,entries)
 	close_button.visible=not result.is_empty()
@@ -142,69 +191,147 @@ func perform(id: String) -> void:
 	if id=="magic":
 		if visible and not busy and result.is_empty() and not escape_confirmation.visible:interface.open_category(&"magic")
 		return
-	if not visible or busy or not result.is_empty() or not action_map.has(id):return
-	if escape_confirmation.visible:return
+	if not visible or busy or not result.is_empty() or not action_map.has(id) or escape_confirmation.visible:return
 	if id=="auto":
-		auto_battle=not auto_battle
-		update_ui()
+		auto_battle=not auto_battle;update_ui()
 		if auto_battle:automatic_turn()
 		return
-	if id=="escape":
-		auto_battle=false;escape_confirmation.popup_centered(Vector2i(480,180));return
-	var action: Dictionary=action_map[id]
-	if not pending_spell.is_empty() and id!="release_spell":append_log("正在蓄力，请释放已蓄力的法术。");return
+	if id=="escape":auto_battle=false;escape_confirmation.popup_centered(Vector2i(480,180));return
+	if not pending_spell.is_empty() and id!="release_spell":return
 	if int(cooldowns.get(id,0))>turn:append_log("技能正在冷却。");return
+	var action: Dictionary=action_map[id].duplicate(true)
 	var hero: Dictionary=game.combat_rules.hero
+	if action.has("item_id") and not game.economy.can_use(action["item_id"],hero):append_log("物品不足或状态已满。");return
 	if int(hero["mp_current"])<int(action.get("mp_cost",0)) or int(hero["energy_current"])<int(action.get("energy_cost",0)):append_log("资源不足，请先休整。");return
-	if game.campaign!=null and not game.campaign.before_action(action,charge_toggle.button_pressed):return
+	var releasing:=id=="release_spell"
+	# SAN was paid on the charging turn. Release cannot charge it twice.
+	if not releasing and game.campaign!=null and not game.campaign.before_action(action,charge_toggle.button_pressed):return
 	busy=true
 	hero["mp_current"]-=int(action.get("mp_cost",0));hero["energy_current"]-=int(action.get("energy_cost",0))
 	for key: String in ["mp","energy"]:hero[key+"_current"]=mini(int(hero[key]),int(hero[key+"_current"])+int(action.get(key+"_restore",0)))
-	update_ui()
 	var message: String=action["label"]
-	var charging: bool=action.get("damage_kind","")=="magic" and charge_toggle.button_pressed
-	var releasing: bool=id=="release_spell"
+	var charging: bool=action.get("damage_kind","")=="magic" and charge_toggle.button_pressed and not releasing
 	if charging:
-		pending_spell=action.duplicate(true);message=action["label"]+"蓄力中……本回合敌方行动，下回合释放。"
-	elif action.has("damage_kind") or releasing:
+		pending_spell=action.duplicate(true);message=action["label"]+"蓄力中；本回合敌方行动，下回合释放。"
+		await hero_motion.play("windup")
+	elif action.has("damage_kind") or releasing or id=="resonance_break":
 		if releasing:action=pending_spell.duplicate(true);pending_spell={}
-		var multiplier:=1.0
-		if action.get("damage_kind","")=="magic":multiplier=float(game.combat_rules.data["magic_tiers"][action["tier"]]["multiplier"])
+		if id=="resonance_break":
+			action["damage_kind"]="magic";action["element"]=str(tactics.intent.get("counters",["light"])[0]) if not tactics.intent.get("counters",[]).is_empty() else "light"
+			action["effect"]="light_low";cooldowns[id]=turn+3
+		var multiplier: float=.6 if id=="resonance_break" else float(action.get("multiplier",1.0))
+		if action.has("cooldown"):cooldowns[id]=turn+int(action["cooldown"])
+		if action.get("damage_kind","")=="magic" and action.has("tier"):multiplier=float(game.combat_rules.data["magic_tiers"][action["tier"]]["multiplier"])
 		var amplifier: float=(2.0 if releasing else 1.0)*(1.25 if focus_ready and action.get("damage_kind","")=="magic" else 1.0)
 		if action.get("element","")=="lightning" and game.economy.quantity("insulation_bracer")>0:amplifier*=1.1
+		var response:=tactics.hit(action)
+		if id=="shoulder_check" and tactics.intent.get("kind","physical")=="physical":
+			action["reduction"]=.65
 		var damage: int=game.combat_rules.damage(hero,enemy,action["damage_kind"],0,str(action.get("element","")),multiplier,amplifier)
 		if action.get("damage_kind","")=="magic":focus_ready=false
 		enemy["hp_current"]=maxi(0,int(enemy["hp_current"])-damage);monster["hp"]=enemy["hp_current"]
-		message="%s造成 %d 点伤害。" % [action["label"],damage]
-		interface.ally_slot.set_pose(punch_pose if id=="physical" else base_pose)
+		message="%s造成 %d 伤害。%s" % [action["label"],damage,"破势！本次敌方无法行动。" if response["break"] else "反制成功，本次反击减伤65%。" if response["counter"] else "冰系迟滞，本次反击减伤20%。" if response["slow"] else ""]
+		if id=="shoulder_check":
+			message+=" 沉肩抢进；对本次物理反击减伤65%。" if action.has("reduction") else " 对手正在施法，贴身撞击无法截住法术。"
+			await hero_motion.play("guard",.16);await hero_motion.play("attack",.24)
+		elif id=="short_combo":
+			interface.ally_slot.set_pose(punch_pose);await move_hero(Vector2(13,0));await hero_motion.play("attack",.2)
+		elif id=="physical":interface.ally_slot.set_pose(punch_pose);await move_hero(Vector2(20,0))
+		else:await hero_motion.play("attack")
 		if action.has("effect"):await spell_effect(action["effect"],interface.enemy_slot)
-		await flash_actor(interface.enemy_slot)
-	elif id=="dodge":interface.ally_slot.set_pose(dodge_pose)
-	elif id=="barrier":barrier_turns=2;cooldowns[id]=turn+3;await spell_effect("world_barrier",interface.ally_slot)
-	elif id=="focus":focus_ready=true;cooldowns[id]=turn+3;await spell_effect("world_magic_circle",interface.ally_slot)
+		await enemy_motion.play("hit");await flash_actor(interface.enemy_slot)
+	elif id in ["dodge","wind_step"]:
+		interface.ally_slot.set_pose(dodge_pose);await move_hero(Vector2(-22,0))
+		if id=="wind_step":
+			cooldowns[id]=turn+3
+			message="蹬地撤步，爆发换位避开这次攻击及干扰；没有额外回复。"
+	elif id=="barrier":
+		barrier_turns=2;cooldowns[id]=turn+3;await hero_motion.play("guard");await spell_effect("world_barrier",interface.ally_slot)
+	elif id=="focus":
+		focus_ready=true;cooldowns[id]=turn+3;await hero_motion.play("windup");await spell_effect("world_magic_circle",interface.ally_slot)
 	elif id=="mana_cycle":
-		hero["mp_current"]=mini(int(hero["mp"]),int(hero["mp_current"])+10+10*int(hero["level"]));cooldowns[id]=turn+3
-	elif id=="steady_guard":action["reduction"]=.65;cooldowns[id]=turn+3
+		action["reduction"]=.5 # Close the circuit before drawing mana back.
+		var restored:=maxi(game.combat_rules.spell_cost("low"),maxi(10+10*int(hero["level"]),floori(int(hero["mp"])*.12)))
+		hero["mp_current"]=mini(int(hero["mp"]),int(hero["mp_current"])+restored);cooldowns[id]=turn+3
+		message="魔力回流，恢复 %d MP。" % restored;await hero_motion.play("rest")
+	elif id=="steady_guard":action["reduction"]=.65;cooldowns[id]=turn+3;await hero_motion.play("guard")
+	elif id=="brace_guard":
+		action["reduction"]=.7 if tactics.intent.get("kind","physical")=="physical" else .3
+		cooldowns[id]=turn+int(action["cooldown"]);message="架臂护住要害，本次%s减伤%d%%。" % ["物理" if action["reduction"]==.7 else "法术",roundi(float(action["reduction"])*100)]
+		await hero_motion.play("guard")
+	elif id=="second_wind":
+		var healed:=mini(int(hero["hp"])-int(hero["hp_current"]),floori(int(hero["hp"])*.18))
+		hero["hp_current"]+=healed;action["reduction"]=.35;cooldowns[id]=turn+3
+		message="稳住呼吸，恢复 %d HP；本次减伤35%%。" % healed;await hero_motion.play("rest")
+	elif id=="clarity":
+		ailments.clear();clarity_turns=2;action["reduction"]=.35;cooldowns[id]=turn+3
+		message="清明印净化干扰，并保护两次敌方行动。";await hero_motion.play("guard")
+	elif id=="rest":
+		var restored:=maxi(20,floori(int(hero["mp"])*.05))
+		hero["mp_current"]=mini(int(hero["mp"]),int(hero["mp_current"])+restored-20)
+		message="休整：恢复 %d MP。精力按回合自然恢复，敌方仍会行动。" % restored;await hero_motion.play("rest")
+	elif action.has("item_id"):
+		var used: Dictionary=game.economy.use(action["item_id"],hero)
+		if used["ok"]:
+			game.record_game_event("item_used/"+str(action["item_id"]))
+			if game.campaign!=null and game.campaign.active():game.campaign.flags["SAN"]=clampi(ceili(float(hero["san_current"])*100/maxi(1,int(hero["san"]))),0,100)
+		message=used["message"]+"，敌方仍会行动。";await hero_motion.play("rest")
+	elif id=="guard":await hero_motion.play("guard")
+	append_log(message)
 	if game.campaign!=null:game.campaign.ally_support(self)
-	append_log(message);update_ui()
-	await get_tree().create_timer(.3).timeout
-	interface.ally_slot.restore_pose()
-	if int(enemy["hp_current"])<=0:finish("victory");return
-	var dodged: bool=id=="dodge" and game.monster_world.rng.randf()<float(action.get("dodge_chance",0))
-	if dodged:message+=" 闪避成功！"
+	if tactics.change_phase(enemy):
+		enemy_motion.phase=2;append_log(str(tactics.spec.get("phase_line","阶段改变")));await enemy_motion.play("phase",.6)
+	monster["hp"]=enemy["hp_current"]
+	update_ui();await get_tree().create_timer(.2).timeout
+	if int(enemy["hp_current"])<=0:
+		recover_energy();finish("victory");return
+	var dodged: bool=id=="wind_step" or id=="dodge" and game.monster_world.rng.randf()<float(action.get("dodge_chance",0))
+	if tactics.staggered:append_log("敌方架势被打断，失去这次行动。")
+	elif dodged:append_log("换位成功！躲开 "+str(tactics.intent.get("name","攻击"))+"，附加效果一并避开。")
 	else:
-		var kind: String=game.combat_rules.data["monsters"][enemy["id"]].get("attack_kind","physical")
 		var reduction: float=maxf(float(action.get("reduction",0)),.5 if barrier_turns>0 else 0)
 		if game.campaign!=null:reduction=maxf(reduction,game.campaign.battle_reduction(enemy["id"]))
-		var damage: int=game.combat_rules.damage(enemy,hero,kind,reduction)
+		reduction=1.0-(1.0-reduction)*(1.0-tactics.reduction())
+		var power: float=float(tactics.intent.get("power",1.0))*(1.2 if int(ailments.get("易伤",0))>=turn else 1.0)
+		var attacker: Dictionary=enemy.duplicate();attacker["attack"]=floori(int(enemy["attack"])*power)
+		var kind: String=tactics.intent.get("kind",game.combat_rules.data["monsters"][enemy["id"]].get("attack_kind","physical"))
+		var damage: int=game.combat_rules.damage(attacker,hero,kind,reduction)
+		await enemy_motion.play("windup",.2);await enemy_motion.play("attack")
 		hero["hp_current"]=maxi(0,int(hero["hp_current"])-damage)
-		message+=" %s造成 %d 点伤害。" % [enemy["name"],damage]
-		await flash_actor(interface.ally_slot)
-	append_log(message)
+		await hero_motion.play("hit");await flash_actor(interface.ally_slot)
+		append_log("%s · %s：%d 伤害。" % [enemy["name"],tactics.intent.get("name","攻击"),damage])
+		var protected: bool=clarity_turns>0 or barrier_turns>0 or float(action.get("reduction",0))>=.5 or tactics.countered
+		if not protected:
+			var status: String=tactics.intent.get("status","")
+			if not status.is_empty():
+				ailments["封蓝" if status=="seal" else "易伤"]=turn+2
+				append_log("受到干扰："+("封蓝，法术耗蓝+30%" if status=="seal" else "易伤，受到伤害+20%")+"。两回合后消退，可用清明印解除。")
+			var drain:=floori(int(hero["mp"])*float(tactics.intent.get("mp_drain",0)))
+			hero["mp_current"]=maxi(0,int(hero["mp_current"])-drain)
+			if drain>0:append_log("勾尬牵线抽走 %d MP。防守、屏障、净化或元素反制可阻止干扰。" % drain)
+	interface.ally_slot.restore_pose()
 	if barrier_turns>0:barrier_turns-=1
+	if clarity_turns>0:clarity_turns-=1
 	if int(hero["hp_current"])<=0:finish("defeat");return
-	turn+=1;busy=false;update_ui()
+	recover_energy()
+	turn+=1
+	for status: String in ailments.keys():
+		if int(ailments[status])<turn:ailments.erase(status)
+	tactics.begin_turn(enemy,turn);monster["tactics_state"]=tactics.snapshot()
+	busy=false;update_ui()
 	if auto_battle:automatic_turn()
+
+func recover_energy() -> void:
+	var recovered: int=game.combat_rules.recover_turn_energy()
+	if recovered>0:history.append("回合结算：精力自然恢复 %d。" % recovered)
+
+func move_hero(offset: Vector2) -> void:
+	var actor: Control=interface.ally_slot
+	var at:=actor.position
+	var tween:=create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(actor,"position",at+offset,.15)
+	tween.tween_property(actor,"position",at,.15)
+	await tween.finished
 
 func flash_actor(actor: Control) -> void:
 	actor.modulate=Color(1,.35,.35)
@@ -226,6 +353,8 @@ func automatic_turn() -> void:
 func finish(outcome: String) -> void:
 	if not result.is_empty():return
 	busy=false;auto_battle=false;result=outcome
+	monster["tactics_state"]=tactics.snapshot()
+	if outcome=="victory" and enemy_motion!=null and not enemy_motion.frames.is_empty():interface.enemy_slot.set_pose(enemy_motion.texture("defeat"))
 	if outcome=="victory":
 		game.record_game_event("monsters_defeated")
 		game.record_game_event("monster_defeated/"+str(enemy["id"]))
@@ -249,6 +378,7 @@ func close() -> void:
 	var remaining: Dictionary=monster.duplicate(true)
 	hide();root_panel.queue_free();root_panel=null;interface=null
 	base_pose=null;punch_pose=null;dodge_pose=null
+	enemy_motion=null;hero_motion=null;ailments.clear()
 	monster={};enemy={};action_map.clear()
 	game.gameplay_hud.show();game.refresh_player_freeze();game.interaction_delay=1.0
 	game.sync_monsters()

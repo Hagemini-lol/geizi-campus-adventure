@@ -10,22 +10,28 @@
     {
       "id": "water",
       "name": "饮用水",
-      "description": "恢复 30 精力",
+      "description": "恢复30点及精力上限20%的精力；战斗使用占一回合",
       "buy_price": 10,
       "sell_price": 5,
       "restore": {
         "energy": 30
+      },
+      "restore_ratio": {
+        "energy": 0.2
       }
     },
     {
       "id": "bread",
       "name": "面包",
-      "description": "恢复 120 生命和 50 精力",
+      "description": "恢复120生命、50点及精力上限30%的精力；战斗使用占一回合",
       "buy_price": 15,
       "sell_price": 7,
       "restore": {
         "hp": 120,
         "energy": 50
+      },
+      "restore_ratio": {
+        "energy": 0.3
       }
     },
     {
@@ -186,6 +192,30 @@
       "buy_price": -1,
       "sell_price": 0,
       "restore": {}
+    },
+    {
+      "id": "field_ration",
+      "name": "巡查便当",
+      "description": "恢复精力上限45%的精力；战斗使用占一回合",
+      "buy_price": 25,
+      "sell_price": 12,
+      "restore": {},
+      "restore_ratio": {
+        "energy": 0.45
+      }
+    },
+    {
+      "id": "concentration_candy",
+      "name": "回路糖",
+      "description": "恢复60点及MP上限8%的MP；战斗使用占一回合",
+      "buy_price": 20,
+      "sell_price": 10,
+      "restore": {
+        "mp": 60
+      },
+      "restore_ratio": {
+        "mp": 0.08
+      }
     }
   ],
   "monster_loot": {

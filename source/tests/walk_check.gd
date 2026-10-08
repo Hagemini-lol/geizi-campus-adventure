@@ -71,14 +71,14 @@ func run() -> void:
 			if not player.artwork.texture in textures:textures.append(player.artwork.texture)
 		var advance: float=player.gait.frames_advanced-prior
 		rates.append(advance/.4)
-		check(absf(rates[-1]-[4.0,8.0,20.0][mode])<.08,"actual animation rate is 4/8/20 fps")
+		check(absf(rates[-1]-[4.0,8.0,8.0][mode])<.08,"actual animation rate is capped at 4/8/8 fps")
 		check(absf(player.position.distance_to(begin)-[100.8,201.6,504.0][mode]*.4)<.3,"movement speed unchanged")
 		check(textures.size()==2,"real motion displays both walking poses")
 		check(player.artwork.rotation==0,"no rotation substitute for step animation")
 		key(KEY_D,false);key(KEY_SHIFT,false);player.path.clear()
 		await tick()
 		check(not player.gait.moving and player.artwork.texture==player.frames[player.facing],"stop restores correct idle")
-	check(absf(rates[1]/rates[0]-2.0)<.02 and absf(rates[2]/rates[0]-5.0)<.02,"playback is proportional to real speed")
+	check(absf(rates[1]/rates[0]-2.0)<.02 and absf(rates[2]/rates[0]-2.0)<.02,"playback follows speed up to an 8 fps ceiling")
 	for direction: int in range(4):
 		player.position=turf;player.path.clear();player.gait.stop()
 		var code: Key=[KEY_S,KEY_W,KEY_A,KEY_D][direction]

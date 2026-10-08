@@ -26,6 +26,8 @@ var lesson_view: Control
 const OfficePlan=preload("res://office_plan.gd")
 const TaskSystem=preload("res://task_system.gd")
 var task_system:=TaskSystem.new()
+var mods:=preload("res://mod_loader.gd").new()
+var side_quests:=preload("res://side_quests.gd").new()
 const Economy=preload("res://economy.gd")
 var economy:=Economy.new()
 var office_plan:=OfficePlan.new()
@@ -45,6 +47,7 @@ var front_end: Control
 var cover_path: String
 var game_started:=false
 var event_state: Dictionary={}
+var play_clock:=preload("res://play_clock.gd").new()
 var pending_restore: Dictionary={}
 var restore_position_guard:=false
 var ui_audio: AudioStreamPlayer
@@ -98,14 +101,15 @@ func _ready() -> void:
 		fail("素材引用配置缺失或格式错误")
 		return
 	var config: Dictionary=config_value
+	mods.configure(package_root)
 	menu_assets=config.get("menu_assets",{})
 	battle_asset_root=resolve_path(str(config.get("battle_asset_root","../Projects/赵慕gei的牙林冒险")))
-	if not combat_rules.configure(resolve_path(str(config.get("combat_rules","战斗与刷新配置.json")))):
+	if not combat_rules.configure(resolve_path(str(config.get("combat_rules","战斗与刷新配置.json"))),mods.merged.get("combat",{})):
 		fail("战斗数值配置缺失或格式错误");return
 	monster_world.configure(combat_rules)
-	if not task_system.configure(resolve_path(str(config.get("task_rules","任务配置.json")))):
+	if not task_system.configure(resolve_path(str(config.get("task_rules","任务配置.json"))),mods.merged.get("tasks",{})):
 		fail("任务配置缺失或格式错误");return
-	if not economy.configure(resolve_path(str(config.get("economy_rules","物资与交易配置.json")))):
+	if not economy.configure(resolve_path(str(config.get("economy_rules","物资与交易配置.json"))),mods.merged.get("economy",{})):
 		fail("物资与交易配置缺失或格式错误");return
 	day_clock.period_advanced.connect(on_period_advanced)
 	cover_path=str(config.get("cover",""))
@@ -202,11 +206,13 @@ func _ready() -> void:
 	var lesson_layer:=CanvasLayer.new();lesson_layer.layer=96;add_child(lesson_layer)
 	lesson_view=LessonSystem.new();lesson_view.game=self;lesson_layer.add_child(lesson_view)
 	story_system=StorySystem.new();story_system.game=self
-	if not story_system.configure(package_root.path_join("剧情配置.json")):
+	if not story_system.configure(package_root.path_join("剧情配置.json"),mods.merged.get("story",{})):
 		fail("剧情素材或配置缺失");return
 	add_child(story_system)
 	campaign=preload("res://campaign.gd").new();campaign.game=self
 	campaign.configure(story_system.data.get("campaign",{}));add_child(campaign)
+	side_quests.game=self
+	task_system.changed.connect(campaign.queue_redraw)
 	var mobile_layer:=CanvasLayer.new();mobile_layer.layer=99;add_child(mobile_layer)
 	mobile_controls=preload("res://mobile_controls.gd").new();mobile_controls.game=self
 	mobile_controls.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);mobile_layer.add_child(mobile_controls)
@@ -274,6 +280,7 @@ func learn_skill(id: String, teacher: String) -> Dictionary:
 	var spec: Dictionary=combat_rules.data.get("skills",{}).get(id,{})
 	if not game_started or not menu_view.visible or menu_view.service_actor!=teacher or not story_system.reward_given or spec.get("teacher","")!=teacher:return {"ok":false,"message":"请向对应同学学习技能"}
 	if id in combat_rules.hero["skills"]:return {"ok":false,"message":"已经习得该技能"}
+	if spec.get("chapter_reward",false):return {"ok":false,"message":"这个技能由章节事件习得"}
 	if int(combat_rules.hero["level"])<int(spec["level"]):return {"ok":false,"message":"等级不足"}
 	if economy.money<int(spec["price"]):return {"ok":false,"message":"资金不足"}
 	if not combat_rules.learn(id):return {"ok":false,"message":"无法学习该技能"}
@@ -322,9 +329,11 @@ func save_game_slot(slot: int) -> Dictionary:
 	state["quests"]=task_system.snapshot()
 	state["economy"]=economy.snapshot()
 	state["story"]=story_system.snapshot()
+	state["playtime"]=play_clock.snapshot()
 	return save_store.write_slot(slot,state,location)
 
 func validate_snapshot(state: Dictionary) -> Dictionary:
+	if state.has("playtime") and not play_clock.valid(state["playtime"]):return {"ok":false,"error":"游玩时长数据无效"}
 	var error: Dictionary={"ok":false,"error":"存档中的场景或位置数据无效"}
 	if not state.get("scene") is Dictionary or not state.get("position") is Array:return error
 	var xy: Array=state["position"]
@@ -414,6 +423,7 @@ func apply_pending_restore() -> void:
 	player.camera.zoom=Vector2.ONE*minf(float(pending_restore["camera_zoom"]),maximum_clear_zoom())
 	outdoor_zoom=float(pending_restore["outdoor_zoom"])
 	event_state=pending_restore.get("events",{}).duplicate(true)
+	play_clock.restore(pending_restore.get("playtime",{}))
 	task_system.restore(pending_restore.get("quests",{}))
 	economy.restore(pending_restore.get("economy",{}))
 	combat_rules.restore(pending_restore.get("combat",{}))
@@ -810,6 +820,7 @@ func begin_transition(destination: int, landing: Vector2) -> void:
 	refresh_player_freeze()
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed or event is InputEventMouseButton and event.pressed or event is InputEventScreenTouch and event.pressed:play_clock.activity()
 	if player==null or menu_view==null or transition_busy:return
 	if story_blocked() and not dialogue_view.visible:
 		# A story choice is modal GUI: let its buttons receive mouse/touch input.
@@ -886,6 +897,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if player==null or location_label==null or not game_started or terrain.current_scene==null:return
+	if not transition_busy and (not paused or menu_view.visible):
+		var category: String="combat" if battle_view.visible else "dialogue" if dialogue_view.visible or story_system.running else "menu" if menu_view.visible or map_view.visible else "exploration"
+		play_clock.tick(delta,category,get_window().has_focus(),player.velocity.length_squared()>1)
 	update_time_display()
 	player.camera.zoom=Vector2.ONE*minf(player.camera.zoom.x,maximum_clear_zoom())
 	collision_overlay.visible=debug_geometry
@@ -1051,7 +1065,7 @@ func click_interaction(at: Vector2) -> bool:
 	return false
 
 func interaction_text(item: Dictionary) -> String:
-	if item["action"] in ["campaign","campaign_house"]:return item.get("name","继续剧情")
+	if item["action"] in ["campaign","campaign_house","side_quest"]:return item.get("name","继续剧情")
 	var story_hint: String=story_system.interaction_label(item)
 	if not story_hint.is_empty():return story_hint
 	match str(item.get("action","")):

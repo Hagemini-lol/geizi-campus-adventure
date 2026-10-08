@@ -38,7 +38,7 @@ metadata=subprocess.run([str(tools/'sdk/build-tools/35.0.1/aapt.exe'),'dump','ba
 ascii_apk.unlink()
 assert metadata.returncode==0,metadata.stderr
 assert "package: name='org.campus.gei.adventure'" in metadata.stdout,'Update package identity changed'
-assert "versionCode='6'" in metadata.stdout and "versionName='1.2.2'" in metadata.stdout
+assert "versionCode='8'" in metadata.stdout and "versionName='1.4.0'" in metadata.stdout
 (game/'runtime/android_manifest.txt').write_text(metadata.stdout,encoding='utf-8')
 manifest=json.loads((game/'素材打包清单.json').read_text(encoding='utf-8-sig'))
 with zipfile.ZipFile(apk) as archive:
