@@ -36,6 +36,8 @@ var pending_spell: Dictionary={}
 var cooldowns: Dictionary={}
 var barrier_turns:=0
 var focus_ready:=false
+var npc_target: Dictionary={}
+var lethal_npc:=false
 
 func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_STOP
@@ -45,27 +47,38 @@ func _ready() -> void:
 func start(record: Dictionary, key: String) -> bool:
 	if visible or game.transition_busy:return false
 	Assets.root=game.battle_asset_root
-	var source: PackedScene=Assets.fetch("res://scenes/ui/battle/battle_interface.tscn")
+	var source: Script=preload("res://battle_interface.gd")
 	if source==null:game.show_notice("战斗界面素材缺失");return false
 	monster=record["monster"];zone=key
-	game.record_game_event("monster_seen/"+str(monster["id"]))
+	npc_target=record.get("npc_target",{}).duplicate();lethal_npc=record.get("lethal",false)
+	if npc_target.is_empty():game.record_game_event("monster_seen/"+str(monster["id"]))
 	enemy=game.combat_rules.monster_stats(monster["id"],int(monster["level"]))
 	enemy["hp_current"]=monster["hp"]
 	turn=1;busy=false;auto_battle=false;result="";history.clear();action_map.clear()
 	pending_spell={};cooldowns={};barrier_turns=0;focus_ready=false
 	ailments={};clarity_turns=0;combat_start_level=int(game.combat_rules.hero["level"])
-	tactics.setup(game.combat_rules.data["monsters"][enemy["id"]],monster.get("tactics_state",{}))
+	var tactical_spec: Dictionary=game.combat_rules.data["monsters"][enemy["id"]].duplicate(true)
+	if str(enemy["id"]).begins_with("gou_ga"):
+		var relief: int=int(monster.get("relationship_relief",game.relationships.final_relief()))
+		monster["relationship_relief"]=relief
+		for group: String in ["patterns","phase_patterns"]:
+			for intent: Dictionary in tactical_spec.get("tactics",{}).get(group,[]):
+				intent["power"]=float(intent.get("power",1))*(1-relief/100.0)
+				intent["mp_drain"]=float(intent.get("mp_drain",0))*(1-relief/100.0)
+		if relief>=24:tactical_spec["tactics"]["break_limit"]=1
+		if not game.relationships.alive("gou_ga"):enemy["name"]="勾尬的门底残响"
+	tactics.setup(tactical_spec,monster.get("tactics_state",{}))
 	turn=int(tactics.state["turn"]);tactics.begin_turn(enemy,turn)
 	root_panel=Control.new();root_panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(root_panel)
 	var background:=ColorRect.new();background.color=Color("202b2e")
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);root_panel.add_child(background)
-	interface=source.instantiate();interface.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	interface=source.new();interface.game=game;interface.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	root_panel.add_child(interface)
 	base_pose=Assets.fetch("res://assets/characters/hero/battle/zhao_mugei_rear_quarter.png")
 	punch_pose=Assets.fetch("res://assets/characters/hero/battle/zhao_mugei_punch.png")
 	dodge_pose=Assets.fetch("res://assets/characters/hero/battle/zhao_mugei_dodge.png")
 	interface.ally_slot.set_combatant("赵慕gei",base_pose)
-	var enemy_texture: Texture2D=record["sprite"].texture if record.has("sprite") else MonsterScene.portrait(game.battle_asset_root.path_join(game.combat_rules.data["monsters"][enemy["id"]]["art"]))
+	var enemy_texture: Texture2D=record["portrait"] if record.has("portrait") else record["sprite"].texture if record.has("sprite") else MonsterScene.portrait(game.battle_asset_root.path_join(game.combat_rules.data["monsters"][enemy["id"]]["art"]))
 	interface.enemy_slot.set_combatant(enemy["name"],enemy_texture)
 	if enemy.get("rarity","")=="boss":interface.stage.set_composition(Vector2(.25,.90),Vector2(.73,.64),.91,.53)
 	enemy_motion=Motion.new();enemy_motion.configure(game.battle_asset_root,game.combat_rules.data["monsters"][enemy["id"]],interface.enemy_slot)
@@ -73,24 +86,15 @@ func start(record: Dictionary, key: String) -> bool:
 	interface.ally_slot.portrait_view.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	interface.enemy_slot.portrait_view.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	interface.action_selected.connect(selected)
-	# The source UI's category names/slots/menus and stage are used directly.
-	interface.category_buttons["items"].text="休整"
-	interface.category_buttons["surrender"].text="撤离"
-	hero_label=game.label("",17);hero_label.position=Vector2(22,14);root_panel.add_child(hero_label)
-	enemy_label=game.label("",17);enemy_label.anchor_left=.73;enemy_label.anchor_right=.99;enemy_label.offset_top=14;root_panel.add_child(enemy_label)
-	log_label=game.label("",17);log_label.anchor_left=.05;log_label.anchor_right=.95;log_label.anchor_top=.615;log_label.anchor_bottom=.655
-	log_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;log_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	root_panel.add_child(log_label)
-	intent_label=game.label("",16);intent_label.anchor_left=.40;intent_label.anchor_right=.66;intent_label.offset_top=145;intent_label.offset_bottom=310
-	intent_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;intent_label.add_theme_color_override("font_color",Color("ffdd9c"));root_panel.add_child(intent_label)
-	charge_toggle=CheckButton.new();charge_toggle.text="蓄力施法（双倍 MP / 等待一回合）"
-	charge_toggle.position=Vector2(420,72);charge_toggle.add_theme_font_override("font",game.ui_font)
-	charge_toggle.add_theme_font_size_override("font_size",17);root_panel.add_child(charge_toggle)
+	var environment:=preload("res://battle_environment.gd").new()
+	interface.set_battle_background(environment.capture(game,root_panel))
+	interface.location_name=environment.scene_name
+	interface.stage.set_composition(environment.ally_foot,environment.enemy_foot,.85,.53 if enemy.get("rarity","")=="boss" else .42)
+	hero_label=interface.hero_label;enemy_label=interface.enemy_label
+	log_label=interface.log_label;intent_label=interface.intent_label
+	charge_toggle=interface.charge_toggle;close_button=interface.close_button
 	charge_toggle.toggled.connect(func(_value: bool):update_ui())
-	close_button=Button.new();close_button.text="返回地图";close_button.custom_minimum_size=Vector2(190,50)
-	close_button.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
-	close_button.offset_left=-95;close_button.offset_right=95;close_button.offset_top=-90;close_button.offset_bottom=-40
-	close_button.pressed.connect(close);root_panel.add_child(close_button);close_button.hide()
+	close_button.pressed.connect(close)
 	escape_confirmation=ConfirmationDialog.new();escape_confirmation.title="撤离战斗"
 	escape_confirmation.dialog_text="撤离后双方保留剩余血量。确定撤离？"
 	escape_confirmation.ok_button_text="确认";escape_confirmation.cancel_button_text="取消"
@@ -99,6 +103,7 @@ func start(record: Dictionary, key: String) -> bool:
 	game.pending_npc_talk="";game.pending_monster="";game.player.path.clear();game.player.velocity=Vector2.ZERO
 	game.gameplay_hud.hide();show();game.refresh_player_freeze();game.update_time_display()
 	append_log("遭遇 "+enemy["name"]+"。请选择操作。")
+	if int(monster.get("relationship_relief",0))>0:append_log("她在回路失控前收住了一部分力量：招式威力与抽蓝降低 %d%%。" % int(monster["relationship_relief"]))
 	if not tactics.spec.is_empty():append_log(str(tactics.spec.get("intro",""))+" 看右侧预告选择反制元素。")
 	update_ui()
 	return true
@@ -163,6 +168,7 @@ func update_ui() -> void:
 		if not categories.has(category):categories[category]=[]
 		var enabled:=int(hero["mp_current"])>=int(action.get("mp_cost",0)) and int(hero["energy_current"])>=int(action.get("energy_cost",0))
 		if action.has("item_id"):enabled=game.economy.can_use(action["item_id"],hero)
+		if not enabled:action["description"]+=" · "+("状态已满或物品不足" if action.has("item_id") else "精力不足" if int(hero["energy_current"])<int(action.get("energy_cost",0)) else "MP 不足")
 		if int(cooldowns.get(action["id"],0))>turn:enabled=false;action["description"]+=" · 冷却 %d 回合" % (int(cooldowns[action["id"]])-turn)
 		if not pending_spell.is_empty() and not action["id"] in ["release_spell","escape","auto"]:enabled=false
 		var caption: String=action["label"]
@@ -212,6 +218,7 @@ func perform(id: String) -> void:
 	var message: String=action["label"]
 	var charging: bool=action.get("damage_kind","")=="magic" and charge_toggle.button_pressed and not releasing
 	if charging:
+		game.sounds.play("charge")
 		pending_spell=action.duplicate(true);message=action["label"]+"蓄力中；本回合敌方行动，下回合释放。"
 		await hero_motion.play("windup")
 	elif action.has("damage_kind") or releasing or id=="resonance_break":
@@ -231,6 +238,7 @@ func perform(id: String) -> void:
 		if action.get("damage_kind","")=="magic":focus_ready=false
 		enemy["hp_current"]=maxi(0,int(enemy["hp_current"])-damage);monster["hp"]=enemy["hp_current"]
 		message="%s造成 %d 伤害。%s" % [action["label"],damage,"破势！本次敌方无法行动。" if response["break"] else "反制成功，本次反击减伤65%。" if response["counter"] else "冰系迟滞，本次反击减伤20%。" if response["slow"] else ""]
+		if action.get("damage_kind","")=="physical":game.sounds.play("attack_swing")
 		if id=="shoulder_check":
 			message+=" 沉肩抢进；对本次物理反击减伤65%。" if action.has("reduction") else " 对手正在施法，贴身撞击无法截住法术。"
 			await hero_motion.play("guard",.16);await hero_motion.play("attack",.24)
@@ -239,48 +247,51 @@ func perform(id: String) -> void:
 		elif id=="physical":interface.ally_slot.set_pose(punch_pose);await move_hero(Vector2(20,0))
 		else:await hero_motion.play("attack")
 		if action.has("effect"):await spell_effect(action["effect"],interface.enemy_slot)
+		game.sounds.play("impact") if action.get("damage_kind","")=="physical" else game.sounds.effect(str(action.get("effect",action.get("element","light"))))
+		if response["break"]:game.sounds.play("break_stance")
 		await enemy_motion.play("hit");await flash_actor(interface.enemy_slot)
 	elif id in ["dodge","wind_step"]:
+		game.sounds.play("dodge")
 		interface.ally_slot.set_pose(dodge_pose);await move_hero(Vector2(-22,0))
 		if id=="wind_step":
 			cooldowns[id]=turn+3
 			message="蹬地撤步，爆发换位避开这次攻击及干扰；没有额外回复。"
 	elif id=="barrier":
-		barrier_turns=2;cooldowns[id]=turn+3;await hero_motion.play("guard");await spell_effect("world_barrier",interface.ally_slot)
+		barrier_turns=2;cooldowns[id]=turn+3;game.sounds.play("guard");await hero_motion.play("guard");await spell_effect("world_barrier",interface.ally_slot)
 	elif id=="focus":
 		focus_ready=true;cooldowns[id]=turn+3;await hero_motion.play("windup");await spell_effect("world_magic_circle",interface.ally_slot)
 	elif id=="mana_cycle":
 		action["reduction"]=.5 # Close the circuit before drawing mana back.
 		var restored:=maxi(game.combat_rules.spell_cost("low"),maxi(10+10*int(hero["level"]),floori(int(hero["mp"])*.12)))
 		hero["mp_current"]=mini(int(hero["mp"]),int(hero["mp_current"])+restored);cooldowns[id]=turn+3
-		message="魔力回流，恢复 %d MP。" % restored;await hero_motion.play("rest")
-	elif id=="steady_guard":action["reduction"]=.65;cooldowns[id]=turn+3;await hero_motion.play("guard")
+		message="魔力回流，恢复 %d MP。" % restored;game.sounds.play("heal" if action.has("item_id") else "rest");await hero_motion.play("rest")
+	elif id=="steady_guard":action["reduction"]=.65;cooldowns[id]=turn+3;game.sounds.play("guard");await hero_motion.play("guard")
 	elif id=="brace_guard":
 		action["reduction"]=.7 if tactics.intent.get("kind","physical")=="physical" else .3
 		cooldowns[id]=turn+int(action["cooldown"]);message="架臂护住要害，本次%s减伤%d%%。" % ["物理" if action["reduction"]==.7 else "法术",roundi(float(action["reduction"])*100)]
-		await hero_motion.play("guard")
+		game.sounds.play("guard");await hero_motion.play("guard")
 	elif id=="second_wind":
 		var healed:=mini(int(hero["hp"])-int(hero["hp_current"]),floori(int(hero["hp"])*.18))
 		hero["hp_current"]+=healed;action["reduction"]=.35;cooldowns[id]=turn+3
-		message="稳住呼吸，恢复 %d HP；本次减伤35%%。" % healed;await hero_motion.play("rest")
+		message="稳住呼吸，恢复 %d HP；本次减伤35%%。" % healed;game.sounds.play("heal" if action.has("item_id") else "rest");await hero_motion.play("rest")
 	elif id=="clarity":
 		ailments.clear();clarity_turns=2;action["reduction"]=.35;cooldowns[id]=turn+3
-		message="清明印净化干扰，并保护两次敌方行动。";await hero_motion.play("guard")
+		message="清明印净化干扰，并保护两次敌方行动。";game.sounds.play("guard");await hero_motion.play("guard")
 	elif id=="rest":
 		var restored:=maxi(20,floori(int(hero["mp"])*.05))
 		hero["mp_current"]=mini(int(hero["mp"]),int(hero["mp_current"])+restored-20)
-		message="休整：恢复 %d MP。精力按回合自然恢复，敌方仍会行动。" % restored;await hero_motion.play("rest")
+		message="休整：恢复 %d MP。精力按回合自然恢复，敌方仍会行动。" % restored;game.sounds.play("heal" if action.has("item_id") else "rest");await hero_motion.play("rest")
 	elif action.has("item_id"):
 		var used: Dictionary=game.economy.use(action["item_id"],hero)
 		if used["ok"]:
 			game.record_game_event("item_used/"+str(action["item_id"]))
 			if game.campaign!=null and game.campaign.active():game.campaign.flags["SAN"]=clampi(ceili(float(hero["san_current"])*100/maxi(1,int(hero["san"]))),0,100)
-		message=used["message"]+"，敌方仍会行动。";await hero_motion.play("rest")
-	elif id=="guard":await hero_motion.play("guard")
+		message=used["message"]+"，敌方仍会行动。";game.sounds.play("heal" if action.has("item_id") else "rest");await hero_motion.play("rest")
+	elif id=="guard":game.sounds.play("guard");await hero_motion.play("guard")
 	append_log(message)
 	if game.campaign!=null:game.campaign.ally_support(self)
 	if tactics.change_phase(enemy):
-		enemy_motion.phase=2;append_log(str(tactics.spec.get("phase_line","阶段改变")));await enemy_motion.play("phase",.6)
+		game.sounds.play("boss_phase" if enemy["id"]=="gou_ga_boss" else "story_rumble");enemy_motion.phase=2;append_log(str(tactics.spec.get("phase_line","阶段改变")));await enemy_motion.play("phase",.6)
 	monster["hp"]=enemy["hp_current"]
 	update_ui();await get_tree().create_timer(.2).timeout
 	if int(enemy["hp_current"])<=0:
@@ -296,9 +307,10 @@ func perform(id: String) -> void:
 		var attacker: Dictionary=enemy.duplicate();attacker["attack"]=floori(int(enemy["attack"])*power)
 		var kind: String=tactics.intent.get("kind",game.combat_rules.data["monsters"][enemy["id"]].get("attack_kind","physical"))
 		var damage: int=game.combat_rules.damage(attacker,hero,kind,reduction)
+		game.sounds.play("boss_thread" if enemy["id"]=="gou_ga_boss" else "attack_swing" if kind=="physical" else "dark")
 		await enemy_motion.play("windup",.2);await enemy_motion.play("attack")
 		hero["hp_current"]=maxi(0,int(hero["hp_current"])-damage)
-		await hero_motion.play("hit");await flash_actor(interface.ally_slot)
+		game.sounds.play("guard" if reduction>=.5 else "impact");await hero_motion.play("hit");await flash_actor(interface.ally_slot)
 		append_log("%s · %s：%d 伤害。" % [enemy["name"],tactics.intent.get("name","攻击"),damage])
 		var protected: bool=clarity_turns>0 or barrier_turns>0 or float(action.get("reduction",0))>=.5 or tactics.countered
 		if not protected:
@@ -339,6 +351,7 @@ func flash_actor(actor: Control) -> void:
 	actor.modulate=Color.WHITE
 
 func spell_effect(id: String, actor: Control) -> void:
+	game.sounds.effect(id)
 	var effect:=preload("res://magic_effect.gd").new()
 	if not effect.setup(game,id,260,.6):effect.free();return
 	effect.position=actor.get_global_rect().get_center();root_panel.add_child(effect)
@@ -352,10 +365,18 @@ func automatic_turn() -> void:
 
 func finish(outcome: String) -> void:
 	if not result.is_empty():return
+	game.sounds.play("victory" if outcome=="victory" else "defeat" if outcome=="defeat" else "escape")
 	busy=false;auto_battle=false;result=outcome
 	monster["tactics_state"]=tactics.snapshot()
 	if outcome=="victory" and enemy_motion!=null and not enemy_motion.frames.is_empty():interface.enemy_slot.set_pose(enemy_motion.texture("defeat"))
-	if outcome=="victory":
+	if outcome=="victory" and not npc_target.is_empty():
+		if lethal_npc:
+			game.relationships.kill(npc_target)
+			append_log(str(npc_target["name"])+"死亡。幸存队友好感大幅下降；死亡已写入当前冒险状态。")
+		else:
+			game.relationships.once(game.relationships.identity(npc_target),"duel",1)
+			append_log("切磋结束，双方收手。没有角色死亡。")
+	elif outcome=="victory":
 		game.record_game_event("monsters_defeated")
 		game.record_game_event("monster_defeated/"+str(enemy["id"]))
 		var rarity: String=game.combat_rules.data["monsters"][enemy["id"]].get("rarity","normal")
@@ -376,11 +397,21 @@ func close() -> void:
 	var outcome:=result
 	var story_battle: bool=game.campaign!=null and game.campaign.is_story_battle()
 	var remaining: Dictionary=monster.duplicate(true)
+	var npc_encounter: bool=not npc_target.is_empty()
+	var npc_death: bool=npc_encounter and lethal_npc and outcome=="victory"
 	hide();root_panel.queue_free();root_panel=null;interface=null
 	base_pose=null;punch_pose=null;dodge_pose=null
 	enemy_motion=null;hero_motion=null;ailments.clear()
 	monster={};enemy={};action_map.clear()
+	npc_target={};lethal_npc=false
+	if npc_encounter:game.combat_rules.data["monsters"].erase(str(remaining["id"]))
 	game.gameplay_hud.show();game.refresh_player_freeze();game.interaction_delay=1.0
+	if npc_encounter:
+		if outcome=="defeat":game.combat_rules.refill_hero()
+		game.sync_classroom_period()
+		if npc_death:
+			game.dialogue_view.begin_script([game.relationships.grievances[-1]])
+		return
 	game.sync_monsters()
 	if game.campaign!=null and game.campaign.active() and game.campaign.san()<=0:game.campaign.present_ending("BE-2")
 	elif story_battle:game.campaign.battle_closed(outcome,remaining)
@@ -390,4 +421,5 @@ func close() -> void:
 		game.reset_player()
 	else:
 		if outcome=="victory" and game.campaign!=null and game.campaign.active():game.campaign.world_victory(remaining.get("id",""))
+		if outcome=="victory" and game.monster_world.zone_rule(game.interior_state).get("farming",false):game.advance_world_period()
 		game.show_notice("战斗胜利" if outcome=="victory" else "已撤离战斗")

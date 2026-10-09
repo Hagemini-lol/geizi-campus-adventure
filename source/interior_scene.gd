@@ -20,6 +20,9 @@ var foreground_bytes:=0
 var title: String
 var npcs: Node2D
 var monsters: Node2D
+var life_layout:=""
+var npc_stamp:=""
+var source_factor:=.2
 var is_office:=false
 var is_ten_class:=false
 var hero_seat:=Vector2.ZERO
@@ -34,6 +37,8 @@ func setup(value: Dictionary, context: Dictionary, directory: String, game: Node
 	else:
 		var fallback:=SystemFont.new();fallback.font_names=PackedStringArray(["Microsoft YaHei","SimHei"]);scene_font=fallback
 	state=context.duplicate()
+	state["floor"]=int(state["floor"])
+	if state.has("room"):state["room"]=int(state["room"])
 	building=info["buildings"][state["building"]]
 	var level:=int(state["floor"])
 	var row: Dictionary=building["floors"][level-1]
@@ -60,17 +65,24 @@ func setup(value: Dictionary, context: Dictionary, directory: String, game: Node
 		if is_office:configure_office(factor)
 		else:configure_classroom(ten,factor)
 		if ten:hero_seat=seat_position(HERO_SEAT_INDEX)
+		life_layout=str(room.get("life_layout",""))
+		if not life_layout.is_empty() and game!=null:
+			blockers.clear();furniture_footprints.clear();furniture_art.clear();portals.clear()
+			factor=.3;source_path=game.campus_life.source(life_layout);dimensions=Vector2(1536,1024)*factor
+			polygon=game.campus_life.polygon(life_layout);game.campus_life.configure_room(self,life_layout)
+	source_factor=factor
 	var image:=Image.load_from_file(source_path)
 	if image==null or image.is_empty(): return false
-	if state["kind"]=="classroom" and factor>.25: image=image.get_region(Rect2i(0,0,1596,912))
+	if state["kind"]=="classroom" and is_ten_class: image=image.get_region(Rect2i(0,0,1596,912))
 	# Original furniture pixels become small foreground sprites. Sorting them
 	# with actors by their floor edge prevents actors behind a desk painting over it.
 	navigation.configure(dimensions,polygon,blockers,1.8 if state["kind"]=="classroom" else 3.6)
-	if game!=null and state["building"] not in ["B02","B06","B15","STORY_HOUSE","STORY_SEAL"]:
+	if game!=null and state["building"] not in ["B02","B06","STORY_HOUSE","STORY_SEAL"]:
 		y_sort_enabled=true
 		npcs=IndoorNpcs.new()
 		add_child(npcs)
 		npcs.setup(self,game,image)
+		npc_stamp="%d/%d/%d/%d/%d/%d" % [game.economy.day_serial,game.day_clock.current_period,game.campaign.index,game.story_system.stage,game.campaign.ao_until,game.relationships.revision]
 	# Preserve the seated students already baked into the room image.
 	build_foreground(image,factor)
 	image.generate_mipmaps()
@@ -83,11 +95,6 @@ func setup(value: Dictionary, context: Dictionary, directory: String, game: Node
 	if state["kind"]=="corridor":background.scale=dimensions/Vector2(image.get_size())
 	background.z_index=-5
 	add_child(background)
-	if is_ten_class:
-		seat_marker=Line2D.new();seat_marker.z_index=20;seat_marker.width=1.3
-		seat_marker.default_color=Color.WHITE;seat_marker.position=hero_seat
-		for index: int in range(49):seat_marker.add_point(Vector2.from_angle(float(index)*TAU/48)*6)
-		seat_marker.visible=npcs!=null and npcs.lesson_active;add_child(seat_marker)
 	for box: Rect2 in blockers: add_box(box)
 	# Thin boundary bodies match the analytic walkable polygon, including the
 	# sloping wall-floor junctions in the perspective classroom illustrations.
@@ -111,19 +118,22 @@ func seat_position(index: int) -> Vector2:
 	return footprint.get_center()+Vector2(0,footprint.size.y*.22)
 
 func refresh_npcs(game: Node2D) -> void:
-	if not is_ten_class or is_office or state["building"]=="B02":return
-	var image:=Image.load_from_file(source_path).get_region(Rect2i(0,0,1596,912))
+	if state["building"] in ["B02","B06","STORY_HOUSE","STORY_SEAL"]:return
+	var stamp: String="%d/%d/%d/%d/%d/%d" % [game.economy.day_serial,game.day_clock.current_period,game.campaign.index,game.story_system.stage,game.campaign.ao_until,game.relationships.revision]
+	if stamp==npc_stamp:return
+	npc_stamp=stamp
+	var image:=Image.load_from_file(source_path)
+	if is_ten_class:image=image.get_region(Rect2i(0,0,1596,912))
 	if npcs!=null:npcs.free()
 	npcs=IndoorNpcs.new();add_child(npcs);npcs.setup(self,game,image)
-	build_foreground(image,.265)
+	build_foreground(image,source_factor)
 	image.generate_mipmaps();background.texture=ImageTexture.create_from_image(image)
 	texture_bytes=foreground_bytes+image.get_data_size()+npcs.texture_bytes
-	if seat_marker!=null:seat_marker.visible=npcs.lesson_active
+	if seat_marker!=null:seat_marker.hide()
 	queue_redraw()
 
 func _draw() -> void:
-	if is_ten_class and npcs!=null and npcs.lesson_active:
-		draw_arc(hero_seat,6.0,0,TAU,48,Color.WHITE,1.3,true)
+	pass
 
 static func classroom_floor(ten: bool) -> PackedVector2Array:
 	var corners: Array=([[65,315],[285,235],[1350,235],[1480,315],[1490,850],[65,850]] if ten else [[60,345],[290,265],[1310,265],[1480,350],[1480,958],[60,958]])
@@ -204,12 +214,12 @@ func configure_corridor(row: Dictionary, level: int) -> void:
 			var x:=float(raw)*24
 			var width:=45.6 if room["class10"] else 24.0
 			portal(Vector2(x,97),Rect2(x-13,85.5,26,16),"room",{"room":int(room["index"]),"side":side,"art_rect":Rect2(x-width*.5,21.88,width,50.4)})
-			if room.get("office",false):
+			if room.get("office",false) or room.has("life_layout"):
 				var sign:=PanelContainer.new();sign.position=Vector2(x-48,1);sign.size=Vector2(96,23)
 				var plate:=StyleBoxFlat.new();plate.bg_color=Color("435d52");plate.border_color=Color("9cae9a")
 				plate.set_border_width_all(1);sign.add_theme_stylebox_override("panel",plate)
 				add_child(sign)
-				var plaque:=Label.new();plaque.text="办公室"+(" 后门" if side=="rear" else "")
+				var plaque:=Label.new();plaque.text=str(room.get("name","办公室"))+(" 后门" if side=="rear" else "")
 				plaque.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 				plaque.add_theme_font_size_override("font_size",11)
 				plaque.add_theme_font_override("font",scene_font)
@@ -260,6 +270,7 @@ func landing(side: String="front") -> Vector2:
 	if state["kind"]=="corridor":
 		return Vector2(building["stairs_center_x"],125)
 	var room: Dictionary=building["floors"][int(state["floor"])-1]["rooms"][int(state["room"])]
+	if not life_layout.is_empty():return Vector2(1400,850)*.3
 	if room["class10"]: return Vector2(1250,310)*.265
 	return Vector2(1370,390)*.2 if side=="front" else Vector2(1430,850)*.2
 

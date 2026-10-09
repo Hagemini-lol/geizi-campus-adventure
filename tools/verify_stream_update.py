@@ -8,7 +8,8 @@ names=sys.argv[1:] or ['clarity_check','campaign_save_check','campaign_behavior_
 for name in names:
     log=root/'runtime'/f'{name}-1.2.1.log'
     with log.open('w',encoding='utf-8') as output:
-        result=subprocess.run([str(engine),'--position','-2000,-2000','--path',str(root/'source'),'--script',f'res://tests/{name}.gd','--','--probe=after','--save-dir='+str(root/'runtime'/f'{name}-1.2.1-saves'),'--settings-path='+str(root/'runtime'/f'{name}-1.2.1-settings.json')],env=env,stdout=output,stderr=subprocess.STDOUT,timeout=420)
+        result=subprocess.run([str(engine),'--position','-2000,-2000','--path',str(root/'source'),'--script',f'res://tests/{name}.gd','--','--probe=after',*(['--manual-story-checks'] if name!='story_region_check' else []),
+        '--mods-dir='+str(root/'runtime'/f'{name}-mods'),'--save-dir='+str(root/'runtime'/f'{name}-1.2.1-saves'),'--settings-path='+str(root/'runtime'/f'{name}-1.2.1-settings.json')],env=env,stdout=output,stderr=subprocess.STDOUT,timeout=420)
     text=log.read_text(encoding='utf-8',errors='replace')
     assert result.returncode==0 and 'SCRIPT ERROR:' not in text,(name,text[-3500:])
     print(name, 'PASS',text.splitlines()[-1][:800],flush=True)

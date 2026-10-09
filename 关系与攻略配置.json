@@ -1,0 +1,599 @@
+{
+  "version": 1,
+  "topic_affinity": 60,
+  "confess_affinity": 85,
+  "gou_topic_affinity": 80,
+  "gou_redemption_affinity": 90,
+  "romance": {
+    "lao_li": {
+      "title": "把清单放下之后",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "你总说还有一件事没准备好。我想知道，没有清单的时候，你会想去哪里？"
+        },
+        {
+          "actor": "target",
+          "text": "校门口那家小店。我一直想试，又觉得可以等下次。你要愿意，我们这次就去。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "原来我不用先证明自己有用，你也会想跟我待在一起。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    },
+    "lao_chou": {
+      "title": "答案之外",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "今天先不查线索，陪我走一段？不知道聊什么也没关系。"
+        },
+        {
+          "actor": "target",
+          "text": "我怕一安静，你就觉得无聊。其实我也有很多没有答案的事，比如为什么你一叫我，我就想回头。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "我愿意。遇到不懂的地方，我们可以直接问彼此。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    },
+    "fei_yan": {
+      "title": "并肩而非跟随",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "这次没有招式要请教。我只是想约你一起散步。"
+        },
+        {
+          "actor": "target",
+          "text": "我还以为你终于发现我也会紧张了。走吧，今天不当谁的老师，咱们平着走。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "别总把我摆在什么都懂的位置。你也可以接住我，我想试试。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    },
+    "lao_ao": {
+      "title": "等你站起来",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "等你康复，我们一起走操场；今天坐在这里也很好。"
+        },
+        {
+          "actor": "target",
+          "text": "你不用为了照顾我把自己的生活停下。我想要的是一起商量步子，不是让你一直等。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "那就慢慢走。快一点慢一点，都先说给对方听。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    },
+    "lao_shuo": {
+      "title": "不用逞强的一天",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "你今天也累了吧？在我面前可以不用一直撑着。"
+        },
+        {
+          "actor": "target",
+          "text": "让我说我累，比让我再跑两圈还难。不过跟你待着，我想试着说实话。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "我愿意和你交往。有人能分担，不会让我变弱。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    },
+    "yang_zi": {
+      "title": "玩笑停下来的时候",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "这次我没有接你的玩笑，是因为我想认真说：我喜欢和你一起。"
+        },
+        {
+          "actor": "target",
+          "text": "那我也认真一回。我不是每次都那么有把握；怕冷场，也怕你只是顺着我笑。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "以后不开心也告诉我。两个人可以安静，不能一直猜。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    },
+    "lao_dong": {
+      "title": "不写在家规里的约定",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "这次你可以只按自己的想法回答。我想和你更亲近一点。"
+        },
+        {
+          "actor": "target",
+          "text": "以前我遇到选择，总先想家里会怎么看。现在我想先问自己：明天最想见的人是谁。答案是你。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "我愿意。这份约定我自己来守，也会把我的顾虑说清楚。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    },
+    "la_jiao": {
+      "title": "点名之后",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "你总确认每个人在不在。今天换我问：你想不想和我单独待一会儿？"
+        },
+        {
+          "actor": "target",
+          "text": "想。我老怕一松手就漏掉谁，可你这样问，我才发现自己也可以被照顾。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "那就给我们留一点不用点名的时间。喜欢不是另一份值日表。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    },
+    "wr": {
+      "title": "把书合上",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "不靠契约，也不交换任何代价。我想知道你愿不愿意和我靠近。"
+        },
+        {
+          "actor": "target",
+          "text": "愿意。但我有时会需要独处，读不完的书也不会因为交往就放下。你不必装成跟我一模一样。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "可以。喜欢一个人，不该把她变成自己的答案。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    },
+    "ordinary": {
+      "title": "放学后的一段路",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "我们聊过很多次了。下次放学，愿意一起走一段路吗？"
+        },
+        {
+          "actor": "target",
+          "text": "愿意。先说好，不用因为约好了就勉强开心。有心事也可以慢慢说。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "我也喜欢你。先认真认识彼此，一起商量怎么相处。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    },
+    "gou_ga": {
+      "title": "不把求救当作承诺",
+      "topic": [
+        {
+          "actor": "zhao_mugei",
+          "text": "这次不是为了套你的话。门外安静的时候，我也想见你。"
+        },
+        {
+          "actor": "target",
+          "text": "你别因为可怜我就说这种话。我做过的事还在，别人不原谅我也是应该的。要靠近，就看清楚再来。"
+        }
+      ],
+      "accept": [
+        {
+          "actor": "target",
+          "text": "我想试着和你在一起。但你不能替别人原谅我，也不能把救我当成我必须喜欢你的理由。修复那些伤害，是我自己的责任。"
+        }
+      ],
+      "revisit": [
+        {
+          "actor": "target",
+          "text": "今天不用做出什么成绩。我们坐一会儿，听彼此把话说完。"
+        }
+      ],
+      "friend": [
+        {
+          "actor": "target",
+          "text": "好，朋友也值得认真对待。以后想法变了，再好好说。"
+        }
+      ]
+    }
+  },
+  "gou_stories": [
+    {
+      "id": "gou_1",
+      "title": "裂缝里的回声",
+      "after": "book_queen",
+      "gain": 16,
+      "flags": {},
+      "shards": 0,
+      "san": 0,
+      "understand": 0,
+      "dialogue": [
+        {
+          "actor": "gou_ga",
+          "text": "门底有声音，喊得跟真的一样。有人说我能让它安静，所以我试了。后来每一次都要更多。"
+        },
+        {
+          "actor": "zhao_mugei",
+          "text": "听见声音不是你的错。把无辜的人拖进去是。我们先查清它怎么骗你。"
+        }
+      ],
+      "choices": [
+        [
+          "promise",
+          "听完她说话，不替她开脱"
+        ],
+        [
+          "excuse",
+          "说她没有责任，只要跟着自己就好"
+        ],
+        [
+          "cancel",
+          "先不回答，改天再谈"
+        ]
+      ],
+      "correct": "promise",
+      "resolution": [
+        {
+          "actor": "gou_ga",
+          "text": "你没有说“我懂你”，也没立刻走。那……这一段我说完。"
+        }
+      ],
+      "retry": [
+        {
+          "actor": "gou_ga",
+          "text": "你要是只想让我听话，那跟门底有什么不同？等你想清楚再来。"
+        }
+      ]
+    },
+    {
+      "id": "gou_2",
+      "title": "撤回错误的名字",
+      "after": "yang_hearing",
+      "gain": 18,
+      "flags": {
+        "F_LI_CLEAR": true,
+        "F_YANG_CLEAR": true
+      },
+      "shards": 0,
+      "san": 0,
+      "understand": 0,
+      "dialogue": [
+        {
+          "actor": "gou_ga",
+          "text": "你还想让我当众承认？他们以后看我，都会想起这件事。"
+        },
+        {
+          "actor": "zhao_mugei",
+          "text": "他们已经在替你的谎话承担后果了。更正记录不是换取原谅，是先停止让错事继续。"
+        }
+      ],
+      "choices": [
+        [
+          "record",
+          "让她亲自留下更正的证词"
+        ],
+        [
+          "excuse",
+          "说她没有责任，只要跟着自己就好"
+        ],
+        [
+          "cancel",
+          "先不回答，改天再谈"
+        ]
+      ],
+      "correct": "record",
+      "resolution": [
+        {
+          "actor": "gou_ga",
+          "text": "我写。不是你替我写，也不说自己只是开玩笑。"
+        }
+      ],
+      "retry": [
+        {
+          "actor": "gou_ga",
+          "text": "你要是只想让我听话，那跟门底有什么不同？等你想清楚再来。"
+        }
+      ]
+    },
+    {
+      "id": "gou_3",
+      "title": "没人替你选的出口",
+      "after": "seal_defend",
+      "gain": 18,
+      "flags": {},
+      "shards": 1,
+      "san": 40,
+      "understand": 0,
+      "dialogue": [
+        {
+          "actor": "gou_ga",
+          "text": "你拿着碎片可以封住我。现在把它用在回路上，不怕我转头跑了？"
+        },
+        {
+          "actor": "zhao_mugei",
+          "text": "我要切断控制，不是把控制权换到我手里。碎片还在封印中起作用，你走出去之后也要面对做过的事。"
+        }
+      ],
+      "choices": [
+        [
+          "release",
+          "拆掉门底用来控制她的旧符结"
+        ],
+        [
+          "excuse",
+          "说她没有责任，只要跟着自己就好"
+        ],
+        [
+          "cancel",
+          "先不回答，改天再谈"
+        ]
+      ],
+      "correct": "release",
+      "resolution": [
+        {
+          "actor": "gou_ga",
+          "text": "符结松了。原来没有人拽着，也可以迈出一步。"
+        }
+      ],
+      "retry": [
+        {
+          "actor": "gou_ga",
+          "text": "你要是只想让我听话，那跟门底有什么不同？等你想清楚再来。"
+        }
+      ]
+    },
+    {
+      "id": "gou_4",
+      "title": "把真相留在灯下",
+      "after": "tide_clear",
+      "gain": 22,
+      "flags": {
+        "F_TRUTH": true
+      },
+      "shards": 3,
+      "san": 60,
+      "understand": 4,
+      "dialogue": [
+        {
+          "actor": "gou_ga",
+          "text": "你已经知道是谁把我推到门边了。可以只告诉我吗？我不想再被别人议论。"
+        },
+        {
+          "actor": "zhao_mugei",
+          "text": "证据要留下，才能有人负责。你的私人感受不会贴在公告栏上；发生过的伤害也不能删掉。"
+        }
+      ],
+      "choices": [
+        [
+          "share",
+          "把真相交给所有幸存者，而非私下藏起"
+        ],
+        [
+          "excuse",
+          "说她没有责任，只要跟着自己就好"
+        ],
+        [
+          "cancel",
+          "先不回答，改天再谈"
+        ]
+      ],
+      "correct": "share",
+      "resolution": [
+        {
+          "actor": "gou_ga",
+          "text": "那就把证据分开。该公开的公开，我害怕的事……可以只说给你听吗？"
+        }
+      ],
+      "retry": [
+        {
+          "actor": "gou_ga",
+          "text": "你要是只想让我听话，那跟门底有什么不同？等你想清楚再来。"
+        }
+      ]
+    },
+    {
+      "id": "gou_5",
+      "title": "这一次自己松手",
+      "after": "preparation",
+      "gain": 26,
+      "flags": {
+        "F_TRUTH": true,
+        "F_CIVILIAN_SAFE": true
+      },
+      "shards": 4,
+      "san": 60,
+      "understand": 4,
+      "dialogue": [
+        {
+          "actor": "gou_ga",
+          "text": "最后要是我控制不住，你还会叫我的名字吗？别答应得太快。"
+        },
+        {
+          "actor": "zhao_mugei",
+          "text": "我会叫，也会挡下伤人的招式。我不会为了留住你让别人去死。等你能自己松手，我们再谈门外的日子。"
+        },
+        {
+          "actor": "gou_ga",
+          "text": "好。别让我躲进“全都是门的错”这句话里。我想出来，也要自己走完。"
+        }
+      ],
+      "choices": [
+        [
+          "stand",
+          "承诺救人，同时保留证据和责任"
+        ],
+        [
+          "excuse",
+          "说她没有责任，只要跟着自己就好"
+        ],
+        [
+          "cancel",
+          "先不回答，改天再谈"
+        ]
+      ],
+      "correct": "stand",
+      "resolution": [
+        {
+          "actor": "system",
+          "text": "这不是赦免，也不是契约。她把那张写有出口的纸，认真折好放进校服口袋。"
+        }
+      ],
+      "retry": [
+        {
+          "actor": "gou_ga",
+          "text": "你要是只想让我听话，那跟门底有什么不同？等你想清楚再来。"
+        }
+      ]
+    }
+  ]
+}

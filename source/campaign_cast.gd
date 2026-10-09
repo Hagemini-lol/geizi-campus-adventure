@@ -8,6 +8,7 @@ func setup(owner_game: Node2D, owner_scene: Node2D, ids: Array) -> void:
 	game=owner_game;scene=owner_scene;y_sort_enabled=true
 	for i: int in range(ids.size()):
 		var id: String=ids[i]
+		if not game.relationships.alive(id):continue
 		var image: Image=game.npc_catalog.frame(id,0);image.generate_mipmaps()
 		var sprite:=Sprite2D.new();sprite.z_index=10;sprite.texture=ImageTexture.create_from_image(image);sprite.scale=Vector2.ONE*game.npc_catalog.height(id)/image.get_height();sprite.offset.y=-image.get_height()*.5
 		var at:=Vector2(35+35*i,173)

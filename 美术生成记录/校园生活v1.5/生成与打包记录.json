@@ -1,0 +1,19 @@
+{
+  "tool": "built-in imagegen",
+  "style_reference": "普通教室.png / 班主任.png",
+  "backgrounds": [
+    "cafeteria",
+    "dorm",
+    "gym",
+    "print"
+  ],
+  "sprite_request": "Four directions; three rows standing, walk A, walk B; adult school staff; transparent background.",
+  "packing": "Only grid extraction, transparent bounds and uniform resize; original masters retained.",
+  "staff": {
+    "cook_hu": "exec-8881c4f5-4f1c-4733-b3f2-f4c4800968a7.png",
+    "clerk_qiu": "exec-44bf5a0d-c86b-402c-874c-f64dcaf58112.png",
+    "worker_hou": "exec-62da34fc-1dd5-42b7-a3ee-42dd33af49fb.png",
+    "warden_chen": "exec-fdd53d55-cccb-43cc-a61e-d0d26e22ebfd.png",
+    "warden_zhou": "exec-eff86dd0-6fbf-4b85-b9e8-2814bc9f59ac.png"
+  }
+}

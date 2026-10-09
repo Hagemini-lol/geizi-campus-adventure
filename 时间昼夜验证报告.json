@@ -1,6 +1,6 @@
 {
   "automatic_progression": false,
-  "checks": 115,
+  "checks": 130,
   "cooldown_seconds": 2,
   "display_period_only": true,
   "event_advancement": true,
@@ -22,11 +22,20 @@
     },
     {
       "name": "深夜"
+    },
+    {
+      "name": "午休"
     }
   ],
   "samples": [
     {
       "cooldown_ms": 2050,
+      "peak_black": 1.0,
+      "period": "午休",
+      "tint": "(1.0, 0.99, 0.94, 1.0)"
+    },
+    {
+      "cooldown_ms": 2048,
       "peak_black": 1.0,
       "period": "下午",
       "tint": "(1.0, 0.95, 0.85, 1.0)"
@@ -38,7 +47,7 @@
       "tint": "(0.55, 0.56, 0.7, 1.0)"
     },
     {
-      "cooldown_ms": 2049,
+      "cooldown_ms": 2048,
       "peak_black": 1.0,
       "period": "深夜",
       "tint": "(0.3, 0.37, 0.55, 1.0)"
@@ -56,7 +65,7 @@
       "tint": "(1.0, 1.0, 1.0, 1.0)"
     },
     {
-      "cooldown_ms": 2046,
+      "cooldown_ms": 2040,
       "peak_black": 1.0,
       "period": "凌晨",
       "tint": "(0.82, 0.86, 0.94, 1.0)"

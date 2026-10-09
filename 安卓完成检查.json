@@ -1,14 +1,14 @@
 {
   "version": 5,
-  "game_version": "1.4.0",
+  "game_version": "1.5.0",
   "game_name": "gei子的冒险",
   "apk": {
     "apk": "D:\\Godot\\校园自由漫游\\gei子的冒险.apk",
-    "bytes": 395421128,
-    "sha256": "3504b04982c27682b37825cba528c39b85658ccb1222a5f5039b4c18708d9db6",
+    "bytes": 425892597,
+    "sha256": "c978f9c75a78d15f6a540c876261b858c7d0aeb0143a2bc5e05fd59dd22a13c7",
     "signature_verified": true,
-    "asset_hashes_checked": 3720,
-    "configuration_files_checked": 6,
+    "asset_hashes_checked": 3788,
+    "configuration_files_checked": 7,
     "saves_settings_signing_keys_excluded": true,
     "native_abis": [
       "arm64-v8a",
@@ -19,18 +19,18 @@
     "original_update_identity_verified": true,
     "physical_device_tested": false,
     "exported_resource_payload_tested_with_desktop_engine": true,
-    "exported_payload_touch_checks": 36,
-    "exported_payload_touch_checks_wide": 36
+    "exported_payload_touch_checks": 48,
+    "exported_payload_touch_checks_wide": 48
   },
   "touch_checks": {
     "standard": {
-      "checks": 36,
+      "checks": 48,
       "failures": [],
       "passed": true,
       "test": "actual ScreenTouch/ScreenDrag dispatch with simultaneous fingers"
     },
     "wide": {
-      "checks": 36,
+      "checks": 48,
       "failures": [],
       "passed": true,
       "test": "actual ScreenTouch/ScreenDrag dispatch with simultaneous fingers"
@@ -6218,12 +6218,12 @@
   },
   "npc_behavior_checks": {
     "actual_boss_battles": 3,
-    "checks": 4439,
+    "checks": 3443,
     "failures": [],
     "motion_steps": 450,
     "passed": true
   },
-  "windows_pck_sha256": "c4d273ffc130e0efc288e1e8214caab1406d0deeb5a0d03b8fb1358f50f2a1da",
+  "windows_pck_sha256": "0793f5f1850ea9337a49b66c55ea639a4531516090f3746720100a6cedb47f9f",
   "android_minimum": "7.0 / API 24",
   "orientation": "landscape",
   "original_assets_edited": false,
@@ -7048,7 +7048,7 @@
     "puzzles": 8
   },
   "content_audit": {
-    "version": "1.4.0",
+    "version": "1.5.0",
     "main": {
       "lines": 673,
       "unique_lines": 670,
@@ -7140,26 +7140,42 @@
     ],
     "main_events": 33,
     "side": {
-      "lines": 698,
-      "unique_lines": 698,
-      "characters": 25655,
-      "chinese_characters": 22723
+      "lines": 772,
+      "unique_lines": 772,
+      "characters": 28516,
+      "chinese_characters": 25273
     },
     "chapter_investigations": 9,
     "chapter_investigation_steps": 36,
     "personal_stories": 27,
     "personal_story_steps": 80,
-    "daily_jobs": 2,
-    "side_steps": 121,
+    "daily_jobs": 4,
+    "side_steps": 153,
+    "campus_staff_stories": 7,
+    "campus_staff_steps": 28,
+    "campus_staff_dialogue": {
+      "lines": 64,
+      "unique_lines": 64,
+      "characters": 2526,
+      "chinese_characters": 2252
+    },
+    "relationship_stories": 5,
+    "romance_profiles": 11,
+    "relationship_dialogue": {
+      "lines": 76,
+      "unique_lines": 52,
+      "characters": 1571,
+      "chinese_characters": 1386
+    },
     "total": {
-      "lines": 1371,
-      "unique_lines": 1368,
-      "characters": 48767,
-      "chinese_characters": 43016
+      "lines": 1521,
+      "unique_lines": 1494,
+      "characters": 53199,
+      "chinese_characters": 46952
     },
     "interactive_puzzles": 8,
-    "reading_minutes_at_300_cpm": 162.6,
-    "reading_minutes_at_220_cpm": 221.7,
+    "reading_minutes_at_300_cpm": 177.3,
+    "reading_minutes_at_220_cpm": 241.8,
     "method": "Unique authored dialogue strings only. Includes mutually exclusive endings and replayable daily dialogue, so total reading time is NOT a single-route playtime. Excludes menus, hints, descriptions, docs, duplicate sentences and travelling/waiting. Actual 4-hour playtime has not been measured.",
     "single_route": {
       "ending": "GE-H",

@@ -46,7 +46,7 @@ func available(scene: Node2D=null) -> bool:
 
 func open() -> void:
 	if running or not available():return
-	var next: String="下午" if game.day_clock.current_period==1 else "晚上"
+	var next: String=game.DayClock.PERIODS[game.day_clock.next_index()]["name"]
 	description.text="坐在自己的座位上，参加"+game.day_clock.display_text()+"课程？\n结束后进入"+next+"。"
 	game.player.path.clear();game.player.velocity=Vector2.ZERO
 	show();game.refresh_player_freeze()
@@ -64,14 +64,14 @@ func start_lesson() -> void:
 	game.update_time_display()
 	var morning: bool=game.day_clock.current_period==1
 	var cover:=game.create_tween();cover.tween_property(game.fade,"modulate:a",1.0,.18);await cover.finished
-	black_text.text="上午 · 上课\n\n赵慕gei坐在靠窗倒数第二排的座位上。\n班主任在讲台旁讲课，同学们安静地听讲。" if morning else "下午 · 上课\n\n赵慕gei坐在自己的座位上。\n英语老师在讲台旁授课，大家完成了课堂练习。"
+	var teacher: String=game.campus_life.teacher_for(game.interior_state["building"],game.day_clock.current_period)
+	black_text.text=("上午" if morning else "下午")+" · 上课\n\n赵慕gei坐在自己的座位上。\n"+(str(game.npc_catalog.characters[teacher]["display_name"])+"在讲台旁授课，大家完成了课堂练习。" if game.relationships.alive(teacher) else "老师已经不在了。这节课改为自习，赵慕gei照着留下的讲义完成练习。")
 	black_text.show()
 	var begin:=Time.get_ticks_msec()
 	await get_tree().create_timer(TEXT_SECONDS).timeout
 	held_seconds=float(Time.get_ticks_msec()-begin)/1000.0
 	# Advance while the world remains hidden; seating/teacher state follows the period.
-	game.day_clock.next_period();game.monster_world.advance(game.interior_state);game.sync_monsters()
-	game.sync_classroom_period();game.apply_time_lighting();game.update_time_display()
+	game.advance_world_period()
 	game.record_game_event("classes_attended")
 	completed+=1;black_text.hide()
 	var reveal:=game.create_tween();reveal.tween_property(game.fade,"modulate:a",0.0,.22);await reveal.finished

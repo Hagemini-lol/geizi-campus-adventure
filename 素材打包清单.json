@@ -18601,11 +18601,353 @@
       "file": "资源/原项目/assets/characters/hero/battle/actions-v2/world.png",
       "bytes": 140236,
       "sha256": "f520f42e42eac9e5630b151192309f179b9d65e4ab0d8c5843e16437ba96f227"
+    },
+    {
+      "file": "资源/公开配乐/v1.5/battle.ogg",
+      "bytes": 4009870,
+      "sha256": "f957434432f49f5cc0a4d81351304d7daa646af5bcbeaccc29d47224cd40fb8f"
+    },
+    {
+      "file": "资源/公开配乐/v1.5/day.ogg",
+      "bytes": 4577572,
+      "sha256": "5d45d84b53677fd72d0bb99c38db239f843401c001193bfad222af7647935f8f"
+    },
+    {
+      "file": "资源/公开配乐/v1.5/final_boss.ogg",
+      "bytes": 1896283,
+      "sha256": "e0174e05bdab72559c4ed12e23632638dca4076a1ae4557e8311959dc5a94bd3"
+    },
+    {
+      "file": "资源/公开配乐/v1.5/heroic.ogg",
+      "bytes": 4354652,
+      "sha256": "f734b2c22a34888e4857ce7656bd7cd8c0e5b39c63d44aa7bd2bc03ab93e1c89"
+    },
+    {
+      "file": "资源/公开配乐/v1.5/night.ogg",
+      "bytes": 2716240,
+      "sha256": "71f1874154431146a564d7cb9062f333a35e5217bf28a3f4346bccf36a529814"
+    },
+    {
+      "file": "资源/公开配乐/v1.5/tension.ogg",
+      "bytes": 2239184,
+      "sha256": "82606350206f883598e6bc273e7ac6aa8d33b05f81513f8fef6abc8cd03f7194"
+    },
+    {
+      "file": "资源/公开配乐/v1.5/曲目与来源.json",
+      "bytes": 4046,
+      "sha256": "47eb011ba6a2ab5448d758811d2536e2a46c4db54ac6ed163e8feed44cd38dd0"
+    },
+    {
+      "file": "资源/原创音效/v1.5/attack_swing.wav",
+      "bytes": 8864,
+      "sha256": "250a53eb4d2639268dae12e0e7e80448eda25ae4074139110c623b8c84cb2fc4"
+    },
+    {
+      "file": "资源/原创音效/v1.5/barrier.wav",
+      "bytes": 22976,
+      "sha256": "d17814d976005bd30676c49e870134bdb9e7db2b46ba2bdbcf734c211f99145c"
+    },
+    {
+      "file": "资源/原创音效/v1.5/boss_phase.wav",
+      "bytes": 41940,
+      "sha256": "1348e3ca12c0ae03f62f77c02bed04b22a088dd76db87e76a2ed3a11363d2003"
+    },
+    {
+      "file": "资源/原创音效/v1.5/boss_thread.wav",
+      "bytes": 30032,
+      "sha256": "0b5c078bee2b955fb00ad025297d6248e086632c7d7c8dc408ea12157e74bcf6"
+    },
+    {
+      "file": "资源/原创音效/v1.5/break_stance.wav",
+      "bytes": 16802,
+      "sha256": "82a125369d4e68f94a14e276e82a3312fd0f36a572739fcfe35134c23cffdf44"
+    },
+    {
+      "file": "资源/原创音效/v1.5/charge.wav",
+      "bytes": 22976,
+      "sha256": "de2e32487eb50efbf0579f458290d42fdc580c997a5d927b5a9d4fef350e3a11"
+    },
+    {
+      "file": "资源/原创音效/v1.5/craft.wav",
+      "bytes": 21212,
+      "sha256": "49f03fc57859baeac6b1eedfbab99d6ab7d73a393fe7c6ffa9433ab98d8410c2"
+    },
+    {
+      "file": "资源/原创音效/v1.5/dark.wav",
+      "bytes": 31796,
+      "sha256": "be7068c7f9c39e14f7bd936d7a8ab4af7c242f050d1b5d61c61ed781906edbbe"
+    },
+    {
+      "file": "资源/原创音效/v1.5/defeat.wav",
+      "bytes": 33120,
+      "sha256": "2b87dcc28a6ba627789390f9e3cb06319123046e348e3ee902b15f843ef108ac"
+    },
+    {
+      "file": "资源/原创音效/v1.5/dodge.wav",
+      "bytes": 11510,
+      "sha256": "50dbf2d6ce3db916e0eb2fff54ba3afa93728f061d5880d4ae5c96c1a8ed0638"
+    },
+    {
+      "file": "资源/原创音效/v1.5/door.wav",
+      "bytes": 11068,
+      "sha256": "72f086678a70b74dd8dbacf77ccc654088ce1e3041e796cb882d856f0970e7d6"
+    },
+    {
+      "file": "资源/原创音效/v1.5/escape.wav",
+      "bytes": 12392,
+      "sha256": "2b16dbfbd6e0e5c380af0daf0c164bf74f9895d91b9df1810c2e0a69e0893569"
+    },
+    {
+      "file": "资源/原创音效/v1.5/fire.wav",
+      "bytes": 26504,
+      "sha256": "e47276cf411f37fe81aeb11e2afac93482f427ac8ce510673cb0e01e0e679682"
+    },
+    {
+      "file": "资源/原创音效/v1.5/guard.wav",
+      "bytes": 9746,
+      "sha256": "975b3b63a8bc6e6ce3798753caec5ee0b057a4c40f1310c475a6700691731998"
+    },
+    {
+      "file": "资源/原创音效/v1.5/heal.wav",
+      "bytes": 19888,
+      "sha256": "4cb48ec5b5d079720c17d66a73712ec9755d7fd9efbcae467136ab6d9a598807"
+    },
+    {
+      "file": "资源/原创音效/v1.5/ice.wav",
+      "bytes": 25622,
+      "sha256": "d9ec875d128b14ff9e4132c323109f46a4fb08e5690817d33e962db7658100f3"
+    },
+    {
+      "file": "资源/原创音效/v1.5/impact.wav",
+      "bytes": 7982,
+      "sha256": "87d8e133218eeb48a7d6df50666a6d26b8685c08895c5497aeaeb8368b2af73a"
+    },
+    {
+      "file": "资源/原创音效/v1.5/interact.wav",
+      "bytes": 6218,
+      "sha256": "738314f6a7d333aff0014ef5eb2e87d3ecc5a9b5a0a2ae108862512b49a032a4"
+    },
+    {
+      "file": "资源/原创音效/v1.5/light.wav",
+      "bytes": 27386,
+      "sha256": "518db57802bf8e244202aacf9f76f2ccf5f7b9597fb5b0b2a0c664736a869cf9"
+    },
+    {
+      "file": "资源/原创音效/v1.5/lightning.wav",
+      "bytes": 20330,
+      "sha256": "2d018a4ec736f616b49c4c3eb2058a54e85898712439d7953e28e4359d3a8b71"
+    },
+    {
+      "file": "资源/原创音效/v1.5/paper.wav",
+      "bytes": 11068,
+      "sha256": "afc9847d3ff8256864177d62ecbdf85d187477bcf1da153ed4c24b9f717e861f"
+    },
+    {
+      "file": "资源/原创音效/v1.5/puzzle_success.wav",
+      "bytes": 28268,
+      "sha256": "49be758a9c0e87bae298affb87bf4edcc62122d0d1fc77dc674804b94216921e"
+    },
+    {
+      "file": "资源/原创音效/v1.5/puzzle_tick.wav",
+      "bytes": 4454,
+      "sha256": "84ad9044060dc6c320caadc00b410c7c3229f99f0f33aa604a6cd219bcb03573"
+    },
+    {
+      "file": "资源/原创音效/v1.5/quest_complete.wav",
+      "bytes": 37528,
+      "sha256": "d8b360b61edb3b934c4bfaf19a6434d1e595a476d39b4c1c7ff4d4e0a250df06"
+    },
+    {
+      "file": "资源/原创音效/v1.5/rest.wav",
+      "bytes": 15920,
+      "sha256": "42170ef7349574f81c588b213a041d7552e677d9811094fcd2aaddee8bb09b26"
+    },
+    {
+      "file": "资源/原创音效/v1.5/story_reveal.wav",
+      "bytes": 39734,
+      "sha256": "d1138621372b085b66c5876f6c5babf938d63dd7eefa9465fa34458e871a2e00"
+    },
+    {
+      "file": "资源/原创音效/v1.5/story_rumble.wav",
+      "bytes": 41940,
+      "sha256": "aba3f2f74bbcf8fc8a5ad51b3848e1d5b4119f7f7713641c32c8677b6e8a3c15"
+    },
+    {
+      "file": "资源/原创音效/v1.5/trade.wav",
+      "bytes": 12392,
+      "sha256": "f917a83cd782c239021c5348066616ace2a363dc4926074b6c91401a994a89e9"
+    },
+    {
+      "file": "资源/原创音效/v1.5/ui_confirm.wav",
+      "bytes": 3132,
+      "sha256": "3cd21d04e8b3d391d978148ce003a4a7cbfbd86fbfd90474cbe039f37a9eec7e"
+    },
+    {
+      "file": "资源/原创音效/v1.5/victory.wav",
+      "bytes": 39734,
+      "sha256": "53c59e75e85d7fc4aa3843df155d2a10b17f505e39ac490d27eeea886f852b32"
+    },
+    {
+      "file": "资源/原创音效/v1.5/wind.wav",
+      "bytes": 24300,
+      "sha256": "c4d894c090f12fc224dbd2274e5db06a5c91d93c500bc345fc406cfee522b1b2"
+    },
+    {
+      "file": "资源/原创音效/v1.5/音效索引.json",
+      "bytes": 8671,
+      "sha256": "c33dcb252f4358813ed4cc328c0aadc0fca2c63d51a7bc0d5c79bccb233f0e5f"
+    },
+    {
+      "file": "资源/原项目/assets/characters/leon_v15/atlas.png",
+      "bytes": 89768,
+      "sha256": "612cb69601520fa387207b372e9e43cdc09b982f293982f3d08cbdcde035ffe3"
+    },
+    {
+      "file": "资源/原项目/assets/characters/leon_v15/motion.json",
+      "bytes": 4233,
+      "sha256": "b637d454e96266580b6d96368e324334201d67645f4208e96b932f7186c03508"
+    },
+    {
+      "file": "资源/原项目/assets/characters/staff_v15/clerk_qiu.png",
+      "bytes": 232051,
+      "sha256": "f957fd5924b2dcdc389d5b1d0a5a3c0210c7dc827070c60e72140d05de7f8175"
+    },
+    {
+      "file": "资源/原项目/assets/characters/staff_v15/cook_hu.png",
+      "bytes": 246688,
+      "sha256": "61d63e66e477726530ce9de1608772a78ca2dc9d043353182a75361c7ba129cd"
+    },
+    {
+      "file": "资源/原项目/assets/characters/staff_v15/warden_chen.png",
+      "bytes": 232848,
+      "sha256": "14fffecb3b55021ce767481d3c1ac87d600ca19b7c0d69933c4761a2d499d335"
+    },
+    {
+      "file": "资源/原项目/assets/characters/staff_v15/warden_zhou.png",
+      "bytes": 237191,
+      "sha256": "0a04a303f329244d0c649496caf280b3a4e3cd665f45e24dd668a6cd34c9d5d4"
+    },
+    {
+      "file": "资源/原项目/assets/characters/staff_v15/worker_hou.png",
+      "bytes": 232671,
+      "sha256": "b7db6c8cda63271f5eaa18ee11f67fa1902fabb1db1413f946d2988292bcd8be"
+    },
+    {
+      "file": "资源/手机UI/v1.5/app_browser.png",
+      "bytes": 8526,
+      "sha256": "eeeae2217dd251fed4768d6ba0674e6246e8651050ddb9b13f477a6ee900e280"
+    },
+    {
+      "file": "资源/手机UI/v1.5/app_browser.svg",
+      "bytes": 632,
+      "sha256": "ebfb19da491a0f8acb9de5f388d15cd95062567fc34169960fc2d2e4085fd129"
+    },
+    {
+      "file": "资源/手机UI/v1.5/app_gallery.png",
+      "bytes": 6108,
+      "sha256": "7ecfa3566937c0bc29bb280c8b23c1fe135dcfbcc381f6de75c125a1d9c7217b"
+    },
+    {
+      "file": "资源/手机UI/v1.5/app_gallery.svg",
+      "bytes": 1003,
+      "sha256": "c12512323bfb8b087c0c8df5e8d851f5e74b16edd51f83660f303c25024da742"
+    },
+    {
+      "file": "资源/手机UI/v1.5/app_honor_of_kings.png",
+      "bytes": 7553,
+      "sha256": "74c231d5f53975b42d8f7ec0164ee6a8c5f62759afa377fdf8116055f9a5ccb9"
+    },
+    {
+      "file": "资源/手机UI/v1.5/app_honor_of_kings.svg",
+      "bytes": 815,
+      "sha256": "3adc93a328100fe044ac1c093de605c66527037cf5e855904258ac1717bb14b6"
+    },
+    {
+      "file": "资源/手机UI/v1.5/app_qq.png",
+      "bytes": 6371,
+      "sha256": "c17ec5960814a7096d84b05fd933c2dc47eae139c4c60357e078fb0c019acbb7"
+    },
+    {
+      "file": "资源/手机UI/v1.5/app_qq.svg",
+      "bytes": 948,
+      "sha256": "e75e9665286d7c12c4c30ae51413189be1b369b568508c6f4918ad283d28425b"
+    },
+    {
+      "file": "资源/手机UI/v1.5/app_wechat.png",
+      "bytes": 5546,
+      "sha256": "4900cf90bad51034d119a4b2f7311744b2519f612d0ab6fcc70e575a2572d945"
+    },
+    {
+      "file": "资源/手机UI/v1.5/app_wechat.svg",
+      "bytes": 693,
+      "sha256": "814e85bf3768e9588a6df84723f06329213697d37beefadd5171a591f12f5886"
+    },
+    {
+      "file": "资源/手机UI/v1.5/phone_launcher.png",
+      "bytes": 3387,
+      "sha256": "42682d499d40682a8a3685f03fed7971dd591a65ebc5f8962541a5368c770be0"
+    },
+    {
+      "file": "资源/手机UI/v1.5/phone_launcher.svg",
+      "bytes": 666,
+      "sha256": "df21eb58b58c4d9a61e089079573e66412a449e9846d6dc6d26cbb3e01f5d5fe"
+    },
+    {
+      "file": "资源/手机UI/v1.5/phone_screen_base.png",
+      "bytes": 33533,
+      "sha256": "356a547449b71a209912fa41495571c3c407855f8b1b46198e91d4523e152e37"
+    },
+    {
+      "file": "资源/手机UI/v1.5/phone_screen_base.svg",
+      "bytes": 924,
+      "sha256": "35eaa0a946ddad722bb6126eb273f3c1efa2aef12b4517482fc62a2a53f01f05"
+    },
+    {
+      "file": "资源/手机UI/v1.5/来源记录.json",
+      "bytes": 2139,
+      "sha256": "c9ccd127a8ac3c1f9c2ddd4c27671456737115f430324198a24113885bb234a8"
+    },
+    {
+      "file": "资源/新增内景/v1.5/cafeteria.png",
+      "bytes": 1643595,
+      "sha256": "f6d22a6b22e67922592f0885dc1047c4a9a50e4586e0a37cf84857bf4978a8e9"
+    },
+    {
+      "file": "资源/新增内景/v1.5/dorm.png",
+      "bytes": 1641557,
+      "sha256": "e04556c3111d7fe104e859bbd6fea89c57c82be7735ea1cbaf08f5b7579b33e1"
+    },
+    {
+      "file": "资源/新增内景/v1.5/gym.png",
+      "bytes": 2007590,
+      "sha256": "4bc502d59c23204f18cfb6f00a9acc179c2d43d81511d64600a0b1ef0678e440"
+    },
+    {
+      "file": "资源/新增内景/v1.5/print.png",
+      "bytes": 1730489,
+      "sha256": "4f983ab726f63c040e253499d0037fcbc47a5d722c4c6d63dca410b968e69fa1"
+    },
+    {
+      "file": "资源/新增立绘/原图/Leon_RE2_2019_RPD.png",
+      "bytes": 804864,
+      "sha256": "3ddbc85bc7a9c049f7c0a2bb3f2a9d201e65b61f4e396d787526d7863006279e"
+    },
+    {
+      "file": "资源/新增立绘/来源与裁切记录.json",
+      "bytes": 828,
+      "sha256": "074a5ab13b47608aa5e87b3b3dbda98dda9f2834e468f9355f9fa00edf9d5a8d"
+    },
+    {
+      "file": "资源/新增立绘/费眼_Leon_RE2_2019.png",
+      "bytes": 692352,
+      "sha256": "dec62a93ff3da8059189d8279b8780a51d8843555c39944c5552980182e9f0fb"
     }
   ],
   "total_bytes": 342196727,
   "source_files_preserved": true,
   "zip_frozen": true,
   "local_sports_background_repair": "runtime/stadium_repair.json",
-  "file_count": 3720
+  "file_count": 3720,
+  "original_entries_verified_unchanged": 3720,
+  "runtime_asset_total": 3788
 }

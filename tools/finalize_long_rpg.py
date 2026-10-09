@@ -1,4 +1,4 @@
-"""Record the tested 1.4 delivery and preservation guarantees without player data."""
+"""Record the tested 1.5 delivery and preservation guarantees without player data."""
 from pathlib import Path
 import hashlib
 import json
@@ -7,16 +7,21 @@ root = Path(__file__).resolve().parents[1]
 read = lambda path: json.loads(path.read_text(encoding='utf-8-sig'))
 sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
 names = ['campaign', 'sidequest', 'puzzle', 'mod', 'campaign_behavior', 'campaign_save',
-         'update_save', 'balance', 'stamina', 'expansion', 'stream_recovery', 'economy']
+         'update_save', 'balance', 'stamina', 'expansion', 'stream_recovery', 'economy',
+         'campus_life', 'lesson', 'sound', 'presentation', 'story_region',
+         'music_farming', 'relationship', 'leon_pixel', 'phone', 'story']
 checks = {}
 for name in names:
     checks[name] = read(root / 'runtime' / (name + '_checks.json'))
     assert checks[name]['passed'], name
 checks['update_save_restart'] = read(root / 'runtime/update_save_checks_restart.json')
 assert checks['update_save_restart']['passed']
+checks['time'] = read(root / '时间昼夜验证报告.json')
+assert checks['time']['passed']
 apk = read(root / 'runtime/android_package_checks.json')
 assert apk['signature_verified'] and apk['exported_resource_payload_tested_with_desktop_engine']
-assert apk['exported_payload_touch_checks'] == apk['exported_payload_touch_checks_wide'] == 36
+assert apk['exported_payload_touch_checks'] == apk['exported_payload_touch_checks_wide'] == 48
+assert apk['configuration_files_checked'] == 7
 assert sha(root / 'gei子的冒险.apk') == apk['sha256']
 log = (root / 'runtime/apk-mod-final.log').read_text(encoding='utf-8')
 assert 'MOD_CHECKS 33 FAILURES 0' in log and 'ERROR:' not in log
@@ -34,12 +39,12 @@ report = {
     'version': (root / 'VERSION').read_text().strip(),
     'content_audit': read(root / 'runtime/content_audit.json'),
     'checks': {name: {'checks': result.get('checks'), 'passed': True} for name, result in checks.items()},
-    'unchanged_mechanics_checks_reused_from_local_1_3': ['balance', 'stamina', 'expansion', 'stream_recovery', 'economy'],
+    'unchanged_base_formula_and_stream_checks_reused': ['balance', 'stream_recovery'],
     'windows_launcher_passed': True,
     'windows_pck_sha256': sha(root / 'runtime/campus.pck'),
-    'apk_sha256': apk['sha256'], 'android_version_code': 8,
+    'apk_sha256': apk['sha256'], 'android_version_code': 9,
     'original_android_identity_and_signature_verified': True,
-    'exported_apk_desktop_checks': {'touch_standard': 36, 'touch_wide': 36, 'mod_runtime': 33},
+    'exported_apk_desktop_checks': {'touch_standard': 48, 'touch_wide': 48, 'mod_runtime': 33},
     'runtime_asset_hashes_verified': len(manifest['files']),
     'original_assets_modified': False, 'personal_files_unchanged': True,
     'existing_share_zip_unchanged': True,

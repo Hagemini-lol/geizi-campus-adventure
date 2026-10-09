@@ -59,6 +59,15 @@ func run() -> void:
 			if state.get("story",{}).has("campaign"):
 				var original_campaign: Dictionary=state["story"]["campaign"].duplicate(true)
 				if original_campaign.get("saved_enemy",{}).get("id","")=="gate_entity":original_campaign["saved_enemy"]["id"]="gou_ga_boss"
+				# v1.5 inserts lunch into each day while preserving old clock positions.
+				if int(original_campaign.get("slot_cycle",5))==5:
+					var old_slot: int=int(original_campaign["last_slot"])
+					if old_slot>=0:original_campaign["last_slot"]=int(old_slot/5)*6+old_slot%5+(1 if old_slot%5>=2 else 0)
+				original_campaign["slot_cycle"]=6
+				original_campaign=normalized(original_campaign)
+				if normalized(game.campaign.snapshot())!=original_campaign:
+					for field: String in original_campaign:
+						if normalized(game.campaign.snapshot().get(field))!=original_campaign[field]:print("LEGACY_DIFF ",name," ",field," expected=",original_campaign[field]," actual=",game.campaign.snapshot().get(field))
 				check(normalized(game.campaign.snapshot())==original_campaign,"old campaign flags and evidence preserved "+name)
 			game.interaction_delay=1000
 			var before: Vector2=game.player.position

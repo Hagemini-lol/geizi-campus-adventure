@@ -1,0 +1,83 @@
+{
+  "tracks": [
+    {
+      "id": "day",
+      "title": "Town3 - Sunshine Coast",
+      "author": "Juhani Junkala / SubspaceAudio",
+      "file": "day.ogg",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_page": "https://opengameart.org/content/jrpg-pack-2-towns",
+      "download_url": "https://opengameart.org/sites/default/files/Town3%20-%20Sunshine%20Coast.ogg",
+      "bytes": 4577572,
+      "sha256": "5d45d84b53677fd72d0bb99c38db239f843401c001193bfad222af7647935f8f",
+      "processing": "Original Ogg Vorbis bytes; renamed only; loop enabled at runtime."
+    },
+    {
+      "id": "night",
+      "title": "Town2 - Where Time Stands Still",
+      "author": "Juhani Junkala / SubspaceAudio",
+      "file": "night.ogg",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_page": "https://opengameart.org/content/jrpg-pack-2-towns",
+      "download_url": "https://opengameart.org/sites/default/files/Town2%20-%20Where%20Time%20Stands%20Still.ogg",
+      "bytes": 2716240,
+      "sha256": "71f1874154431146a564d7cb9062f333a35e5217bf28a3f4346bccf36a529814",
+      "processing": "Original Ogg Vorbis bytes; renamed only; loop enabled at runtime."
+    },
+    {
+      "id": "battle",
+      "title": "Action1 - Encounter With The Witches",
+      "author": "Juhani Junkala / SubspaceAudio",
+      "file": "battle.ogg",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_page": "https://opengameart.org/content/jrpg-pack-5-action",
+      "download_url": "https://opengameart.org/sites/default/files/Action1%20-%20Encounter%20With%20The%20Witches.ogg",
+      "bytes": 4009870,
+      "sha256": "f957434432f49f5cc0a4d81351304d7daa646af5bcbeaccc29d47224cd40fb8f",
+      "processing": "Original Ogg Vorbis bytes; renamed only; loop enabled at runtime."
+    },
+    {
+      "id": "tension",
+      "title": "Evil5 - Whispers From Beyond",
+      "author": "Juhani Junkala / SubspaceAudio",
+      "file": "tension.ogg",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_page": "https://opengameart.org/content/jrpg-pack-3-evil",
+      "download_url": "https://opengameart.org/sites/default/files/Evil5%20-%20Whispers%20From%20Beyond.ogg",
+      "bytes": 2239184,
+      "sha256": "82606350206f883598e6bc273e7ac6aa8d33b05f81513f8fef6abc8cd03f7194",
+      "processing": "Original Ogg Vorbis bytes; renamed only; loop enabled at runtime."
+    },
+    {
+      "id": "heroic",
+      "title": "Action2 - Army Approaching",
+      "author": "Juhani Junkala / SubspaceAudio",
+      "file": "heroic.ogg",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_page": "https://opengameart.org/content/jrpg-pack-5-action",
+      "download_url": "https://opengameart.org/sites/default/files/Action2%20-%20Army%20Approaching.ogg",
+      "bytes": 4354652,
+      "sha256": "f734b2c22a34888e4857ce7656bd7cd8c0e5b39c63d44aa7bd2bc03ab93e1c89",
+      "processing": "Original Ogg Vorbis bytes; renamed only; loop enabled at runtime."
+    },
+    {
+      "id": "final_boss",
+      "title": "Evil3 - Apocalypse",
+      "author": "Juhani Junkala / SubspaceAudio",
+      "file": "final_boss.ogg",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_page": "https://opengameart.org/content/jrpg-pack-3-evil",
+      "download_url": "https://opengameart.org/sites/default/files/Evil3%20-%20Apocalypse.ogg",
+      "bytes": 1896283,
+      "sha256": "e0174e05bdab72559c4ed12e23632638dca4076a1ae4557e8311959dc5a94bd3",
+      "processing": "Original Ogg Vorbis bytes; renamed only; loop enabled at runtime."
+    }
+  ],
+  "runtime": "At most two compressed streams during .65 second crossfade; saved Music volume bus."
+}

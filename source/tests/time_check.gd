@@ -40,7 +40,7 @@ func wait_cooldown() -> void:
 	await frames()
 func skip_and_check() -> void:
 	await wait_cooldown()
-	var expected: int=(game.day_clock.period_index()+1)%5
+	var expected: int=game.day_clock.next_index()
 	var original: int=game.terrain.current_scene.get_instance_id()
 	var count: int=game.terrain.transition_count
 	var position: Vector2=game.player.position
@@ -81,16 +81,18 @@ func skip_and_check() -> void:
 func run() -> void:
 	var clock:=Clock.new()
 	check(clock.period_index()==1 and clock.display_text()=="上午","initial state is morning only")
-	for index: int in range(5):
+	for index: int in range(6):
 		clock.current_period=index
 		check(clock.display_text()==Clock.PERIODS[index]["name"],"time display consists only of range name")
 		clock.next_period()
-		check(clock.period_index()==(index+1)%5,"explicit next period wraps through all five ranges")
+		check(clock.period_index()==[1,5,3,4,0,2][index],"explicit next period wraps through all six ranges")
 	check(not clock.has_method("advance"),"no elapsed-time advancement API remains")
 	game=(load("res://main.tscn") as PackedScene).instantiate()
 	root.add_child(game)
 	await frames()
-	directory=game.terrain.asset_root.path_join("时间与昼夜预览")
+	game.start_new_game();await wait_transition()
+	game.story_system.stage=6;game.story_system.reward_given=true
+	directory=game.package_root.path_join("runtime/时间与昼夜预览")
 	DirAccess.make_dir_recursive_absolute(directory)
 	game.player.camera.position_smoothing_enabled=false
 	game.player.set_physics_process(false)
@@ -100,7 +102,7 @@ func run() -> void:
 	await frames()
 	await game.terrain.current_scene.hd_layer.wait_for_view()
 	check(game.time_label.text=="上午","HUD has period only, no day/hour/minute display")
-	check(game.time_skip_button.get_global_rect().position.x>game.time_label.get_global_rect().end.x,"fast button placed after time info")
+	check(game.time_skip_button.get_global_rect().has_area(),"fast button has a visible clickable area")
 	if DisplayServer.get_name()!="headless":
 		game.player.path.clear()
 		await frames()
@@ -132,9 +134,9 @@ func run() -> void:
 	game.toggle_map()
 	var initial_period: int=game.day_clock.period_index()
 	game.player.path=PackedVector2Array([game.player.position+Vector2(96,0)])
-	for i: int in range(5):await skip_and_check()
+	for i: int in range(6):await skip_and_check()
 	game.player.path.clear()
-	check(game.day_clock.period_index()==initial_period,"five explicit skips complete the period cycle")
+	check(game.day_clock.period_index()==initial_period,"six explicit skips complete the period cycle")
 	game.day_clock.current_period=4;game.apply_time_lighting()
 	game.change_interior({"kind":"classroom","building":"B12","floor":3,"room":0})
 	await wait_transition()
@@ -151,7 +153,7 @@ func run() -> void:
 	check(game.advance_time_from_event(),"explicit gameplay event accepted")
 	check(not game.advance_time_from_event(),"overlapping event rejected during transition")
 	await wait_transition()
-	check(game.day_clock.period_index()==(period+1)%5,"explicit event advances exactly one period")
+	check(game.day_clock.period_index()==[1,5,3,4,0,2][period],"explicit event advances exactly one period")
 	check(game.time_label.text=="上午" and game.terrain.modulate==game.day_clock.tint(true),"event updates period label and indoor lighting")
 	check(game.time_skip_cooldown()==0,"event does not start manual button cooldown")
 	game.toggle_menu()

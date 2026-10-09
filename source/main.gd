@@ -50,8 +50,9 @@ var event_state: Dictionary={}
 var play_clock:=preload("res://play_clock.gd").new()
 var pending_restore: Dictionary={}
 var restore_position_guard:=false
-var ui_audio: AudioStreamPlayer
+var sounds=preload("res://sound_bank.gd").new()
 const TIME_SKIP_COOLDOWN_SECONDS:=2.0
+var campus_life=preload("res://campus_life.gd").new()
 var day_clock:=DayClock.new()
 var time_label: Label
 var time_skip_button: Button
@@ -63,6 +64,12 @@ var menu_assets: Dictionary={}
 var interior_info: Dictionary={}
 var interior_directory := ""
 var interior_state: Dictionary={}
+var music:=preload("res://music_director.gd").new()
+var relationships:=preload("res://relationships.gd").new()
+var world_editor:=preload("res://world_editor.gd").new()
+var phone: Control
+var farming:=preload("res://farming_regions.gd").new()
+var story_regions:=preload("res://story_regions.gd").new()
 var interaction_delay := 0.0
 var nearby: Dictionary={}
 var interaction_label: Label
@@ -106,7 +113,7 @@ func _ready() -> void:
 	battle_asset_root=resolve_path(str(config.get("battle_asset_root","../Projects/赵慕gei的牙林冒险")))
 	if not combat_rules.configure(resolve_path(str(config.get("combat_rules","战斗与刷新配置.json"))),mods.merged.get("combat",{})):
 		fail("战斗数值配置缺失或格式错误");return
-	monster_world.configure(combat_rules)
+	relationships.game=self;world_editor.game=self;combat_rules.world_editor=world_editor;farming.game=self;monster_world.configure(combat_rules,self)
 	if not task_system.configure(resolve_path(str(config.get("task_rules","任务配置.json"))),mods.merged.get("tasks",{})):
 		fail("任务配置缺失或格式错误");return
 	if not economy.configure(resolve_path(str(config.get("economy_rules","物资与交易配置.json"))),mods.merged.get("economy",{})):
@@ -149,6 +156,7 @@ func _ready() -> void:
 	if not walks is Dictionary:
 		fail("角色行走素材索引缺失");return
 	for entry: Dictionary in walks.get("characters",[]):walk_library[entry["id"]]=entry
+	walk_library["fei_yan"]={"id":"fei_yan","source":"res://assets/characters/leon_v15/atlas.png","pixel_grid":true}
 	if not walk_library.has("zhao_mugei"):
 		fail("主角行走素材缺失");return
 	var hero:=Image.load_from_file(resolve_path(str(config["hero"])))
@@ -211,11 +219,16 @@ func _ready() -> void:
 	add_child(story_system)
 	campaign=preload("res://campaign.gd").new();campaign.game=self
 	campaign.configure(story_system.data.get("campaign",{}));add_child(campaign)
+	relationships.configure()
+	campus_life.configure(self)
+	farming.install()
 	side_quests.game=self
 	task_system.changed.connect(campaign.queue_redraw)
 	var mobile_layer:=CanvasLayer.new();mobile_layer.layer=99;add_child(mobile_layer)
 	mobile_controls=preload("res://mobile_controls.gd").new();mobile_controls.game=self
 	mobile_controls.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);mobile_layer.add_child(mobile_controls)
+	var phone_layer:=CanvasLayer.new();phone_layer.layer=96;add_child(phone_layer)
+	phone=preload("res://phone.gd").new();phone.game=self;phone.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);phone_layer.add_child(phone)
 	if "--skip-title" in OS.get_cmdline_user_args():
 		game_started=true
 		if not load_district(navigation.region_at(spawn)):fail("高清地图文件缺失，请保留地图重绘预览文件夹");return
@@ -242,10 +255,12 @@ func on_period_advanced(previous: int, current: int) -> void:
 func trade_supply(id: String, count: int, buying: bool) -> Dictionary:
 	if not game_started or transition_busy or front_end.visible or dialogue_view.visible or battle_view.visible or lesson_blocked():return {"ok":false,"message":"当前不能交易"}
 	if buying and not str(economy.catalog.get(id,{}).get("merchant","")).is_empty():return {"ok":false,"message":"请向对应同学购买或委托制作"}
+	if buying and not str(economy.catalog.get(id,{}).get("vendor","")).is_empty():return {"ok":false,"message":"请到对应校园服务人员处购买"}
 	var result: Dictionary=economy.trade(id,count,buying)
 	if result["ok"]:
 		record_game_event("items_bought/"+id if buying else "items_sold/"+id,count)
 		record_game_event("trade_completed")
+	if result["ok"]:sounds.play("trade")
 	show_notice(result["message"]);return result
 
 func use_supply(id: String) -> Dictionary:
@@ -283,32 +298,22 @@ func learn_skill(id: String, teacher: String) -> Dictionary:
 	if spec.get("chapter_reward",false):return {"ok":false,"message":"这个技能由章节事件习得"}
 	if int(combat_rules.hero["level"])<int(spec["level"]):return {"ok":false,"message":"等级不足"}
 	if economy.money<int(spec["price"]):return {"ok":false,"message":"资金不足"}
+	if not relationships.alive(teacher) and not menu_view.service_archive:return {"ok":false,"message":"老师已不在，请从遗留档案整理教案后自行学习"}
 	if not combat_rules.learn(id):return {"ok":false,"message":"无法学习该技能"}
 	economy.money-=int(spec["price"]);economy.changed.emit();record_game_event("skill_learned/"+id)
 	return {"ok":true,"message":"习得 "+str(spec["name"])}
 
 func create_ui_audio() -> void:
-	ui_audio=AudioStreamPlayer.new()
-	ui_audio.bus="SFX"
-	ui_audio.volume_db=-9
-	var audio:=AudioStreamWAV.new()
-	audio.format=AudioStreamWAV.FORMAT_16_BITS;audio.mix_rate=22050
-	var bytes:=PackedByteArray()
-	var count:=int(22050*.055)
-	bytes.resize(count*2)
-	for index: int in range(count):
-		var value:=sin(float(index)*TAU*880/22050)*pow(1.0-float(index)/count,2)*.22
-		bytes.encode_s16(index*2,int(value*32767))
-	audio.data=bytes
-	ui_audio.stream=audio
-	add_child(ui_audio)
+	sounds.configure(package_root)
+	add_child(sounds)
+	music.game=self;add_child(music);music.configure(package_root)
 
 func play_ui_click() -> void:
-	if ui_audio!=null:ui_audio.play()
+	sounds.play("ui_confirm")
 
 func refresh_player_freeze() -> void:
 	if player==null:return
-	player.frozen=transition_busy or paused or (map_view!=null and map_view.visible) or (menu_view!=null and menu_view.visible) or (front_end!=null and front_end.visible) or (dialogue_view!=null and dialogue_view.visible) or (battle_view!=null and battle_view.visible) or lesson_blocked() or story_blocked() or not game_started
+	player.frozen=transition_busy or paused or (phone!=null and phone.visible) or (map_view!=null and map_view.visible) or (menu_view!=null and menu_view.visible) or (front_end!=null and front_end.visible) or (dialogue_view!=null and dialogue_view.visible) or (battle_view!=null and battle_view.visible) or lesson_blocked() or story_blocked() or not game_started
 
 func start_new_game() -> void:
 	if transition_busy:return
@@ -330,9 +335,20 @@ func save_game_slot(slot: int) -> Dictionary:
 	state["economy"]=economy.snapshot()
 	state["story"]=story_system.snapshot()
 	state["playtime"]=play_clock.snapshot()
+	state["relationships"]=relationships.snapshot()
+	state["world_edits"]=world_editor.snapshot();state["phone"]=phone.snapshot()
 	return save_store.write_slot(slot,state,location)
 
 func validate_snapshot(state: Dictionary) -> Dictionary:
+	if state.has("world_edits") and not world_editor.valid(state["world_edits"]):return {"ok":false,"error":"禁忌力量数值记录无效"}
+	if state.has("phone") and not phone.valid(state["phone"]):return {"ok":false,"error":"手机记录无效"}
+	world_editor.validation=state.get("world_edits",{"hero":{},"monsters":{}})
+	var result:=validate_snapshot_contents(state)
+	world_editor.validation={}
+	return result
+
+func validate_snapshot_contents(state: Dictionary) -> Dictionary:
+	if state.has("relationships") and not relationships.valid(state["relationships"]):return {"ok":false,"error":"人际关系或生存记录无效"}
 	if state.has("playtime") and not play_clock.valid(state["playtime"]):return {"ok":false,"error":"游玩时长数据无效"}
 	var error: Dictionary={"ok":false,"error":"存档中的场景或位置数据无效"}
 	if not state.get("scene") is Dictionary or not state.get("position") is Array:return error
@@ -367,8 +383,10 @@ func validate_snapshot(state: Dictionary) -> Dictionary:
 			if room_index!=float(scene["room"]) or room_index<0 or room_index>=floor_data["rooms"].size():return error
 			scene["room"]=room_index
 			var ten: bool=floor_data["rooms"][room_index]["class10"]
-			if not Geometry2D.is_point_in_polygon(at,InteriorScene.classroom_floor(ten)):return error
-			if not FileAccess.file_exists(interior_info["assets"]["class10" if ten else "ordinary"]):return {"ok":false,"error":"存档对应的教室贴图缺失"}
+			var life: String=floor_data["rooms"][room_index].get("life_layout","")
+			var polygon: PackedVector2Array=campus_life.polygon(life) if not life.is_empty() else InteriorScene.classroom_floor(ten)
+			if not Geometry2D.is_point_in_polygon(at,polygon):return error
+			if not FileAccess.file_exists(campus_life.source(life) if not life.is_empty() else interior_info["assets"]["class10" if ten else "ordinary"]):return {"ok":false,"error":"存档对应的教室贴图缺失"}
 	else:return error
 	var period: String=str(state.get("period",""))
 	var period_valid:=false
@@ -426,9 +444,14 @@ func apply_pending_restore() -> void:
 	play_clock.restore(pending_restore.get("playtime",{}))
 	task_system.restore(pending_restore.get("quests",{}))
 	economy.restore(pending_restore.get("economy",{}))
+	world_editor.restore(pending_restore.get("world_edits",{}))
 	combat_rules.restore(pending_restore.get("combat",{}))
 	monster_world.restore(pending_restore.get("combat",{}).get("world",{}))
 	story_system.restore(pending_restore.get("story",{}))
+	if world_editor.used and pending_restore.get("combat",{}).get("hero",{}).has("san_current"):
+		combat_rules.hero["san_current"]=int(pending_restore["combat"]["hero"]["san_current"])
+	relationships.restore(pending_restore.get("relationships",{}))
+	phone.restore(pending_restore.get("phone",{}))
 	time_skip_ready_at_ms=0
 	game_started=true
 	front_end.hide_title();menu_view.hide();gameplay_hud.show();player.show()
@@ -552,7 +575,7 @@ func create_ui() -> void:
 	time_row.add_theme_constant_override("separation",10)
 	column.add_child(time_row)
 	var objective:=label("",15);objective.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;objective.custom_minimum_size=Vector2(335,0)
-	column.add_child(objective)
+	column.add_child(objective);objective.hide()
 	# Story node is created after the HUD; bind once all systems exist.
 	call_deferred("bind_story_objective",objective)
 	time_label=label(day_clock.display_text(),15)
@@ -583,6 +606,7 @@ func create_ui() -> void:
 	hud.add_child(interaction_label)
 	var map_button := Button.new()
 	map_button.position = Vector2(1110, 18)
+	map_button.anchor_left=1;map_button.anchor_right=1;map_button.offset_left=-250;map_button.offset_right=-100
 	map_button.size = Vector2(150, 46)
 	map_button.text = "M · 校园全图"
 	map_button.add_theme_font_override("font", ui_font)
@@ -677,6 +701,21 @@ func advance_time_from_event() -> bool:
 	advance_time_period()
 	return true
 
+func advance_world_period() -> void:
+	day_clock.next_period()
+	monster_world.advance(interior_state)
+	sync_monsters()
+	sync_classroom_period()
+	apply_time_lighting()
+	update_time_display()
+
+func advance_world_to(target: int) -> void:
+	if target not in DayClock.ORDER:return
+	# Story transitions move forward, including the midnight allowance boundary.
+	for step: int in range(DayClock.ORDER.size()):
+		if day_clock.current_period==target:return
+		advance_world_period()
+
 func advance_time_period() -> void:
 	time_skip_busy=true
 	transition_busy=true
@@ -686,12 +725,7 @@ func advance_time_period() -> void:
 	var cover:=create_tween()
 	cover.tween_property(fade,"modulate:a",1.0,.18)
 	await cover.finished
-	day_clock.next_period()
-	monster_world.advance(interior_state)
-	sync_monsters()
-	sync_classroom_period()
-	apply_time_lighting()
-	update_time_display()
+	advance_world_period()
 	await get_tree().create_timer(.06).timeout
 	var reveal:=create_tween()
 	reveal.tween_property(fade,"modulate:a",0.0,.22)
@@ -822,6 +856,9 @@ func begin_transition(destination: int, landing: Vector2) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed or event is InputEventMouseButton and event.pressed or event is InputEventScreenTouch and event.pressed:play_clock.activity()
 	if player==null or menu_view==null or transition_busy:return
+	if phone!=null and phone.visible:
+		if event is InputEventKey and event.pressed and event.keycode==KEY_ESCAPE:phone.back_page();get_viewport().set_input_as_handled()
+		return
 	if story_blocked() and not dialogue_view.visible:
 		# A story choice is modal GUI: let its buttons receive mouse/touch input.
 		# World movement and interactions remain blocked by _unhandled_input.
@@ -873,6 +910,7 @@ func _input(event: InputEvent) -> void:
 		toggle_menu();get_viewport().set_input_as_handled()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if phone!=null and phone.visible:return
 	if player==null or not game_started or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy or menu_view.visible or lesson_blocked() or story_blocked():return
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
@@ -898,7 +936,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if player==null or location_label==null or not game_started or terrain.current_scene==null:return
 	if not transition_busy and (not paused or menu_view.visible):
-		var category: String="combat" if battle_view.visible else "dialogue" if dialogue_view.visible or story_system.running else "menu" if menu_view.visible or map_view.visible else "exploration"
+		var category: String="combat" if battle_view.visible else "dialogue" if dialogue_view.visible or story_system.running else "menu" if menu_view.visible or map_view.visible or (phone!=null and phone.visible) else "exploration"
 		play_clock.tick(delta,category,get_window().has_focus(),player.velocity.length_squared()>1)
 	update_time_display()
 	player.camera.zoom=Vector2.ONE*minf(player.camera.zoom.x,maximum_clear_zoom())
@@ -924,10 +962,13 @@ func _process(delta: float) -> void:
 		var place: String=model["regions"][terrain.current_id]["name"]
 		location_label.text=notice if notice_time>0 else place+" · "+("5倍自动寻路" if not player.path.is_empty() else "赵慕gei")
 	elif not interior_state.is_empty(): location_label.text=notice if notice_time>0 else terrain.current_scene.title
+	story_regions.game=self
+	if story_regions.tick():interaction_label.text="";return
 	nearby={}
 	if not transition_busy and not paused and not map_view.visible and not menu_view.visible and not front_end.visible and not dialogue_view.visible and not battle_view.visible and not lesson_blocked() and not story_blocked():
 		var best:=INF
 		for item: Dictionary in interactions():
+			if not OS.get_cmdline_user_args().has("--manual-story-checks") and story_system.door_active() and item["action"]=="room" and int(item.get("room",-1))==int(story_system.data["lab_room"]):continue
 			var distance: float=player.position.distance_to(item["at"])
 			if distance<=INTERACTION_RADIUS and distance<best:
 				best=distance
@@ -967,7 +1008,7 @@ func sync_classroom_period() -> void:
 	if terrain==null or terrain.current_scene==null or interior_state.is_empty():return
 	var scene: Node2D=terrain.current_scene
 	if scene.has_method("refresh_cast"):scene.refresh_cast(self)
-	if scene.is_ten_class and not scene.is_office and scene.state["building"]!="B02":
+	if scene.npcs!=null and scene.state["building"]!="B02":
 		scene.refresh_npcs(self)
 		terrain.active_texture_bytes=scene.texture_bytes
 
@@ -990,8 +1031,9 @@ func interactions() -> Array[Dictionary]:
 		if lesson_view.available() and not story_system.seat_active():
 			var seat: Vector2=terrain.current_scene.hero_seat
 			result.append({"action":"lesson","at":seat,"trigger":Rect2(),"art_rect":Rect2(seat-Vector2(8,8),Vector2(16,16))})
-		result.append_array(story_system.extra_interactions())
-		if campaign!=null:result.append_array(campaign.extra_interactions())
+		if OS.get_cmdline_user_args().has("--manual-story-checks"):
+			result.append_array(story_system.extra_interactions())
+			if campaign!=null:result.append_array(campaign.extra_interactions())
 		return result
 	var items: Array[Dictionary]=[]
 	for entry: Dictionary in interior_info["entrances"]:
@@ -1000,19 +1042,12 @@ func interactions() -> Array[Dictionary]:
 		items.append({"action":"board","building":entry["id"],"at":point(entry["board_arrival"])*24,"art_at":board,"art_rect":Rect2(board-Vector2(.9,.6)*24,Vector2(1.8,1.2)*24),"trigger":Rect2()})
 		if entry["has_interior"]:
 			items.append({"action":"entrance","building":entry["id"],"at":door+Vector2(0,25),"art_rect":Rect2(door+Vector2(-.95,-2.1)*24,Vector2(1.9,2.1)*24),"trigger":Rect2(door+Vector2(-20,8),Vector2(40,22))})
-	items.append_array(story_system.extra_interactions())
-	if campaign!=null:items.append_array(campaign.extra_interactions())
+	if OS.get_cmdline_user_args().has("--manual-story-checks"):
+		items.append_array(story_system.extra_interactions())
+		if campaign!=null:items.append_array(campaign.extra_interactions())
 	return items
 
 func click_interaction(at: Vector2) -> bool:
-	# Chapter seat/window markers take priority over artwork.
-	var priority_markers: Array[Dictionary]=story_system.extra_interactions()
-	if campaign!=null:priority_markers.append_array(campaign.extra_interactions())
-	for item: Dictionary in priority_markers:
-		if item["art_rect"].has_point(at):
-			if within_interaction(item["at"]):execute_interaction(item)
-			else:player.path=approach_interaction(item["at"]);show_notice("到达白圈后按 E")
-			return true
 	# The hero's empty seat marker takes priority over nearby seated artwork.
 	if lesson_view.available():
 		var seat: Vector2=terrain.current_scene.hero_seat
@@ -1020,7 +1055,7 @@ func click_interaction(at: Vector2) -> bool:
 			if within_interaction(seat):lesson_view.open()
 			else:
 				player.path=approach_interaction(seat)
-				show_notice("到达白色圆圈后，按 E 上课")
+				show_notice("走到自己的座位后，按 E 上课")
 			return true
 	var monsters: Node2D=active_monsters()
 	if monsters!=null:
@@ -1053,7 +1088,7 @@ func click_interaction(at: Vector2) -> bool:
 			if within_interaction(item["at"]):execute_interaction(item)
 			else:
 				player.path=approach_interaction(item["at"])
-				show_notice("到达白色圆圈后，按 E 上课")
+				show_notice("走到自己的座位后，按 E 上课")
 		elif item["action"]=="board":
 			if within_interaction(item["at"]):
 				execute_interaction(item)
@@ -1084,11 +1119,18 @@ func interaction_text(item: Dictionary) -> String:
 	return ""
 
 func interact() -> void:
-	if dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy or lesson_blocked() or nearby.is_empty() or interaction_delay>0:return
+	if (phone!=null and phone.visible) or dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy or lesson_blocked() or nearby.is_empty() or interaction_delay>0:return
 	execute_interaction(nearby)
 
 func execute_interaction(item: Dictionary) -> void:
 	if dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy or lesson_blocked() or not within_interaction(item["at"]):return
+	if item["action"] in ["entrance","room","corridor","outside"]:sounds.play("door")
+	elif item["action"] in ["npc","board"]:sounds.play("interact")
+	if item["action"]=="npc" and not OS.get_cmdline_user_args().has("--manual-story-checks"):
+		var record: Dictionary=terrain.current_scene.npcs.find(item["uid"])
+		if not record.is_empty():relationships.open(record)
+		return
+	if campus_life.handle(item):return
 	if campaign!=null and campaign.handle(item):return
 	if story_system.handle(item):return
 	var context: Dictionary=interior_state.duplicate()
@@ -1130,6 +1172,9 @@ func execute_interaction(item: Dictionary) -> void:
 					break
 
 func change_interior(context: Dictionary, landing: Vector2=Vector2(INF,INF), side: String="front") -> void:
+	context=context.duplicate()
+	context["floor"]=int(context["floor"])
+	if context.has("room"):context["room"]=int(context["room"])
 	if transition_busy or (battle_view!=null and battle_view.visible):return
 	pending_npc_talk=""
 	pending_monster=""

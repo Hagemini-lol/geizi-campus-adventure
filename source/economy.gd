@@ -4,6 +4,7 @@ signal changed
 const STACK_CAP:=9999
 var data: Dictionary={}
 var catalog: Dictionary={}
+var recipes: Dictionary={}
 var inventory: Dictionary={}
 var money:=0
 var day_serial:=0
@@ -24,7 +25,30 @@ func configure(path: String, content: Dictionary={}) -> bool:
 		for stat: String in value.get("restore_ratio",{}):
 			if not stat in ["hp","mp","energy","san"] or float(value["restore_ratio"][stat])<=0 or float(value["restore_ratio"][stat])>1:return false
 		catalog[value["id"]]=value.duplicate(true)
+	recipes={}
+	for recipe: Dictionary in data.get("recipes",[]):
+		if not recipe.get("id") is String or recipes.has(recipe["id"]) or not recipe.get("ingredients") is Dictionary or not recipe.get("outputs") is Dictionary:return false
+		if recipe["ingredients"].is_empty() or recipe["outputs"].is_empty() or int(recipe.get("fee",0))<0:return false
+		for group: String in ["ingredients","outputs"]:
+			for id: String in recipe[group]:
+				if not catalog.has(id) or int(recipe[group][id])<1 or int(recipe[group][id])>STACK_CAP:return false
+		recipes[recipe["id"]]=recipe
 	reset();return true
+
+func craft(id: String) -> Dictionary:
+	if not recipes.has(id):return {"ok":false,"message":"配方不存在"}
+	var recipe: Dictionary=recipes[id]
+	if money<int(recipe.get("fee",0)):return {"ok":false,"message":"加工费不足"}
+	var next: Dictionary=inventory.duplicate()
+	for material: String in recipe["ingredients"]:
+		if quantity(material)<int(recipe["ingredients"][material]):return {"ok":false,"message":"材料不足："+str(catalog[material]["name"])}
+		next[material]=quantity(material)-int(recipe["ingredients"][material])
+	for material: String in recipe["outputs"]:
+		next[material]=int(next.get(material,0))+int(recipe["outputs"][material])
+		if int(next[material])>STACK_CAP:return {"ok":false,"message":"成品持有已满，请先整理背包"}
+	# Commit ingredients, outputs and fee together, with one observer notification.
+	inventory=next;money-=int(recipe.get("fee",0));changed.emit()
+	return {"ok":true,"message":"完成："+str(recipe["name"])}
 
 func reset() -> void:
 	money=0;day_serial=0;last_allowance_day=-1;inventory={}

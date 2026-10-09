@@ -216,6 +216,263 @@
       "restore_ratio": {
         "mp": 0.08
       }
+    },
+    {
+      "id": "rice_pack",
+      "name": "米饭原料包",
+      "buy_price": 8,
+      "sell_price": 2,
+      "description": "由食堂保管的小份米料；交给工作人员加工。",
+      "category": "食材",
+      "restore": {},
+      "vendor": "cook_hu"
+    },
+    {
+      "id": "vegetable_pack",
+      "name": "净菜包",
+      "buy_price": 7,
+      "sell_price": 2,
+      "description": "已清洗的蔬菜，加工前按份计数。",
+      "category": "食材",
+      "restore": {},
+      "vendor": "cook_hu"
+    },
+    {
+      "id": "egg",
+      "name": "鸡蛋",
+      "buy_price": 6,
+      "sell_price": 1,
+      "description": "熟食窗口可代加工，不建议直接食用。",
+      "category": "食材",
+      "restore": {},
+      "vendor": "cook_hu"
+    },
+    {
+      "id": "milk",
+      "name": "盒装牛奶",
+      "buy_price": 16,
+      "sell_price": 4,
+      "description": "补充少量体能的常温奶。",
+      "category": "食品",
+      "restore": {},
+      "vendor": "clerk_qiu",
+      "restore_ratio": {
+        "energy": 0.08
+      }
+    },
+    {
+      "id": "fruit",
+      "name": "当季水果",
+      "buy_price": 12,
+      "sell_price": 3,
+      "description": "轻便补给，恢复少量生命与精力。",
+      "category": "食品",
+      "restore": {},
+      "vendor": "clerk_qiu",
+      "restore_ratio": {
+        "hp": 0.04,
+        "energy": 0.06
+      }
+    },
+    {
+      "id": "salt_packet",
+      "name": "盐糖调配包",
+      "buy_price": 5,
+      "sell_price": 1,
+      "description": "用于食堂调配补给饮料。",
+      "category": "食材",
+      "restore": {},
+      "vendor": "cook_hu"
+    },
+    {
+      "id": "clean_paper",
+      "name": "空白纸",
+      "buy_price": 5,
+      "sell_price": 1,
+      "description": "打印和整理记录使用；不能替代任务中的原始证据。",
+      "category": "文具",
+      "restore": {},
+      "vendor": "print_luo"
+    },
+    {
+      "id": "binder_clip",
+      "name": "长尾夹",
+      "buy_price": 4,
+      "sell_price": 1,
+      "description": "装订资料，避免不同版本混页。",
+      "category": "文具",
+      "restore": {},
+      "vendor": "print_luo"
+    },
+    {
+      "id": "tape",
+      "name": "纸胶带",
+      "buy_price": 6,
+      "sell_price": 1,
+      "description": "标记归还物品、装订和制作安全提示卡。",
+      "category": "文具",
+      "restore": {},
+      "vendor": "print_luo"
+    },
+    {
+      "id": "cloth",
+      "name": "干净布料",
+      "buy_price": 9,
+      "sell_price": 2,
+      "description": "制作护膝垫、整理袋；不能作为医用无菌材料。",
+      "category": "日用品",
+      "restore": {},
+      "vendor": "warden_zhou"
+    },
+    {
+      "id": "soap",
+      "name": "肥皂",
+      "buy_price": 10,
+      "sell_price": 2,
+      "description": "日常清洁与生活委托物资。",
+      "category": "日用品",
+      "restore": {},
+      "vendor": "warden_chen"
+    },
+    {
+      "id": "sewing_thread",
+      "name": "针线包",
+      "buy_price": 8,
+      "sell_price": 2,
+      "description": "交给宿管修补整理袋，不改动装备属性。",
+      "category": "日用品",
+      "restore": {},
+      "vendor": "warden_chen"
+    },
+    {
+      "id": "scrap_metal",
+      "name": "分类废金属",
+      "buy_price": -1,
+      "sell_price": 3,
+      "description": "安全收集后的金属边料；交工作人员回收。",
+      "category": "回收物",
+      "restore": {}
+    },
+    {
+      "id": "old_cardboard",
+      "name": "废纸板",
+      "buy_price": -1,
+      "sell_price": 2,
+      "description": "去除尖锐订钉后分类回收，可制作登记夹。",
+      "category": "回收物",
+      "restore": {}
+    },
+    {
+      "id": "recycling_ticket",
+      "name": "回收登记票",
+      "buy_price": -1,
+      "sell_price": 7,
+      "description": "校内分类回收的兑换凭证。",
+      "category": "凭证",
+      "restore": {}
+    },
+    {
+      "id": "rice_meal",
+      "name": "热饭套餐",
+      "buy_price": 32,
+      "sell_price": 6,
+      "description": "正常饭量，按最大精力比例恢复，适合章节间补给。",
+      "category": "餐食",
+      "restore": {},
+      "vendor": "cook_hu",
+      "restore_ratio": {
+        "energy": 0.26,
+        "hp": 0.06
+      }
+    },
+    {
+      "id": "egg_sandwich",
+      "name": "鸡蛋夹饼",
+      "buy_price": 26,
+      "sell_price": 5,
+      "description": "便携餐食，少量恢复生命并补充精力。",
+      "category": "餐食",
+      "restore": {},
+      "vendor": "clerk_qiu",
+      "restore_ratio": {
+        "energy": 0.18,
+        "hp": 0.06
+      }
+    },
+    {
+      "id": "sports_drink",
+      "name": "运动补给饮",
+      "buy_price": 28,
+      "sell_price": 5,
+      "description": "补充运动消耗；不会恢复魔力或替代休息。",
+      "category": "饮料",
+      "restore": {},
+      "vendor": "clerk_qiu",
+      "restore_ratio": {
+        "energy": 0.2
+      }
+    },
+    {
+      "id": "fruit_yogurt",
+      "name": "水果酸奶",
+      "buy_price": 30,
+      "sell_price": 6,
+      "description": "轻食补给，兼顾生命与精力。",
+      "category": "餐食",
+      "restore": {},
+      "vendor": "clerk_qiu",
+      "restore_ratio": {
+        "energy": 0.15,
+        "hp": 0.1
+      }
+    },
+    {
+      "id": "cloth_bag",
+      "name": "布质整理袋",
+      "buy_price": -1,
+      "sell_price": 8,
+      "description": "委托整理道具；不凭空增加背包容量。",
+      "category": "制成品",
+      "restore": {}
+    },
+    {
+      "id": "route_card",
+      "name": "绕行提示卡",
+      "buy_price": -1,
+      "sell_price": 5,
+      "description": "用清楚的箭头帮助同学避开施工区域。",
+      "category": "制成品",
+      "restore": {}
+    },
+    {
+      "id": "bound_notes",
+      "name": "装订笔记",
+      "buy_price": -1,
+      "sell_price": 7,
+      "description": "校对页码后的副本，不能伪造主线证据。",
+      "category": "制成品",
+      "restore": {}
+    },
+    {
+      "id": "knee_pad",
+      "name": "运动缓冲垫",
+      "buy_price": -1,
+      "sell_price": 8,
+      "description": "轻便布垫，休整时缓解疲劳，不是永久装备。",
+      "category": "制成品",
+      "restore": {},
+      "restore_ratio": {
+        "energy": 0.12
+      }
+    },
+    {
+      "id": "cleaning_kit",
+      "name": "清洁整理包",
+      "buy_price": -1,
+      "sell_price": 7,
+      "description": "公共区清洁用品；不进入他人的寝室使用。",
+      "category": "制成品",
+      "restore": {}
     }
   ],
   "monster_loot": {
@@ -228,5 +485,138 @@
     "boss": {
       "ink_fragment": 5
     }
-  }
+  },
+  "recipes": [
+    {
+      "id": "life_meal",
+      "name": "热饭套餐",
+      "station": "cook_hu",
+      "ingredients": {
+        "rice_pack": 1,
+        "vegetable_pack": 1,
+        "egg": 1
+      },
+      "outputs": {
+        "rice_meal": 1
+      },
+      "fee": 2
+    },
+    {
+      "id": "life_sandwich",
+      "name": "鸡蛋夹饼",
+      "station": "clerk_qiu",
+      "ingredients": {
+        "rice_pack": 1,
+        "egg": 1
+      },
+      "outputs": {
+        "egg_sandwich": 1
+      },
+      "fee": 3
+    },
+    {
+      "id": "life_drink",
+      "name": "运动补给饮",
+      "station": "cook_hu",
+      "ingredients": {
+        "water": 1,
+        "salt_packet": 1
+      },
+      "outputs": {
+        "sports_drink": 1
+      },
+      "fee": 2
+    },
+    {
+      "id": "life_yogurt",
+      "name": "水果酸奶",
+      "station": "clerk_qiu",
+      "ingredients": {
+        "milk": 1,
+        "fruit": 1
+      },
+      "outputs": {
+        "fruit_yogurt": 1
+      },
+      "fee": 1
+    },
+    {
+      "id": "life_notes",
+      "name": "装订笔记",
+      "station": "print_luo",
+      "ingredients": {
+        "clean_paper": 2,
+        "binder_clip": 1
+      },
+      "outputs": {
+        "bound_notes": 1
+      },
+      "fee": 2
+    },
+    {
+      "id": "life_sign",
+      "name": "绕行提示卡",
+      "station": "print_luo",
+      "ingredients": {
+        "clean_paper": 1,
+        "tape": 1
+      },
+      "outputs": {
+        "route_card": 1
+      },
+      "fee": 1
+    },
+    {
+      "id": "life_bag",
+      "name": "布质整理袋",
+      "station": "warden_chen",
+      "ingredients": {
+        "cloth": 1,
+        "sewing_thread": 1
+      },
+      "outputs": {
+        "cloth_bag": 1
+      },
+      "fee": 2
+    },
+    {
+      "id": "life_pad",
+      "name": "运动缓冲垫",
+      "station": "warden_zhou",
+      "ingredients": {
+        "cloth": 1,
+        "tape": 1
+      },
+      "outputs": {
+        "knee_pad": 1
+      },
+      "fee": 2
+    },
+    {
+      "id": "life_clean",
+      "name": "清洁整理包",
+      "station": "warden_chen",
+      "ingredients": {
+        "soap": 1,
+        "cloth": 1
+      },
+      "outputs": {
+        "cleaning_kit": 1
+      },
+      "fee": 1
+    },
+    {
+      "id": "life_recycle",
+      "name": "分类回收换票",
+      "station": "worker_hou",
+      "ingredients": {
+        "old_cardboard": 2,
+        "scrap_metal": 1
+      },
+      "outputs": {
+        "recycling_ticket": 1
+      },
+      "fee": 0
+    }
+  ]
 }

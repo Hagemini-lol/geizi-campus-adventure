@@ -1,0 +1,20 @@
+{
+  "character": "费眼",
+  "appearance": "Leon S. Kennedy / Resident Evil 2 Remake (2019), R.P.D. uniform",
+  "source_page": "https://www.pngaaa.com/detail/464999",
+  "source_download": "https://www.pngaaa.com/api-download/464999",
+  "original_sha256": "3ddbc85bc7a9c049f7c0a2bb3f2a9d201e65b61f4e396d787526d7863006279e",
+  "output_sha256": "dec62a93ff3da8059189d8279b8780a51d8843555c39944c5552980182e9f0fb",
+  "operation": "PIL crop to alpha bounding box; original foreground RGBA pixels unchanged; no generative redraw, style matching, colour correction or resampling",
+  "crop_box": [
+    1,
+    1,
+    701,
+    1630
+  ],
+  "source_size": [
+    701,
+    1630
+  ],
+  "copyright": "Resident Evil and Leon S. Kennedy: CAPCOM. Third-party mirror states Non-commercial Use. Not original game artwork or CC0."
+}

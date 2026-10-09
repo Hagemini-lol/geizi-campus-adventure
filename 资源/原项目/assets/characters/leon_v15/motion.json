@@ -1,0 +1,271 @@
+{
+  "character": "Leon S. Kennedy / RE2 Remake 2019 RPD",
+  "use": "Feiyan overworld only; dialogue keeps original unredrawn render",
+  "generator": "built-in image_gen",
+  "master": "美术生成记录\\里昂小人v1.5\\Leon_RPD_12poses_master.png",
+  "runtime_cell": [
+    128,
+    160
+  ],
+  "logical_cell": [
+    64,
+    80
+  ],
+  "directions": [
+    "front",
+    "back",
+    "left",
+    "right"
+  ],
+  "rows": [
+    "idle",
+    "walk_a",
+    "walk_b"
+  ],
+  "fps_max": 4,
+  "poses": [
+    {
+      "row": 0,
+      "column": 0,
+      "master_cell": [
+        200,
+        0,
+        475,
+        350
+      ],
+      "visible_bounds": [
+        45,
+        21,
+        215,
+        343
+      ],
+      "logical_size": [
+        37,
+        70
+      ]
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "master_cell": [
+        475,
+        0,
+        770,
+        350
+      ],
+      "visible_bounds": [
+        64,
+        21,
+        235,
+        343
+      ],
+      "logical_size": [
+        37,
+        70
+      ]
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "master_cell": [
+        770,
+        0,
+        1065,
+        350
+      ],
+      "visible_bounds": [
+        102,
+        22,
+        206,
+        343
+      ],
+      "logical_size": [
+        23,
+        70
+      ]
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "master_cell": [
+        1065,
+        0,
+        1380,
+        350
+      ],
+      "visible_bounds": [
+        98,
+        22,
+        209,
+        343
+      ],
+      "logical_size": [
+        24,
+        70
+      ]
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "master_cell": [
+        200,
+        350,
+        475,
+        680
+      ],
+      "visible_bounds": [
+        49,
+        10,
+        209,
+        322
+      ],
+      "logical_size": [
+        36,
+        70
+      ]
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "master_cell": [
+        475,
+        350,
+        770,
+        680
+      ],
+      "visible_bounds": [
+        65,
+        9,
+        226,
+        322
+      ],
+      "logical_size": [
+        36,
+        70
+      ]
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "master_cell": [
+        770,
+        350,
+        1065,
+        680
+      ],
+      "visible_bounds": [
+        66,
+        10,
+        229,
+        322
+      ],
+      "logical_size": [
+        37,
+        70
+      ]
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "master_cell": [
+        1065,
+        350,
+        1380,
+        680
+      ],
+      "visible_bounds": [
+        80,
+        10,
+        238,
+        322
+      ],
+      "logical_size": [
+        35,
+        70
+      ]
+    },
+    {
+      "row": 2,
+      "column": 0,
+      "master_cell": [
+        200,
+        680,
+        475,
+        1024
+      ],
+      "visible_bounds": [
+        45,
+        6,
+        210,
+        321
+      ],
+      "logical_size": [
+        37,
+        70
+      ]
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "master_cell": [
+        475,
+        680,
+        770,
+        1024
+      ],
+      "visible_bounds": [
+        65,
+        6,
+        228,
+        321
+      ],
+      "logical_size": [
+        36,
+        70
+      ]
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "master_cell": [
+        770,
+        680,
+        1065,
+        1024
+      ],
+      "visible_bounds": [
+        63,
+        6,
+        239,
+        321
+      ],
+      "logical_size": [
+        39,
+        70
+      ]
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "master_cell": [
+        1065,
+        680,
+        1380,
+        1024
+      ],
+      "visible_bounds": [
+        71,
+        6,
+        247,
+        321
+      ],
+      "logical_size": [
+        39,
+        70
+      ]
+    }
+  ],
+  "reference": "资源/新增立绘/原图/Leon_RE2_2019_RPD.png",
+  "character_rights": "CAPCOM; fan depiction; not an original CC0 character",
+  "sha256": "612cb69601520fa387207b372e9e43cdc09b982f293982f3d08cbdcde035ffe3"
+}

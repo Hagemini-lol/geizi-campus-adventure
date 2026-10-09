@@ -1,9 +1,9 @@
 {
-  "game_version": "1.4.0",
+  "game_version": "1.5.0",
   "game_name": "gei子的冒险",
   "windows_launcher_passed": true,
-  "windows_pck_sha256": "c4d273ffc130e0efc288e1e8214caab1406d0deeb5a0d03b8fb1358f50f2a1da",
-  "apk_sha256": "3504b04982c27682b37825cba528c39b85658ccb1222a5f5039b4c18708d9db6",
+  "windows_pck_sha256": "0793f5f1850ea9337a49b66c55ea639a4531516090f3746720100a6cedb47f9f",
+  "apk_sha256": "c978f9c75a78d15f6a540c876261b858c7d0aeb0143a2bc5e05fd59dd22a13c7",
   "checks": {
     "campaign": {
       "checks": 304,
@@ -6177,7 +6177,7 @@
     },
     "campaign_behavior": {
       "actual_boss_battles": 3,
-      "checks": 4439,
+      "checks": 3443,
       "failures": [],
       "motion_steps": 450,
       "passed": true
@@ -6197,13 +6197,13 @@
       "separate_table_chair_collisions": true
     },
     "mobile": {
-      "checks": 36,
+      "checks": 48,
       "failures": [],
       "passed": true,
       "test": "actual ScreenTouch/ScreenDrag dispatch with simultaneous fingers"
     },
     "mobile_checks_wide": {
-      "checks": 36,
+      "checks": 48,
       "failures": [],
       "passed": true,
       "test": "actual ScreenTouch/ScreenDrag dispatch with simultaneous fingers"

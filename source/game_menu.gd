@@ -23,11 +23,14 @@ var trade_quantity: SpinBox
 var shop_button: Button
 var bag_button: Button
 var action_feedback: Label
+var supply_category:="全部"
+var category_filter: OptionButton
 var supply_mode:="bag"
 var buy_buttons: Dictionary={}
 var sell_buttons: Dictionary={}
 var use_buttons: Dictionary={}
 var service_actor:=""
+var service_archive:=false
 var equipment_rows: VBoxContainer
 var skill_rows: VBoxContainer
 
@@ -148,6 +151,8 @@ func _ready() -> void:
 	journal_button.pressed.connect(func():game.campaign.open_journal());pages["status"].add_child(journal_button)
 	var side_button:=Button.new();side_button.text="同学支线 · 可接任务 / 进度 / 每日委托";side_button.custom_minimum_size.y=46
 	side_button.pressed.connect(func():game.side_quests.open_journal());pages["status"].add_child(side_button)
+	var relationship_button:=Button.new();relationship_button.text="关系与攻略 · 好感 / 恋爱 / 生存记录";relationship_button.custom_minimum_size.y=46
+	relationship_button.pressed.connect(func():game.relationships.open_journal());pages["status"].add_child(relationship_button)
 	var mod_label: Label=game.label(game.mods.status_text(),16);mod_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;pages["status"].add_child(mod_label)
 	var example_mod:=Button.new();example_mod.text="安装示例 Mod（重启生效）";example_mod.custom_minimum_size.y=46
 	example_mod.pressed.connect(func():game.show_notice(game.mods.install_bundle(FileAccess.get_file_as_string("res://mod_example.json"))))
@@ -169,6 +174,14 @@ func _ready() -> void:
 		button.custom_minimum_size=Vector2(150,44);button.pressed.connect(func():supply_mode=mode;refresh_supplies());modes.add_child(button)
 		if mode=="bag":bag_button=button
 		else:shop_button=button
+	category_filter=OptionButton.new();category_filter.custom_minimum_size=Vector2(260,40)
+	category_filter.add_item("全部")
+	var categories: Array[String]=[]
+	for spec: Dictionary in game.economy.catalog.values():
+		var category: String=spec.get("category","常用物资")
+		if category not in categories:categories.append(category);category_filter.add_item(category)
+	category_filter.item_selected.connect(func(index: int):supply_category=category_filter.get_item_text(index);refresh_supplies())
+	pages["items"].add_child(category_filter)
 	quantity_row=HBoxContainer.new();pages["items"].add_child(quantity_row);quantity_row.add_child(game.label("交易数量",18))
 	trade_quantity=SpinBox.new();trade_quantity.min_value=1;trade_quantity.max_value=99;trade_quantity.step=1;trade_quantity.value=1
 	trade_quantity.custom_minimum_size=Vector2(140,40);trade_quantity.value_changed.connect(func(_value: float):refresh_supplies());quantity_row.add_child(trade_quantity)
@@ -253,9 +266,14 @@ func refresh_supplies() -> void:
 	var count:=int(trade_quantity.value)
 	for id: String in game.economy.catalog:
 		var spec: Dictionary=game.economy.catalog[id];var owned: int=game.economy.quantity(id)
-		if spec.get("plot_item",false):continue
+		if spec.get("plot_item",false) or (supply_category!="全部" and spec.get("category","常用物资")!=supply_category):continue
 		var row:=VBoxContainer.new();row.add_theme_constant_override("separation",5);supply_rows.add_child(row)
 		var description: Label=game.label("%s ×%d  ·  %s" % [spec["name"],owned,spec.get("description","")],18)
+		var effects: Array[String]=[]
+		for stat: String in spec.get("restore_ratio",{}):effects.append({"hp":"生命","mp":"魔力","energy":"精力","san":"理智"}[stat]+" +%d%%" % roundi(float(spec["restore_ratio"][stat])*100))
+		if not effects.is_empty():description.text+="（按最大值："+"、".join(effects)+"）"
+		var vendor: String=spec.get("vendor","")
+		if not vendor.is_empty():description.text+=" · 供应："+str(game.campus_life.STAFF.get(vendor,vendor))
 		description.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;row.add_child(description)
 		var controls:=HBoxContainer.new();controls.add_theme_constant_override("separation",12);row.add_child(controls)
 		if supply_mode=="bag":
@@ -270,7 +288,7 @@ func refresh_supplies() -> void:
 			prices.size_flags_horizontal=Control.SIZE_EXPAND_FILL;controls.add_child(prices)
 			for buying: bool in [true,false]:
 				var button:=Button.new();button.text="买入" if buying else "出售";button.custom_minimum_size=Vector2(100,38)
-				button.disabled=(buy_price<0 or game.economy.money<buy_price*count or owned+count>game.economy.STACK_CAP) if buying else (sell_price<=0 or owned<count)
+				button.disabled=(not vendor.is_empty() or buy_price<0 or game.economy.money<buy_price*count or owned+count>game.economy.STACK_CAP) if buying else (sell_price<=0 or owned<count)
 				button.pressed.connect(func():feedback(game.trade_supply(id,int(trade_quantity.value),buying)));controls.add_child(button)
 				if buying:buy_buttons[id]=button
 				else:sell_buttons[id]=button
@@ -296,10 +314,13 @@ func open_mod_import() -> void:
 	var close:=Button.new();close.text="关闭";close.custom_minimum_size.y=48;close.pressed.connect(func():layer.queue_free());box.add_child(close)
 
 func open_service(actor: String) -> void:
-	service_actor=actor;game.paused=false;game.overlay.hide()
+	service_archive=false;service_actor=actor;game.paused=false;game.overlay.hide()
 	game.gameplay_hud.hide()
 	open_menu();select_tab("skills" if actor=="fei_yan" else "equipment")
 	game.refresh_player_freeze()
+
+func open_archive(actor: String) -> void:
+	open_service(actor);service_archive=true;select_tab("skills");refresh_progression()
 
 func clear_rows(parent: VBoxContainer) -> void:
 	for child: Node in parent.get_children():parent.remove_child(child);child.queue_free()
@@ -319,7 +340,7 @@ func refresh_progression() -> void:
 		var owned: bool=game.economy.quantity(id)>0
 		var item: Dictionary=game.economy.catalog[id]
 		var merchant: String=item.get("merchant","")
-		if not owned and (merchant.is_empty() or merchant!=service_actor):continue
+		if not owned and (service_archive or merchant.is_empty() or merchant!=service_actor):continue
 		var row:=HBoxContainer.new();row.add_theme_constant_override("separation",12);equipment_rows.add_child(row)
 		var caption: Label=game.label(spec["name"]+" · "+item["description"],18)
 		caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;caption.size_flags_horizontal=Control.SIZE_EXPAND_FILL;row.add_child(caption)
@@ -336,6 +357,7 @@ func refresh_progression() -> void:
 	if hero.get("equipment",{}).is_empty():equipment_rows.add_child(game.label("暂无装备。按主线任务继续探索。",19))
 	var explanation: Label=game.label("向费眼学习法术和辅助技能；向牢硕学习战斗专精。\n中级 / 高级 / 超级法术分别在 5 / 15 / 35 级开放。\n双倍施法：先支付双倍 MP，承受一回合敌方行动，下回合释放双倍伤害。",17)
 	explanation.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;skill_rows.add_child(explanation)
+	if service_archive:skill_rows.add_child(game.label("整理遗留训练记录，自行练习。学习费用用于誊印教材和训练耗材，原等级和费用条件保持。",17))
 	for id: String in rules.data.get("skills",{}):
 		var skill: Dictionary=rules.data["skills"][id]
 		if skill.get("chapter_reward",false) and not id in rules.hero.get("skills",[]):continue

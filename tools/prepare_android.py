@@ -9,7 +9,7 @@ for source in (game/'source').iterdir():
 package=stage/'package';package.mkdir(exist_ok=True)
 (package/'.gdignore').write_text('',encoding='utf-8')
 shutil.copytree(game/'资源',package/'资源',dirs_exist_ok=True)
-for name in ['素材引用.json','战斗与刷新配置.json','办公室配置.json','剧情配置.json','任务配置.json','物资与交易配置.json']:
+for name in ['素材引用.json','战斗与刷新配置.json','办公室配置.json','剧情配置.json','任务配置.json','物资与交易配置.json','关系与攻略配置.json']:
     shutil.copy2(game/name,package/name)
 project=(stage/'project.godot').read_text(encoding='utf-8')
 project=project.replace('[application]','[application]\nconfig/mobile_bundle=true\nconfig/quit_on_go_back=false')
@@ -62,8 +62,8 @@ architectures/armeabi-v7a=true
 architectures/arm64-v8a=true
 architectures/x86=false
 architectures/x86_64=false
-version/code=8
-version/name="1.4.0"
+version/code=9
+version/name="1.5.0"
 package/unique_name="org.campus.gei.adventure"
 package/name="gei子的冒险"
 package/signed=true

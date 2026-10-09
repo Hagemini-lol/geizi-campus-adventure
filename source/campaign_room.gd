@@ -43,6 +43,7 @@ func setup(value: Dictionary, context: Dictionary, directory: String, game: Node
 	return true
 
 func refresh_cast(game: Node2D) -> void:
+	if state["building"]=="B15":return # The shared NPC manager now owns office schedules.
 	if state["kind"]!="classroom" or state["building"].begins_with("STORY_"):return
 	if npcs!=null:
 		texture_bytes-=npcs.texture_bytes;remove_child(npcs);npcs.queue_free();npcs=null

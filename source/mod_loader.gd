@@ -4,7 +4,7 @@ extends RefCounted
 # cannot corrupt the base campaign. Never load scripts or replace core entries.
 const API:=1
 const MAX_BYTES:=2097152
-const OWNERS: Array[String]=["lao_li","lao_chou","fei_yan","lao_ao","lao_shuo","yang_zi","lao_dong","la_jiao","wr"]
+const OWNERS: Array[String]=["lao_li","lao_chou","fei_yan","lao_ao","lao_shuo","yang_zi","lao_dong","la_jiao","wr","cook_hu","clerk_qiu","worker_hou","warden_chen","warden_zhou","print_luo","sports_du","history_tian","chemistry_he","math_feng","chinese_xu","homeroom_teacher","english_teacher"]
 var merged: Dictionary={}
 var loaded: Array[String]=[]
 var issues: Array[String]=[]
@@ -76,10 +76,11 @@ func valid_location(value: Variant) -> bool:
 	if value in ["B04","S02"]:return true
 	var p: PackedStringArray=value.split(":")
 	if p.size()!=3:return false
-	var floors: Dictionary={"B01":3,"B02":3,"B12":3,"B06":4,"STORY_HOUSE":1}
+	var floors: Dictionary={"B01":3,"B02":4,"B05":3,"B12":3,"B06":4,"B03":1,"B07":1,"B08":1,"B15":4,"B16":3,"STORY_HOUSE":1,"STORY_SEAL":1}
 	if not floors.has(p[0]) or not p[1].is_valid_int():return false
 	if int(p[1])<1 or int(p[1])>int(floors[p[0]]):return false
-	return p[2]=="corridor" or (p[2].is_valid_int() and int(p[2])>=0 and int(p[2])<10)
+	var rooms: int=1 if p[0] in ["B03","B07","B08","STORY_HOUSE","STORY_SEAL"] else 6 if p[0] in ["B02","B06","B15","B16"] else 10
+	return p[2]=="corridor" or (p[2].is_valid_int() and int(p[2])>=0 and int(p[2])<rooms)
 
 func integer(value: Variant,low: int,high: int) -> bool:
 	return (value is int or value is float) and is_finite(float(value)) and float(value)==floor(float(value)) and float(value)>=low and float(value)<=high
@@ -126,6 +127,8 @@ func validate(id: String,content: Dictionary) -> String:
 			if not dependency is String or not dependency in quest_ids+new_quests or dependency==task["id"]:return "前置任务不存在或自引用"
 		var story: Variant=task.get("side_story")
 		if not story is Dictionary or not story.get("owner","") in OWNERS or not integer(story.get("min_index",3),0,33):return "委托人或章节门槛错误"
+		if story.has("life_story") and not story["life_story"] is bool:return "校园支线标记错误"
+		if not integer(story.get("requires_affinity",0),0,100):return "好感门槛须为0至100整数"
 		if not story.get("description") is String or not story.get("intro") is Array or not story.get("outro") is Array or not story.get("daily",false) is bool:return "任务描述、开场、后话或每日标记错误"
 		for key: String in ["intro","outro","epilogue"]:
 			if not valid_lines(story.get(key,[])):return "任务对白错误"
@@ -139,6 +142,10 @@ func validate(id: String,content: Dictionary) -> String:
 			if step.has("actor") and not step["actor"] in OWNERS:return "步骤角色错误"
 			if step.has("location") and not valid_location(step["location"]):return "步骤地点错误"
 			if not integer(step.get("count",1),1,10):return "步骤次数错误"
+			if step.has("periods"):
+				if not step["periods"] is Array or step["periods"].is_empty() or step["periods"].size()>6:return "步骤时段错误"
+				for period: Variant in step["periods"]:
+					if not integer(period,0,5):return "步骤时段错误"
 			var event: String=str(step.get("event",""))
 			if event.begins_with("monster_defeated/"):
 				if not event.trim_prefix("monster_defeated/") in monster_ids or not integer(step.get("count",1),1,10):return "击败目标不存在或数量错误"

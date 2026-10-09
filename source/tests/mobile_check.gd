@@ -3,6 +3,10 @@ extends SceneTree
 var game: Node2D
 var checks:=0
 var failures: Array[String]=[]
+var auto_intro:=false
+func _process(_delta: float) -> bool:
+	if auto_intro and game!=null and game.dialogue_view.visible:game.dialogue_view.accept()
+	return false
 func _initialize() -> void:call_deferred("run")
 func check(ok: bool, message: String) -> void:
 	checks+=1
@@ -98,7 +102,7 @@ func run() -> void:
 	if is_instance_valid(game.campaign.panel):
 		var talk: Button=null
 		for button: Button in game.campaign.panel.find_children("*","Button",true,false):
-			if button.get_meta("campaign_option","")=="talk":talk=button
+			if button.get_meta("campaign_option","") in ["chat","talk"]:talk=button
 		check(talk!=null,"named NPC service offers conversation")
 		if talk!=null:await tap(0,talk.get_global_rect().get_center())
 		check(game.dialogue_view.visible,"touching campaign option starts actual conversation")
@@ -121,6 +125,45 @@ func run() -> void:
 	check(saved.get("ok",false),"mobile save written to private/test storage")
 	check(game.load_game_slot(1).get("ok",false),"mobile save reloads")
 	await wait_transition()
+	await frames(8)
+	var phone: Control=game.phone
+	await tap(0,phone.launcher.get_global_rect().get_center())
+	check(phone.visible and game.player.frozen,"touch opens top-right phone and freezes world")
+	await tap(0,phone.body.get_child(1).get_global_rect().get_center())
+	check(phone.page=="wechat" and phone.heading.text=="我也要玩瓦洛兰特","touch opens requested WeChat group")
+	phone.home();await frames()
+	await tap(0,phone.body.get_child(2).get_global_rect().get_center())
+	check(phone.page=="qq" and phone.heading.text=="唠嗑组","touch opens requested QQ group")
+	phone.home();await frames()
+	await tap(0,phone.body.get_child(4).get_global_rect().get_center())
+	check(phone.page=="warning","touch opens forbidden warning")
+	await tap(0,phone.body.get_child(2).get_global_rect().get_center())
+	check(phone.page=="home" and not game.world_editor.unlocked,"touch cancel leaves powers locked")
+	await tap(0,phone.body.get_child(4).get_global_rect().get_center())
+	auto_intro=true;await tap(0,phone.body.get_child(1).get_global_rect().get_center())
+	var deadline:=Time.get_ticks_msec()+30000
+	while phone.initiating and Time.get_ticks_msec()<deadline:await process_frame
+	auto_intro=false
+	check(not phone.initiating and phone.visible and phone.page=="editor","exported first-use animation completes into modifier")
+	check(int(game.event_state.get("forbidden/transfer_visual",0))==1,"exported transfer beams play exactly once")
+	await frames();await tap(0,phone.body.get_child(2).get_global_rect().get_center())
+	check(phone.page=="editor/money","touch opens secondary money editor")
+	var numeric: Dictionary=phone.inputs.values()[0];numeric["input"].value=24680
+	await tap(0,numeric["button"].get_global_rect().get_center())
+	check(game.economy.money==24680,"touch applies numeric edit in exported UI")
+	phone.close();phone.open();phone.forbidden()
+	check(phone.page=="editor" and int(game.event_state.get("forbidden/inherited",0))==1,"exported subsequent entry skips animation")
+	phone.close();await frames()
+	game.battle_view.start({"monster":{"uid":"touch-ui","id":"ink_slime","level":1,"hp":100000}},"probe");await frames(8)
+	var battle: Control=game.battle_view.interface
+	await tap(0,battle.category_buttons["magic"].get_global_rect().get_center())
+	check(battle.selected_category==&"magic" and battle.submenus["magic"].visible,"touch switches new battle command category")
+	await tap(0,battle.category_buttons["attack"].get_global_rect().get_center())
+	var turn: int=game.battle_view.turn
+	await tap(0,battle.submenus["attack"].command_buttons["physical"].get_global_rect().get_center())
+	while game.battle_view.busy:await process_frame
+	check(game.battle_view.turn>turn or game.battle_view.result=="victory","touch executes actual new battle attack")
+	game.battle_view.finish("escape");game.battle_view.close();await frames()
 	if DisplayServer.get_name()!="headless":
 		await RenderingServer.frame_post_draw
 		root.get_texture().get_image().save_png("D:/Godot/校园自由漫游/runtime/安卓触屏"+("宽屏" if wide else "")+"预览.png")

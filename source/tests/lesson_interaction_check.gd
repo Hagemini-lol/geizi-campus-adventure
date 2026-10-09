@@ -28,12 +28,13 @@ func lesson_item() -> Dictionary:
 func seat_check(period: int) -> void:
 	var scene: Node2D=game.terrain.current_scene
 	var npcs: Node2D=scene.npcs
-	check(npcs.lesson_active and npcs.records.size()==32,"ten class has 31 students and one teacher")
+	var has_teacher: bool=true
+	check(npcs.lesson_active and npcs.records.size()==31+int(has_teacher),"31 seated students and only the scheduled teacher")
 	check(npcs.movers.is_empty() and npcs.get_child_count()==0 and not npcs.is_processing(),"seated NPCs are baked without sprite/AI nodes")
 	var seats: Dictionary={};var named:=0;var ordinary:=0;var teacher:=0
 	for record: Dictionary in npcs.records:
 		if record.get("teacher",false):
-			teacher+=1;check(record["role"]==("homeroom_teacher" if period==1 else "english_teacher"),"teacher follows morning/afternoon")
+			teacher+=1;check(record["role"]==game.campus_life.teacher_for(scene.state["building"],period),"teacher follows morning/afternoon")
 			check(scene.navigation.walkable(record["at"]),"teacher beside lectern is reachable")
 		else:
 			check(record.get("seated",false),"all students seated")
@@ -43,7 +44,8 @@ func seat_check(period: int) -> void:
 			else:ordinary+=1
 		var route: PackedVector2Array=npcs.approach(record["uid"],scene.landing("front"))
 		check(not route.is_empty() and route[-1].distance_to(record["at"])<=12.01,"every seated NPC has a reachable small interaction ring")
-	check(named==10 and ordinary==21 and teacher==1,"all named classmates preserved and only empty seats filled")
+	var scheduled: int=game.campaign.classmates_for(scene.state).size()
+	check(named==scheduled and ordinary==31-scheduled and teacher==int(has_teacher),"unique named classmates and scheduled teacher, others fill empty seats")
 	check(seats.size()==31 and scene.HERO_SEAT_INDEX==16 and scene.hero_seat==scene.seat_position(16),"window-side second-last seat is reserved")
 	check(not lesson_item().is_empty() and game.lesson_view.available(),"white circle interaction available in teaching periods")
 func far_guard(item: Dictionary) -> void:
@@ -72,7 +74,7 @@ func class_once() -> void:
 	check(game.lesson_view.black_text.visible and game.day_clock.current_period==before,"black text remains for two seconds")
 	check(not game.save_game_slot(5).get("ok",false),"cannot save an unfinished lesson")
 	await transition();durations.append(game.lesson_view.held_seconds)
-	check(game.lesson_view.held_seconds>=1.98 and game.day_clock.current_period==before+1,"lesson holds 2 seconds and advances exactly one period")
+	check(game.lesson_view.held_seconds>=1.98 and game.day_clock.current_period==[1,5,3,4,0,2][before],"lesson holds 2 seconds and advances exactly one period")
 	check(not game.player.frozen and not game.lesson_view.running and game.fade.modulate.a<.001,"fade ends and control restored")
 func run() -> void:
 	game=(load("res://main.tscn") as PackedScene).instantiate();root.add_child(game);await frames()
@@ -94,7 +96,7 @@ func run() -> void:
 			if period in [1,2]:seat_check(period)
 			else:
 				var npcs: Node2D=game.terrain.current_scene.npcs
-				check(npcs.records.size()==10 and npcs.movers.size()==10 and not npcs.lesson_active,"outside teaching periods named movers only")
+				check(npcs.records.size()==game.campaign.classmates_for(game.terrain.current_scene.state).size() and npcs.movers.size()==npcs.records.size() and not npcs.lesson_active,"outside teaching periods named movers only")
 				check(lesson_item().is_empty(),"no lesson marker/action outside teaching periods")
 	game.day_clock.current_period=1;game.change_interior({"building":"B12","floor":3,"kind":"classroom","room":0});await transition()
 	await shot("上午十班")
@@ -109,14 +111,16 @@ func run() -> void:
 	game.player.position=game.terrain.current_scene.landing("front")
 	var seat_route: PackedVector2Array=game.approach_interaction(game.terrain.current_scene.hero_seat)
 	check(not seat_route.is_empty() and seat_route[-1].distance_to(game.terrain.current_scene.hero_seat)<=12.01,"click navigation approaches hero circle without crossing furniture")
-	await class_once();seat_check(2);await shot("下午十班")
-	await class_once();check(game.terrain.current_scene.npcs.movers.size()==10,"afternoon class restores evening movers")
+	await class_once();check(game.day_clock.current_period==5 and not game.lesson_view.available(),"morning class leads to lunch, not afternoon")
+	game.advance_world_period();seat_check(2);await shot("下午十班")
+	await class_once();check(game.terrain.current_scene.npcs.movers.size()==game.campaign.classmates_for(game.terrain.current_scene.state).size(),"afternoon class restores evening movers")
 	check(int(game.event_state.get("classes_attended",0))==2,"completed lessons recorded as saveable events")
 	game.day_clock.current_period=1;game.sync_classroom_period();game.apply_time_lighting()
 	game.player.position=game.terrain.current_scene.landing("front");game.time_skip_ready_at_ms=0
-	game.fast_forward_time();await transition();seat_check(2)
+	game.fast_forward_time();await transition();check(game.day_clock.current_period==5,"manual skip also enters lunch")
+	game.advance_world_period();seat_check(2)
 	var saved: Dictionary=game.save_game_slot(5);check(saved.get("ok",false),"period and completed lesson count save successfully")
-	game.day_clock.current_period=3;game.sync_classroom_period();check(game.terrain.current_scene.npcs.movers.size()==10,"save/load test switches out of class")
+	game.day_clock.current_period=3;game.sync_classroom_period();check(game.terrain.current_scene.npcs.movers.size()==game.campaign.classmates_for(game.terrain.current_scene.state).size(),"save/load test switches out of class")
 	game.load_game_slot(5);await transition();seat_check(2)
 	check(int(game.event_state.get("classes_attended",0))==2,"restored save retains lesson count")
 	for building: String in ["B12","B05","B01"]:
@@ -126,7 +130,7 @@ func run() -> void:
 		for room: Dictionary in rooms:
 			if not room.get("office",false):continue
 			game.change_interior({"building":building,"floor":3,"kind":"classroom","room":room["index"]});await transition()
-			check(game.terrain.current_scene.npcs.records.size()==4 and not game.lesson_view.available(),"office NPC configuration unchanged");break
+			check(game.terrain.current_scene.npcs.records.is_empty() and not game.lesson_view.available(),"teachers are at their scheduled offices, without duplicates in every classroom office");break
 	for kind: String in ["corridor","classroom"]:
 		game.change_interior({"building":"B02","floor":3,"kind":kind,"room":0});await transition()
 		check(game.terrain.current_scene.npcs==null and not game.lesson_view.available() and lesson_item().is_empty(),"laboratory remains NPC-free")

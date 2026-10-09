@@ -6,9 +6,10 @@ var overrides: Dictionary={}
 var period_serial:=0
 var next_uid:=1
 var rng:=RandomNumberGenerator.new()
+var game: Node2D
 
-func configure(combat: RefCounted) -> void:
-	rules=combat;rng.randomize()
+func configure(combat: RefCounted, owner_game: Node2D=null) -> void:
+	rules=combat;game=owner_game;rng.randomize()
 
 func reset() -> void:
 	zones={};overrides={};period_serial=0;next_uid=1
@@ -25,6 +26,7 @@ func zone_rule(context: Dictionary) -> Dictionary:
 		if context.get("kind")=="classroom" and not rule.get("rooms",[]).is_empty() and not int(context.get("room",-1)) in rule["rooms"]:continue
 		result=rule.duplicate(true)
 	var key:=zone_key(context)
+	if game!=null:result.merge(game.farming.rule(context),true)
 	if overrides.has(key):result.merge(overrides[key],true)
 	if result.is_empty() or not result.get("enabled",true):return {}
 	# Architectural caps are absolute even when event rules change.
@@ -71,7 +73,7 @@ func add_monster(key: String, rule: Dictionary, rarity: String) -> void:
 	if entry["monsters"].size()>=int(rule["capacity"]):return
 	var pool: Array=[]
 	for id: String in rules.data["monsters"]:
-		if rules.data["monsters"][id].get("rarity")==rarity and not rules.data["monsters"][id].get("scripted_only",false):pool.append(id)
+		if rules.data["monsters"][id].get("rarity")==rarity and not rules.data["monsters"][id].get("scripted_only",false) and (not rule.has(rarity+"_pool") or id in rule[rarity+"_pool"]):pool.append(id)
 	if pool.is_empty():return
 	var id: String=pool[rng.randi_range(0,pool.size()-1)]
 	var level:=spawn_level(rarity,rule)

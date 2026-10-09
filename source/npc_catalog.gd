@@ -13,6 +13,12 @@ func configure(path: String) -> bool:
 	var parsed: Variant=JSON.parse_string(FileAccess.get_file_as_string(path))
 	if not parsed is Dictionary:return false
 	for item: Dictionary in parsed.get("characters",[]):characters[item["id"]]=item
+	if characters.has("english_teacher"):characters["english_teacher"]["display_name"]="老美子"
+	if characters.has("fei_yan"):
+		var leon: Dictionary=characters["fei_yan"].duplicate(true)
+		leon["source"]="res://assets/characters/leon_v15/atlas.png";leon["pixel_grid"]=true
+		for d: int in range(4):leon["source_regions"][["front","back","left","right"][d]]=[128*d,0,128,160]
+		characters["fei_yan"]=leon
 	for id: String in ORDINARY_IDS:
 		if not characters.has(id):return false
 	for id: String in OFFICE_IDS:
@@ -38,3 +44,9 @@ func frame(id: String, direction: int, source: Image=null) -> Image:
 	var box: Array=characters[id]["source_regions"][key]
 	var result:=source.get_region(Rect2i(int(box[0]),int(box[1]),int(box[2]),int(box[3])))
 	return result.get_region(result.get_used_rect())
+
+func dialogue_portrait(id: String) -> Image:
+	if id=="fei_yan":
+		var path:=project_root.get_base_dir().path_join("新增立绘/费眼_Leon_RE2_2019.png")
+		if FileAccess.file_exists(path):return Image.load_from_file(path)
+	return frame(id,0)

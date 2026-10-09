@@ -16,10 +16,13 @@ var moving:=false
 var displayed_frame:=-1
 var frames_advanced:=0.0
 var paint_key:=""
+var pixel_sheet: Texture2D
 
 func configure(root: String, entry: Dictionary, target: Sprite2D, body_height: float, standing: Array[Texture2D], bias: float=0.0) -> bool:
-	ready=false;poses.clear();idle=standing;sprite=target;height=body_height;foot_bias=bias
+	ready=false;poses.clear();idle=standing;sprite=target;height=body_height;foot_bias=bias;pixel_sheet=null
 	var source:=Image.load_from_file(root.path_join(str(entry.get("source","")).trim_prefix("res://")))
+	if source!=null and entry.get("pixel_grid",false):
+		pixel_sheet=ImageTexture.create_from_image(source);ready=true;paint_key="";sprite.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST;stop();return true
 	if source==null or not entry.get("source_regions") is Dictionary or idle.size()!=4:return false
 	for direction: String in DIRECTIONS:
 		var reference:=Image.load_from_file(root.path_join("assets/characters/runtime/"+str(entry["id"])+"/"+direction+".png"))
@@ -54,7 +57,7 @@ func advance(delta: float, actual_speed: float) -> void:
 	if not ready:return
 	if actual_speed<=.01 or delta<=0:
 		stop();return
-	moving=true;rate=minf(8.0,BASE_FPS*actual_speed/BASE_SPEED)
+	moving=true;rate=minf(4.0 if pixel_sheet!=null else 8.0,BASE_FPS*actual_speed/BASE_SPEED)
 	var advance_by:=rate*delta
 	frames_advanced+=advance_by
 	phase=fposmod(phase+advance_by,2.0)
@@ -66,6 +69,10 @@ func paint() -> void:
 	var key: String="%d/%d" % [facing,displayed_frame]
 	if key==paint_key:return
 	paint_key=key
+	if pixel_sheet!=null:
+		var cell:=AtlasTexture.new();cell.atlas=pixel_sheet;cell.region=Rect2(facing*128,(1+displayed_frame if moving and displayed_frame>=0 else 0)*160,128,160)
+		sprite.texture=cell;sprite.centered=false;sprite.rotation=0;sprite.scale=Vector2.ONE*height/140
+		sprite.offset=Vector2(-64,-156+foot_bias*140/height);return
 	var texture: Texture2D=idle[facing]
 	var anchor:=Vector2(texture.get_width()*.5,texture.get_height())
 	if moving and displayed_frame>=0:

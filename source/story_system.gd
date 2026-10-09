@@ -20,7 +20,6 @@ var vibrating_door: Sprite2D
 var mentor_gait: RefCounted
 var mentor_sprite: Sprite2D
 var mentor_previous:=Vector2.ZERO
-var effect_audio: AudioStreamPlayer
 var played_effects: Array[String]=[]
 var black_durations: Array[float]=[]
 var draw_stamp:=""
@@ -41,14 +40,6 @@ func _ready() -> void:
 	black_text.offset_left=80;black_text.offset_right=-80;black_text.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	black_text.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;black_text.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	game.fade.add_child(black_text);black_text.hide()
-	effect_audio=AudioStreamPlayer.new();effect_audio.volume_db=-15;add_child(effect_audio)
-	var audio:=AudioStreamWAV.new();audio.format=AudioStreamWAV.FORMAT_16_BITS;audio.mix_rate=22050
-	var samples:=PackedByteArray();samples.resize(13230*2)
-	for i: int in range(13230):
-		var t:=float(i)/22050
-		var value: float=(sin(TAU*(80*t+90*t*t))*.5+sin(TAU*317*t)*.25+sin(TAU*919*t)*.15)*pow(1.0-float(i)/13230,2)
-		samples.encode_s16(i*2,int(value*20000))
-	audio.data=samples;effect_audio.stream=audio
 	for entry: Dictionary in game.interior_info["entrances"]:
 		if entry["id"]!="B02":continue
 		var box: Array=entry["box"]
@@ -82,7 +73,7 @@ func chapter_room() -> bool:
 
 func objective_text() -> String:
 	if stage>=6 and game.campaign!=null:return game.campaign.objective_text()
-	return ["秋实楼 3F 十班 → 自己的白圈座位","实验楼北侧后墙 → 闪光窗户","实验楼南侧正门 → 进入","实验楼 1F → 震动的 102 教室门","实验楼 1F → 震动的 102 教室门","返回秋实楼 3F 十班 → 晚自习","第一章完成 · 自由探索 / 学习技能"][stage]
+	return ["秋实楼 3F 十班 → 自己的座位","实验楼北侧后墙 → 闪光窗户","实验楼南侧正门 → 进入","实验楼 1F → 震动的 102 教室门","实验楼 1F → 震动的 102 教室门","返回秋实楼 3F 十班 → 晚自习","第一章完成 · 自由探索 / 学习技能"][stage]
 
 func refresh_objective() -> void:
 	if objective!=null:objective.text="任务："+objective_text()
@@ -171,20 +162,18 @@ func _draw() -> void:
 		if stage in [1,2]:draw_rect(Rect2(window_point-Vector2(16,17),Vector2(32,32)),Color(.6,.83,1,.35+.3*sin(phase*12)))
 		draw_line(window_point+Vector2(0,-19),window_point+Vector2(0,17),Color("dddcd2"),1.3,true)
 		draw_line(window_point+Vector2(-17,-5),window_point+Vector2(17,-5),Color("dddcd2"),1.3,true)
-		if stage==1 and not running:draw_arc(rear_point,6,0,TAU,40,Color.WHITE,1.3,true)
-	if seat_active() and not running:draw_arc(game.terrain.current_scene.hero_seat,6,0,TAU,40,Color.WHITE,1.3,true)
-	if door_active() and not running:
-		draw_arc(Vector2(observed_door_x,97),6,0,TAU,40,Color.WHITE,1.3,true)
 
 func speak(id: String) -> void:
 	game.dialogue_view.begin_script(data["dialogues"][id])
 	await game.dialogue_view.script_finished
 
 func begin_sequence() -> void:
+	game.music.story_tone=""
 	running=true;game.player.path.clear();game.player.velocity=Vector2.ZERO
 	game.refresh_player_freeze();game.update_time_display()
 
 func end_sequence() -> void:
+	game.music.story_tone=""
 	running=false;game.interaction_delay=.4;game.gameplay_hud.show()
 	game.refresh_player_freeze();game.update_time_display();refresh_objective()
 
@@ -194,8 +183,7 @@ func black_scene(text: String, target_period: int=-1) -> void:
 	var begin:=Time.get_ticks_msec();await get_tree().create_timer(2.0).timeout
 	black_durations.append(float(Time.get_ticks_msec()-begin)/1000.0)
 	if target_period>=0:
-		game.day_clock.current_period=target_period
-		game.sync_classroom_period();game.apply_time_lighting();game.update_time_display()
+		game.advance_world_to(target_period)
 	black_text.hide()
 	var reveal:=game.create_tween();reveal.tween_property(game.fade,"modulate:a",0,.22);await reveal.finished
 
@@ -203,14 +191,14 @@ func morning_sequence() -> void:
 	begin_sequence()
 	# A player's manual fast-forward cannot skip the mandatory morning event.
 	if game.day_clock.current_period!=1:
-		game.day_clock.current_period=1;game.sync_classroom_period();game.apply_time_lighting()
+		game.advance_world_to(1)
 	await speak("morning")
 	await black_scene("上午的课程、午后的练习……\n\n一天的课终于结束，晚自习还没开始。",3)
 	await speak("evening")
 	set_stage(1,"story/morning");end_sequence()
 
 func window_sequence() -> void:
-	begin_sequence()
+	begin_sequence();game.music.story_tone="tension"
 	for i: int in range(3):
 		await play_effect("world_explosion",window_point,65,.35)
 	await speak("window");set_stage(2,"story/window");end_sequence()
@@ -243,11 +231,11 @@ func play_effect(id: String, at: Vector2, width: float, seconds: float=.6) -> vo
 	if not effect.setup(game,id,width,seconds):effect.free();return
 	effect.position=at;add_child(effect)
 	played_effects.append(id)
-	if effect_audio!=null:effect_audio.play()
+	game.sounds.effect(id)
 	await effect.completed
 
 func initiation_sequence() -> void:
-	begin_sequence()
+	begin_sequence();game.music.story_tone="tension"
 	# Stage 4 is transient and cannot be saved halfway through the rewards.
 	stage=4
 	var context: Dictionary={"building":"B02","floor":1,"kind":"classroom","room":int(data["lab_room"])}
@@ -255,6 +243,15 @@ func initiation_sequence() -> void:
 	# The old fixed point lies inside a desk since furniture collisions changed.
 	game.place_player_safely(Vector2(84,153))
 	var nav: RefCounted=game.motion_navigation()
+	if not game.relationships.alive("fei_yan"):
+		await game.campaign.dialog([{"actor":"system","text":"费眼不会再走出这间实验室。柜子里却留着一张写给 gei 子的训练记录，护符仍维持着最后一道隔离圈。"},{"actor":"zhao_mugei","text":"人已经不在了，这份礼物也不能算作原谅。我先照着记录把隔离圈稳住。"}])
+		await play_effect("world_barrier",game.player.position-Vector2(0,20),70,.6)
+		await play_effect("world_magic_circle",game.player.position-Vector2(0,7),86,1.4)
+		grant_rewards();set_stage(5,"story/initiation")
+		game.monster_world.set_zone_rule(context,{"initial_count":0})
+		var zone_key: String=game.monster_world.zone_key(context)
+		if game.monster_world.zones.has(zone_key):game.monster_world.zones[zone_key]["monsters"]=[]
+		game.sync_monsters();end_sequence();return
 	var mentor:=make_actor("fei_yan",nav.safe_landing(Vector2(142,143)),game.npc_catalog.height("fei_yan"))
 	mentor_sprite=mentor;mentor_previous=mentor.position
 	var idle: Array[Texture2D]=[]

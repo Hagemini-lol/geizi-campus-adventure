@@ -12,7 +12,7 @@
           "event": "story/morning"
         },
         {
-          "hint": "去实验楼北侧（后墙）查看闪光的窗户，走近白圈按 E。",
+          "hint": "去实验楼北侧（后墙）查看闪光的窗户，靠近窗户自动开始。",
           "event": "story/window"
         },
         {
@@ -24,7 +24,7 @@
           "event": "story/initiation"
         },
         {
-          "hint": "返回秋实楼十班，在自己的白圈座位按 E 上晚自习。",
+          "hint": "返回秋实楼十班，走近自己的座位自动开始 上晚自习。",
           "event": "story/complete"
         }
       ]
@@ -51,7 +51,7 @@
       "prerequisites": [],
       "steps": [
         {
-          "hint": "gei子，先自由探索校园，走近门口、告示牌或人物后按 E 交互。上午、下午可以到教学楼十班的白圈座位上课。"
+          "hint": "gei子，先自由探索校园，走近门口、告示牌或人物后按 E 交互。上午、下午可以到教学楼十班自己的座位上课。"
         }
       ]
     },
@@ -65,15 +65,15 @@
       ],
       "steps": [
         {
-          "hint": "深夜：实验楼第一战 → B02:1:corridor 白圈（E / X）",
+          "hint": "深夜：实验楼第一战 → B02:1:corridor 附近（进入区域自动开始）",
           "event": "campaign/night_hunt"
         },
         {
-          "hint": "回家 / 宿舍休息 → N02 白圈（E / X）",
+          "hint": "回家 / 宿舍休息 → N02 附近（进入区域自动开始）",
           "event": "campaign/next_dawn"
         },
         {
-          "hint": "阳子的连珠炮 → B01:3:0 白圈（E / X）",
+          "hint": "阳子的连珠炮 → B01:3:0 附近（进入区域自动开始）",
           "event": "campaign/yang_awakened"
         }
       ]
@@ -88,31 +88,31 @@
       ],
       "steps": [
         {
-          "hint": "主席台后的小会 → S02 白圈（E / X）",
+          "hint": "主席台后的小会 → S02 附近（进入区域自动开始）",
           "event": "campaign/team_meet"
         },
         {
-          "hint": "牢李：基础法术讲义 → B12:3:0 白圈（E / X）",
+          "hint": "牢李：基础法术讲义 → B12:3:0 附近（进入区域自动开始）",
           "event": "campaign/handout"
         },
         {
-          "hint": "巡查科技中心图书室 → B06:1:0 白圈（E / X）",
+          "hint": "巡查科技中心图书室 → B06:1:0 附近（进入区域自动开始）",
           "event": "campaign/library_trace"
         },
         {
-          "hint": "巡查小仓库 → B04 白圈（E / X）",
+          "hint": "巡查小仓库 → B04 附近（进入区域自动开始）",
           "event": "campaign/warehouse_trace"
         },
         {
-          "hint": "实验楼：护壳教学 → B02:1:corridor 白圈（E / X）",
+          "hint": "实验楼：护壳教学 → B02:1:corridor 附近（进入区域自动开始）",
           "event": "campaign/elite_lesson"
         },
         {
-          "hint": "向牢抽汇总线索 → B01:3:0 白圈（E / X）",
+          "hint": "向牢抽汇总线索 → B01:3:0 附近（进入区域自动开始）",
           "event": "campaign/patrol_done"
         },
         {
-          "hint": "向费眼学习中级法术 → B01:3:0 白圈（E / X）",
+          "hint": "向费眼学习中级法术 → B01:3:0 附近（进入区域自动开始）",
           "event": "campaign/medium_lesson"
         }
       ]
@@ -127,19 +127,19 @@
       ],
       "steps": [
         {
-          "hint": "图书室：选择进入办法 → B06 白圈（E / X）",
+          "hint": "图书室：选择进入办法 → B06 附近（进入区域自动开始）",
           "event": "campaign/library_enter"
         },
         {
-          "hint": "书架间清除三只噬书怪 → B06:1:0 白圈（E / X）",
+          "hint": "书架间清除三只噬书怪 → B06:1:0 附近（进入区域自动开始）",
           "event": "campaign/books_clear"
         },
         {
-          "hint": "阅览区：爱看书的 wr → B06:1:0 白圈（E / X）",
+          "hint": "阅览区：爱看书的 wr → B06:1:0 附近（进入区域自动开始）",
           "event": "campaign/wr_meet"
         },
         {
-          "hint": "半地下书库：大噬书怪 → B06:1:1 白圈（E / X）",
+          "hint": "半地下书库：大噬书怪 → B06:1:1 附近（进入区域自动开始）",
           "event": "campaign/book_queen"
         }
       ]
@@ -154,19 +154,19 @@
       ],
       "steps": [
         {
-          "hint": "牢李被举报 → B01:3:0 白圈（E / X）",
+          "hint": "牢李被举报 → B01:3:0 附近（进入区域自动开始）",
           "event": "campaign/li_start"
         },
         {
-          "hint": "班会：为牢李澄清 → B01:3:0 白圈（E / X）",
+          "hint": "班会：为牢李澄清 → B01:3:0 附近（进入区域自动开始）",
           "event": "campaign/li_hearing"
         },
         {
-          "hint": "夜探办公楼 → B15:1:corridor 白圈（E / X）",
+          "hint": "夜探办公楼 → B15:1:corridor 附近（进入区域自动开始）",
           "event": "campaign/office_infiltrate"
         },
         {
-          "hint": "顶层仪式阵：老树枯枝 → B15:4:0 白圈（E / X）",
+          "hint": "顶层仪式阵：老树枯枝 → B15:4:0 附近（进入区域自动开始）",
           "event": "campaign/ancient"
         }
       ]
@@ -181,11 +181,11 @@
       ],
       "steps": [
         {
-          "hint": "公告栏：阳子被指控 → N02 白圈（E / X）",
+          "hint": "公告栏：阳子被指控 → N02 附近（进入区域自动开始）",
           "event": "campaign/yang_frame"
         },
         {
-          "hint": "政教处听证 → B15:1:0 白圈（E / X）",
+          "hint": "政教处听证 → B15:1:0 附近（进入区域自动开始）",
           "event": "campaign/yang_hearing"
         }
       ]
@@ -200,19 +200,19 @@
       ],
       "steps": [
         {
-          "hint": "牢董：等了两周 → B01:3:0 白圈（E / X）",
+          "hint": "牢董：等了两周 → B01:3:0 附近（进入区域自动开始）",
           "event": "campaign/dong_talk"
         },
         {
-          "hint": "牢家旧宅 → STORY_HOUSE:1:0 白圈（E / X）",
+          "hint": "牢家旧宅 → STORY_HOUSE:1:0 附近（进入区域自动开始）",
           "event": "campaign/dong_house"
         },
         {
-          "hint": "石室：补全符文数列 → STORY_SEAL:1:0 白圈（E / X）",
+          "hint": "石室：补全符文数列 → STORY_SEAL:1:0 附近（进入区域自动开始）",
           "event": "campaign/rune"
         },
         {
-          "hint": "守住封印表门 → STORY_SEAL:1:0 白圈（E / X）",
+          "hint": "守住封印表门 → STORY_SEAL:1:0 附近（进入区域自动开始）",
           "event": "campaign/seal_defend"
         }
       ]
@@ -227,23 +227,23 @@
       ],
       "steps": [
         {
-          "hint": "夜袭：实验楼防线 → B02:1:corridor 白圈（E / X）",
+          "hint": "夜袭：实验楼防线 → B02:1:corridor 附近（进入区域自动开始）",
           "event": "campaign/tide_lab"
         },
         {
-          "hint": "夜袭：南门与操场 → N02 白圈（E / X）",
+          "hint": "夜袭：南门与操场 → N02 附近（进入区域自动开始）",
           "event": "campaign/tide_gate"
         },
         {
-          "hint": "夜袭：秋实楼楼梯口 → B01:1:corridor 白圈（E / X）",
+          "hint": "夜袭：秋实楼楼梯口 → B01:1:corridor 附近（进入区域自动开始）",
           "event": "campaign/tide_school"
         },
         {
-          "hint": "魔法少男变身 → B01:1:corridor 白圈（E / X）",
+          "hint": "魔法少男变身 → B01:1:corridor 附近（进入区域自动开始）",
           "event": "campaign/ao_transform"
         },
         {
-          "hint": "天亮：清点人数 → S01 白圈（E / X）",
+          "hint": "天亮：清点人数 → S01 附近（进入区域自动开始）",
           "event": "campaign/tide_clear"
         }
       ]
@@ -258,11 +258,11 @@
       ],
       "steps": [
         {
-          "hint": "期中考试 → B01:3:0 白圈（E / X）",
+          "hint": "期中考试 → B01:3:0 附近（进入区域自动开始）",
           "event": "campaign/exam"
         },
         {
-          "hint": "决战前夜：准备与路线 → B01:3:0 白圈（E / X）",
+          "hint": "决战前夜：准备与路线 → B01:3:0 附近（进入区域自动开始）",
           "event": "campaign/preparation"
         }
       ]
@@ -277,11 +277,11 @@
       ],
       "steps": [
         {
-          "hint": "门开之日：门扉战 → STORY_SEAL:1:0 白圈（E / X）",
+          "hint": "门开之日：门扉战 → STORY_SEAL:1:0 附近（进入区域自动开始）",
           "event": "campaign/gate"
         },
         {
-          "hint": "最终抉择 → STORY_SEAL:1:0 白圈（E / X）",
+          "hint": "最终抉择 → STORY_SEAL:1:0 附近（进入区域自动开始）",
           "event": "campaign/choice"
         }
       ]
@@ -400,7 +400,8 @@
             "text": "没。机器能等到明天，我也能。"
           }
         ],
-        "daily": false
+        "daily": false,
+        "requires_affinity": 0
       }
     },
     {
@@ -536,7 +537,8 @@
             "text": "挺好，比一个人对着答案发愁强。"
           }
         ],
-        "daily": false
+        "daily": false,
+        "requires_affinity": 0
       }
     },
     {
@@ -663,7 +665,8 @@
             "text": "问我板上的小人是不是你。这个我没承认。"
           }
         ],
-        "daily": false
+        "daily": false,
+        "requires_affinity": 0
       }
     },
     {
@@ -768,7 +771,8 @@
             "text": "那这一段我负责不抢拍。"
           }
         ],
-        "daily": false
+        "daily": false,
+        "requires_affinity": 0
       }
     },
     {
@@ -905,7 +909,8 @@
             "text": "也没人落在后面了。"
           }
         ],
-        "daily": false
+        "daily": false,
+        "requires_affinity": 0
       }
     },
     {
@@ -1034,7 +1039,8 @@
             "text": "这回你别一口气说三百字，我连听都喘。"
           }
         ],
-        "daily": false
+        "daily": false,
+        "requires_affinity": 0
       }
     },
     {
@@ -1152,7 +1158,8 @@
             "text": "说米够不够吃。挺好。"
           }
         ],
-        "daily": false
+        "daily": false,
+        "requires_affinity": 0
       }
     },
     {
@@ -1261,7 +1268,8 @@
             "text": "你终于不用随身带着整个班了。"
           }
         ],
-        "daily": false
+        "daily": false,
+        "requires_affinity": 0
       }
     },
     {
@@ -1394,7 +1402,8 @@
             "text": "这个不用蓝。"
           }
         ],
-        "daily": false
+        "daily": false,
+        "requires_affinity": 0
       }
     },
     {
@@ -1474,7 +1483,8 @@
             "text": "今天这份已经结清。明天有新清单再接，别拿同一张重复报账。"
           }
         ],
-        "daily": true
+        "daily": true,
+        "requires_affinity": 0
       }
     },
     {
@@ -1542,7 +1552,8 @@
             "text": "今天结过这一单了。先留些材料，明天按新任务再来。"
           }
         ],
-        "daily": true
+        "daily": true,
+        "requires_affinity": 0
       }
     },
     {
@@ -1790,7 +1801,8 @@
             "water": 1,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 0
       }
     },
     {
@@ -1978,7 +1990,8 @@
             "water": 1,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 0
       }
     },
     {
@@ -2198,7 +2211,8 @@
             "water": 1,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 0
       }
     },
     {
@@ -2386,7 +2400,8 @@
             "water": 1,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 0
       }
     },
     {
@@ -2618,7 +2633,8 @@
             "water": 1,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 0
       }
     },
     {
@@ -2798,7 +2814,8 @@
             "water": 1,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 0
       }
     },
     {
@@ -3054,7 +3071,8 @@
             "water": 1,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 0
       }
     },
     {
@@ -3242,7 +3260,8 @@
             "water": 1,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 0
       }
     },
     {
@@ -3442,7 +3461,8 @@
             "water": 1,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 0
       }
     },
     {
@@ -3633,7 +3653,8 @@
             "ink_fragment": 2,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -3762,7 +3783,8 @@
           "items": {
             "field_ration": 2
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -3895,7 +3917,8 @@
           "items": {
             "concentration_candy": 2
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -4026,7 +4049,8 @@
             "bread": 2,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -4145,7 +4169,8 @@
           "items": {
             "first_aid": 2
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -4275,7 +4300,8 @@
             "concentration_candy": 2,
             "field_ration": 1
           }
-        }
+        },
+        "requires_affinity": 16
       }
     },
     {
@@ -4406,7 +4432,8 @@
             "water": 2,
             "bread": 2
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -4564,7 +4591,8 @@
             "field_ration": 1,
             "water": 2
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -4677,7 +4705,8 @@
             "first_aid": 1,
             "field_ration": 1
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -4807,7 +4836,8 @@
             "bread": 2,
             "field_ration": 1
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -4934,7 +4964,8 @@
             "water": 2,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -5065,7 +5096,8 @@
             "bread": 2,
             "field_ration": 1
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -5232,7 +5264,8 @@
             "bread": 2,
             "field_ration": 1
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -5363,7 +5396,8 @@
             "first_aid": 2,
             "concentration_candy": 1
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -5493,7 +5527,8 @@
             "bread": 2,
             "water": 2
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -5624,7 +5659,8 @@
             "concentration_candy": 2,
             "bread": 1
           }
-        }
+        },
+        "requires_affinity": 16
       }
     },
     {
@@ -5799,7 +5835,8 @@
             "concentration_candy": 2,
             "water": 1
           }
-        }
+        },
+        "requires_affinity": 8
       }
     },
     {
@@ -5930,7 +5967,1102 @@
             "concentration_candy": 2,
             "field_ration": 1
           }
+        },
+        "requires_affinity": 8
+      }
+    },
+    {
+      "id": "life_ladle",
+      "type": "side",
+      "title": "不是少盛一勺",
+      "description": "查清午饭份量争执，听完窗口两侧的说法。",
+      "prerequisites": [],
+      "steps": [
+        {
+          "event": "side/ladle/0",
+          "count": 1,
+          "hint": "午休查看窗口份量记录",
+          "marker": "午休查看窗口份量记录",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "同一条队里，前半段使用宽勺，后半段换了窄勺。记录只写“每人两勺”，没有写勺子的容量。一个学生把空碗藏到身后，说自己并不想被当作贪吃。"
+            },
+            {
+              "actor": "zhao_mugei",
+              "text": "我以前也会觉得开口要饭很丢脸。可吃不饱不是谁的错。"
+            }
+          ],
+          "location": "B07:1:0",
+          "periods": [
+            5
+          ],
+          "period_names": [
+            "午休"
+          ]
+        },
+        {
+          "event": "side/ladle/1",
+          "count": 1,
+          "hint": "向胡师傅说明量勺差异",
+          "marker": "向胡师傅说明量勺差异",
+          "dialogue": [
+            {
+              "actor": "cook_hu",
+              "text": "我忙得只顾数勺，竟没看见换勺。我先把漏掉的补齐。道歉不能让你替我说。"
+            }
+          ],
+          "actor": "cook_hu",
+          "question": "如何公布补领办法？",
+          "choices": [
+            [
+              "a",
+              "在窗口贴统一补领说明"
+            ],
+            [
+              "b",
+              "请值日生私下通知需要的人"
+            ],
+            [
+              "cancel",
+              "先想一想"
+            ]
+          ],
+          "branches": {
+            "a": [
+              {
+                "actor": "narrator",
+                "text": "补领公告不点名。胡师傅划掉了“凭证不足不补”的旧备注。"
+              }
+            ],
+            "b": [
+              {
+                "actor": "narrator",
+                "text": "值日生逐一询问时先说明自愿，未把任何人的饭量写进名单。"
+              }
+            ]
+          }
+        },
+        {
+          "event": "side/ladle/2",
+          "count": 1,
+          "hint": "午休核对调整后的供餐",
+          "marker": "午休核对调整后的供餐",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "两种勺子旁都标上克重。前一天争执的同学再次排队，胡师傅先递碗，再问够不够，没有让他重讲那场难堪。"
+            }
+          ],
+          "location": "B07:1:0",
+          "periods": [
+            5
+          ],
+          "period_names": [
+            "午休"
+          ]
+        },
+        {
+          "event": "side/ladle/3",
+          "count": 1,
+          "hint": "回窗口听胡师傅的后话",
+          "marker": "回窗口听胡师傅的后话",
+          "dialogue": [
+            {
+              "actor": "cook_hu",
+              "text": "小的时候我也在窗口抬不起头，所以才总说我懂。今天才知道，懂过一次，不等于以后就不会疏忽。"
+            }
+          ],
+          "actor": "cook_hu"
         }
+      ],
+      "side_story": {
+        "owner": "cook_hu",
+        "min_index": 0,
+        "life_story": true,
+        "daily": false,
+        "description": "查清午饭份量争执，听完窗口两侧的说法。 每完成一步推进一个时段，时机不合时可以再来。",
+        "intro": [
+          {
+            "actor": "cook_hu",
+            "text": "有人说我故意给后排少盛。我下意识想拿剩饭证明自己，可锅里剩多少，说明不了他碗里拿到多少。你愿意陪我把这事看清吗？"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "cook_hu",
+            "text": "以后按标准份量供应，不够可以正常补领。先吃好，再去忙你的事。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "cook_hu",
+            "text": "新勺子已经标好了。今天又有人说够了，我就知道不是所有沉默都代表满意。"
+          }
+        ],
+        "reward": {
+          "g": 35,
+          "items": {
+            "rice_meal": 2,
+            "rice_pack": 2,
+            "vegetable_pack": 2
+          }
+        },
+        "requires_affinity": 0
+      }
+    },
+    {
+      "id": "life_receipt",
+      "type": "side",
+      "title": "小票上的第二声滴",
+      "description": "重复收款的误会，让双方都害怕被指责。",
+      "prerequisites": [],
+      "steps": [
+        {
+          "event": "side/receipt/0",
+          "count": 1,
+          "hint": "午休查看小食堂终端说明",
+          "marker": "午休查看小食堂终端说明",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "终端有“扫描成功”和“结算成功”两种提示音。两声提示不一定代表两笔付款，但离线重试也可能留下待处理订单。"
+            }
+          ],
+          "location": "B08:1:0",
+          "periods": [
+            5
+          ],
+          "period_names": [
+            "午休"
+          ]
+        },
+        {
+          "event": "side/receipt/1",
+          "count": 1,
+          "hint": "在打印室整理匿名核对表",
+          "marker": "在打印室整理匿名核对表",
+          "dialogue": [
+            {
+              "actor": "print_luo",
+              "text": "只记时间、金额、终端流水后四位。姓名和账户不要贴到公共栏。核实问题不需要把人摊开。"
+            }
+          ],
+          "location": "B15:1:2"
+        },
+        {
+          "event": "side/receipt/2",
+          "count": 1,
+          "hint": "把两类提示音说明交给邱姐",
+          "marker": "把两类提示音说明交给邱姐",
+          "dialogue": [
+            {
+              "actor": "clerk_qiu",
+              "text": "原来确实有一笔待撤销。我嘴里的“不可能”，让他连拿小票回来都不敢。你帮我留出一个不用争辩的退款流程吧。"
+            }
+          ],
+          "actor": "clerk_qiu",
+          "question": "退款核对怎样安排？",
+          "choices": [
+            [
+              "a",
+              "提供可密封投递的核对单"
+            ],
+            [
+              "b",
+              "设窗口旁单独核对时间"
+            ],
+            [
+              "cancel",
+              "先想一想"
+            ]
+          ],
+          "branches": {
+            "a": [
+              {
+                "actor": "narrator",
+                "text": "密封单不公开账户信息，确认后按原付款渠道退回。"
+              }
+            ],
+            "b": [
+              {
+                "actor": "narrator",
+                "text": "单独核对避开午休排队高峰，邱姐把认错放在解释之前。"
+              }
+            ]
+          }
+        },
+        {
+          "event": "side/receipt/3",
+          "count": 1,
+          "hint": "午休回访小食堂核对流程",
+          "marker": "午休回访小食堂核对流程",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "窗口旁贴着两种提示音说明，也写着“没有小票可协助查询”。邱姐认出了那位同学，先递出核对结果，没有要求他原谅。"
+            }
+          ],
+          "location": "B08:1:0",
+          "periods": [
+            5
+          ],
+          "period_names": [
+            "午休"
+          ]
+        }
+      ],
+      "side_story": {
+        "owner": "clerk_qiu",
+        "min_index": 0,
+        "life_story": true,
+        "daily": false,
+        "description": "重复收款的误会，让双方都害怕被指责。 每完成一步推进一个时段，时机不合时可以再来。",
+        "intro": [
+          {
+            "actor": "clerk_qiu",
+            "text": "昨天有人说扫码响了两次，我却只看到一笔。我急着说不可能，他就再也没来。机器的记录和人的感觉，我该一起听。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "clerk_qiu",
+            "text": "退款办好了，他愿不愿再来，由他自己决定。谢谢你没让我把一句道歉也做成收款条件。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "clerk_qiu",
+            "text": "现在我会先问“发生了什么”，不再抢着说“不会的”。"
+          }
+        ],
+        "reward": {
+          "g": 30,
+          "items": {
+            "egg_sandwich": 2,
+            "fruit": 2
+          }
+        },
+        "requires_affinity": 0
+      }
+    },
+    {
+      "id": "life_quiet",
+      "type": "side",
+      "title": "敲击声停下以后",
+      "description": "施工噪声与考试安排错开，学生只参与安全的路线登记。",
+      "prerequisites": [],
+      "steps": [
+        {
+          "event": "side/quiet/0",
+          "count": 1,
+          "hint": "上午核对办公楼施工告示",
+          "marker": "上午核对办公楼施工告示",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "施工单标“下午可作业”，旁边新贴的补考通知同样安排在下午。时间更改后没有人更新另一张纸。"
+            }
+          ],
+          "location": "B15:1:corridor",
+          "periods": [
+            1
+          ],
+          "period_names": [
+            "上午"
+          ]
+        },
+        {
+          "event": "side/quiet/1",
+          "count": 1,
+          "hint": "午休在打印室整理新绕行图",
+          "marker": "午休在打印室整理新绕行图",
+          "dialogue": [
+            {
+              "actor": "print_luo",
+              "text": "路线只标可通行的门和楼梯，不让同学翻围挡取捷径。先确定停工时段，再画路线。"
+            }
+          ],
+          "location": "B15:1:2",
+          "periods": [
+            5
+          ],
+          "period_names": [
+            "午休"
+          ],
+          "question": "安全绕行图如何画？",
+          "choices": [
+            [
+              "a",
+              "按楼层分别标入口和出口"
+            ],
+            [
+              "b",
+              "用一张总图配醒目的禁行区"
+            ],
+            [
+              "cancel",
+              "先想一想"
+            ]
+          ],
+          "branches": {
+            "a": [
+              {
+                "actor": "narrator",
+                "text": "分层小图在转角处重复标示，减少走到围挡才发现无路的情况。"
+              }
+            ],
+            "b": [
+              {
+                "actor": "narrator",
+                "text": "总图上标出清楚的替代路线，禁行区旁不留下模糊捷径。"
+              }
+            ]
+          }
+        },
+        {
+          "event": "side/quiet/2",
+          "count": 1,
+          "hint": "下午核对安静的考试走廊",
+          "marker": "下午核对安静的考试走廊",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "冲击钻没有启动，工具收进锁柜。工人在室外核对材料，考场门口只剩翻页声。侯师傅在新单上写明恢复作业需要再次确认。"
+            }
+          ],
+          "location": "B15:1:corridor",
+          "periods": [
+            2
+          ],
+          "period_names": [
+            "下午"
+          ]
+        },
+        {
+          "event": "side/quiet/3",
+          "count": 1,
+          "hint": "向侯师傅交还核对记录",
+          "marker": "向侯师傅交还核对记录",
+          "dialogue": [
+            {
+              "actor": "worker_hou",
+              "text": "今天少做一点，明天还能补；让人受着委屈把考试熬过去，补不回来。你没碰电线也没爬架子，帮的忙已经够大了。"
+            }
+          ],
+          "actor": "worker_hou"
+        }
+      ],
+      "side_story": {
+        "owner": "worker_hou",
+        "min_index": 0,
+        "life_story": true,
+        "daily": false,
+        "description": "施工噪声与考试安排错开，学生只参与安全的路线登记。 每完成一步推进一个时段，时机不合时可以再来。",
+        "intro": [
+          {
+            "actor": "worker_hou",
+            "text": "施工单写着下午，考试单也写着下午。两张都盖了章，最后却要让教室里的人忍着。我不想再拿“按单干活”挡回去。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "worker_hou",
+            "text": "以后变更时间，两边都签收。别拿学生的安全和安静赶工期。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "worker_hou",
+            "text": "午休和考试都停噪声作业，专业维修仍由我们来。你想帮忙就帮我看看告示是不是清楚。"
+          }
+        ],
+        "reward": {
+          "g": 40,
+          "items": {
+            "old_cardboard": 4,
+            "scrap_metal": 2,
+            "route_card": 1
+          }
+        },
+        "requires_affinity": 0
+      }
+    },
+    {
+      "id": "life_key",
+      "type": "side",
+      "title": "没有交出去的备用钥匙",
+      "description": "在帮助与隐私之间学会先取得同意。",
+      "prerequisites": [],
+      "steps": [
+        {
+          "event": "side/key/0",
+          "count": 1,
+          "hint": "在一楼女生宿管接待室听说明",
+          "marker": "在一楼女生宿管接待室听说明",
+          "dialogue": [
+            {
+              "actor": "warden_chen",
+              "text": "三人寝并不等于三个人的东西都归一起。钥匙能开一间房，也能让没准备好的人突然被看见。帮忙得先问本人。"
+            }
+          ],
+          "actor": "warden_chen"
+        },
+        {
+          "event": "side/key/1",
+          "count": 1,
+          "hint": "查看公共区失物登记规则",
+          "marker": "查看公共区失物登记规则",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "登记页只记物品特征和领取口令，没有寝室号和姓名的公开列表。一串钥匙被放进编号封袋，等待本人核对。"
+            }
+          ],
+          "location": "B16:1:2",
+          "question": "怎样联系失主？",
+          "choices": [
+            [
+              "a",
+              "请宿管按登记私下联系"
+            ],
+            [
+              "b",
+              "在公共栏贴不含寝室号的提示"
+            ],
+            [
+              "cancel",
+              "先想一想"
+            ]
+          ],
+          "branches": {
+            "a": [
+              {
+                "actor": "narrator",
+                "text": "陈阿姨通过登记的联系方式核验，没有把联系方式交给其他人。"
+              }
+            ],
+            "b": [
+              {
+                "actor": "narrator",
+                "text": "提示只描述钥匙扣的大致颜色，细节留给本人核对。"
+              }
+            ]
+          }
+        },
+        {
+          "event": "side/key/2",
+          "count": 1,
+          "hint": "晚间核对访客登记区",
+          "marker": "晚间核对访客登记区",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "来帮室友取资料的同学等在一楼。本人下楼把资料交给他，宿管没有打开任何寝室门。两个人说话时，比上午都轻松。"
+            }
+          ],
+          "location": "B16:1:0",
+          "periods": [
+            3
+          ],
+          "period_names": [
+            "晚上"
+          ]
+        },
+        {
+          "event": "side/key/3",
+          "count": 1,
+          "hint": "告诉陈阿姨会面顺利",
+          "marker": "告诉陈阿姨会面顺利",
+          "dialogue": [
+            {
+              "actor": "warden_chen",
+              "text": "他们说“原来还能这样”。我也该早点告诉他们替代办法，不能只给一个不字。"
+            }
+          ],
+          "actor": "warden_chen"
+        }
+      ],
+      "side_story": {
+        "owner": "warden_chen",
+        "min_index": 0,
+        "life_story": true,
+        "daily": false,
+        "description": "在帮助与隐私之间学会先取得同意。 每完成一步推进一个时段，时机不合时可以再来。",
+        "intro": [
+          {
+            "actor": "warden_chen",
+            "text": "有人替室友来拿钥匙，我没给。他觉得我是故意刁难。以前我总拿规矩解释，这回想把为什么也说清楚。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "warden_chen",
+            "text": "规矩要守，也要让人知道怎样得到帮助。三楼私人寝室不对访客开放，一楼一直可以登记会面。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "warden_chen",
+            "text": "今天有人主动先问室友愿不愿意。我没有多说，只给他们腾了张椅子。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "soap": 2,
+            "sewing_thread": 2
+          }
+        },
+        "requires_affinity": 0
+      }
+    },
+    {
+      "id": "life_water",
+      "type": "side",
+      "title": "墙里有人敲门",
+      "description": "水管异响让室友互相指责，证据带来一次迟到的道歉。",
+      "prerequisites": [],
+      "steps": [
+        {
+          "event": "side/water/0",
+          "count": 1,
+          "hint": "晚上在维修值班室登记异响时间",
+          "marker": "晚上在维修值班室登记异响时间",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "记录显示声音总在多人集中用水之后出现，位置靠近独立卫生间的立管。你只在公共值班室登记，没有进入寝室或拆开管道。"
+            }
+          ],
+          "location": "B16:1:5",
+          "periods": [
+            3
+          ],
+          "period_names": [
+            "晚上"
+          ]
+        },
+        {
+          "event": "side/water/1",
+          "count": 1,
+          "hint": "请周叔提交专业报修",
+          "marker": "请周叔提交专业报修",
+          "dialogue": [
+            {
+              "actor": "warden_zhou",
+              "text": "我把“疑似楼上敲击”划掉，写“集中用水后立管异响”。这两个写法，会把工单带去完全不同的地方。"
+            }
+          ],
+          "actor": "warden_zhou"
+        },
+        {
+          "event": "side/water/2",
+          "count": 1,
+          "hint": "下午查看已签收的维修说明",
+          "marker": "下午查看已签收的维修说明",
+          "dialogue": [
+            {
+              "actor": "worker_hou",
+              "text": "专业人员检查出固定件松动，水流变化会带来撞击。修完要观察，不能让你们拿敲墙当测试。"
+            }
+          ],
+          "location": "B16:1:5",
+          "periods": [
+            2
+          ],
+          "period_names": [
+            "下午"
+          ],
+          "question": "如何告知先前被怀疑的室友？",
+          "choices": [
+            [
+              "a",
+              "先单独解释并道歉"
+            ],
+            [
+              "b",
+              "在公共公告更正原因但不点名"
+            ],
+            [
+              "cancel",
+              "先想一想"
+            ]
+          ],
+          "branches": {
+            "a": [
+              {
+                "actor": "narrator",
+                "text": "周叔私下说明自己也曾判断太快，给对方留下回应的余地。"
+              }
+            ],
+            "b": [
+              {
+                "actor": "narrator",
+                "text": "公告明确是管道问题，撤销先前指责，不把被误会者的寝室号写上去。"
+              }
+            ]
+          }
+        },
+        {
+          "event": "side/water/3",
+          "count": 1,
+          "hint": "晚间回值班区听修复后的记录",
+          "marker": "晚间回值班区听修复后的记录",
+          "dialogue": [
+            {
+              "actor": "warden_zhou",
+              "text": "今天没再收到异响。那几个孩子还没和好，我也没催。修一根管子比把话收回来容易，可都得有人开始做。"
+            }
+          ],
+          "location": "B16:1:0",
+          "periods": [
+            3
+          ],
+          "period_names": [
+            "晚上"
+          ]
+        }
+      ],
+      "side_story": {
+        "owner": "warden_zhou",
+        "min_index": 0,
+        "life_story": true,
+        "daily": false,
+        "description": "水管异响让室友互相指责，证据带来一次迟到的道歉。 每完成一步推进一个时段，时机不合时可以再来。",
+        "intro": [
+          {
+            "actor": "warden_zhou",
+            "text": "有人说楼上故意敲地板。我听了一会儿，也差点认定是学生。可值夜的人若只凭耳朵就判人，和传闲话有什么分别？"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "warden_zhou",
+            "text": "记录会留着继续观察。你帮我记的是发生过什么，不是替谁找罪证。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "warden_zhou",
+            "text": "报修单先写事实。这句话我贴在桌上，提醒的首先是我。"
+          }
+        ],
+        "reward": {
+          "g": 35,
+          "items": {
+            "cloth": 2,
+            "tape": 2
+          }
+        },
+        "requires_affinity": 0
+      }
+    },
+    {
+      "id": "life_version",
+      "type": "side",
+      "title": "最后一页不是答案",
+      "description": "印错的资料让学生互相责备，老师承认自己也会出错。",
+      "prerequisites": [],
+      "steps": [
+        {
+          "event": "side/version/0",
+          "count": 1,
+          "hint": "上午查看打印室的版本记录",
+          "marker": "上午查看打印室的版本记录",
+          "dialogue": [
+            {
+              "actor": "print_luo",
+              "text": "第一份末页是空白答题区，第二份末页是解析。文件名只差一个字，修改时间差了六分钟。要把这六分钟说明白，不能只把错页收走。"
+            }
+          ],
+          "location": "B15:1:2",
+          "periods": [
+            1
+          ],
+          "period_names": [
+            "上午"
+          ]
+        },
+        {
+          "event": "side/version/1",
+          "count": 1,
+          "hint": "在公共自习室整理页码对照",
+          "marker": "在公共自习室整理页码对照",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "你把“总页数、末页标题、修订时间”排成三列，两份材料的差异一目了然。没有把任何学生的笔迹当成隐瞒的证据。"
+            }
+          ],
+          "location": "B16:1:1",
+          "question": "更正说明应先写什么？",
+          "choices": [
+            [
+              "a",
+              "先写老师分发版本有误"
+            ],
+            [
+              "b",
+              "先列版本差异并署名负责"
+            ],
+            [
+              "cancel",
+              "先想一想"
+            ]
+          ],
+          "branches": {
+            "a": [
+              {
+                "actor": "narrator",
+                "text": "罗老师把责任写在第一句，让同学不用先为自己辩解。"
+              }
+            ],
+            "b": [
+              {
+                "actor": "narrator",
+                "text": "三项差异后面是罗老师的署名，并注明分发错误与学生无关。"
+              }
+            ]
+          }
+        },
+        {
+          "event": "side/version/2",
+          "count": 1,
+          "hint": "午休在打印室核对更正通知",
+          "marker": "午休在打印室核对更正通知",
+          "dialogue": [
+            {
+              "actor": "print_luo",
+              "text": "这次先印一份核样，再印全班。你看，承认出错以后，反而终于知道从哪一步改。"
+            }
+          ],
+          "location": "B15:1:2",
+          "periods": [
+            5
+          ],
+          "period_names": [
+            "午休"
+          ]
+        },
+        {
+          "event": "side/version/3",
+          "count": 1,
+          "hint": "向罗老师交回已校对的副本",
+          "marker": "向罗老师交回已校对的副本",
+          "dialogue": [
+            {
+              "actor": "print_luo",
+              "text": "我以前总催你们“认真一点”，说得像认真就永远不会错。以后我会多教一句：出错时怎样留下可追溯的改正。"
+            }
+          ],
+          "actor": "print_luo"
+        }
+      ],
+      "side_story": {
+        "owner": "print_luo",
+        "min_index": 0,
+        "life_story": true,
+        "daily": false,
+        "description": "印错的资料让学生互相责备，老师承认自己也会出错。 每完成一步推进一个时段，时机不合时可以再来。",
+        "intro": [
+          {
+            "actor": "print_luo",
+            "text": "我把两份不同版本的练习混在一起发下去了。有人因此被说成藏答案。我本想悄悄换掉，后来发现那样只会让误会留在他身上。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "print_luo",
+            "text": "更正已经发出。谢谢你帮我核对，也谢谢你没有替我把责任藏起来。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "print_luo",
+            "text": "原件封存，副本标明版本。今天有老师没课来打印，我们一起先核样再开机。"
+          }
+        ],
+        "reward": {
+          "g": 30,
+          "items": {
+            "clean_paper": 6,
+            "binder_clip": 3,
+            "bound_notes": 1
+          }
+        },
+        "requires_affinity": 0
+      }
+    },
+    {
+      "id": "life_track",
+      "type": "side",
+      "title": "两条路都要留出来",
+      "description": "篮下的球滚上跑道，竞争中的人开始照顾彼此。",
+      "prerequisites": [],
+      "steps": [
+        {
+          "event": "side/track/0",
+          "count": 1,
+          "hint": "下午观察篮球场外环跑道交叉点",
+          "marker": "下午观察篮球场外环跑道交叉点",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "跑道绕着篮球场连续成环，取球的人却习惯直接横穿内侧弯道。问题集中在两个篮架附近，并不是整条跑道都不能用。"
+            }
+          ],
+          "location": "B03:1:0",
+          "periods": [
+            2
+          ],
+          "period_names": [
+            "下午"
+          ]
+        },
+        {
+          "event": "side/track/1",
+          "count": 1,
+          "hint": "向杜老师提出共用场地方案",
+          "marker": "向杜老师提出共用场地方案",
+          "dialogue": [
+            {
+              "actor": "sports_du",
+              "text": "先停下取球、再看跑道来人。训练速度慢一点，也比靠别人躲开我们合理。"
+            }
+          ],
+          "actor": "sports_du",
+          "question": "怎样让共用规则更清楚？",
+          "choices": [
+            [
+              "a",
+              "在两端设取球等待点"
+            ],
+            [
+              "b",
+              "为练球安排轮流看护落球的人"
+            ],
+            [
+              "cancel",
+              "先想一想"
+            ]
+          ],
+          "branches": {
+            "a": [
+              {
+                "actor": "narrator",
+                "text": "等待点离开跑道，队员先示意再取球，跑者保持方向和速度。"
+              }
+            ],
+            "b": [
+              {
+                "actor": "narrator",
+                "text": "看护者提醒队友停步，不站在跑道上拦人；双方都保留活动空间。"
+              }
+            ]
+          }
+        },
+        {
+          "event": "side/track/2",
+          "count": 1,
+          "hint": "晚上检查跑道与球场的共享安排",
+          "marker": "晚上检查跑道与球场的共享安排",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "一个队员冲着滚走的球迈了半步，又主动停下来。跑者经过后抬了抬手，不像胜利，也不像退让，只是终于看见了对方。"
+            }
+          ],
+          "location": "B03:1:0",
+          "periods": [
+            3
+          ],
+          "period_names": [
+            "晚上"
+          ]
+        },
+        {
+          "event": "side/track/3",
+          "count": 1,
+          "hint": "找杜老师做一次回访",
+          "marker": "找杜老师做一次回访",
+          "dialogue": [
+            {
+              "actor": "sports_du",
+              "text": "以前我只夸快、准、赢。今天那个停下来的动作，也该算一次好表现。"
+            }
+          ],
+          "actor": "sports_du"
+        }
+      ],
+      "side_story": {
+        "owner": "sports_du",
+        "min_index": 0,
+        "life_story": true,
+        "daily": false,
+        "description": "篮下的球滚上跑道，竞争中的人开始照顾彼此。 每完成一步推进一个时段，时机不合时可以再来。",
+        "intro": [
+          {
+            "actor": "sports_du",
+            "text": "昨天球滚到跑道，差点绊着人。打球的说跑步的人不看，跑步的说篮下的人不管。场地是共用的，不能只让声音小的人退。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "sports_du",
+            "text": "训练会累，按体能安排节奏；别用补给饮料硬撑不适。明天两条路都继续有人走。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "sports_du",
+            "text": "取球先看跑道，跑步保持方向。能互相留出一步，也是进步。"
+          }
+        ],
+        "reward": {
+          "g": 30,
+          "items": {
+            "sports_drink": 2,
+            "cloth": 2
+          }
+        },
+        "requires_affinity": 0
+      }
+    },
+    {
+      "id": "life_sorting",
+      "type": "side",
+      "title": "空箱子也有去处",
+      "description": "每天一次，帮忙整理公共区的安全回收物。",
+      "prerequisites": [],
+      "steps": [
+        {
+          "event": "side/sorting/0",
+          "count": 1,
+          "hint": "在维修值班室核对安全回收分类",
+          "marker": "在维修值班室核对安全回收分类",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "纸板保持干燥，金属另放，带油污的材料留给工作人员处理。登记单不把所有东西笼统写成“垃圾”。"
+            }
+          ],
+          "location": "B16:1:5"
+        },
+        {
+          "event": "side/sorting/1",
+          "count": 1,
+          "hint": "向侯师傅交还分类记录",
+          "marker": "向侯师傅交还分类记录",
+          "dialogue": [
+            {
+              "actor": "worker_hou",
+              "text": "分清楚以后能再利用，也不会让后来搬运的人摸到尖角。今天这一份完成了，明天再来。"
+            }
+          ],
+          "actor": "worker_hou"
+        }
+      ],
+      "side_story": {
+        "owner": "worker_hou",
+        "min_index": 0,
+        "life_story": true,
+        "daily": true,
+        "description": "每天一次，帮忙整理公共区的安全回收物。 每完成一步推进一个时段，时机不合时可以再来。",
+        "intro": [
+          {
+            "actor": "worker_hou",
+            "text": "今天的废纸箱已拆好，金属边料也由工人处理过尖角。你只负责核对分类和登记，不进施工围挡。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "worker_hou",
+            "text": "今天的整理工资结清，材料按登记留给你作校内回收。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "worker_hou",
+            "text": "今天这份已经结算，别重复搬来搬去。下一个游戏日还有新的一份。"
+          }
+        ],
+        "reward": {
+          "g": 18,
+          "items": {
+            "old_cardboard": 2,
+            "scrap_metal": 1
+          }
+        },
+        "requires_affinity": 0
+      }
+    },
+    {
+      "id": "life_returns",
+      "type": "side",
+      "title": "归还不算多余的一步",
+      "description": "每天一次，登记公共区用品的借还。",
+      "prerequisites": [],
+      "steps": [
+        {
+          "event": "side/returns/0",
+          "count": 1,
+          "hint": "查看公共自习室的借还表",
+          "marker": "查看公共自习室的借还表",
+          "dialogue": [
+            {
+              "actor": "narrator",
+              "text": "有一栏写“借用中”，有一栏写“已归还待清点”。你把两栏分开，没有把尚未到期的借用算成丢失。"
+            }
+          ],
+          "location": "B16:1:1"
+        },
+        {
+          "event": "side/returns/1",
+          "count": 1,
+          "hint": "找周叔核对归还单",
+          "marker": "找周叔核对归还单",
+          "dialogue": [
+            {
+              "actor": "warden_zhou",
+              "text": "按记录问比挨个怀疑省事多了。这不是罚款，今天的登记工作按份给报酬。"
+            }
+          ],
+          "actor": "warden_zhou"
+        }
+      ],
+      "side_story": {
+        "owner": "warden_zhou",
+        "min_index": 0,
+        "life_story": true,
+        "daily": true,
+        "description": "每天一次，登记公共区用品的借还。 每完成一步推进一个时段，时机不合时可以再来。",
+        "intro": [
+          {
+            "actor": "warden_zhou",
+            "text": "公共区的夹子和清洁用品借出去以后常找不到。今天帮我对一张归还单，不去翻谁的柜子。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "warden_zhou",
+            "text": "今天登记完了，报酬和备用文具给你。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "warden_zhou",
+            "text": "今天的单据已封存，明天的新借还再登记。"
+          }
+        ],
+        "reward": {
+          "g": 15,
+          "items": {
+            "clean_paper": 2,
+            "binder_clip": 1
+          }
+        },
+        "requires_affinity": 0
       }
     }
   ]

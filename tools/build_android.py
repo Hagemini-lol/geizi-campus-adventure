@@ -38,7 +38,7 @@ metadata=subprocess.run([str(tools/'sdk/build-tools/35.0.1/aapt.exe'),'dump','ba
 ascii_apk.unlink()
 assert metadata.returncode==0,metadata.stderr
 assert "package: name='org.campus.gei.adventure'" in metadata.stdout,'Update package identity changed'
-assert "versionCode='8'" in metadata.stdout and "versionName='1.4.0'" in metadata.stdout
+assert "versionCode='9'" in metadata.stdout and "versionName='1.5.0'" in metadata.stdout
 (game/'runtime/android_manifest.txt').write_text(metadata.stdout,encoding='utf-8')
 manifest=json.loads((game/'素材打包清单.json').read_text(encoding='utf-8-sig'))
 with zipfile.ZipFile(apk) as archive:
@@ -47,11 +47,11 @@ with zipfile.ZipFile(apk) as archive:
     for item in manifest['files']:
         prefix='assets/package/'+item['file']
         assert hashlib.sha256(archive.read(prefix)).hexdigest()==item['sha256'],prefix
-    for name in ['素材引用.json','战斗与刷新配置.json','办公室配置.json','剧情配置.json','任务配置.json','物资与交易配置.json']:
+    for name in ['素材引用.json','战斗与刷新配置.json','办公室配置.json','剧情配置.json','任务配置.json','物资与交易配置.json','关系与攻略配置.json']:
         assert archive.read('assets/package/'+name)==(game/name).read_bytes()
     assert not any('credentials.json' in n or '.keystore' in n or '/存档/' in n or '/tests/' in n or n.endswith('/设置.json') for n in names)
 report={'apk':str(apk),'bytes':apk.stat().st_size,'sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),
-    'signature_verified':True,'asset_hashes_checked':len(manifest['files']),'configuration_files_checked':6,
+    'signature_verified':True,'asset_hashes_checked':len(manifest['files']),'configuration_files_checked':7,
     'saves_settings_signing_keys_excluded':True,'native_abis':[n.split('/')[1] for n in names if n.endswith('/libgodot_android.so')],
     'package':'org.campus.gei.adventure','signer_sha256':signer_sha256,'original_update_identity_verified':True,'physical_device_tested':False}
 previous_report=game/'runtime/android_package_checks.json'

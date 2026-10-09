@@ -22,7 +22,9 @@ func setup(owner_scene: Node2D, owner_game: Node2D, image: Image) -> void:
 	y_sort_enabled=true
 	rng.randomize()
 	set_process(false)
+	if not game.farming.rule(scene.state).is_empty():return
 	if scene.state["building"]=="B02":return
+	if game.campus_life.populate(self,image):return
 	var identity: String="%s/%d/%s/%d" % [scene.state["building"],int(scene.state["floor"]),scene.state["kind"],int(scene.state.get("room",-1))]
 	var seed_value:=absi(identity.hash())
 	var named_ids: Array=game.campaign.classmates_for(scene.state) if game.campaign!=null else game.npc_catalog.NAMED_IDS
@@ -57,7 +59,9 @@ func setup(owner_scene: Node2D, owner_game: Node2D, image: Image) -> void:
 			# remains at the chair. The desk foreground masks the lower torso.
 			record["art_offset"]=Vector2(0,-scene.furniture_footprints[seat].size.y*.30)
 			records.append(record)
-		var teacher_id: String="homeroom_teacher" if game.day_clock.current_period==1 else "english_teacher"
+		var teacher_id: String=game.campus_life.teacher_for(scene.state["building"],game.day_clock.current_period)
+		if game.campus_life.location(teacher_id)!="%s:%s:%s" % [scene.state["building"],scene.state["floor"],scene.state.get("room",-1)]:
+			bake_ordinary(image);return
 		var teacher_at:=valid_point(Vector2(780,295)*.265,Rect2(70,70,280,30))
 		var teacher:=make_record(identity+"/teacher",teacher_id,game.npc_catalog.characters[teacher_id]["display_name"],teacher_at,0,true)
 		teacher["role"]=teacher_id;teacher["teacher"]=true;records.append(teacher)
@@ -67,7 +71,7 @@ func setup(owner_scene: Node2D, owner_game: Node2D, image: Image) -> void:
 	# Ordinary classrooms keep baked students; ten class contains only named movers.
 	if scene.state["kind"]=="classroom":
 		var seats: Array[int]=[0,2,4,6,9,11,13,15,16,18,20,22]
-		for i: int in range(0 if ten_class else CLASSROOM_OCCUPANTS):
+		for i: int in range(0 if ten_class or game.day_clock.current_period not in [1,2] else CLASSROOM_OCCUPANTS):
 			var footprint: Rect2=scene.furniture_footprints[seats[i]]
 			var at:=footprint.get_center()+Vector2(0,footprint.size.y*.22)
 			var id: String=game.npc_catalog.ORDINARY_IDS[(seed_value+i)%6]
@@ -120,6 +124,7 @@ func make_record(uid: String, id: String, name_value: String, at: Vector2, facin
 	return {"uid":uid,"character":id,"name":name_value,"at":at,"facing":facing,"height":height,"width":height*.48,"special":special}
 
 func bake_ordinary(image: Image) -> void:
+	records=records.filter(func(record: Dictionary):return game.relationships.record_alive(record))
 	image.convert(Image.FORMAT_RGBA8)
 	var density: Vector2=Vector2(image.get_size())/scene.dimensions
 	var frame_cache: Dictionary={}
@@ -134,7 +139,7 @@ func bake_ordinary(image: Image) -> void:
 		for direction: int in needed[id]:
 			var crop: Image=game.npc_catalog.frame(id,direction,source)
 			var size: Vector2=Vector2(crop.get_size())*game.npc_catalog.height(id)/crop.get_height()*density
-			crop.resize(maxi(1,roundi(size.x)),maxi(1,roundi(size.y)),Image.INTERPOLATE_LANCZOS)
+			crop.resize(maxi(1,roundi(size.x)),maxi(1,roundi(size.y)),Image.INTERPOLATE_NEAREST if id=="fei_yan" else Image.INTERPOLATE_LANCZOS)
 			var seated:=false
 			for record: Dictionary in records:
 				if record["character"]==id and record.get("seated",false):seated=true;break

@@ -1,0 +1,63 @@
+{
+  "source": "用户本地项目 赵慕gei的牙林冒险/assets/ui/phone",
+  "source_metadata": "data/phone_ui_library.json: SVG/Godot自绘简化图标",
+  "processing": "PNG/SVG原字节复制；交互重写；无联网账号",
+  "files": [
+    {
+      "file": "app_browser.png",
+      "sha256": "eeeae2217dd251fed4768d6ba0674e6246e8651050ddb9b13f477a6ee900e280"
+    },
+    {
+      "file": "app_browser.svg",
+      "sha256": "ebfb19da491a0f8acb9de5f388d15cd95062567fc34169960fc2d2e4085fd129"
+    },
+    {
+      "file": "app_gallery.png",
+      "sha256": "7ecfa3566937c0bc29bb280c8b23c1fe135dcfbcc381f6de75c125a1d9c7217b"
+    },
+    {
+      "file": "app_gallery.svg",
+      "sha256": "c12512323bfb8b087c0c8df5e8d851f5e74b16edd51f83660f303c25024da742"
+    },
+    {
+      "file": "app_honor_of_kings.png",
+      "sha256": "74c231d5f53975b42d8f7ec0164ee6a8c5f62759afa377fdf8116055f9a5ccb9"
+    },
+    {
+      "file": "app_honor_of_kings.svg",
+      "sha256": "3adc93a328100fe044ac1c093de605c66527037cf5e855904258ac1717bb14b6"
+    },
+    {
+      "file": "app_qq.png",
+      "sha256": "c17ec5960814a7096d84b05fd933c2dc47eae139c4c60357e078fb0c019acbb7"
+    },
+    {
+      "file": "app_qq.svg",
+      "sha256": "e75e9665286d7c12c4c30ae51413189be1b369b568508c6f4918ad283d28425b"
+    },
+    {
+      "file": "app_wechat.png",
+      "sha256": "4900cf90bad51034d119a4b2f7311744b2519f612d0ab6fcc70e575a2572d945"
+    },
+    {
+      "file": "app_wechat.svg",
+      "sha256": "814e85bf3768e9588a6df84723f06329213697d37beefadd5171a591f12f5886"
+    },
+    {
+      "file": "phone_launcher.png",
+      "sha256": "42682d499d40682a8a3685f03fed7971dd591a65ebc5f8962541a5368c770be0"
+    },
+    {
+      "file": "phone_launcher.svg",
+      "sha256": "df21eb58b58c4d9a61e089079573e66412a449e9846d6dc6d26cbb3e01f5d5fe"
+    },
+    {
+      "file": "phone_screen_base.png",
+      "sha256": "356a547449b71a209912fa41495571c3c407855f8b1b46198e91d4523e152e37"
+    },
+    {
+      "file": "phone_screen_base.svg",
+      "sha256": "35eaa0a946ddad722bb6126eb273f3c1efa2aef12b4517482fc62a2a53f01f05"
+    }
+  ]
+}

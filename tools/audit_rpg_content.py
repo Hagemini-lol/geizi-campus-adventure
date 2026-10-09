@@ -22,9 +22,17 @@ for id,title in campaign['chapter_titles'].items():
     chapters.append({'id':id,'title':title,'events':len(nodes),**count(dialogue(nodes))})
 side=[t for t in tasks['tasks'] if t.get('side_story')]
 bridges=[t for t in side if t['side_story'].get('chapter_bridge')]
-personal=[t for t in side if not t['side_story'].get('daily') and not t['side_story'].get('chapter_bridge')]
+personal=[t for t in side if not t['side_story'].get('daily') and not t['side_story'].get('chapter_bridge') and not t['side_story'].get('life_story')]
 report={'version':(root/'VERSION').read_text(encoding='utf-8-sig').strip(),'main':count(dialogue(story)), 'main_chapters':chapters,'main_events':len(campaign['nodes']),'side':count(dialogue(side)),'chapter_investigations':len(bridges),'chapter_investigation_steps':sum(len(t['steps']) for t in bridges),'personal_stories':len(personal),'personal_story_steps':sum(len(t['steps']) for t in personal),'daily_jobs':sum(t['side_story'].get('daily',False) for t in side),'side_steps':sum(len(t['steps']) for t in side)}
-all_text=dialogue(story)+dialogue(side)
+staff=[t for t in side if t['side_story'].get('life_story') and not t['side_story'].get('daily')]
+report['campus_staff_stories']=len(staff)
+report['campus_staff_steps']=sum(len(t['steps']) for t in staff)
+report['campus_staff_dialogue']=count(dialogue(staff))
+relationships=read('关系与攻略配置.json')
+report['relationship_stories']=len(relationships['gou_stories'])
+report['romance_profiles']=len(relationships['romance'])
+report['relationship_dialogue']=count(dialogue(relationships))
+all_text=dialogue(story)+dialogue(side)+dialogue(relationships)
 report['total']=count(all_text)
 report['interactive_puzzles']=sum('puzzle' in s for q in side for s in q['steps'])
 report['reading_minutes_at_300_cpm']=round(report['total']['characters']/300,1)

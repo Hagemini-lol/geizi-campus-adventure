@@ -119,11 +119,12 @@ func run(spec: Dictionary,entry: Dictionary,key: String) -> bool:
 		if answer=="submit":
 			state["attempts"]=mini(999,int(state["attempts"])+1)
 			if same_values(state["values"],spec["target"]):
-				state["solved"]=true;await game.campaign.dialog(spec.get("success",[]));game.task_system.changed.emit();return true
+				game.sounds.play("puzzle_success");state["solved"]=true;await game.campaign.dialog(spec.get("success",[]));game.task_system.changed.emit();return true
 			await game.campaign.dialog(spec.get("failure",[{"actor":"system","text":"机关没有响应。线索仍在，可以换一种排列，不消耗物资。"}]))
 			if int(state["attempts"])==3:await game.campaign.dialog([{"actor":spec.get("helper","system"),"text":spec["hint"]}])
 			continue
 		if not answer.begins_with("move"):continue
+		game.sounds.play("puzzle_tick")
 		var i: int=int(answer.trim_prefix("move"))
 		if i<0 or i>=spec["controls"].size():continue
 		if spec["kind"]=="dials":state["values"][i]=(int(state["values"][i])+1)%spec["tokens"][i].size()

@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "author": "Original mathematical synthesis for gei子的冒险",
+  "license": "CC0-1.0",
+  "rate": 22050,
+  "channels": 1,
+  "format": "PCM signed 16-bit",
+  "max_voices": 6,
+  "voice_volume_db": -12,
+  "cues": [
+    {
+      "id": "ui_confirm",
+      "file": "ui_confirm.wav",
+      "seconds": 0.07,
+      "purpose": "轻木质确认，避免尖锐提示音",
+      "peak": 0.6,
+      "rms": 0.1775,
+      "sha256": "3cd21d04e8b3d391d978148ce003a4a7cbfbd86fbfd90474cbe039f37a9eec7e"
+    },
+    {
+      "id": "interact",
+      "file": "interact.wav",
+      "seconds": 0.14,
+      "purpose": "点头交谈与拾取的小木扣声",
+      "peak": 0.6,
+      "rms": 0.1182,
+      "sha256": "738314f6a7d333aff0014ef5eb2e87d3ecc5a9b5a0a2ae108862512b49a032a4"
+    },
+    {
+      "id": "door",
+      "file": "door.wav",
+      "seconds": 0.25,
+      "purpose": "门把与木门落扣",
+      "peak": 0.6,
+      "rms": 0.1289,
+      "sha256": "72f086678a70b74dd8dbacf77ccc654088ce1e3041e796cb882d856f0970e7d6"
+    },
+    {
+      "id": "paper",
+      "file": "paper.wav",
+      "seconds": 0.25,
+      "purpose": "轻翻纸页与装订",
+      "peak": 0.6,
+      "rms": 0.1996,
+      "sha256": "afc9847d3ff8256864177d62ecbdf85d187477bcf1da153ed4c24b9f717e861f"
+    },
+    {
+      "id": "trade",
+      "file": "trade.wav",
+      "seconds": 0.28,
+      "purpose": "两枚硬币轻碰",
+      "peak": 0.6,
+      "rms": 0.1929,
+      "sha256": "f917a83cd782c239021c5348066616ace2a363dc4926074b6c91401a994a89e9"
+    },
+    {
+      "id": "craft",
+      "file": "craft.wav",
+      "seconds": 0.48,
+      "purpose": "工具轻敲、收束完成",
+      "peak": 0.6,
+      "rms": 0.0807,
+      "sha256": "49f03fc57859baeac6b1eedfbab99d6ab7d73a393fe7c6ffa9433ab98d8410c2"
+    },
+    {
+      "id": "quest_complete",
+      "file": "quest_complete.wav",
+      "seconds": 0.85,
+      "purpose": "三音确认与柔和尾音",
+      "peak": 0.6,
+      "rms": 0.1455,
+      "sha256": "d8b360b61edb3b934c4bfaf19a6434d1e595a476d39b4c1c7ff4d4e0a250df06"
+    },
+    {
+      "id": "puzzle_tick",
+      "file": "puzzle_tick.wav",
+      "seconds": 0.1,
+      "purpose": "机关转动轻扣",
+      "peak": 0.6,
+      "rms": 0.1335,
+      "sha256": "84ad9044060dc6c320caadc00b410c7c3229f99f0f33aa604a6cd219bcb03573"
+    },
+    {
+      "id": "puzzle_success",
+      "file": "puzzle_success.wav",
+      "seconds": 0.64,
+      "purpose": "解开机关的上行泛音",
+      "peak": 0.6,
+      "rms": 0.162,
+      "sha256": "49be758a9c0e87bae298affb87bf4edcc62122d0d1fc77dc674804b94216921e"
+    },
+    {
+      "id": "attack_swing",
+      "file": "attack_swing.wav",
+      "seconds": 0.2,
+      "purpose": "手臂与衣料带动的短风声",
+      "peak": 0.6,
+      "rms": 0.1384,
+      "sha256": "250a53eb4d2639268dae12e0e7e80448eda25ae4074139110c623b8c84cb2fc4"
+    },
+    {
+      "id": "impact",
+      "file": "impact.wav",
+      "seconds": 0.18,
+      "purpose": "拳击和普通物理命中的低频闷响",
+      "peak": 0.6,
+      "rms": 0.104,
+      "sha256": "87d8e133218eeb48a7d6df50666a6d26b8685c08895c5497aeaeb8368b2af73a"
+    },
+    {
+      "id": "guard",
+      "file": "guard.wav",
+      "seconds": 0.22,
+      "purpose": "架臂格挡的干燥双击",
+      "peak": 0.6,
+      "rms": 0.1331,
+      "sha256": "975b3b63a8bc6e6ce3798753caec5ee0b057a4c40f1310c475a6700691731998"
+    },
+    {
+      "id": "dodge",
+      "file": "dodge.wav",
+      "seconds": 0.26,
+      "purpose": "侧移避让的柔和风声",
+      "peak": 0.6,
+      "rms": 0.1286,
+      "sha256": "50dbf2d6ce3db916e0eb2fff54ba3afa93728f061d5880d4ae5c96c1a8ed0638"
+    },
+    {
+      "id": "charge",
+      "file": "charge.wav",
+      "seconds": 0.52,
+      "purpose": "聚力时逐渐升起的谐波",
+      "peak": 0.6,
+      "rms": 0.2071,
+      "sha256": "de2e32487eb50efbf0579f458290d42fdc580c997a5d927b5a9d4fef350e3a11"
+    },
+    {
+      "id": "fire",
+      "file": "fire.wav",
+      "seconds": 0.6,
+      "purpose": "火焰喷发和余烬的粗糙噪声",
+      "peak": 0.6,
+      "rms": 0.0862,
+      "sha256": "e47276cf411f37fe81aeb11e2afac93482f427ac8ce510673cb0e01e0e679682"
+    },
+    {
+      "id": "ice",
+      "file": "ice.wav",
+      "seconds": 0.58,
+      "purpose": "冰晶落下的清脆泛音",
+      "peak": 0.6,
+      "rms": 0.1344,
+      "sha256": "d9ec875d128b14ff9e4132c323109f46a4fb08e5690817d33e962db7658100f3"
+    },
+    {
+      "id": "lightning",
+      "file": "lightning.wav",
+      "seconds": 0.46,
+      "purpose": "雷电短裂与电弧尾音",
+      "peak": 0.6,
+      "rms": 0.0722,
+      "sha256": "2d018a4ec736f616b49c4c3eb2058a54e85898712439d7953e28e4359d3a8b71"
+    },
+    {
+      "id": "wind",
+      "file": "wind.wav",
+      "seconds": 0.55,
+      "purpose": "气流扫过的连续带通风声",
+      "peak": 0.6,
+      "rms": 0.1163,
+      "sha256": "c4d894c090f12fc224dbd2274e5db06a5c91d93c500bc345fc406cfee522b1b2"
+    },
+    {
+      "id": "light",
+      "file": "light.wav",
+      "seconds": 0.62,
+      "purpose": "光系清澈且温暖的共鸣",
+      "peak": 0.6,
+      "rms": 0.1395,
+      "sha256": "518db57802bf8e244202aacf9f76f2ccf5f7b9597fb5b0b2a0c664736a869cf9"
+    },
+    {
+      "id": "dark",
+      "file": "dark.wav",
+      "seconds": 0.72,
+      "purpose": "暗系低沉失谐与短脉冲",
+      "peak": 0.6,
+      "rms": 0.1147,
+      "sha256": "be7068c7f9c39e14f7bd936d7a8ab4af7c242f050d1b5d61c61ed781906edbbe"
+    },
+    {
+      "id": "barrier",
+      "file": "barrier.wav",
+      "seconds": 0.52,
+      "purpose": "屏障展开的空心共振",
+      "peak": 0.6,
+      "rms": 0.169,
+      "sha256": "d17814d976005bd30676c49e870134bdb9e7db2b46ba2bdbcf734c211f99145c"
+    },
+    {
+      "id": "heal",
+      "file": "heal.wav",
+      "seconds": 0.45,
+      "purpose": "恢复与补给的轻柔双音",
+      "peak": 0.6,
+      "rms": 0.1462,
+      "sha256": "4cb48ec5b5d079720c17d66a73712ec9755d7fd9efbcae467136ab6d9a598807"
+    },
+    {
+      "id": "rest",
+      "file": "rest.wav",
+      "seconds": 0.36,
+      "purpose": "稳住呼吸的低声气流",
+      "peak": 0.6,
+      "rms": 0.1228,
+      "sha256": "42170ef7349574f81c588b213a041d7552e677d9811094fcd2aaddee8bb09b26"
+    },
+    {
+      "id": "story_rumble",
+      "file": "story_rumble.wav",
+      "seconds": 0.95,
+      "purpose": "异变、震动和爆裂的低沉滚动",
+      "peak": 0.6,
+      "rms": 0.1059,
+      "sha256": "aba3f2f74bbcf8fc8a5ad51b3848e1d5b4119f7f7713641c32c8677b6e8a3c15"
+    },
+    {
+      "id": "story_reveal",
+      "file": "story_reveal.wav",
+      "seconds": 0.9,
+      "purpose": "发现线索与剧情转折的悬浮泛音",
+      "peak": 0.6,
+      "rms": 0.2059,
+      "sha256": "d1138621372b085b66c5876f6c5babf938d63dd7eefa9465fa34458e871a2e00"
+    },
+    {
+      "id": "boss_thread",
+      "file": "boss_thread.wav",
+      "seconds": 0.68,
+      "purpose": "勾尬牵线的紧绷拨弦与低频牵拉",
+      "peak": 0.6,
+      "rms": 0.0901,
+      "sha256": "0b5c078bee2b955fb00ad025297d6248e086632c7d7c8dc408ea12157e74bcf6"
+    },
+    {
+      "id": "boss_phase",
+      "file": "boss_phase.wav",
+      "seconds": 0.95,
+      "purpose": "勾尬阶段变化的绷断、回响与压力上升",
+      "peak": 0.6,
+      "rms": 0.1117,
+      "sha256": "1348e3ca12c0ae03f62f77c02bed04b22a088dd76db87e76a2ed3a11363d2003"
+    },
+    {
+      "id": "break_stance",
+      "file": "break_stance.wav",
+      "seconds": 0.38,
+      "purpose": "破势时的断裂短击",
+      "peak": 0.6,
+      "rms": 0.1092,
+      "sha256": "82a125369d4e68f94a14e276e82a3312fd0f36a572739fcfe35134c23cffdf44"
+    },
+    {
+      "id": "victory",
+      "file": "victory.wav",
+      "seconds": 0.9,
+      "purpose": "简短胜利收束",
+      "peak": 0.6,
+      "rms": 0.136,
+      "sha256": "53c59e75e85d7fc4aa3843df155d2a10b17f505e39ac490d27eeea886f852b32"
+    },
+    {
+      "id": "defeat",
+      "file": "defeat.wav",
+      "seconds": 0.75,
+      "purpose": "失败的低落收束，避免惊吓",
+      "peak": 0.6,
+      "rms": 0.1604,
+      "sha256": "2b87dcc28a6ba627789390f9e3cb06319123046e348e3ee902b15f843ef108ac"
+    },
+    {
+      "id": "escape",
+      "file": "escape.wav",
+      "seconds": 0.28,
+      "purpose": "撤离的渐远风声",
+      "peak": 0.6,
+      "rms": 0.1298,
+      "sha256": "2b16dbfbd6e0e5c380af0daf0c164bf74f9895d91b9df1810c2e0a69e0893569"
+    }
+  ]
+}

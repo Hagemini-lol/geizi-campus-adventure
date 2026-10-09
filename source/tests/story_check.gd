@@ -148,7 +148,7 @@ func run() -> void:
 		check(int(stats["mp"])==floori(100+20*pow(level,1.5)) and int(stats["attack"])==100+100*level,"growth flooring at level "+str(level))
 	for level: int in [1,5,15,35,60]:
 		var hero: Dictionary=rules.hero_stats(level,{"armor":"special_uniform","accessory":"basic_amulet"})
-		var detail: Dictionary={"level":level,"normal":{},"elite":{}}
+		var detail: Dictionary={"level":level,"normal":{},"elite":{},"boss":{}}
 		for id: String in rules.data["monsters"]:
 			var rarity: String=rules.data["monsters"][id]["rarity"]
 			var foe: Dictionary=rules.monster_stats(id,maxi(1,level-5) if rarity=="normal" else level)

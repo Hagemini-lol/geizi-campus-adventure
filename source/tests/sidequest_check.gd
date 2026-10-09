@@ -85,6 +85,7 @@ func run() -> void:
 	var owners: Dictionary={}
 	for id: String in game.side_quests.quests():
 		var q: Dictionary=game.task_system.definitions[id]
+		if q["side_story"].get("life_story",false):continue # Covered by campus_life_check with time-window tests.
 		if not q["side_story"].get("daily",false):owners[q["side_story"]["owner"]]=true
 		await finish_story(id,true)
 	check(owners.size()==9,"nine of ten named classmates have personal stories")

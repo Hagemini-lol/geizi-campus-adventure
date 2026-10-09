@@ -2,6 +2,7 @@ extends RefCounted
 
 var data: Dictionary={}
 var hero: Dictionary={}
+var world_editor: RefCounted
 
 func configure(path: String, content: Dictionary={}) -> bool:
 	var parsed: Variant=content.duplicate(true) if not content.is_empty() else JSON.parse_string(FileAccess.get_file_as_string(path))
@@ -37,7 +38,7 @@ func hero_stats(level: int, equipment: Dictionary={}) -> Dictionary:
 		var item: Dictionary=data.get("equipment",{}).get(equipment[slot],{})
 		if item.get("slot","")!=slot:continue
 		for key: String in item.get("bonuses",{}):result[key]=int(result.get(key,0))+int(item["bonuses"][key])
-	return result
+	return world_editor.apply_stats(result,world_editor.hero_values()) if world_editor!=null else result
 
 func reset_hero() -> void:
 	hero=hero_stats(int(data["hero"].get("initial_level",0)))
@@ -83,7 +84,7 @@ func monster_stats(id: String, level: int) -> Dictionary:
 	result["rarity"]=spec.get("rarity","normal")
 	result["elemental_reductions"]=spec.get("elemental_reductions",{}).duplicate()
 	for key: String in ["hp","attack","defense","magic_resistance"]:result[key]=floori(growth(bases[key],level)*float(spec.get("multipliers",{}).get(key,1.0)))
-	return result
+	return world_editor.apply_stats(result,world_editor.monster_values(id)) if world_editor!=null else result
 
 func damage(attacker: Dictionary, defender: Dictionary, kind: String="physical", temporary_reduction: float=0.0, element: String="", multiplier: float=1.0, amplifier: float=1.0) -> int:
 	var attack:=maxi(0,floori(int(attacker["attack"])*multiplier))

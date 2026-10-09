@@ -105,7 +105,7 @@ func greet(record: Dictionary) -> void:
 	if image==null:game.show_notice("对话框素材缺失");return
 	image.generate_mipmaps();frame.texture=ImageTexture.create_from_image(image)
 	var hero: Image=game.npc_catalog.frame("zhao_mugei",0)
-	var other: Image=game.npc_catalog.frame(record["character"],0)
+	var other: Image=game.npc_catalog.dialogue_portrait(record["character"])
 	if hero==null or other==null:frame.texture=null;game.show_notice("对话人物素材缺失");return
 	hero.generate_mipmaps();left_portrait.texture=ImageTexture.create_from_image(hero)
 	other.generate_mipmaps();right_portrait.texture=ImageTexture.create_from_image(other)
@@ -158,7 +158,7 @@ func close(play_sound: bool=true) -> void:
 	game.refresh_player_freeze()
 
 func begin_script(lines: Array, mandatory: bool=true, callback: Callable=Callable()) -> void:
-	script_lines=lines.duplicate(true);script_index=0;script_mode=true;script_mandatory=mandatory;script_callback=callback
+	script_lines=game.relationships.adapt_lines(lines);script_index=0;script_mode=true;script_mandatory=mandatory;script_callback=callback
 	var image:=Image.load_from_file(game.resolve_path(game.dialogue_path));image.generate_mipmaps()
 	frame.texture=ImageTexture.create_from_image(image)
 	var hero: Image=game.npc_catalog.frame("zhao_mugei",0);hero.generate_mipmaps();left_portrait.texture=ImageTexture.create_from_image(hero)
@@ -166,7 +166,7 @@ func begin_script(lines: Array, mandatory: bool=true, callback: Callable=Callabl
 	for row: Dictionary in script_lines:
 		var actor: String=row.get("actor","")
 		if actor in ["system","zhao_mugei"] or not game.npc_catalog.characters.has(actor):continue
-		var other: Image=game.npc_catalog.frame(actor,0);other.generate_mipmaps()
+		var other: Image=game.npc_catalog.dialogue_portrait(actor);other.generate_mipmaps()
 		right_portrait.texture=ImageTexture.create_from_image(other);break
 	confirm.text="◇ 确认";cancel.disabled=mandatory
 	game.player.path.clear();game.player.velocity=Vector2.ZERO;game.gameplay_hud.hide()
@@ -177,7 +177,7 @@ func display_script_turn() -> void:
 	var actor: String=row.get("actor","system")
 	active_speaker="hero" if actor=="zhao_mugei" else "npc"
 	if actor!="zhao_mugei" and actor!="system" and game.npc_catalog.characters.has(actor):
-		var art: Image=game.npc_catalog.frame(actor,0)
+		var art: Image=game.npc_catalog.dialogue_portrait(actor)
 		art.generate_mipmaps();right_portrait.texture=ImageTexture.create_from_image(art)
 	name_label.text="提示" if actor=="system" else str(game.npc_catalog.characters.get(actor,{}).get("display_name","赵慕gei"))
 	speech.text=str(row["text"])
