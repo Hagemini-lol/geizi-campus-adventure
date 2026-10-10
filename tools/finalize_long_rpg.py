@@ -42,7 +42,7 @@ report = {
     'unchanged_base_formula_and_stream_checks_reused': ['balance', 'stream_recovery'],
     'windows_launcher_passed': True,
     'windows_pck_sha256': sha(root / 'runtime/campus.pck'),
-    'apk_sha256': apk['sha256'], 'android_version_code': 9,
+    'apk_sha256': apk['sha256'], 'android_version_code': 10,
     'original_android_identity_and_signature_verified': True,
     'exported_apk_desktop_checks': {'touch_standard': 48, 'touch_wide': 48, 'mod_runtime': 33},
     'runtime_asset_hashes_verified': len(manifest['files']),
@@ -50,7 +50,14 @@ report = {
     'existing_share_zip_unchanged': True,
     'four_hour_human_playthrough_measured': False,
     'physical_android_device_tested': False, 'android_emulator_tested': False,
+    'desktop_settings_and_save_checks': read(root / '存读档验证报告_界面.json'),
+    'mobile_ui_fix_checks': read(root / 'runtime/mobile_ui_fix_checks.json'),
+    'mobile_ui_fix_exported_standard': read(root / 'runtime/mobile_ui_fix_apk_checks.json'),
+    'mobile_ui_fix_exported_wide': read(root / 'runtime/mobile_ui_fix_apk_wide_checks.json'),
+    'unchanged_content_checks_reused_from_v1_5_0': [name for name in names if name not in ['phone','presentation','campaign_save','mod','update_save']],
     'notes': 'Playtime is an explicit content estimate. APK runtime checks use the exported payload on the desktop engine; they are not Android device tests.'
 }
+assert not report['desktop_settings_and_save_checks']['failures']
+assert all(report[key]['passed'] for key in ['mobile_ui_fix_checks','mobile_ui_fix_exported_standard','mobile_ui_fix_exported_wide'])
 (root / '本版完成检查.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(json.dumps({key: report[key] for key in ['version', 'checks', 'exported_apk_desktop_checks', 'personal_files_unchanged']}, ensure_ascii=False))

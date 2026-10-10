@@ -43,24 +43,40 @@ func art(path: String) -> Texture2D:
 	return ImageTexture.create_from_image(image)
 
 func layout() -> void:
-	var padding:=32.0
-	# Keep controls clear of cutouts and system gesture edges.
+	var settings: Dictionary=game.preferences.values
+	var scale: float=float(settings["control_scale"])
+	var padding: float=float(settings["control_margin"])
+	var bottom:=padding
+	# Safe-area insets are converted from physical pixels to viewport coordinates.
 	if OS.has_feature("android"):
 		var screen:=DisplayServer.screen_get_size()
 		var safe:=DisplayServer.get_display_safe_area()
-		if screen.x>0 and safe.size.x>0:
+		if screen.x>0 and screen.y>0 and safe.size.x>0:
 			padding=maxf(padding,float(maxi(safe.position.x,screen.x-safe.end.x))*size.x/float(screen.x)+12.0)
-	stick_rect=Rect2(padding,size.y-216,184,184)
-	x_rect=Rect2(size.x-padding-96,size.y-132,96,96)
-	y_rect=Rect2(size.x-padding-210,size.y-196,88,88)
-	run_rect=Rect2(size.x-padding-202,size.y-98,72,72)
+			bottom=maxf(bottom,float(screen.y-safe.end.y)*size.y/float(screen.y)+12.0)
+	scale=minf(scale,minf((size.x-2*padding-24)/480.0,(size.y-bottom-110)/250.0))
+	scale=maxf(.5,scale)
+	var stick:=220.0*scale
+	var x:=112.0*scale
+	var y:=104.0*scale
+	var run:=96.0*scale
+	var gap:=18.0*scale
+	stick_rect=Rect2(padding,size.y-bottom-stick,stick,stick)
+	x_rect=Rect2(size.x-padding-x,size.y-bottom-x-48*scale,x,x)
+	y_rect=Rect2(size.x-padding-x-gap-y,size.y-bottom-run-gap-y,y,y)
+	run_rect=Rect2(size.x-padding-x-gap-run,size.y-bottom-run,run,run)
 	queue_redraw()
 
-func _process(_delta: float) -> void:
-	menu_available=game.game_started and not game.front_end.visible and not game.dialogue_view.visible and not game.battle_view.visible and not game.transition_busy and not game.lesson_blocked() and not game.story_blocked()
+func refresh_availability() -> void:
+	# Check on each input too: a modal can open between two process frames.
+	var phone_blocked: bool=game.phone!=null and (game.phone.visible or game.phone.initiating)
+	menu_available=game.game_started and not game.menu_view.visible and not game.map_view.visible and not game.paused and not phone_blocked and not game.front_end.visible and not game.dialogue_view.visible and not game.battle_view.visible and not game.transition_busy and not game.lesson_blocked() and not game.story_blocked()
 	movement_available=menu_available and not game.menu_view.visible and not game.map_view.visible and not game.paused
 	if not movement_available and (stick_index!=-1 or mouse_stick or running):reset_stick()
-	visible=menu_available
+	visible=active and menu_available
+
+func _process(_delta: float) -> void:
+	refresh_availability()
 	queue_redraw()
 
 func reset_stick() -> void:
@@ -68,6 +84,7 @@ func reset_stick() -> void:
 	button_touches.clear()
 
 func button_at(at: Vector2) -> String:
+	refresh_availability()
 	if menu_available and y_rect.has_point(at):return "menu"
 	if movement_available and x_rect.has_point(at):return "interact"
 	if movement_available and run_rect.has_point(at):return "run"
@@ -79,7 +96,7 @@ func activate(action: String) -> void:
 	elif action=="run":running=true
 
 func update_stick(at: Vector2) -> void:
-	direction=((at-stick_rect.get_center())/64.0).limit_length(1.0)
+	direction=((at-stick_rect.get_center())/(stick_rect.size.x*.35)).limit_length(1.0)
 	if direction.length()<.15:direction=Vector2.ZERO
 	if not direction.is_zero_approx():
 		game.player.path.clear();game.pending_npc_talk="";game.pending_monster=""
@@ -114,6 +131,8 @@ func route_mouse(event: InputEvent) -> void:
 
 func _input(event: InputEvent) -> void:
 	if not active:return
+	refresh_availability()
+	# Modal GUI still receives the touch-to-mouse mapping below.
 	if event is InputEventScreenTouch:
 		var at: Vector2=get_global_transform_with_canvas().affine_inverse()*event.position
 		if event.pressed:
@@ -168,16 +187,16 @@ func _notification(what: int) -> void:
 			route_mouse(release);pointer_index=-1
 
 func disc(rect: Rect2, text: String, hint: String) -> void:
-	if button_art!=null:draw_texture_rect(button_art,rect,false,Color(1,1,1,.85))
+	if button_art!=null:draw_texture_rect(button_art,rect,false,Color(1,1,1,float(game.preferences.values["control_opacity"])))
 	else:draw_circle(rect.get_center(),rect.size.x*.5,Color(.1,.15,.17,.8))
-	draw_string(game.ui_font,rect.position+Vector2(0,rect.size.y*.56),text,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x,28,Color.WHITE)
-	draw_string(game.ui_font,rect.position+Vector2(0,rect.size.y*.78),hint,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x,16,Color.WHITE)
+	draw_string(game.ui_font,rect.position+Vector2(0,rect.size.y*.56),text,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x,int(rect.size.x*.25),Color.WHITE)
+	draw_string(game.ui_font,rect.position+Vector2(0,rect.size.y*.78),hint,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x,int(rect.size.x*.16),Color.WHITE)
 
 func _draw() -> void:
 	if not menu_available:return
 	disc(y_rect,"Y","菜单")
 	if not movement_available:return
-	if base_art!=null:draw_texture_rect(base_art,stick_rect,false,Color(1,1,1,.72))
-	if knob_art!=null:draw_texture_rect(knob_art,Rect2(stick_rect.get_center()+direction*50-Vector2(38,38),Vector2(76,76)),false)
+	if base_art!=null:draw_texture_rect(base_art,stick_rect,false,Color(1,1,1,float(game.preferences.values["control_opacity"])*.85))
+	if knob_art!=null:draw_texture_rect(knob_art,Rect2(stick_rect.get_center()+direction*stick_rect.size.x*.27-Vector2.ONE*stick_rect.size.x*.205,Vector2.ONE*stick_rect.size.x*.41),false)
 	disc(x_rect,"X","交互")
 	disc(run_rect,"×2","奔跑")

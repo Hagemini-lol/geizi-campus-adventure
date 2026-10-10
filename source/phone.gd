@@ -14,6 +14,11 @@ var match_score:=0
 var inputs: Dictionary={}
 var previous:="home"
 var initiating:=false
+var keypad: Dictionary={}
+var keypad_text: Label
+var keypad_fresh:=true
+var editor_target:=""
+var editor_offset:=0
 const WARNING:="从世界之外，我们获得修改世界的力量，少年，你确定要这样做么？"
 const GROUPS:={"wechat":"我也要玩瓦洛兰特","qq":"唠嗑组"}
 const LABELS:={"hp":"生命上限","hp_current":"当前生命","mp":"魔力上限","mp_current":"当前魔力","energy":"精力上限","energy_current":"当前精力","san":"SAN上限","san_current":"当前SAN","attack":"攻击力","defense":"防御","magic_resistance":"魔法抗性","penetration":"穿透","physical_reduction":"物理减伤","magic_reduction":"魔法减伤","level":"等级","experience":"经验","SAN":"剧情理智百分比","RP_H":"凡人路线点","RP_W":"魔女路线点","RP_D":"世家路线点","GOU_UNDERSTAND":"对勾尬的理解","BETRAY_COUNT":"背弃次数","STATE":"守印阶段","rune_mistakes":"符文失误次数"}
@@ -32,11 +37,11 @@ func _ready() -> void:
 	var scroll:=ScrollContainer.new();scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL;scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;column.add_child(scroll)
 	body=VBoxContainer.new();body.size_flags_horizontal=Control.SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",10);scroll.add_child(body)
 	var nav:=HBoxContainer.new();column.add_child(nav)
-	var back:=Button.new();back.text="返回";back.custom_minimum_size=Vector2(130,48);back.pressed.connect(back_page);nav.add_child(back)
-	var close_button:=Button.new();close_button.text="关闭手机";close_button.size_flags_horizontal=Control.SIZE_EXPAND_FILL;close_button.custom_minimum_size.y=48;close_button.pressed.connect(close);nav.add_child(close_button)
+	var back:=Button.new();back.text="返回";back.custom_minimum_size=Vector2(130,64);back.pressed.connect(back_page);nav.add_child(back)
+	var close_button:=Button.new();close_button.text="关闭手机";close_button.size_flags_horizontal=Control.SIZE_EXPAND_FILL;close_button.custom_minimum_size.y=64;close_button.pressed.connect(close);nav.add_child(close_button)
 	resized.connect(sync_layout);sync_layout();hide()
 	launcher=TextureButton.new();launcher.texture_normal=art("phone_launcher");launcher.ignore_texture_size=true;launcher.stretch_mode=TextureButton.STRETCH_KEEP_ASPECT_CENTERED
-	launcher.anchor_left=1;launcher.anchor_right=1;launcher.offset_left=-76;launcher.offset_right=-20;launcher.offset_top=18;launcher.offset_bottom=74;launcher.tooltip_text="手机 · 群聊 / 游戏 / 禁忌力量"
+	launcher.anchor_left=1;launcher.anchor_right=1;launcher.offset_left=-96;launcher.offset_right=-20;launcher.offset_top=18;launcher.offset_bottom=94;launcher.tooltip_text="手机 · 群聊 / 游戏 / 禁忌力量"
 	get_parent().add_child.call_deferred(launcher);launcher.pressed.connect(open)
 
 func sync_layout() -> void:
@@ -53,17 +58,18 @@ func open() -> void:
 	game.refresh_player_freeze();game.mobile_controls.hide()
 
 func close() -> void:
-	hide();match_round=0;game.refresh_player_freeze();game.mobile_controls.show();game.interaction_delay=.4
+	hide();match_round=0;game.refresh_player_freeze();game.mobile_controls.refresh_availability();game.interaction_delay=.4
 
 func clear(title: String, route: String) -> void:
 	page=route;heading.text=title;inputs.clear()
+	(body.get_parent() as ScrollContainer).scroll_vertical=0
 	for child: Node in body.get_children():body.remove_child(child);child.queue_free()
 
 func paragraph(text: String) -> void:
 	var label: Label=game.label(text,18);label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;label.size_flags_horizontal=Control.SIZE_EXPAND_FILL;body.add_child(label)
 
 func button(text: String, action: Callable, icon: String="") -> Button:
-	var value:=Button.new();value.text=text;value.custom_minimum_size.y=54;value.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;value.add_theme_font_size_override("font_size",18)
+	var value:=Button.new();value.text=text;value.custom_minimum_size.y=64;value.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;value.add_theme_font_size_override("font_size",18)
 	if not icon.is_empty():value.icon=art(icon);value.expand_icon=true;value.add_theme_constant_override("icon_max_width",38)
 	value.pressed.connect(func():game.play_ui_click();action.call());body.add_child(value);return value
 
@@ -77,6 +83,7 @@ func home() -> void:
 
 func back_page() -> void:
 	if page=="home":close()
+	elif page=="keypad":editor(str(keypad["scope"]),str(keypad["target"]),int(keypad["offset"]))
 	elif page.begins_with("editor/"):editor_home()
 	else:home()
 
@@ -154,6 +161,10 @@ func editor_home() -> void:
 		var scope: String=entry[0];button(entry[1],func():editor(scope))
 
 func numeric(scope: String, id: String, field: String, title: String, value: float, limits: Vector2) -> void:
+	if game.preferences.mobile_mode():
+		var edit:=button(title+"："+str(snappedf(value,.01)),func():number_pad(scope,id,field,title,value,limits))
+		inputs[scope+"/"+id+"/"+field]={"button":edit}
+		return
 	var row:=VBoxContainer.new();row.add_theme_constant_override("separation",4);body.add_child(row)
 	var label: Label=game.label(title,17);label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;row.add_child(label)
 	var controls:=HBoxContainer.new();row.add_child(controls)
@@ -164,7 +175,8 @@ func numeric(scope: String, id: String, field: String, title: String, value: flo
 	)
 	inputs[scope+"/"+id+"/"+field]={"input":input,"button":apply}
 
-func editor(scope: String, target: String="") -> void:
+func editor(scope: String, target: String="", offset: int=0) -> void:
+	editor_target=target;editor_offset=offset
 	clear("修改器 · "+{"hero":"主角","money":"金钱","affinity":"好感度","item":"物资","campaign":"剧情","monster":"怪物"}.get(scope,scope),"editor/"+scope)
 	if scope=="hero":
 		for field: String in game.world_editor.HERO_FIELDS+["hp_current","mp_current","energy_current","san_current","level","experience"]:
@@ -176,7 +188,12 @@ func editor(scope: String, target: String="") -> void:
 		for id: String in game.relationships.affinity:
 			if id.begins_with("local/"):numeric(scope,id,"bond","普通同学 · "+id.trim_prefix("local/"),game.relationships.bond(id),Vector2(-100,100))
 	elif scope=="item":
-		for id: String in game.economy.catalog:numeric(scope,id,"quantity",str(game.economy.catalog[id]["name"]),game.economy.quantity(id),Vector2(0,game.economy.STACK_CAP))
+		var items: Array=game.economy.catalog.keys()
+		var limit: int=12 if game.preferences.mobile_mode() else items.size()
+		for i: int in range(offset,mini(offset+limit,items.size())):
+			var id: String=items[i];numeric(scope,id,"quantity",str(game.economy.catalog[id]["name"]),game.economy.quantity(id),Vector2(0,game.economy.STACK_CAP))
+		if offset>0:button("上一页",func():editor(scope,target,maxi(0,offset-limit)))
+		if offset+limit<items.size():button("下一页",func():editor(scope,target,offset+limit))
 	elif scope=="campaign":
 		for id: String in game.campaign.flags:
 			if not game.campaign.flags[id] is bool and not game.campaign.flags[id] is String and not id.begins_with("BOND_"):numeric(scope,id,id,LABELS.get(id,"已记录的剧情计数"),game.campaign.flags[id],Vector2(0,5 if id=="GOU_UNDERSTAND" else 3 if id in ["STATE","rune_mistakes"] else 100))
@@ -188,6 +205,37 @@ func editor(scope: String, target: String="") -> void:
 			var stats: Dictionary=game.combat_rules.monster_stats(target,maxi(1,int(game.combat_rules.hero["level"])))
 			paragraph("更改之后生成的属性；不会中途改变已经开始的战斗。")
 			for field: String in game.world_editor.MONSTER_FIELDS:numeric(scope,target,field,LABELS.get(field,field),stats.get(field,0),game.world_editor.bounds(field))
+
+func number_pad(scope: String, id: String, field: String, title: String, value: float, limits: Vector2) -> void:
+	keypad={"scope":scope,"id":id,"field":field,"title":title,"limits":limits,"target":editor_target,"offset":editor_offset}
+	clear("修改 · "+title,"keypad");keypad_fresh=true
+	paragraph("范围："+str(limits.x)+" 至 "+str(limits.y))
+	keypad_text=game.label(str(snappedf(value,.01)),29);keypad_text.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;body.add_child(keypad_text)
+	var grid:=GridContainer.new();grid.columns=3;grid.add_theme_constant_override("h_separation",8);grid.add_theme_constant_override("v_separation",8);body.add_child(grid)
+	for key: String in ["7","8","9","4","5","6","1","2","3","−","0","删除"]:
+		var digit:=Button.new();digit.text=key;digit.custom_minimum_size=Vector2(104,64);digit.size_flags_horizontal=Control.SIZE_EXPAND_FILL;grid.add_child(digit);digit.pressed.connect(func():keypad_press(key))
+	if field.ends_with("reduction"):button("小数点",func():keypad_press("."))
+	button("确认修改",commit_number)
+
+func keypad_press(key: String) -> void:
+	var text: String=keypad_text.text
+	if key=="删除":text="0" if keypad_fresh or text.length()<=1 else text.left(-1)
+	elif key=="−":
+		if keypad["limits"].x<0:text=text.trim_prefix("-") if text.begins_with("-") else "-"+text
+	elif key==".":
+		if keypad_fresh:text="0"
+		if not text.contains("."):text+="."
+	else:
+		if keypad_fresh or text=="0":text=""
+		if text.length()<14:text+=key
+	keypad_fresh=false;keypad_text.text=text
+
+func commit_number() -> void:
+	var limits: Vector2=keypad["limits"]
+	var amount:=clampf(float(keypad_text.text),limits.x,limits.y)
+	if game.world_editor.edit(keypad["scope"],keypad["id"],keypad["field"],amount):
+		game.show_notice("已修改："+str(keypad["title"])+" = "+str(amount));game.play_ui_click()
+		editor(keypad["scope"],keypad["target"],keypad["offset"])
 
 func snapshot() -> Dictionary:return {"version":1,"messages":messages.duplicate(true),"matches":matches,"last_score":last_score}
 func valid(value: Variant) -> bool:

@@ -18,12 +18,13 @@ var pending_slot:=0
 var draft: Dictionary={}
 var settings_open:=false
 var backdrop: ColorRect
+var mobile_settings: RefCounted
 var cover_heading: PanelContainer
 
 func button(text: String, callback: Callable) -> Button:
 	var result:=Button.new()
 	result.text=text
-	result.custom_minimum_size.y=42
+	result.custom_minimum_size.y=64 if game.preferences.mobile_mode() else 42
 	result.pressed.connect(func():game.play_ui_click();callback.call())
 	return result
 
@@ -134,6 +135,7 @@ func hide_title() -> void:
 func has_modal() -> bool:return modal.visible
 
 func reset_modal(title: String) -> void:
+	modal.anchor_left=.20;modal.anchor_right=.80;modal.theme=null
 	for child: Node in content.get_children():content.remove_child(child);child.queue_free()
 	slot_buttons={};settings_controls={}
 	content.add_child(game.label(title,27))
@@ -215,6 +217,8 @@ func setting_row(title: String, control: Control) -> void:
 func open_settings() -> void:
 	draft=game.preferences.values.duplicate()
 	settings_open=true
+	if game.preferences.mobile_mode():
+		mobile_settings=preload("res://mobile_settings.gd").new();mobile_settings.build(self);return
 	reset_modal("设置")
 	var resolution:=OptionButton.new()
 	for value: Vector2i in game.preferences.RESOLUTIONS:resolution.add_item("%d × %d" % [value.x,value.y])
@@ -256,5 +260,6 @@ func open_settings() -> void:
 
 func apply_settings() -> void:
 	var success: bool=game.preferences.apply(draft)
+	if game.mobile_controls!=null:game.mobile_controls.layout()
 	message.text="设置已保存" if success else "设置已生效，但文件保存失败"
 	game.play_ui_click()

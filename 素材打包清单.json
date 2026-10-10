@@ -18941,13 +18941,28 @@
       "file": "资源/新增立绘/费眼_Leon_RE2_2019.png",
       "bytes": 692352,
       "sha256": "dec62a93ff3da8059189d8279b8780a51d8843555c39944c5552980182e9f0fb"
+    },
+    {
+      "file": "资源/字体/NotoSansSC-Regular.ttf",
+      "bytes": 10596368,
+      "sha256": "625d46d4035d7bdb872c3b288e61decda221a487b2d9650361706eb2f904ccaf"
+    },
+    {
+      "file": "资源/字体/OFL.txt",
+      "bytes": 4388,
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
+    },
+    {
+      "file": "资源/字体/来源.txt",
+      "bytes": 292,
+      "sha256": "1b9b2acbebafc2344923a7158ea97f7a07e2a8a00ecc5103228d9316083b184c"
     }
   ],
-  "total_bytes": 342196727,
+  "total_bytes": 383146696,
   "source_files_preserved": true,
   "zip_frozen": true,
   "local_sports_background_repair": "runtime/stadium_repair.json",
-  "file_count": 3720,
+  "file_count": 3791,
   "original_entries_verified_unchanged": 3720,
   "runtime_asset_total": 3788
 }

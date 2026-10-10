@@ -1,0 +1,4 @@
+Noto Sans SC · Google / Adobe，SIL Open Font License 1.1。
+来源：https://github.com/google/fonts/tree/main/ofl/notosanssc
+本机已安装的同系列可变字体经fontTools固定wght=400，保留完整字符集，未裁掉Mod所需汉字。
+字体与OFL许可证随游戏分发。

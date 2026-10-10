@@ -18,12 +18,12 @@ assert package['original_update_identity_verified']
 assert package['exported_payload_touch_checks']==normal['checks']
 assert package['exported_payload_touch_checks_wide']==wide['checks']
 manifest=(game/'runtime/android_manifest.txt').read_text(encoding='utf-8')
-assert "versionCode='9'" in manifest and "versionName='1.5.0'" in manifest
+assert "versionCode='10'" in manifest and "versionName='1.5.1'" in manifest
 assert "application-label:'gei子的冒险'" in manifest
 assert 'android.permission.INTERNET' not in manifest
 assert 'android.permission.REQUEST_INSTALL_PACKAGES' not in manifest
 assert hashlib.sha256((game/'gei子的冒险.apk').read_bytes()).hexdigest()==package['sha256']
-report={'version':5,'game_version':'1.5.0','game_name':'gei子的冒险','apk':package,'touch_checks':{'standard':normal,'wide':wide},'furniture_checks':furniture,'furniture_checks_reused_from_preceding_version':True,'campaign_checks':campaign,'balance_checks':balance,'npc_behavior_checks':behavior,
+report={'version':5,'game_version':'1.5.1','game_name':'gei子的冒险','apk':package,'touch_checks':{'standard':normal,'wide':wide},'furniture_checks':furniture,'furniture_checks_reused_from_preceding_version':True,'campaign_checks':campaign,'balance_checks':balance,'npc_behavior_checks':behavior,
     'windows_pck_sha256':hashlib.sha256((game/'runtime/campus.pck').read_bytes()).hexdigest(),
     'android_minimum':'7.0 / API 24','orientation':'landscape','original_assets_edited':False,
     'existing_zip_modified':False,'device_attached':False,'emulator_tested_this_version':False,

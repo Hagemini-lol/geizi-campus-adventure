@@ -103,7 +103,7 @@ func _ready() -> void:
 	heading.add_child(title)
 	close_button=Button.new()
 	close_button.text="×"
-	close_button.custom_minimum_size=Vector2(44,38)
+	close_button.custom_minimum_size=Vector2(64,64) if game.preferences.mobile_mode() else Vector2(44,38)
 	close_button.pressed.connect(game.close_menu)
 	heading.add_child(close_button)
 	location=game.label("",18)

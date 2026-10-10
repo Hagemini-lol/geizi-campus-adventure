@@ -86,7 +86,7 @@ var overlay: PanelContainer
 var fade: ColorRect
 var location_label: Label
 var map_view: Control
-var ui_font: SystemFont
+var ui_font: FontFile
 var debug_geometry := false
 var collision_overlay: Node2D
 var paused := false
@@ -101,8 +101,10 @@ func _ready() -> void:
 	if OS.has_feature("android") or ProjectSettings.get_setting("application/config/mobile_bundle",false):package_root="res://package"
 	for arg: String in OS.get_cmdline_user_args():
 		if arg.begins_with("--game-root="): package_root=arg.trim_prefix("--game-root=")
-	ui_font=SystemFont.new()
-	ui_font.font_names=PackedStringArray(["Microsoft YaHei UI","Microsoft YaHei","SimHei","Noto Sans CJK SC","Noto Sans SC","sans-serif"])
+	ui_font=FontFile.new()
+	if ui_font.load_dynamic_font(package_root.path_join("资源/字体/NotoSansSC-Regular.ttf"))!=OK:
+		fail("内置中文字体缺失，请重新安装完整包");return
+	ui_font.allow_system_fallback=false
 	var config_value: Variant=JSON.parse_string(FileAccess.get_file_as_string(package_root.path_join("素材引用.json")))
 	if not config_value is Dictionary:
 		fail("素材引用配置缺失或格式错误")
@@ -690,7 +692,7 @@ func update_time_display() -> void:
 	time_skip_button.text="冷却中" if remaining>0 else "快进 >>"
 
 func fast_forward_time() -> void:
-	if not game_started or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy or paused or map_view.visible or menu_view.visible or lesson_blocked() or story_blocked() or time_skip_cooldown()>0:return
+	if not game_started or (phone!=null and phone.visible) or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy or paused or map_view.visible or menu_view.visible or lesson_blocked() or story_blocked() or time_skip_cooldown()>0:return
 	time_skip_ready_at_ms=Time.get_ticks_msec()+int(TIME_SKIP_COOLDOWN_SECONDS*1000)
 	advance_time_period()
 
@@ -737,12 +739,12 @@ func advance_time_period() -> void:
 	update_time_display()
 
 func reset_player() -> void:
-	if not game_started or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy:return
+	if not game_started or (phone!=null and phone.visible) or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy:return
 	player.path.clear()
 	begin_transition(navigation.region_at(spawn),spawn)
 
 func toggle_map() -> void:
-	if not game_started or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or lesson_blocked() or paused or transition_busy:return
+	if not game_started or (phone!=null and phone.visible) or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or lesson_blocked() or paused or transition_busy:return
 	if menu_view.visible:close_menu()
 	if map_view.visible: map_view.close_map()
 	else: map_view.open_map(not interior_state.is_empty())
@@ -750,7 +752,7 @@ func toggle_map() -> void:
 	map_view.queue_redraw()
 
 func toggle_pause() -> void:
-	if not game_started or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or lesson_blocked() or story_blocked() or transition_busy:return
+	if not game_started or (phone!=null and phone.visible) or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or lesson_blocked() or story_blocked() or transition_busy:return
 	if menu_view.visible:
 		close_menu()
 		return
@@ -762,7 +764,7 @@ func toggle_pause() -> void:
 	refresh_player_freeze()
 
 func toggle_menu() -> void:
-	if not game_started or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or lesson_blocked() or story_blocked() or transition_busy:return
+	if not game_started or (phone!=null and phone.visible) or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or lesson_blocked() or story_blocked() or transition_busy:return
 	if menu_view.visible:
 		close_menu()
 		return
@@ -803,7 +805,7 @@ func show_notice(value: String) -> void:
 	notice_time=2.5
 
 func request_path(destination: Vector2) -> bool:
-	if not game_started or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy or paused or menu_view.visible or story_blocked():return false
+	if not game_started or (phone!=null and phone.visible) or front_end.visible or dialogue_view.visible or (battle_view!=null and battle_view.visible) or transition_busy or paused or menu_view.visible or story_blocked():return false
 	pending_npc_talk=""
 	pending_monster=""
 	var path: PackedVector2Array=motion_navigation().route(player.position,destination)

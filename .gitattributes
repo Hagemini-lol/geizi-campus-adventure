@@ -15,3 +15,6 @@
 *.mp3 binary
 # Preserve the exact resource bytes recorded in 素材打包清单.json.
 资源/** -text
+
+# Keep upstream font license/provenance bytes, including their original line endings.
+资源/字体/*.txt whitespace=-blank-at-eol,cr-at-eol

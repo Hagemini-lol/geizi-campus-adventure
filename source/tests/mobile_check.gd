@@ -41,7 +41,7 @@ func run() -> void:
 	var controls: Control=game.mobile_controls
 	var start: Vector2=game.player.position
 	touch(0,controls.stick_rect.get_center(),true)
-	drag(0,controls.stick_rect.get_center()+Vector2(64,0));await frames(20)
+	drag(0,controls.stick_rect.get_center()+Vector2(controls.stick_rect.size.x*.35,0));await frames(20)
 	check(controls.stick_index==0 and controls.direction.x>.9,"first finger drives joystick")
 	check(game.player.position.x>start.x+3,"joystick moves actual protagonist")
 	check(game.player.path.is_empty(),"stick does not create a click-to-move path")
@@ -63,8 +63,8 @@ func run() -> void:
 	drag(1,scroll_point-Vector2(0,120),Vector2(0,-120));await frames()
 	touch(1,scroll_point-Vector2(0,120),false);await frames()
 	check(scroll.scroll_vertical>20,"finger swipes scroll menu lists")
-	await tap(1,controls.y_rect.get_center())
-	check(not game.menu_view.visible and not game.player.frozen,"Y closes menu and releases player")
+	await tap(1,game.menu_view.close_button.get_global_rect().get_center())
+	check(not game.menu_view.visible and not game.player.frozen,"large menu close button releases player")
 	await frames()
 	game.teleport_outdoor(game.spawn);await wait_transition()
 	game.player.camera.reset_smoothing();await frames(5)
@@ -115,9 +115,9 @@ func run() -> void:
 		if not game.dialogue_view.visible:break
 		await tap(0,confirm.get_global_rect().get_center())
 	check(not game.dialogue_view.visible,"dialogue option responds to screen tap")
-	if game.menu_view.visible:await tap(0,controls.y_rect.get_center())
+	if game.menu_view.visible:await tap(0,game.menu_view.close_button.get_global_rect().get_center())
 	await frames()
-	touch(0,controls.stick_rect.get_center(),true);drag(0,controls.stick_rect.get_center()+Vector2(0,64));await frames()
+	touch(0,controls.stick_rect.get_center(),true);drag(0,controls.stick_rect.get_center()+Vector2(0,controls.stick_rect.size.x*.35));await frames()
 	touch(0,Vector2(-100,-100),false);await frames()
 	check(controls.direction.is_zero_approx(),"release outside stick prevents stuck movement")
 	game.combat_rules.reset_hero();game.story_system.stage=6
@@ -148,8 +148,10 @@ func run() -> void:
 	check(int(game.event_state.get("forbidden/transfer_visual",0))==1,"exported transfer beams play exactly once")
 	await frames();await tap(0,phone.body.get_child(2).get_global_rect().get_center())
 	check(phone.page=="editor/money","touch opens secondary money editor")
-	var numeric: Dictionary=phone.inputs.values()[0];numeric["input"].value=24680
+	var numeric: Dictionary=phone.inputs.values()[0]
 	await tap(0,numeric["button"].get_global_rect().get_center())
+	for digit: String in ["2","4","6","8","0"]:phone.keypad_press(digit)
+	await tap(0,phone.body.get_child(phone.body.get_child_count()-1).get_global_rect().get_center())
 	check(game.economy.money==24680,"touch applies numeric edit in exported UI")
 	phone.close();phone.open();phone.forbidden()
 	check(phone.page=="editor" and int(game.event_state.get("forbidden/inherited",0))==1,"exported subsequent entry skips animation")
