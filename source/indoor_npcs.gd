@@ -203,6 +203,11 @@ func _process(delta: float) -> void:
 			if record["wait"]>0:continue
 			record["wait"]=rng.randf_range(1.2,3.0)
 			var box: Rect2=record["range"]
+			if game.relationships.social.chase(record):
+				record["wait"]=1.0
+				var target: Vector2=scene.navigation.safe_landing(game.player.position)
+				record["path"]=scene.navigation.route(record["at"],target);path_plans+=1
+				continue
 			for attempt: int in range(8):
 				var target:=Vector2(rng.randf_range(box.position.x,box.end.x),rng.randf_range(box.position.y,box.end.y))
 				if not scene.navigation.walkable(target) or target.distance_to(record["at"])<12:continue

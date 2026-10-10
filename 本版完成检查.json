@@ -1,7 +1,7 @@
 {
-  "version": "1.6.1",
+  "version": "1.7.0",
   "content_audit": {
-    "version": "1.6.1",
+    "version": "1.7.0",
     "main": {
       "lines": 960,
       "unique_lines": 889,
@@ -130,10 +130,10 @@
     "relationship_stories": 5,
     "romance_profiles": 11,
     "relationship_dialogue": {
-      "lines": 65,
-      "unique_lines": 65,
-      "characters": 1505,
-      "chinese_characters": 1282
+      "lines": 499,
+      "unique_lines": 471,
+      "characters": 9748,
+      "chinese_characters": 8308
     },
     "gift_dialogue": {
       "lines": 49,
@@ -141,15 +141,22 @@
       "characters": 750,
       "chinese_characters": 637
     },
+    "social_profiles": 25,
+    "social_dialogue": {
+      "lines": 434,
+      "unique_lines": 406,
+      "characters": 8243,
+      "chinese_characters": 7026
+    },
     "total": {
-      "lines": 2001,
-      "unique_lines": 1916,
-      "characters": 61791,
-      "chinese_characters": 54105
+      "lines": 2435,
+      "unique_lines": 2322,
+      "characters": 70034,
+      "chinese_characters": 61131
     },
     "interactive_puzzles": 10,
-    "reading_minutes_at_300_cpm": 206.0,
-    "reading_minutes_at_220_cpm": 280.9,
+    "reading_minutes_at_300_cpm": 233.4,
+    "reading_minutes_at_220_cpm": 318.3,
     "method": "Unique authored dialogue strings only. Includes mutually exclusive endings and replayable daily dialogue, so total reading time is NOT a single-route playtime. Excludes menus, hints, descriptions, docs, duplicate sentences and travelling/waiting. Actual 4-hour playtime has not been measured.",
     "single_route": {
       "ending": "GE-H",
@@ -352,6 +359,10 @@
       "checks": 165,
       "passed": true
     },
+    "social": {
+      "checks": 575,
+      "passed": true
+    },
     "update_save_restart": {
       "checks": 7,
       "passed": true
@@ -366,9 +377,9 @@
     "stream_recovery"
   ],
   "windows_launcher_passed": true,
-  "windows_pck_sha256": "1734e44c47c7a76a91ce7418e118ed3cc0d72d9c3fe03c461b95fd7d048903a2",
-  "apk_sha256": "0c5d77e3be5f2fc1f91637abe7b25838abbb44256faef1b63be1c4f70158fb8a",
-  "android_version_code": 12,
+  "windows_pck_sha256": "450b5240fdeafb7d60102ea3787bd860f7ec3d61b8992168ffc94299d8eda752",
+  "apk_sha256": "4bc74b219298db1bd7262649b6022facffe4798f267fe9869f292926b209d259",
+  "android_version_code": 13,
   "original_android_identity_and_signature_verified": true,
   "exported_apk_desktop_checks": {
     "touch_standard": 49,
@@ -423,6 +434,12 @@
     "time"
   ],
   "notes": "Playtime is an explicit content estimate. APK runtime checks use the exported payload on the desktop engine; they are not Android device tests.",
+  "social_exported_apk_checks": {
+    "checks": 575,
+    "failures": [],
+    "method": "25 authored voices at exact thresholds; real confession/date/breakup UI and post-event chat, legacy and actual save/reload; real current-room NPC warning, modal and distance cancellation, autonomous battle, real guard turn and attack speech, daily/grace and no reward/death farming; massacre survivors and resting/dead exclusions.",
+    "passed": true
+  },
   "class_ten_exported_apk_checks": {
     "checks": 165,
     "failures": [],
@@ -457,7 +474,7 @@
   },
   "current_configuration_font_coverage": {
     "passed": true,
-    "characters": 1744,
+    "characters": 1791,
     "missing": []
   },
   "fresh_content_checks_this_version": {

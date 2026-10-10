@@ -10,6 +10,7 @@ var busy:=false
 var content: Dictionary={}
 var milestones: Dictionary={}
 var romances: Dictionary={}
+var social:=preload("res://social_events.gd").new()
 const COMPANIONS: Array[String]=["lao_li","lao_chou","fei_yan","lao_ao","lao_shuo","yang_zi","lao_dong","la_jiao","wr"]
 const ADULTS: Array[String]=["homeroom_teacher","english_teacher","wen_cong","print_luo","sports_du","history_tian","chemistry_he","math_feng","chinese_xu","cook_hu","clerk_qiu","worker_hou","warden_chen","warden_zhou"]
 
@@ -22,6 +23,7 @@ func bond(id: String) -> int:
 	return int(affinity.get(id,game.campaign.flags.get("BOND_"+id,0)))
 
 func configure() -> void:
+	social.game=game
 	var value: Variant=JSON.parse_string(FileAccess.get_file_as_string(game.package_root.path_join("关系与攻略配置.json")))
 	if value is Dictionary:content=value
 
@@ -44,6 +46,7 @@ func journal() -> String:
 	for id: String in COMPANIONS+ADULTS+["gou_ga"]:
 		text+="\n%s：%s · 好感 %d" % [game.npc_catalog.characters.get(id,{}).get("display_name",id),"生还" if alive(id) else "已死亡",bond(id)]
 	for row: Dictionary in grievances:text+="\n"+str(row["text"])
+	text+="\n\n负好感：-1至-24冷淡，-25至-59尖刻，≤-60可能主动拦截。自由活动时先警告2.5秒，离开可避战；屠杀线中低信任幸存者也会拦截。每人每天一次，战后至少45秒安全期；坐着上课、休养和剧情期间不会主动出手。击退不自动击杀，不给经验或物资。\n屠杀线仍由实际死亡记录决定；单纯关系差不会凭空产生死亡。"
 	text+="\n\n攻略：同学好感60开放恋爱话题，85可认真表白；可以拒绝或保持朋友。工作人员保持师生/工作边界。已建立的关系会回应失信与伤害。\n勾尬只能通过五段关键剧情获得好感，80开放恋爱话题，90及其他真相条件达标可救赎；恋爱不是救人的交换条件。"
 	for id: String in romances:
 		text+="\n"+str(game.npc_catalog.characters.get(id,{}).get("display_name",id))+"："+("交往中" if romances[id]=="together" and alive(id) and bond(id)>=40 else "关系破裂" if romances[id]=="together" and alive(id) else "留存的约定" if not alive(id) else "保持朋友")
@@ -67,7 +70,7 @@ func kill(record: Dictionary) -> bool:
 	var witness: String=""
 	for companion: String in COMPANIONS:
 		if alive(companion):witness=companion;break
-	var text: String=(str(game.npc_catalog.characters[witness]["display_name"])+"：" if not witness.is_empty() else "留下的记录：")+"你杀了"+str(record.get("name",id))+"。我们说好的是保护人，不是把不同意你的人都清掉。"
+	var text: String=(str(game.npc_catalog.characters[witness]["display_name"])+"："+game.voice.reply(witness,"grief",str(record.get("name",id)))) if not witness.is_empty() else "留下的记录：你杀了"+str(record.get("name",id))+"。这次伤害不会被一句解释抹去。"
 	grievances.append({"actor":witness if not witness.is_empty() else "system","text":text})
 	while grievances.size()>40:grievances.pop_front()
 	game.campaign.flags["F_CIVILIAN_SAFE"]=false
@@ -94,6 +97,9 @@ func reaction(record: Dictionary, action: String) -> Array:
 	var text:=""
 	if not grievances.is_empty() and not dead.is_empty() and actor in COMPANIONS and bond(id)<0:
 		text=game.voice.reply(actor,"grief",str(dead.values()[-1]["name"]))
+		if bond(id)<= -25:text+=" "+social.response(record)
+	elif action=="flirt" and actor in ADULTS:text=game.voice.reply(actor,"adult")
+	elif not social.response_context(record).is_empty():text=social.response(record)
 	elif action=="flirt":
 		if actor in ADULTS:text=game.voice.reply(actor,"adult")
 		elif bond(id)<0:text=game.voice.reply(actor,"angry")
@@ -102,7 +108,7 @@ func reaction(record: Dictionary, action: String) -> Array:
 	else:
 		text=game.voice.reply(actor,"chat","",bond(id))
 	if action=="chat":once(id,"chat",3)
-	elif action=="flirt" and not actor in ADULTS and bond(id)>=0:once(id,"flirt",2)
+	elif action=="flirt" and not actor in ADULTS and bond(id)>=0 and not social.response_context(record) in ["after_breakup","lover_hurt","after_friends"]:once(id,"flirt",2)
 	return [{"actor":"zhao_mugei","text":"坐会儿？" if action!="flirt" else "跟你待着挺开心的。你呢？"},{"actor":actor,"text":text}]
 
 func open(record: Dictionary) -> void:
@@ -120,6 +126,7 @@ func open(record: Dictionary) -> void:
 	elif answer=="gou_story":await gou_story()
 	elif answer=="apology":
 		if bond(id)<0:once(id,"apology",2)
+		social.remember(id,"apology")
 		await game.campaign.dialog([{"actor":record["character"],"text":game.voice.reply(record["character"],"apology")}])
 	elif answer=="kick":
 		await kick(record)
@@ -187,27 +194,34 @@ func gift_menu(record: Dictionary) -> void:
 		await game.campaign.dialog([{"actor":record["character"],"text":result["message"]}])
 		if result["ok"]:return
 
-func start_battle(record: Dictionary, lethal: bool) -> bool:
-	if not record_alive(record):return false
+func start_battle(record: Dictionary, lethal: bool, hostile: bool=false) -> bool:
+	if not record_alive(record) or game.battle_view.visible or game.transition_busy:return false
 	var actor: String=record["character"]
 	var id: String="npc/"+actor
 	var spec: Dictionary=game.combat_rules.data["monsters"]["ink_slime"].duplicate(true)
 	spec.merge({"name":record["name"],"rarity":"normal","scripted_only":true,"physical_reduction":0.1,"elemental_reductions":{},"multipliers":{"hp":4,"attack":.8,"defense":1,"magic_resistance":.7}},true)
 	spec.erase("portrait_atlas");spec.erase("tactics")
+	var combat: Dictionary=social.combat_spec(record)
+	if not combat.is_empty():
+		spec["multipliers"]["hp"]=float(combat.get("hp",4));spec["multipliers"]["attack"]=float(combat.get("attack",.8))
+		spec["tactics"]={"patterns":combat["patterns"],"break_limit":2,"intro":"对方的招式会提前显示。防守、闪避和元素反制都能应对。"}
 	game.combat_rules.data["monsters"][id]=spec
 	var level:=clampi(int(game.combat_rules.hero["level"]),1,60)
 	var stats: Dictionary=game.combat_rules.monster_stats(id,level)
 	var image: Image=game.npc_catalog.dialogue_portrait(actor)
-	var encounter: Dictionary={"monster":{"uid":"npc-duel","id":id,"level":level,"hp":stats["hp"]},"portrait":ImageTexture.create_from_image(image),"npc_target":record.duplicate(),"lethal":lethal}
+	var encounter: Dictionary={"monster":{"uid":"npc-duel","id":id,"level":level,"hp":stats["hp"]},"portrait":ImageTexture.create_from_image(image),"npc_target":record.duplicate(),"lethal":lethal,"hostile":hostile}
 	var started: bool=game.battle_view.start(encounter,"npc")
 	if not started:game.combat_rules.data["monsters"].erase(id)
+	elif hostile:
+		daily[identity(record)+"/hostile"]=game.economy.day_serial
+		game.battle_view.append_log(str(record["name"])+"："+social.say(record,"attack")+"\n对方主动拦截。击退不会自动击杀，不掉落经验或物资。可以撤离。")
 	return started
 
 func romance_profile(record: Dictionary) -> Dictionary:
 	return content.get("romance",{}).get(record["character"],content.get("romance",{}).get("ordinary",{}))
 
 func romance_available(record: Dictionary) -> bool:
-	return record_alive(record) and not record["character"] in ADULTS and not massacre() and bond(identity(record))>=int(content.get("gou_topic_affinity",80) if record["character"]=="gou_ga" else content.get("topic_affinity",60))
+	return record_alive(record) and not record["character"] in ADULTS and not massacre() and (romances.get(identity(record),"")=="together" or bond(identity(record))>=int(content.get("gou_topic_affinity",80) if record["character"]=="gou_ga" else content.get("topic_affinity",60)))
 
 func targeted(lines: Array, record: Dictionary) -> Array:
 	var result: Array=lines.duplicate(true)
@@ -218,24 +232,30 @@ func targeted(lines: Array, record: Dictionary) -> Array:
 func romance(record: Dictionary) -> void:
 	if not romance_available(record):return
 	var id:=identity(record);var profile:=romance_profile(record)
-	await game.campaign.dialog(targeted(profile.get("topic",[]),record))
+	if romances.get(id,"")=="together" and bond(id)<40:await game.campaign.dialog([{"actor":record["character"],"text":social.say(record,"lover_hurt")}])
+	else:await game.campaign.dialog(targeted(profile.get("topic",[]),record))
 	var choices: Array=[["friend","保持朋友，尊重彼此的步调"],["close","今天聊到这里"]]
-	if romances.get(id,"")=="together":choices.push_front(["revisit","约会：一起走一段 / 坐一会儿"]);choices.append(["end","认真说明：结束交往"])
+	if romances.get(id,"")=="together":
+		choices= [["close","今天聊到这里"],["end","认真说明：结束交往"]]
+		if bond(id)>=40:choices.push_front(["revisit","约会：一起走一段 / 坐一会儿"])
 	elif bond(id)>=int(content.get("confess_affinity",85)):choices.push_front(["confess","认真表白：愿不愿意试着交往？"])
 	var answer: String=await game.campaign.choose("彼此的心意 · 好感 %d\n表白需要85好感；保持朋友不会扣好感。" % bond(id),choices)
 	if answer=="confess":
 		# A second simultaneous relationship needs honest consent; this story does not assume it.
 		for other: String in romances:
 			if other!=id and romances[other]=="together" and alive(other):
-				await game.campaign.dialog([{"actor":record["character"],"text":"你还有一段没有说清的关系。先认真面对那个人，我不想让谁被蒙在鼓里。"}]);return
+				await game.campaign.dialog([{"actor":record["character"],"text":social.say(record,"unresolved")}]);return
 		romances[id]="together";revision+=1
+		social.remember(id,"confessed")
 		await game.campaign.dialog(targeted(profile.get("accept",[]),record));game.record_game_event("romance/"+str(record["character"]))
 	elif answer=="revisit":
+		social.remember(id,"date")
 		await game.campaign.dialog(targeted(profile.get("revisit",[]),record))
 		game.advance_world_period()
 	elif answer in ["friend","end"]:
 		if romances.get(id,"")!="together" or answer=="end":romances[id]="friends";revision+=1
-		await game.campaign.dialog(targeted(profile.get("friend",[]),record))
+		social.remember(id,"breakup" if answer=="end" else "friends")
+		await game.campaign.dialog([{"actor":record["character"],"text":social.say(record,"after_breakup")} ] if answer=="end" else targeted(profile.get("friend",[]),record))
 
 func next_gou_story() -> Dictionary:
 	for row: Dictionary in content.get("gou_stories",[]):
@@ -296,10 +316,11 @@ func kick(record: Dictionary) -> void:
 		record["at"]=sprite.position;record["path"]=PackedVector2Array();record["wait"]=1.5
 	manager.queue_redraw()
 
-func snapshot() -> Dictionary:return {"version":1,"affinity":affinity.duplicate(),"dead":dead.duplicate(true),"daily":daily.duplicate(),"grievances":grievances.duplicate(true),"milestones":milestones.duplicate(),"romances":romances.duplicate()}
+func snapshot() -> Dictionary:return {"version":1,"affinity":affinity.duplicate(),"dead":dead.duplicate(true),"daily":daily.duplicate(),"grievances":grievances.duplicate(true),"milestones":milestones.duplicate(),"romances":romances.duplicate(),"moments":social.moments.duplicate(true)}
 
 func valid(value: Variant) -> bool:
 	if not value is Dictionary or value.get("version")!=1:return false
+	if not social.valid(value.get("moments",{})):return false
 	for key: String in ["affinity","dead","daily"]:
 		if not value.get(key) is Dictionary or value[key].size()>10000:return false
 	for id: Variant in value["affinity"]:
@@ -327,6 +348,7 @@ func valid(value: Variant) -> bool:
 	return true
 
 func restore(value: Dictionary) -> void:
+	social.restore(value.get("moments",{}))
 	affinity=value.get("affinity",{}).duplicate();dead=value.get("dead",{}).duplicate(true);daily=value.get("daily",{}).duplicate();grievances=value.get("grievances",[]).duplicate(true);revision+=1;busy=false
 	milestones=value.get("milestones",{}).duplicate();romances=value.get("romances",{}).duplicate()
 	for id: String in affinity:affinity[id]=int(affinity[id])

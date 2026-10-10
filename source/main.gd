@@ -972,6 +972,7 @@ func _process(delta: float) -> void:
 	elif not interior_state.is_empty(): location_label.text=notice if notice_time>0 else terrain.current_scene.title
 	story_regions.game=self
 	if story_regions.tick():interaction_label.text="";return
+	if relationships.social.tick(delta):interaction_label.text="";return
 	nearby={}
 	if not transition_busy and not paused and not map_view.visible and not menu_view.visible and not front_end.visible and not dialogue_view.visible and not battle_view.visible and not lesson_blocked() and not story_blocked():
 		var best:=INF

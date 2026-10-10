@@ -38,6 +38,7 @@ var barrier_turns:=0
 var focus_ready:=false
 var npc_target: Dictionary={}
 var lethal_npc:=false
+var hostile_npc:=false
 
 func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_STOP
@@ -51,6 +52,7 @@ func start(record: Dictionary, key: String) -> bool:
 	if source==null:game.show_notice("战斗界面素材缺失");return false
 	monster=record["monster"];zone=key
 	npc_target=record.get("npc_target",{}).duplicate();lethal_npc=record.get("lethal",false)
+	hostile_npc=record.get("hostile",false)
 	if npc_target.is_empty():game.record_game_event("monster_seen/"+str(monster["id"]))
 	enemy=game.combat_rules.monster_stats(monster["id"],int(monster["level"]))
 	enemy["hp_current"]=monster["hp"]
@@ -309,9 +311,12 @@ func perform(id: String) -> void:
 		var damage: int=game.combat_rules.damage(attacker,hero,kind,reduction)
 		game.sounds.play("boss_thread" if enemy["id"]=="gou_ga_boss" else "attack_swing" if kind=="physical" else "dark")
 		await enemy_motion.play("windup",.2);await enemy_motion.play("attack")
+		if not npc_target.is_empty() and kind=="magic":await spell_effect("world_magic_circle",interface.enemy_slot)
 		hero["hp_current"]=maxi(0,int(hero["hp_current"])-damage)
 		game.sounds.play("guard" if reduction>=.5 else "impact");await hero_motion.play("hit");await flash_actor(interface.ally_slot)
-		append_log("%s · %s：%d 伤害。" % [enemy["name"],tactics.intent.get("name","攻击"),damage])
+		var speech: String=""
+		if not npc_target.is_empty():speech=game.relationships.social.say(npc_target,"attack")
+		append_log((enemy["name"]+"："+speech+"\n" if not speech.is_empty() else "")+"%s · %s：%d 伤害。" % [enemy["name"],tactics.intent.get("name","攻击"),damage])
 		var protected: bool=clarity_turns>0 or barrier_turns>0 or float(action.get("reduction",0))>=.5 or tactics.countered
 		if not protected:
 			var status: String=tactics.intent.get("status","")
@@ -374,8 +379,9 @@ func finish(outcome: String) -> void:
 			game.relationships.kill(npc_target)
 			append_log(str(npc_target["name"])+"死亡。幸存队友好感大幅下降；死亡已写入当前冒险状态。")
 		else:
-			game.relationships.once(game.relationships.identity(npc_target),"duel",1)
-			append_log("切磋结束，双方收手。没有角色死亡。")
+			if not hostile_npc:game.relationships.once(game.relationships.identity(npc_target),"duel",1)
+			game.relationships.social.remember(game.relationships.identity(npc_target),"spared")
+			append_log(str(npc_target["name"])+"："+game.relationships.social.say(npc_target,"defeat")+"\n"+("拦截被击退。没有角色死亡，也不获得好感、经验或物资。" if hostile_npc else "切磋结束，双方收手。没有角色死亡。"))
 	elif outcome=="victory":
 		game.record_game_event("monsters_defeated")
 		game.record_game_event("monster_defeated/"+str(enemy["id"]))
@@ -388,8 +394,8 @@ func finish(outcome: String) -> void:
 		var awarded: Dictionary=game.combat_rules.grant_kill_experience(int(enemy["hp"]))
 		if game.campaign!=null and game.campaign.active():game.campaign.change_san(0)
 		append_log("胜利！获得 %d 经验。%s" % [awarded["gained"],"升至 %d 级！" % [awarded["level"]] if int(awarded["levels"])>0 else ""])
-	elif outcome=="defeat":append_log("战斗失败。返回地图后恢复状态，回到南门。")
-	else:append_log("已撤离。双方保留剩余血量。")
+	elif outcome=="defeat":append_log((str(npc_target["name"])+"："+game.relationships.social.say(npc_target,"victory")+"\n" if not npc_target.is_empty() else "")+"战斗失败。结束后恢复状态。")
+	else:append_log((str(npc_target["name"])+"："+game.relationships.social.say(npc_target,"escape")+"\n" if not npc_target.is_empty() else "")+"已撤离。保留剩余血量。")
 	update_ui()
 
 func close() -> void:
@@ -399,18 +405,21 @@ func close() -> void:
 	var remaining: Dictionary=monster.duplicate(true)
 	var npc_encounter: bool=not npc_target.is_empty()
 	var npc_death: bool=npc_encounter and lethal_npc and outcome=="victory"
+	var hostile: bool=hostile_npc
 	hide();root_panel.queue_free();root_panel=null;interface=null
 	base_pose=null;punch_pose=null;dodge_pose=null
 	enemy_motion=null;hero_motion=null;ailments.clear()
 	monster={};enemy={};action_map.clear()
-	npc_target={};lethal_npc=false
+	npc_target={};lethal_npc=false;hostile_npc=false
 	if npc_encounter:game.combat_rules.data["monsters"].erase(str(remaining["id"]))
 	game.gameplay_hud.show();game.refresh_player_freeze();game.interaction_delay=1.0
 	if npc_encounter:
+		if hostile:game.relationships.social.reset(45)
 		if outcome=="defeat":game.combat_rules.refill_hero()
 		game.sync_classroom_period()
 		if npc_death:
 			game.dialogue_view.begin_script([game.relationships.grievances[-1]])
+		elif hostile and outcome=="defeat":game.reset_player()
 		return
 	game.sync_monsters()
 	if game.campaign!=null and game.campaign.active() and game.campaign.san()<=0:game.campaign.present_ending("BE-2")
