@@ -36,7 +36,7 @@ func options_for(actor: String) -> Array:
 		if entry.get("status","")=="active":wanted=spec["steps"][int(entry["step"])].get("actor","")
 		if actor!=owner and actor!=wanted:continue
 		var state: String="接取" if entry.is_empty() or can_restart(spec,entry) else "继续" if wanted==actor else "进度" if entry.get("status","")=="active" else "回访" if entry.get("reward_claimed",false) else "领取奖励"
-		options.append(["side/"+id,("章节调查" if spec["side_story"].get("chapter_bridge",false) else "日常委托" if spec["side_story"].get("daily",false) else "校园支线" if spec["side_story"].get("life_story",false) else "同学支线")+" · "+spec["title"]+"（"+state+"）"])
+		options.append(["side/"+id,("十班旧事" if spec["side_story"].get("memo_story",false) else "章节调查" if spec["side_story"].get("chapter_bridge",false) else "日常委托" if spec["side_story"].get("daily",false) else "校园支线" if spec["side_story"].get("life_story",false) else "同学支线")+" · "+spec["title"]+"（"+state+"）"])
 	return options
 
 func rewards_text(spec: Dictionary) -> String:
@@ -180,6 +180,8 @@ func perform_step(id: String, number: int) -> void:
 	for material: String in step.get("consume",{}):
 		if game.economy.quantity(material)<int(step["consume"][material]):
 			game.show_notice("材料不足："+str(game.economy.catalog[material]["name"])+" ×"+str(step["consume"][material]));return
+	if spec["side_story"].get("memo_story",false) and not game.relationships.alive(spec["side_story"]["owner"]):
+		await game.campaign.dialog([{"actor":"system","text":"委托人已经不在了。接下来的话语和动作都出自先前留存的班史记录；你正在读旧页、整理未完的工作，不是在与死者见面。"}])
 	await game.campaign.dialog(step.get("dialogue",[]))
 	if step.has("puzzle"):
 		var board:=preload("res://puzzle_board.gd").new();board.game=game
@@ -212,7 +214,7 @@ func claim(id: String) -> bool:
 	entry["reward_claimed"]=true;entry["reward_day"]=game.economy.day_serial
 	game.economy.money+=int(reward.get("g",0))
 	for material: String in reward.get("items",{}):game.economy.add_item(material,int(reward["items"][material]))
-	if not spec["side_story"].get("daily",false):game.campaign.adjust({"BOND_"+str(spec["side_story"]["owner"]):8})
+	if not spec["side_story"].get("daily",false) and game.relationships.alive(spec["side_story"]["owner"]):game.campaign.adjust({"BOND_"+str(spec["side_story"]["owner"]):8})
 	game.show_notice("支线完成："+spec["title"]+" · "+rewards_text(spec));changed();return true
 
 func changed() -> void:

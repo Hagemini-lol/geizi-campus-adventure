@@ -92,40 +92,41 @@ func adapt_lines(lines: Array) -> Array:
 func reaction(record: Dictionary, action: String) -> Array:
 	var id:=identity(record);var actor: String=record["character"]
 	var text:=""
-	if not grievances.is_empty() and actor in COMPANIONS and bond(id)<0:
-		text="我记得"+str(dead.values()[-1]["name"])+"。你现在来和我说笑，我做不到。想让我再信你，先停止伤害别人；有些事也不会因为几句好话就消失。"
+	if not grievances.is_empty() and not dead.is_empty() and actor in COMPANIONS and bond(id)<0:
+		text=game.voice.reply(actor,"grief",str(dead.values()[-1]["name"]))
 	elif action=="flirt":
-		if actor in ADULTS:text="夸奖我收到了，不过我们还是按老师、工作人员和学生的身份相处。把尊重放在玩笑前面。"
-		elif bond(id)<10:text="你忽然说我今天很好看，我有点接不住。先把彼此当普通朋友慢慢认识吧。"
-		else:text="你说跟我一起走这段路很开心……我也是。下次不用特地找借口，直接叫我就好。"
-	elif bond(id)<0:text="我还在生气。你可以说，我会听，但别指望所有事情立刻恢复原样。"
+		if actor in ADULTS:text=game.voice.reply(actor,"adult")
+		elif bond(id)<0:text=game.voice.reply(actor,"angry")
+		else:text=game.voice.reply(actor,"flirt_low" if bond(id)<10 else "flirt_close")
+	elif bond(id)<0:text=game.voice.reply(actor,"angry")
 	else:
-		var lines: Dictionary={"lao_li":"我习惯先把东西准备齐，再说没事。你愿意问一句我累不累，比再多准备一张清单都有用。","fei_yan":"学会新招不等于每次都要用。能收住手，也算本事。","lao_ao":"坐着的时候才发现，别人愿意等你，比自己跑得快更难得。","yang_zi":"我话是多，你要真不想听可以告诉我。别一边忍一边走远，我会乱猜。","lao_chou":"我查线索不是因为不信人。是想让被冤枉的人，有东西能证明自己。","lao_dong":"我把该说的事拖了很久。现在有人愿意坐下来听，我会把话说完。","la_jiao":"点名的时候我会停一下，等每个人应声。不是为了整齐，是怕谁被漏了。","wr":"你不用假装懂我喜欢的书。愿意听我讲一点，再说你自己的想法，就已经很好。","cook_hu":"今天锅里的份量是够的。吃完再忙，别总把自己那一顿往后推。","worker_hou":"有时候先停工，才是把工作做好。人也一样，不用一直撑着。"}
-		text=lines.get(actor,"今天的"+game.day_clock.display_text()+"能坐下来聊几句挺好。校园里每天都有人忙着自己的事，能被认真听见，我会记得。")
+		text=game.voice.reply(actor,"chat","",bond(id))
 	if action=="chat":once(id,"chat",3)
 	elif action=="flirt" and not actor in ADULTS and bond(id)>=0:once(id,"flirt",2)
-	return [{"actor":"zhao_mugei","text":"今天想听你说说自己的事。" if action=="chat" else "跟你一起待着挺开心的。也想听听你怎么想。"},{"actor":actor,"text":text}]
+	return [{"actor":"zhao_mugei","text":"坐会儿？" if action!="flirt" else "跟你待着挺开心的。你呢？"},{"actor":actor,"text":text}]
 
 func open(record: Dictionary) -> void:
 	if busy or not record_alive(record) or game.story_system.running:return
 	busy=true;game.story_system.begin_sequence()
 	var id:=identity(record)
 	var options: Array=[["chat","对话：近况与心事"],["flirt","调情：表达好感 / 夸奖"],["plot","剧情 / 支线 / 工作服务"],["duel","战斗：点到为止的切磋"],["kick","开大脚：踢开对方（伤害关系）"],["kill","击杀：战斗至死亡（不可逆）"],["apology","道歉：承认自己的行为"],["close","告辞"]]
+	options.insert(2,["gift","赠礼：从背包挑一件（日限一次）"])
 	if romance_available(record):options.push_front(["romance","恋爱话题 · "+romance_profile(record).get("title","彼此的心意")])
 	if record["character"]=="gou_ga" and not next_gou_story().is_empty():options.push_front(["gou_story","攻略剧情 · "+next_gou_story()["title"]])
 	var answer: String=await game.campaign.choose(str(record["name"])+" · 好感 %d" % bond(id),options)
 	if answer in ["chat","flirt"]:await game.campaign.dialog(reaction(record,answer))
+	elif answer=="gift":await gift_menu(record)
 	elif answer=="romance":await romance(record)
 	elif answer=="gou_story":await gou_story()
 	elif answer=="apology":
 		if bond(id)<0:once(id,"apology",2)
-		await game.campaign.dialog([{"actor":record["character"],"text":"我听见了。但你得用之后的行为证明。有些伤害不能挽回，也不该靠送礼或反复道歉一笔勾销。"}])
+		await game.campaign.dialog([{"actor":record["character"],"text":game.voice.reply(record["character"],"apology")}])
 	elif answer=="kick":
 		await kick(record)
 		change(id,-20)
 		for ally: String in COMPANIONS:
 			if ally!=id and alive(ally):change(ally,-5)
-		await game.campaign.dialog([{"actor":record["character"],"text":"别动手！你有意见可以说，不能拿别人撒气。"}])
+		await game.campaign.dialog([{"actor":record["character"],"text":game.voice.reply(record["character"],"kick")}])
 	elif answer=="kill":
 		answer="lethal" if await game.campaign.choose("击杀会永久移除当前角色，严重降低队友好感，并可能改变剧情路线。切磋不致死。",[["yes","发动致命战斗"],["no","收手离开"]])=="yes" else "close"
 	game.story_system.end_sequence();busy=false
@@ -136,6 +137,55 @@ func open(record: Dictionary) -> void:
 		elif game.campaign.active() and actor in COMPANIONS+["gou_ga"]:game.campaign.npc_service(actor)
 		elif game.story_system.data["role_greetings"].has(actor):game.story_system.named_conversation(record)
 		else:game.dialogue_view.greet(record)
+
+func gift_items() -> Array[String]:
+	var result: Array[String]=[]
+	for id: String in content.get("gifts",{}).get("items",[]):
+		if game.economy.catalog.has(id) and not game.economy.catalog[id].get("plot_item",false) and game.economy.quantity(id)>0:result.append(id)
+	return result
+
+func give_gift(record: Dictionary, item: String) -> Dictionary:
+	var id:=identity(record);var actor: String=record.get("character","")
+	if not record_alive(record):return {"ok":false,"message":"对方已经不在了，礼物仍留在背包。"}
+	if not item in gift_items():return {"ok":false,"message":"这件物品不能赠送，或背包里已经没有了。剧情物品不会出现在礼物列表。"}
+	if int(daily.get(id+"/gift",-1))==game.economy.day_serial:return {"ok":false,"message":"今天已经送过了。留着明天再挑，不会再消耗物品。"}
+	var profile: Dictionary=content.get("gifts",{}).get("profiles",{}).get(actor,{})
+	if item in profile.get("refuse",[]):return {"ok":false,"message":profile.get("refusal","这件我不收。你自己留着。")}
+	if bond(id)< -20 and actor in COMPANIONS:return {"ok":false,"message":game.voice.reply(actor,"angry")+" 礼物你先拿回去。"}
+	var liked: bool=item in profile.get("likes",[])
+	var gain: int=4 if liked else 1
+	if actor=="gou_ga":gain=0 # Her five story gains cannot be bought with gifts.
+	# Inventory and the daily marker commit together before observers are notified.
+	game.economy.inventory[item]=game.economy.quantity(item)-1
+	daily[id+"/gift"]=game.economy.day_serial
+	change(id,gain)
+	game.economy.changed.emit()
+	var text: String=profile.get("liked" if liked else "neutral","收到了，谢谢。这个我用得上。")
+	if actor=="gou_ga":text+="（礼物不会提升勾尬好感，仍需关键剧情。）"
+	return {"ok":true,"message":text,"gain":gain,"item":item}
+
+func gift_menu(record: Dictionary) -> void:
+	var page: int=0
+	while record_alive(record):
+		var items: Array[String]=gift_items()
+		var pages: int=maxi(1,ceili(items.size()/8.0));page=clampi(page,0,pages-1)
+		var choices: Array=[]
+		for n: int in range(page*8,mini(items.size(),page*8+8)):
+			var item: String=items[n]
+			choices.append(["item/"+item,str(game.economy.catalog[item]["name"])+" ×%d（送1件）" % game.economy.quantity(item)])
+		if page>0:choices.append(["prev","上一页"])
+		if page+1<pages:choices.append(["next","下一页"])
+		choices.append(["cancel","收起礼物，不赠送"])
+		var answer: String=await game.campaign.choose("送给"+str(record.get("name","对方"))+" · %d/%d页\n每天每人收一件；喜欢的+4，普通+1。拒收不消耗、不占次数。\n勾尬收礼不增加好感。礼物不会替代道歉或改变死亡记录。" % [page+1,pages],choices)
+		if answer=="cancel":return
+		if answer=="prev":page-=1;continue
+		if answer=="next":page+=1;continue
+		if not answer.begins_with("item/"):continue
+		var item: String=answer.trim_prefix("item/")
+		if await game.campaign.choose("确认送出"+str(game.economy.catalog.get(item,{}).get("name",item))+" ×1？",[["give","确认赠送"],["cancel","再想想"]])!="give":continue
+		var result: Dictionary=give_gift(record,item)
+		await game.campaign.dialog([{"actor":record["character"],"text":result["message"]}])
+		if result["ok"]:return
 
 func start_battle(record: Dictionary, lethal: bool) -> bool:
 	if not record_alive(record):return false

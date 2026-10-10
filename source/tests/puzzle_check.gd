@@ -58,7 +58,7 @@ func run() -> void:
 			await game.side_quests.perform_step(id,i)
 			check(game.task_system.entries[id]["step"]==i+1,"real board actions advance story "+id)
 			check(game.task_system.entries[id]["puzzles"][str(i)]["solved"] and game.task_system.entries[id]["puzzles"][str(i)]["seen"].size()==3,"clues observed and solve saved "+id)
-	check(count==8 and kinds.size()==3,"eight finite puzzles of three different types")
+	check(count==10 and kinds.size()==3,"ten finite puzzles of three different types")
 	# A current cast NPC must open the prerequisite quest, not repeatedly
 	# redirect to the blocked main event.
 	game.campaign.index=4;game.task_system.entries.erase("chapter_signal")
@@ -87,6 +87,6 @@ func run() -> void:
 	var bad: Dictionary=game.task_system.snapshot();bad["entries"]["side_wr_margin"]["puzzles"]["0"]["values"]=[-1,0,0,0]
 	check(not game.task_system.valid_snapshot(bad),"malformed saved board rejected")
 	var f:=FileAccess.open(game.package_root.path_join("runtime/puzzle_checks.json"),FileAccess.WRITE)
-	f.store_string(JSON.stringify({"passed":failures.is_empty(),"checks":checks,"failures":failures,"puzzles":count,"kinds":kinds.keys(),"method":"Actual choice UI operations, clue inspection, wrong submission, cancel, exact unfinished state save/load, solve and quest progression for all eight boards; active-time AFK/background/save checks."},"  "));f.close()
+	f.store_string(JSON.stringify({"passed":failures.is_empty(),"checks":checks,"failures":failures,"puzzles":count,"kinds":kinds.keys(),"method":"Actual choice UI operations, clue inspection, wrong submission, cancel, exact unfinished state save/load, solve and quest progression for all ten boards; active-time AFK/background/save checks."},"  "));f.close()
 	print("PUZZLE_CHECKS ",checks," FAILURES ",failures.size())
 	game.queue_free();game=null;await process_frame;await process_frame;quit(0 if failures.is_empty() else 1)

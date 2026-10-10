@@ -103,7 +103,7 @@ func run() -> void:
 	game.story_system.stage=0;game.campaign.index=0
 	for id: String in game.side_quests.quests():
 		var spec: Dictionary=game.task_system.definitions[id]
-		if not spec["side_story"].get("life_story",false):continue
+		if not spec["side_story"].get("life_story",false) or spec["side_story"].get("memo_story",false):continue
 		var owner: String=spec["side_story"]["owner"]
 		await actor_visit(owner)
 		var slot: int=game.campaign.phase_slot()

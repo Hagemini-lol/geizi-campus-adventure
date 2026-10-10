@@ -1,11 +1,11 @@
 {
-  "version": 5,
-  "game_version": "1.5.1",
+  "version": 6,
+  "game_version": "1.6.0",
   "game_name": "gei子的冒险",
   "apk": {
     "apk": "D:\\Godot\\校园自由漫游\\gei子的冒险.apk",
-    "bytes": 432225426,
-    "sha256": "a2a6ca219119d0766ef3f9d5e118f184e9951fd4a1a722d0999365a198a7a300",
+    "bytes": 432246053,
+    "sha256": "0f164030ddcf9219186d4aab54c381eb3297a296df56dd38c81d1df8ebba42ca",
     "signature_verified": true,
     "asset_hashes_checked": 3791,
     "configuration_files_checked": 7,
@@ -6223,7 +6223,7 @@
     "motion_steps": 450,
     "passed": true
   },
-  "windows_pck_sha256": "93d215ca9f0bb48f839e277505157f8a0f31bef51594133b95790bdc0282467a",
+  "windows_pck_sha256": "35b7e6fe0e22152604f1be68e7b1e15baa90191d697469ce74ca43cd9853fba3",
   "android_minimum": "7.0 / API 24",
   "orientation": "landscape",
   "original_assets_edited": false,
@@ -7036,24 +7036,24 @@
     "passed": true
   },
   "puzzle_checks": {
-    "checks": 92,
+    "checks": 112,
     "failures": [],
     "kinds": [
       "switches",
       "sequence",
       "dials"
     ],
-    "method": "Actual choice UI operations, clue inspection, wrong submission, cancel, exact unfinished state save/load, solve and quest progression for all eight boards; active-time AFK/background/save checks.",
+    "method": "Actual choice UI operations, clue inspection, wrong submission, cancel, exact unfinished state save/load, solve and quest progression for all ten boards; active-time AFK/background/save checks.",
     "passed": true,
-    "puzzles": 8
+    "puzzles": 10
   },
   "content_audit": {
-    "version": "1.5.0",
+    "version": "1.6.0",
     "main": {
-      "lines": 673,
-      "unique_lines": 670,
-      "characters": 23112,
-      "chinese_characters": 20293
+      "lines": 959,
+      "unique_lines": 888,
+      "characters": 27230,
+      "chinese_characters": 23656
     },
     "main_chapters": [
       {
@@ -7062,17 +7062,17 @@
         "events": 3,
         "lines": 51,
         "unique_lines": 51,
-        "characters": 1840,
-        "chinese_characters": 1614
+        "characters": 1612,
+        "chinese_characters": 1409
       },
       {
         "id": "part_3",
         "title": "据点、人脉与异常点巡查",
         "events": 7,
-        "lines": 119,
-        "unique_lines": 119,
-        "characters": 4306,
-        "chinese_characters": 3777
+        "lines": 122,
+        "unique_lines": 122,
+        "characters": 3959,
+        "chinese_characters": 3457
       },
       {
         "id": "part_4",
@@ -7096,10 +7096,10 @@
         "id": "part_5_plus",
         "title": "白日审判",
         "events": 2,
-        "lines": 34,
-        "unique_lines": 34,
-        "characters": 1301,
-        "chinese_characters": 1148
+        "lines": 35,
+        "unique_lines": 35,
+        "characters": 1097,
+        "chinese_characters": 956
       },
       {
         "id": "part_6",
@@ -7140,17 +7140,32 @@
     ],
     "main_events": 33,
     "side": {
-      "lines": 772,
-      "unique_lines": 772,
-      "characters": 28516,
-      "chinese_characters": 25273
+      "lines": 927,
+      "unique_lines": 927,
+      "characters": 32250,
+      "chinese_characters": 28479
     },
     "chapter_investigations": 9,
     "chapter_investigation_steps": 36,
     "personal_stories": 27,
     "personal_story_steps": 80,
     "daily_jobs": 4,
-    "side_steps": 153,
+    "side_steps": 169,
+    "class_ten_memoirs": 4,
+    "class_ten_memoir_steps": 16,
+    "class_ten_memoir_dialogue": {
+      "lines": 155,
+      "unique_lines": 155,
+      "characters": 3734,
+      "chinese_characters": 3206
+    },
+    "character_voice_profiles": 25,
+    "character_voice_dialogue": {
+      "lines": 273,
+      "unique_lines": 243,
+      "characters": 5636,
+      "chinese_characters": 4738
+    },
     "campus_staff_stories": 7,
     "campus_staff_steps": 28,
     "campus_staff_dialogue": {
@@ -7162,42 +7177,48 @@
     "relationship_stories": 5,
     "romance_profiles": 11,
     "relationship_dialogue": {
-      "lines": 76,
-      "unique_lines": 52,
-      "characters": 1571,
-      "chinese_characters": 1386
+      "lines": 65,
+      "unique_lines": 65,
+      "characters": 1505,
+      "chinese_characters": 1282
+    },
+    "gift_dialogue": {
+      "lines": 49,
+      "unique_lines": 35,
+      "characters": 750,
+      "chinese_characters": 637
     },
     "total": {
-      "lines": 1521,
-      "unique_lines": 1494,
-      "characters": 53199,
-      "chinese_characters": 46952
+      "lines": 2000,
+      "unique_lines": 1915,
+      "characters": 61735,
+      "chinese_characters": 54054
     },
-    "interactive_puzzles": 8,
-    "reading_minutes_at_300_cpm": 177.3,
-    "reading_minutes_at_220_cpm": 241.8,
+    "interactive_puzzles": 10,
+    "reading_minutes_at_300_cpm": 205.8,
+    "reading_minutes_at_220_cpm": 280.6,
     "method": "Unique authored dialogue strings only. Includes mutually exclusive endings and replayable daily dialogue, so total reading time is NOT a single-route playtime. Excludes menus, hints, descriptions, docs, duplicate sentences and travelling/waiting. Actual 4-hour playtime has not been measured.",
     "single_route": {
       "ending": "GE-H",
       "required_main_and_investigations": {
-        "lines": 837,
-        "unique_lines": 834,
-        "characters": 31791,
-        "chinese_characters": 28007
+        "lines": 841,
+        "unique_lines": 838,
+        "characters": 31012,
+        "chinese_characters": 27290
       },
       "normal_with_personal_episodes": 18,
       "normal_dialogue": {
-        "lines": 1065,
-        "unique_lines": 1062,
-        "characters": 39165,
-        "chinese_characters": 34502
+        "lines": 1069,
+        "unique_lines": 1066,
+        "characters": 38386,
+        "chinese_characters": 33785
       },
       "completion_with_personal_episodes": 27,
       "completion_dialogue": {
-        "lines": 1185,
-        "unique_lines": 1182,
-        "characters": 43901,
-        "chinese_characters": 38718
+        "lines": 1189,
+        "unique_lines": 1186,
+        "characters": 43122,
+        "chinese_characters": 38001
       },
       "main_battle_waves": 20,
       "normal_extra_required_kills": 5,
@@ -7206,65 +7227,76 @@
     "playtime_estimates": [
       {
         "profile": "main_only_standard",
-        "dialogue_characters": 31791,
+        "dialogue_characters": 31012,
         "reading_cpm": 250,
-        "reading_minutes": 127.2,
+        "reading_minutes": 124.0,
         "travel_minutes": 25,
         "combat_minutes": 25,
         "decision_minutes": 26,
         "management_minutes": 15,
-        "total_minutes": 218.2,
+        "total_minutes": 215.0,
         "measured": false
       },
       {
         "profile": "normal_standard",
-        "dialogue_characters": 39165,
+        "dialogue_characters": 38386,
         "reading_cpm": 250,
-        "reading_minutes": 156.7,
+        "reading_minutes": 153.5,
         "travel_minutes": 40,
         "combat_minutes": 30,
         "decision_minutes": 37,
         "management_minutes": 20,
-        "total_minutes": 283.7,
+        "total_minutes": 280.5,
         "measured": false
       },
       {
         "profile": "normal_leisurely",
-        "dialogue_characters": 39165,
+        "dialogue_characters": 38386,
         "reading_cpm": 220,
-        "reading_minutes": 178.0,
+        "reading_minutes": 174.5,
         "travel_minutes": 55,
         "combat_minutes": 40,
         "decision_minutes": 50,
         "management_minutes": 25,
-        "total_minutes": 348.0,
+        "total_minutes": 344.5,
         "measured": false
       },
       {
         "profile": "normal_fast_reading_and_travel",
-        "dialogue_characters": 39165,
+        "dialogue_characters": 38386,
         "reading_cpm": 300,
-        "reading_minutes": 130.6,
+        "reading_minutes": 128.0,
         "travel_minutes": 20,
         "combat_minutes": 20,
         "decision_minutes": 17,
         "management_minutes": 10,
-        "total_minutes": 197.6,
+        "total_minutes": 195.0,
         "measured": false
       },
       {
         "profile": "all_personal_stories_standard",
-        "dialogue_characters": 43901,
+        "dialogue_characters": 43122,
         "reading_cpm": 250,
-        "reading_minutes": 175.6,
+        "reading_minutes": 172.5,
         "travel_minutes": 50,
         "combat_minutes": 30,
         "decision_minutes": 42,
         "management_minutes": 20,
-        "total_minutes": 317.6,
+        "total_minutes": 314.5,
         "measured": false
       }
     ],
+    "normal_with_class_ten_memoirs": {
+      "dialogue": {
+        "lines": 1201,
+        "unique_lines": 1198,
+        "characters": 41718,
+        "chinese_characters": 36642
+      },
+      "extra_travel_decision_minutes_assumed": 15,
+      "estimated_minutes_at_250_cpm": 308.9,
+      "measured": false
+    },
     "playtime_method": "Planning estimates, not observed human playthroughs. Normal profile completes main + 9 chapter investigations + the first two personal episodes for all 9 classmates (18/27 episodes). Non-reading budgets are explicit assumptions for movement, 25 compulsory encounters, choices and inventory/skill preparation. Reading assumes characters including punctuation per minute; fast/skip play can be under 4 hours. In-game active clock now enables real timing, excluding background/pause and inactivity beyond 60 seconds.",
     "before_expansion": {
       "dialogue_characters": 14085,

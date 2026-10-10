@@ -7064,6 +7064,1024 @@
         },
         "requires_affinity": 0
       }
+    },
+    {
+      "id": "memo_yang_seat",
+      "type": "side",
+      "title": "那个没坐稳的座位",
+      "auto_start": false,
+      "prerequisites": [],
+      "steps": [
+        {
+          "location": "B01:3:0",
+          "hint": "去十班翻旧座位表：听阳子讲入班第一天",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "【旧事 · 入班第一天】以下是阳子的回忆，不会把当前时间倒回过去。旧座位表上，“孙明阳”被挤在一条临时添的横线上。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "那天我先绕教室走一圈，觉得谁都挺好。坐下才发现，旁边那位好看归好看，气温也是真低。"
+            },
+            {
+              "actor": "hero",
+              "text": "于是你站起来了？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "嗯。勾尬就说了句：“不用走，就坐这儿。”我赶紧说以后多关照。她没回。"
+            },
+            {
+              "actor": "system",
+              "text": "阳子把纸角按住。他讲得很夸张，指尖却反复搓着同一个折痕。"
+            },
+            {
+              "actor": "hero",
+              "text": "你那会儿是真紧张啊。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "废话。大家都认识，只有我像走错班的。"
+            }
+          ],
+          "event": "side/memo_yang_seat/0"
+        },
+        {
+          "actor": "yang_zi",
+          "hint": "问清递糖的经过，让阳子自己说",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "我想找个话头，就问她吃不吃糖。她说不吃，吃糖掉头发，还骂我一句。我脑子里只剩：糖原来这么危险？"
+            },
+            {
+              "actor": "hero",
+              "text": "你是不是又给自己配了三页心理活动？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "五页。前两页检讨自己是不是糖没买对。现在想想，不想吃直接说不就完了。"
+            }
+          ],
+          "question": "怎样回应这段尴尬？",
+          "choices": [
+            [
+              "right",
+              "承认被骂很难受，问他当时有没有朋友"
+            ],
+            [
+              "other",
+              "先不评价勾尬，问阳子现在想怎么相处"
+            ],
+            [
+              "cancel",
+              "先放下，下次再说"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "换我也难受。后来你找谁说的？"
+              },
+              {
+                "actor": "yang_zi",
+                "text": "包、朱、周。人家把我招呼过去，我才终于敢拆自己的糖。原来不是所有人都讨厌我。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "现在呢，还想坐回去吗？"
+              },
+              {
+                "actor": "yang_zi",
+                "text": "不想。但见面也不用绕操场半圈。她不爱说，我就不硬聊；该算的旧账另外算。"
+              }
+            ]
+          },
+          "event": "side/memo_yang_seat/1"
+        },
+        {
+          "location": "B16:1:1",
+          "hint": "去公共自习室整理旧稿里的称呼，区分回忆与现在",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "旧稿这一页有好几个称呼。阳子指着糖渍底下的“孙明阳”，笑着让你别把全名也给擦了。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "别把我写成什么受尽欺负还坚强微笑的人啊。我那天回家骂了半小时，第二天才装没事。"
+            },
+            {
+              "actor": "hero",
+              "text": "这句要录进去吗？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "录。哦，后面加一句：骂完也没想明白，到底哪句惹着谁了。"
+            },
+            {
+              "actor": "system",
+              "text": "你留下他愿意公开的段落，遮住私人账号。没被说清的事，纸上也没有擅自替他补答案。"
+            }
+          ],
+          "event": "side/memo_yang_seat/2"
+        },
+        {
+          "actor": "yang_zi",
+          "hint": "把整理好的第一页还给阳子",
+          "dialogue": [
+            {
+              "actor": "hero",
+              "text": "给，没写“阳子含泪成长”。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "算你懂事。对了，当时我后来调去了三组，认识 md、圆師呈，再后来是刻琦、大稀。"
+            },
+            {
+              "actor": "hero",
+              "text": "一下记这么多名字？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "谁喊我过去坐，我都记得。你别笑，这比考试座位号好记。"
+            },
+            {
+              "actor": "system",
+              "text": "阳子把糖袋打开，先问了一句“吃吗”。你点头后，他才推过来。"
+            }
+          ],
+          "event": "side/memo_yang_seat/3"
+        }
+      ],
+      "side_story": {
+        "owner": "yang_zi",
+        "min_index": 3,
+        "requires_affinity": 0,
+        "life_story": true,
+        "memo_story": true,
+        "description": "十班旧事：旧稿里的回忆发生在本次冒险之前。整理和走访每完成一步推进一个当前时段；回看与取消不耗时。",
+        "intro": [
+          {
+            "actor": "yang_zi",
+            "text": "你说我跟谁都能聊？我刚来十班那天，连屁股放哪儿都没整明白。"
+          },
+          {
+            "actor": "hero",
+            "text": "椅子这东西也有使用门槛？"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "空位旁边坐着勾尬。我一坐，全班看我。我还以为自己坐在校长专座上。"
+          },
+          {
+            "actor": "hero",
+            "text": "后来呢？"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "后来我差点把“以后请多关照”说成遗言。旧座位表还在，你陪我翻翻？别翻完到处宣传啊。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "两人把旧座位表压平。纸边的糖渍还在，空白的地方多了一行小字：有事问本人。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "以前总想让全班都喜欢我。现在吧，有几个能直接说“你这句挺烦”的朋友，也行。"
+          },
+          {
+            "actor": "hero",
+            "text": "你这句挺烦。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "……试用期这么短？整理班史的钱分你一份。糖我自己吃，不乱塞了。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "yang_zi",
+            "text": "这回椅子旁边没人瞪你。坐呗。"
+          },
+          {
+            "actor": "hero",
+            "text": "我能先问下是不是校长专座吗？"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "是，今天校长请你吃糖。"
+          }
+        ],
+        "reward": {
+          "g": 25,
+          "items": {
+            "concentration_candy": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "memo_yang_qq",
+      "type": "side",
+      "title": "两句之间的省略号",
+      "auto_start": false,
+      "prerequisites": [
+        "memo_yang_seat"
+      ],
+      "steps": [
+        {
+          "location": "B16:1:1",
+          "hint": "在公共自习室核对旧消息时间卡",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "【旧事 · 入班当晚】阳子只拿出自己同意公开的记录。账号和头像都遮住，四张卡片摆在桌上。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "当时我都准备点个笑脸解释了。收到“呵呵”以后，笑脸也发不出去。"
+            },
+            {
+              "actor": "hero",
+              "text": "先把顺序摆出来。想不起来的就留空。"
+            }
+          ],
+          "puzzle": {
+            "kind": "sequence",
+            "title": "两句之间的省略号",
+            "description": "按可核对的先后排列四张消息卡。排序只能恢复发生顺序，不能证明谁组织了攻击。",
+            "hint": "先是入班白天的递糖，晚上才添加 QQ；阳子看到指责后追问，最后没有得到解释。",
+            "initial": [
+              2,
+              0,
+              3,
+              1
+            ],
+            "target": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "controls": [
+              "交换第1与第2张",
+              "交换第2与第3张",
+              "交换第3与第4张"
+            ],
+            "pieces": [
+              "白天：递糖被拒",
+              "晚上：添加班里同学 QQ",
+              "收到“头发真多”“这么说女生”等指责",
+              "追问自己说了什么，只收到“呵呵”"
+            ],
+            "clues": [
+              {
+                "title": "座位表背面",
+                "text": "递糖发生在入班白天；QQ 的好友申请在当天晚上。"
+              },
+              {
+                "title": "阳子的自留笔记",
+                "text": "我先看到指责才发问号。我问说了什么，对方没回答。"
+              },
+              {
+                "title": "缺失的一页",
+                "text": "原稿未提供私聊的完整来龙去脉，也没说明消息由谁发起。不要把猜测放进消息卡。"
+              }
+            ],
+            "success": [
+              {
+                "actor": "lao_chou",
+                "text": "先后排好了。发起者这一栏空着。我们没证据，空着就行。"
+              },
+              {
+                "actor": "yang_zi",
+                "text": "我那时候满脑子都是“是不是她”。你写“还不知道”，反倒让我松口气。"
+              }
+            ],
+            "failure": [
+              {
+                "actor": "lao_chou",
+                "text": "再看时间。别让晚上的好友申请跑到白天递糖前面。"
+              }
+            ]
+          },
+          "event": "side/memo_yang_qq/0"
+        },
+        {
+          "actor": "lao_chou",
+          "hint": "请牢抽帮忙区分记录和猜测",
+          "dialogue": [
+            {
+              "actor": "lao_chou",
+              "text": "这几句只说明有人指责他，没说清指责什么。"
+            },
+            {
+              "actor": "hero",
+              "text": "阳子怀疑勾尬。"
+            },
+            {
+              "actor": "lao_chou",
+              "text": "怀疑可以写，得写是谁在怀疑。别写成她组织的。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "行。当时我憋着一口气，恨不得每件坏事都能指到同一个人。"
+            }
+          ],
+          "question": "这份整理怎么保存？",
+          "choices": [
+            [
+              "right",
+              "保留原话和疑点，不在群里转私人记录"
+            ],
+            [
+              "other",
+              "只公开整理方法，请当事人自愿补充"
+            ],
+            [
+              "cancel",
+              "先放下，下次再说"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "这份先归你。想不想再问，是你的事。"
+              },
+              {
+                "actor": "yang_zi",
+                "text": "谢谢。你没抢过手机替我发，这就挺好。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "可以讲怎么核对，不把别人私聊贴群里。"
+              },
+              {
+                "actor": "lao_chou",
+                "text": "愿意补充的单独来。没人来，这一栏也不用填满。"
+              }
+            ]
+          },
+          "event": "side/memo_yang_qq/1"
+        },
+        {
+          "location": "B01:3:0",
+          "hint": "回十班，把半截截图的整理规则放进班史夹",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "这页写“不要断章取义”就够了吧？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "不够。我当年也会这么说。真碰上了，手比脑子快。"
+            },
+            {
+              "actor": "hero",
+              "text": "写具体点：先看日期，问前后两句，再决定转不转。"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "行。不把人名贴上去。谁来问，我告诉他夹子在哪儿。"
+            },
+            {
+              "actor": "system",
+              "text": "辣椒把夹子挪到伸手够得到的位置，没有把它挂到勾尬的座位上。"
+            }
+          ],
+          "event": "side/memo_yang_qq/2"
+        },
+        {
+          "actor": "yang_zi",
+          "hint": "把最后留白的一页交给阳子",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "我还想问她那天为什么骂我。也怕她又来一句“你管我”。"
+            },
+            {
+              "actor": "hero",
+              "text": "想问就问一句，没答就停。我陪你，但不替你逼她。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "行。今天先不问。我能自己挑哪天说，这感觉……挺新鲜的。"
+            },
+            {
+              "actor": "system",
+              "text": "阳子把空白页收进去。你们没有凭这些旧消息查出幕后人，也没有借这本夹子要求谁原谅谁。"
+            }
+          ],
+          "event": "side/memo_yang_qq/3"
+        }
+      ],
+      "side_story": {
+        "owner": "yang_zi",
+        "min_index": 3,
+        "requires_affinity": 3,
+        "life_story": true,
+        "memo_story": true,
+        "description": "十班旧事：旧稿里的回忆发生在本次冒险之前。整理和走访每完成一步推进一个当前时段；回看与取消不耗时。",
+        "intro": [
+          {
+            "actor": "yang_zi",
+            "text": "糖那事还没完。晚上我加 QQ，有人上来就说我头发真多，问我这么说女生害不害臊。"
+          },
+          {
+            "actor": "hero",
+            "text": "你说什么了？"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "我也问这句。最后对面回个“呵呵”。我到现在看这俩字都烦。"
+          },
+          {
+            "actor": "hero",
+            "text": "那就从你确实记得的地方看。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "行。可别看完劝我“都是同学，算了”。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "yang_zi",
+            "text": "我以前觉得，不把谁骂赢，这事就一直压在我头上。现在不想骂了，也不等于觉得它没发生。"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "那段没有解释的指责留着。你写下的猜测，也标成猜测。"
+          },
+          {
+            "actor": "hero",
+            "text": "纸够不够？"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "够。这回不用五页心理活动，留一页空白就行。以后问出什么，再写。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "yang_zi",
+            "text": "群里又有人转半张截图？先问哪天的、上半截呢。你教的，我记住了。"
+          },
+          {
+            "actor": "hero",
+            "text": "是牢抽教的。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "那他负责教，你负责拦我打字。"
+          }
+        ],
+        "reward": {
+          "g": 30,
+          "items": {
+            "water": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "memo_yang_industry",
+      "type": "side",
+      "title": "十班第一次工业革命",
+      "auto_start": false,
+      "prerequisites": [
+        "memo_yang_qq"
+      ],
+      "steps": [
+        {
+          "location": "B01:3:0",
+          "hint": "到十班看三组旧纸轴和重制模型",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "【旧事 · 调到三组以后】旧稿记着阳子交到朋友、参加“第一次工业革命”，随后被旧势力压下。下面的纸盒装置是同学们为班史新做的演示。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "最开始谁都想给这个东西加功能。传作业、送橡皮、上课偷传——咳，后面那项删掉。"
+            },
+            {
+              "actor": "hero",
+              "text": "你说得最响，干得最多？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "倒也没有。那会儿我挺享受有人听我吹。后来断了线，我第一反应是说“不是我弄的”。"
+            },
+            {
+              "actor": "lao_li",
+              "text": "今天先看哪根受力。谁弄断的不妨最后再问。"
+            }
+          ],
+          "event": "side/memo_yang_industry/0"
+        },
+        {
+          "location": "B15:1:2",
+          "hint": "去办公楼一层左手第一间打印室借尺、问老师当年的叫停",
+          "dialogue": [
+            {
+              "actor": "print_luo",
+              "text": "尺借你。胶带别缠在打印机上，那东西已经够难伺候了。"
+            },
+            {
+              "actor": "homeroom_teacher",
+              "text": "你们还记着那次？我进门看到过道横着线，先让全收了。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "我记得您说“净搞这些没用的”。那句我记很久。"
+            },
+            {
+              "actor": "homeroom_teacher",
+              "text": "嗯，那句是我说重了。先停过道上的线，是怕绊人。你们桌面上怎么做，我当时也没问。"
+            },
+            {
+              "actor": "lao_li",
+              "text": "这回缩成纸模型。两张桌子放得下，不接电。"
+            },
+            {
+              "actor": "homeroom_teacher",
+              "text": "做完给我看看。别答应了又摆回过道。"
+            }
+          ],
+          "event": "side/memo_yang_industry/1"
+        },
+        {
+          "location": "B16:1:1",
+          "hint": "到公共自习室完成桌面模型手动试车",
+          "dialogue": [
+            {
+              "actor": "lao_li",
+              "text": "水杯拿远点。你拉左边，阳子别抢。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "我负责主持，多重要的岗位。"
+            },
+            {
+              "actor": "hero",
+              "text": "主持人先闭麦。哪根翻哪两面，纸条上有。"
+            }
+          ],
+          "puzzle": {
+            "kind": "switches",
+            "title": "纸条传送机 · 手动试车",
+            "description": "三根手拉线会翻动相连的纸旗。四面纸旗都翻到正面，表示纸盒从左至右通畅。这是桌面纸模型，没有接电。",
+            "hint": "左线翻1、2号；中线翻2、3号；右线翻3、4号。先试最外侧的两根。",
+            "initial": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "target": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "controls": [
+              "拉左线",
+              "拉中线",
+              "拉右线"
+            ],
+            "links": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "clues": [
+              {
+                "title": "左边纸轴",
+                "text": "左线连着1号和2号纸旗，每拉一次同时翻面。"
+              },
+              {
+                "title": "中央结点",
+                "text": "中线连2号和3号，右线连3号和4号。拉错了可以拉回来。"
+              },
+              {
+                "title": "牢李的铅笔字",
+                "text": "这是重做的小模型。线只走桌面，不跨过道；试车前清掉桌边的水杯。"
+              }
+            ],
+            "success": [
+              {
+                "actor": "yang_zi",
+                "text": "开通！十班工业水平重回世界前列！"
+              },
+              {
+                "actor": "lao_li",
+                "text": "先别吹。纸盒里只有半块橡皮，装满试卷可不保证。"
+              }
+            ],
+            "failure": [
+              {
+                "actor": "lao_li",
+                "text": "有两面翻回背面了。松手看看线连哪儿，不用一直拉。"
+              }
+            ]
+          },
+          "event": "side/memo_yang_industry/2"
+        },
+        {
+          "actor": "lao_li",
+          "hint": "与牢李、阳子确定展示时怎么写失败经过",
+          "dialogue": [
+            {
+              "actor": "yang_zi",
+              "text": "标题还叫第一次工业革命？"
+            },
+            {
+              "actor": "lao_li",
+              "text": "写“重做”。旧稿里没讲机器，我们不能把今天这台写成当年就有的。"
+            },
+            {
+              "actor": "hero",
+              "text": "失败那段要不要留？"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "留吧。就是别画我张嘴甩锅那张脸，太像了。"
+            }
+          ],
+          "question": "为班史展示写哪句结语？",
+          "choices": [
+            [
+              "right",
+              "“没造完的东西，今天接着造。”"
+            ],
+            [
+              "other",
+              "“先把过道空出来，再谈改变世界。”"
+            ],
+            [
+              "cancel",
+              "先放下，下次再说"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "yang_zi",
+                "text": "这句行。别写我一个人的名字，胶带也不是我一个人贴的。"
+              },
+              {
+                "actor": "lao_li",
+                "text": "嗯。名单从动手的人开始写。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "hero",
+                "text": "这句贴最底下，当收工提醒。"
+              },
+              {
+                "actor": "yang_zi",
+                "text": "老师看了肯定乐。行，我亲自把线收了，谁也别说革命领袖不劳动。"
+              }
+            ]
+          },
+          "event": "side/memo_yang_industry/3"
+        }
+      ],
+      "side_story": {
+        "owner": "lao_li",
+        "min_index": 6,
+        "requires_affinity": 3,
+        "life_story": true,
+        "memo_story": true,
+        "description": "十班旧事：旧稿里的回忆发生在本次冒险之前。整理和走访每完成一步推进一个当前时段；回看与取消不耗时。",
+        "intro": [
+          {
+            "actor": "lao_li",
+            "text": "阳子把旧纸轴翻出来了。他说要重现十班第一次工业革命。"
+          },
+          {
+            "actor": "hero",
+            "text": "我们班什么时候拥有过工业？"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "拥有过！持续时间比一节课短点。包、朱、周他们在三组看着，我负责喊口号，也负责把东西整散架。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "旧稿只记了有这么回事，没记机器。现在这台传纸盒是我们重新做的。手拉，不通电，你不用往后退。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "纸盒终于从桌子一头到了另一头。里面的橡皮抖出来，正落在阳子掌心。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "当年被叫停，我觉得自己多牛的点子谁都不懂。现在看，那个绊脚的线结确实挺欠收拾。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "点子还留着。过道也留出来了。"
+          },
+          {
+            "actor": "hero",
+            "text": "第二次工业革命，成功运送半块橡皮。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "你等着，下回运一整块。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "班史展示的小制作费到了。先报纸板，剩下的分你。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "lao_li",
+            "text": "试卷还是手传快。这个留着展示就行。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "你不懂，我们做的是情怀。"
+          },
+          {
+            "actor": "lao_li",
+            "text": "那你把情怀的线收好，下课别绊人。"
+          }
+        ],
+        "reward": {
+          "g": 40,
+          "items": {
+            "ink_fragment": 2,
+            "field_ration": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "memo_fei_newcomers",
+      "type": "side",
+      "title": "后来坐进来的七个人",
+      "auto_start": false,
+      "prerequisites": [
+        "memo_yang_industry"
+      ],
+      "steps": [
+        {
+          "location": "B01:3:0",
+          "hint": "去十班核对转入、转出名单，不把转学写成死亡",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "【旧事 · 半学期以后】旧稿写着三人转走，七人转入。转学的日期留在纸上；谁如今还在，得看今天点名有没有应答。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "少三个人那天，我还想教室总算宽敞了。真看见空桌子，又挺不习惯。"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "新来的也会盯空位。哪个能坐、谁的书不能碰，都得问。"
+            },
+            {
+              "actor": "hero",
+              "text": "原稿里叫你飞燕。"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "同一个叫法，游戏里就写费眼吧。别今天点名点出两个我。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "同一个叫法，班史里就写费眼吧。别今天点名点出两个我。"
+            }
+          ],
+          "event": "side/memo_fei_newcomers/0"
+        },
+        {
+          "actor": "fei_yan",
+          "hint": "请费眼讲初来时没说出口的担心",
+          "dialogue": [
+            {
+              "actor": "fei_yan",
+              "text": "我头一天把书掏出来，发现带了两本一样的。怕人家笑，硬说一本是备用。"
+            },
+            {
+              "actor": "hero",
+              "text": "备用给谁？"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "我哪知道，先把话圆上。"
+            },
+            {
+              "actor": "system",
+              "text": "费眼顿了一下，手里的练习纸终于放到桌面。"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "我那时就想把这学上完。打球、考试、下课买水。后来会了法术，反倒什么都怕别人看见。"
+            },
+            {
+              "actor": "hero",
+              "text": "所以你总装得什么都能解决？"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "……你这话挺难接。以后我说“先撤”，你就真跟我撤，别当我客气。"
+            }
+          ],
+          "event": "side/memo_fei_newcomers/1"
+        },
+        {
+          "actor": "la_jiao",
+          "hint": "找辣椒商量怎样把旧事介绍给后来同学",
+          "dialogue": [
+            {
+              "actor": "la_jiao",
+              "text": "介绍十班，别从“我们班特别团结”开始。有人会问，那我为什么不认识谁。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "那从我的座位事故开始？"
+            },
+            {
+              "actor": "la_jiao",
+              "text": "你愿意讲就讲，别拿勾尬的反应当包袱演。她做过的事该说清，别人也不用陪笑。"
+            }
+          ],
+          "question": "带新同学从哪里认识十班？",
+          "choices": [
+            [
+              "right",
+              "一起找教室、认食堂窗口，听他想问什么"
+            ],
+            [
+              "other",
+              "先看做坏又重做的模型，允许他只看不参与"
+            ],
+            [
+              "cancel",
+              "先放下，下次再说"
+            ]
+          ],
+          "branches": {
+            "right": [
+              {
+                "actor": "hero",
+                "text": "先走一圈。哪儿想停就停，不安排展示才艺。"
+              },
+              {
+                "actor": "la_jiao",
+                "text": "地图拿两张。你带路别走太快，我断后。"
+              }
+            ],
+            "other": [
+              {
+                "actor": "yang_zi",
+                "text": "那我先示范怎么把橡皮弄掉。"
+              },
+              {
+                "actor": "hero",
+                "text": "示范一遍就够了。"
+              },
+              {
+                "actor": "la_jiao",
+                "text": "他想坐着看就坐着，别把胶带塞人家手里。"
+              }
+            ]
+          },
+          "event": "side/memo_fei_newcomers/2"
+        },
+        {
+          "location": "B07:1:0",
+          "hint": "在食堂归还班史夹，把一个空位留给后来的人",
+          "dialogue": [
+            {
+              "actor": "system",
+              "text": "【现在】你们把班史夹合上。回忆里讲了半个学期，窗外却只换过几轮天色。食堂师傅把汤勺在锅边轻轻一敲。"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "以后要加哪段，问过本人再写。我的两本书那段……留着吧。"
+            },
+            {
+              "actor": "yang_zi",
+              "text": "那下册叫什么？第二次工业革命？"
+            },
+            {
+              "actor": "hero",
+              "text": "叫正常吃一顿饭。"
+            },
+            {
+              "actor": "fei_yan",
+              "text": "这个目标靠谱。汤端稳，别给食堂也革了。"
+            }
+          ],
+          "event": "side/memo_fei_newcomers/3"
+        }
+      ],
+      "side_story": {
+        "owner": "fei_yan",
+        "min_index": 9,
+        "requires_affinity": 3,
+        "life_story": true,
+        "memo_story": true,
+        "description": "十班旧事：旧稿里的回忆发生在本次冒险之前。整理和走访每完成一步推进一个当前时段；回看与取消不耗时。",
+        "intro": [
+          {
+            "actor": "fei_yan",
+            "text": "阳子那本班史写到我了？让我看看，写帅点没有。"
+          },
+          {
+            "actor": "hero",
+            "text": "原稿写的是，半学期后三个转走，七个转来。你是新来的之一。"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "这我知道。第一天人家看我的眼神，跟看插班来的年级主任似的。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "我还感慨终于来了俩有意思的。你和脚哥。"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "别替我报名才艺表演就行。走，看看旧点名册。"
+          }
+        ],
+        "outro": [
+          {
+            "actor": "system",
+            "text": "食堂的桌子只坐得下几个人。其他同学的饭还在排队窗口里，阳子先拿书包占了身旁的位置。"
+          },
+          {
+            "actor": "yang_zi",
+            "text": "以前盼新人来，是觉得终于有人比我更不懂十班规矩。现在想想，我那会儿也挺欠的。"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "知道就好。下回先告诉人家哪个窗口不辣，少安排几句欢迎致辞。"
+          },
+          {
+            "actor": "hero",
+            "text": "你刚才不是也安排我说话？"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "……我撤回。饭来了。"
+          },
+          {
+            "actor": "system",
+            "text": "班史最后一页留了给后来人的空格。没有人被写成救世主，新同学也不用先演一场本事才能坐下。"
+          }
+        ],
+        "epilogue": [
+          {
+            "actor": "fei_yan",
+            "text": "你要是哪天不想练法术，就叫我吃饭。我又不是只会讲课。"
+          },
+          {
+            "actor": "hero",
+            "text": "你会抢最后一块肉。"
+          },
+          {
+            "actor": "fei_yan",
+            "text": "那是实战意识。行行行，今天给你。"
+          }
+        ],
+        "reward": {
+          "g": 35,
+          "items": {
+            "water": 2,
+            "field_ration": 1
+          }
+        }
+      }
     }
   ]
 }

@@ -234,6 +234,8 @@ func run_event() -> void:
 			await dialog([{"actor":"system","text":relay}])
 		await dialog(node["dialogue"])
 		if not node.get("long_dialogue",[]).is_empty():await dialog(node["long_dialogue"])
+		var memories: Array=memo_echo_lines(str(node["id"]))
+		if not memories.is_empty():await dialog(memories)
 		if node.has("extra"):
 			var lines: Array=[]
 			for pair: Array in node["extra"]:lines.append({"actor":pair[0],"text":pair[1]})
@@ -608,6 +610,13 @@ func present_ending(id: String) -> void:
 	if data.get("ending_dialogues",{}).has(id):await dialog(data["ending_dialogues"][id])
 	await game.story_system.black_scene(id+" · "+END_NAMES[id]+"\n\n结局已记录。原存档保留，可在剧情手册继续准备。")
 	if not was_running:game.story_system.end_sequence()
+
+func memo_echo_lines(event: String) -> Array:
+	var result: Array=[]
+	for row: Dictionary in data.get("memo_echoes",[]):
+		if row["event"]==event and game.task_system.entries.get(row["quest"],{}).get("status","")=="completed":
+			result.append_array(row["dialogue"].duplicate(true))
+	return result
 
 func open_journal() -> void:
 	if not active():game.show_notice("完成第一章后开启剧情手册。");return

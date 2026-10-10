@@ -66,6 +66,7 @@ var interior_directory := ""
 var interior_state: Dictionary={}
 var music:=preload("res://music_director.gd").new()
 var relationships:=preload("res://relationships.gd").new()
+var voice:=preload("res://dialogue_voice.gd").new()
 var world_editor:=preload("res://world_editor.gd").new()
 var phone: Control
 var farming:=preload("res://farming_regions.gd").new()
@@ -115,7 +116,7 @@ func _ready() -> void:
 	battle_asset_root=resolve_path(str(config.get("battle_asset_root","../Projects/赵慕gei的牙林冒险")))
 	if not combat_rules.configure(resolve_path(str(config.get("combat_rules","战斗与刷新配置.json"))),mods.merged.get("combat",{})):
 		fail("战斗数值配置缺失或格式错误");return
-	relationships.game=self;world_editor.game=self;combat_rules.world_editor=world_editor;farming.game=self;monster_world.configure(combat_rules,self)
+	relationships.game=self;voice.game=self;world_editor.game=self;combat_rules.world_editor=world_editor;farming.game=self;monster_world.configure(combat_rules,self)
 	if not task_system.configure(resolve_path(str(config.get("task_rules","任务配置.json"))),mods.merged.get("tasks",{})):
 		fail("任务配置缺失或格式错误");return
 	if not economy.configure(resolve_path(str(config.get("economy_rules","物资与交易配置.json"))),mods.merged.get("economy",{})):
@@ -893,6 +894,11 @@ func _input(event: InputEvent) -> void:
 			elif event.keycode==KEY_ESCAPE:dialogue_view.close();get_viewport().set_input_as_handled()
 		elif event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_RIGHT:
 			dialogue_view.close();get_viewport().set_input_as_handled()
+		elif event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
+			# Android touch already maps to a single mouse event in mobile_controls.
+			# Leave special GUI controls to their own handlers, including disabled ones.
+			if dialogue_view.can_advance_at(event.position):
+				dialogue_view.accept();get_viewport().set_input_as_handled()
 		return
 	if front_end!=null and front_end.visible:
 		if front_end.has_modal() and event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_ESCAPE:

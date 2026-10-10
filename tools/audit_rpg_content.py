@@ -24,7 +24,13 @@ side=[t for t in tasks['tasks'] if t.get('side_story')]
 bridges=[t for t in side if t['side_story'].get('chapter_bridge')]
 personal=[t for t in side if not t['side_story'].get('daily') and not t['side_story'].get('chapter_bridge') and not t['side_story'].get('life_story')]
 report={'version':(root/'VERSION').read_text(encoding='utf-8-sig').strip(),'main':count(dialogue(story)), 'main_chapters':chapters,'main_events':len(campaign['nodes']),'side':count(dialogue(side)),'chapter_investigations':len(bridges),'chapter_investigation_steps':sum(len(t['steps']) for t in bridges),'personal_stories':len(personal),'personal_story_steps':sum(len(t['steps']) for t in personal),'daily_jobs':sum(t['side_story'].get('daily',False) for t in side),'side_steps':sum(len(t['steps']) for t in side)}
-staff=[t for t in side if t['side_story'].get('life_story') and not t['side_story'].get('daily')]
+staff=[t for t in side if t['side_story'].get('life_story') and not t['side_story'].get('daily') and not t['side_story'].get('memo_story')]
+memoirs=[t for t in side if t['side_story'].get('memo_story')]
+report['class_ten_memoirs']=len(memoirs)
+report['class_ten_memoir_steps']=sum(len(t['steps']) for t in memoirs)
+report['class_ten_memoir_dialogue']=count(dialogue(memoirs))
+report['character_voice_profiles']=len(story.get('character_voice',{}))
+report['character_voice_dialogue']=count(dialogue(story.get('character_voice',{})))
 report['campus_staff_stories']=len(staff)
 report['campus_staff_steps']=sum(len(t['steps']) for t in staff)
 report['campus_staff_dialogue']=count(dialogue(staff))
@@ -32,7 +38,9 @@ relationships=read('关系与攻略配置.json')
 report['relationship_stories']=len(relationships['gou_stories'])
 report['romance_profiles']=len(relationships['romance'])
 report['relationship_dialogue']=count(dialogue(relationships))
-all_text=dialogue(story)+dialogue(side)+dialogue(relationships)
+gift_text=[profile[field] for profile in relationships.get('gifts',{}).get('profiles',{}).values() for field in ['liked','neutral','refusal'] if field in profile]
+report['gift_dialogue']=count(gift_text)
+all_text=dialogue(story)+dialogue(side)+dialogue(relationships)+gift_text
 report['total']=count(all_text)
 report['interactive_puzzles']=sum('puzzle' in s for q in side for s in q['steps'])
 report['reading_minutes_at_300_cpm']=round(report['total']['characters']/300,1)
@@ -63,6 +71,8 @@ for label,texts,cpm,travel,combat,decisions,management in [
     ('all_personal_stories_standard',completion,250,50,30,42,20)]:
     reading=count(texts)['characters']/cpm
     report['playtime_estimates'].append(dict(profile=label,dialogue_characters=count(texts)['characters'],reading_cpm=cpm,reading_minutes=round(reading,1),travel_minutes=travel,combat_minutes=combat,decision_minutes=decisions,management_minutes=management,total_minutes=round(reading+travel+combat+decisions+management,1),measured=False))
+memo_route=normal+sum((route_task(q) for q in memoirs),[])
+report['normal_with_class_ten_memoirs']={'dialogue':count(memo_route),'extra_travel_decision_minutes_assumed':15,'estimated_minutes_at_250_cpm':round(count(memo_route)['characters']/250+40+30+37+20+15,1),'measured':False}
 report['playtime_method']='Planning estimates, not observed human playthroughs. Normal profile completes main + 9 chapter investigations + the first two personal episodes for all 9 classmates (18/27 episodes). Non-reading budgets are explicit assumptions for movement, 25 compulsory encounters, choices and inventory/skill preparation. Reading assumes characters including punctuation per minute; fast/skip play can be under 4 hours. In-game active clock now enables real timing, excluding background/pause and inactivity beyond 60 seconds.'
 report['before_expansion']={'dialogue_characters':14085,'main_events':33,'personal_stories':9,'daily_jobs':2,'side_steps':31}
 (root/'runtime/content_audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

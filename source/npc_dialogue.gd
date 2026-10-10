@@ -70,12 +70,13 @@ func _ready() -> void:
 	turn_hint=game.label("",16);turn_hint.position=Vector2(190,258)
 	turn_hint.z_index=10
 	turn_hint.add_theme_color_override("font_color",Color("59714a"));panel.add_child(turn_hint)
-	var row:=HBoxContainer.new();row.position=Vector2(690,246);row.size=Vector2(325,45)
+	var mobile: bool=OS.has_feature("android") or "--mobile-controls" in OS.get_cmdline_user_args()
+	var row:=HBoxContainer.new();row.position=Vector2(690,246);row.size=Vector2(325,64 if mobile else 45)
 	row.z_index=20
 	row.add_theme_constant_override("separation",20);panel.add_child(row)
 	for key: String in ["确认","取消"]:
 		var option:=Button.new()
-		option.text="◇ "+key;option.custom_minimum_size=Vector2(150,44)
+		option.text="◇ "+key;option.custom_minimum_size=Vector2(150,64 if mobile else 44)
 		option.add_theme_font_override("font",game.ui_font);option.add_theme_font_size_override("font_size",20)
 		for state: String in ["normal","focus"]:option.add_theme_stylebox_override(state,button_style(Color("e1eccd")))
 		option.add_theme_stylebox_override("hover",button_style(Color("f0f5de")))
@@ -146,6 +147,16 @@ func accept() -> void:
 	if current_turn==0:set_turn(1)
 	else:game.show_notice("你向"+speaker_name+"点头问好。");close(false)
 
+func can_advance_at(at: Vector2) -> bool:
+	if not visible:return false
+	if is_instance_valid(game.campaign.panel) and game.campaign.panel.is_visible_in_tree():return false
+	for node: Node in get_tree().root.find_children("*","Control",true,false):
+		if not node.is_visible_in_tree():continue
+		if node is BaseButton or node is Range or node is LineEdit or node is TextEdit or node is ScrollContainer:
+			var local: Vector2=node.get_global_transform_with_canvas().affine_inverse()*at
+			if Rect2(Vector2.ZERO,node.size).has_point(local):return false
+	return true
+
 func close(play_sound: bool=true) -> void:
 	if script_mode:
 		if script_mandatory:return
@@ -183,7 +194,7 @@ func display_script_turn() -> void:
 	speech.text=str(row["text"])
 	left_portrait.modulate=SPEAKING_COLOR if actor=="zhao_mugei" else LISTENING_COLOR
 	right_portrait.modulate=SPEAKING_COLOR if actor!="zhao_mugei" and actor!="system" else LISTENING_COLOR
-	turn_hint.text="确认 / E / Enter：继续  ·  %d / %d" % [script_index+1,script_lines.size()]
+	turn_hint.text="点空白处 / 确认 / E：继续  ·  %d / %d" % [script_index+1,script_lines.size()]
 
 func finish_script(accepted: bool) -> void:
 	var callback:=script_callback
