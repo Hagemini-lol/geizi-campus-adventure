@@ -4240,16 +4240,20 @@
     },
     "memo_echoes": [
       {
-        "event": "handout",
+        "event": "li_hearing",
         "quest": "memo_yang_industry",
         "dialogue": [
           {
-            "actor": "yang_zi",
-            "text": "急停放第一页。上回纸盒卡了，我们还傻拉线呢。"
+            "actor": "lao_li",
+            "text": "三组那台纸模型，拉错线就翻回去重来。我其实挺怕这张表也得撕了重写。"
+          },
+          {
+            "actor": "lao_chou",
+            "text": "改错不丢人。你做过哪一步我们照写，没做的那一步别替谁认。眼前这件，还是核对当天的证据。"
           },
           {
             "actor": "lao_li",
-            "text": "这回不拉。先停，再找卡在哪儿。"
+            "text": "行，我自己说。不能只让你们替我讲。"
           }
         ]
       },

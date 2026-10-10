@@ -22,6 +22,19 @@ var pointer_scroll: ScrollContainer
 var pointer_origin:=Vector2.ZERO
 var scroll_origin:=0
 var pointer_dragged:=false
+const TAP_SLOP:=12.0 # Viewport units, independent of camera zoom.
+var pointer_context: Array=[]
+
+func input_context() -> Array:
+	# A finger held across a modal/story change must not select the new page.
+	return [game.game_started,game.transition_busy,game.paused,game.menu_view.visible,
+		game.map_view.visible,game.front_end.visible,game.front_end.settings_open,
+		game.dialogue_view.visible,game.dialogue_view.script_index,game.dialogue_view.current_turn,
+		game.phone.visible,game.phone.page,game.battle_view.visible,game.battle_view.busy,
+		game.campaign.panel.get_instance_id() if is_instance_valid(game.campaign.panel) else 0]
+
+func reset_pointer() -> void:
+	pointer_index=-1;pointer_scroll=null;pointer_dragged=false;pointer_context.clear()
 
 func _ready() -> void:
 	active=OS.has_feature("android") or "--mobile-controls" in OS.get_cmdline_user_args()
@@ -94,6 +107,7 @@ func activate(action: String) -> void:
 	if action=="menu":game.toggle_menu()
 	elif action=="interact" and movement_available:game.interact()
 	elif action=="run":running=true
+	if action in ["menu","interact"]:refresh_availability()
 
 func update_stick(at: Vector2) -> void:
 	direction=((at-stick_rect.get_center())/(stick_rect.size.x*.35)).limit_length(1.0)
@@ -140,33 +154,49 @@ func _input(event: InputEvent) -> void:
 				stick_index=event.index;update_stick(at);handled();return
 			var action:=button_at(at)
 			if not action.is_empty():
-				button_touches[event.index]=action;activate(action);handled();return
+				button_touches[event.index]={"action":action,"origin":at,"cancelled":false}
+				if action=="run":activate(action) # Holding sprint and the stick is continuous.
+				handled();return
 			if pointer_index==-1:
 				pointer_index=event.index;pointer_origin=event.position;pointer_dragged=false
+				pointer_context=input_context()
 				pointer_scroll=scroll_at(at);scroll_origin=pointer_scroll.scroll_vertical if pointer_scroll!=null else 0
-				route_mouse(event)
+			# GUI receives no press until a valid lift. This also protects handlers
+			# that react to mouse-down, blank dialogue taps and world interactions.
 		else:
 			if event.index==stick_index:reset_stick();handled();return
 			if button_touches.has(event.index):
-				if button_touches[event.index]=="run":running=false
-				button_touches.erase(event.index);handled();return
+				var hold: Dictionary=button_touches[event.index]
+				var action: String=hold["action"]
+				button_touches.erase(event.index)
+				if action=="run":running=false
+				elif not event.canceled and not hold["cancelled"] and at.distance_to(hold["origin"])<=TAP_SLOP and button_at(at)==action:activate(action)
+				handled();return
 			if event.index==pointer_index:
-				if not pointer_dragged:route_mouse(event)
-				else:handled()
-				pointer_index=-1;pointer_scroll=null;pointer_dragged=false
+				var confirm: bool=not event.canceled and not pointer_dragged and event.position.distance_to(pointer_origin)<=TAP_SLOP and pointer_context==input_context()
+				var origin: Vector2=pointer_origin
+				reset_pointer()
+				if confirm:
+					# Press at the original target, release at the actual lift position.
+					# Godot then rejects a lift outside that button, even near an edge.
+					var press:=event.duplicate();press.pressed=true;press.position=origin
+					route_mouse(press)
+					var motion:=InputEventScreenDrag.new();motion.position=event.position;motion.relative=event.position-origin
+					route_mouse(motion);route_mouse(event)
+		handled()
 	elif event is InputEventScreenDrag:
 		if event.index==stick_index:
 			update_stick(get_global_transform_with_canvas().affine_inverse()*event.position);handled()
-		elif button_touches.has(event.index):handled()
+		elif button_touches.has(event.index):
+			var hold: Dictionary=button_touches[event.index]
+			if event.position.distance_to(hold["origin"])>TAP_SLOP:hold["cancelled"]=true
+			handled()
 		elif event.index==pointer_index:
-			if is_instance_valid(pointer_scroll) and event.position.distance_to(pointer_origin)>10:
-				if not pointer_dragged:
-					# Cancel the pressed item before scrolling, avoiding an accidental purchase.
-					var release:=InputEventScreenTouch.new();release.position=Vector2(-1000,-1000);release.pressed=false
-					route_mouse(release);pointer_dragged=true
+			if event.position.distance_to(pointer_origin)>TAP_SLOP:pointer_dragged=true
+			if pointer_dragged and is_instance_valid(pointer_scroll):
 				pointer_scroll.scroll_vertical=scroll_origin-int(event.position.y-pointer_origin.y)
-				handled()
-			elif not pointer_dragged:route_mouse(event)
+			handled()
+		else:handled() # Additional fingers cannot confirm a GUI choice.
 	elif event is InputEventMouseButton and event.device!=42 and event.button_index==MOUSE_BUTTON_LEFT:
 		var at: Vector2=get_global_transform_with_canvas().affine_inverse()*event.position
 		if not event.pressed:
@@ -182,9 +212,7 @@ func _input(event: InputEvent) -> void:
 func _notification(what: int) -> void:
 	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
 		reset_stick()
-		if pointer_index!=-1:
-			var release:=InputEventScreenTouch.new();release.pressed=false
-			route_mouse(release);pointer_index=-1
+		reset_pointer() # No synthetic click when the app loses focus.
 
 func disc(rect: Rect2, text: String, hint: String) -> void:
 	if button_art!=null:draw_texture_rect(button_art,rect,false,Color(1,1,1,float(game.preferences.values["control_opacity"])))

@@ -20,7 +20,7 @@ checks['time'] = read(root / '时间昼夜验证报告.json')
 assert checks['time']['passed']
 apk = read(root / 'runtime/android_package_checks.json')
 assert apk['signature_verified'] and apk['exported_resource_payload_tested_with_desktop_engine']
-assert apk['exported_payload_touch_checks'] == apk['exported_payload_touch_checks_wide'] == 48
+assert apk['exported_payload_touch_checks'] == apk['exported_payload_touch_checks_wide'] == 49
 assert apk['configuration_files_checked'] == 7
 assert sha(root / 'gei子的冒险.apk') == apk['sha256']
 log = (root / 'runtime/apk-mod-final.log').read_text(encoding='utf-8')
@@ -42,9 +42,9 @@ report = {
     'unchanged_base_formula_and_stream_checks_reused': ['balance', 'stream_recovery'],
     'windows_launcher_passed': True,
     'windows_pck_sha256': sha(root / 'runtime/campus.pck'),
-    'apk_sha256': apk['sha256'], 'android_version_code': 11,
+    'apk_sha256': apk['sha256'], 'android_version_code': 12,
     'original_android_identity_and_signature_verified': True,
-    'exported_apk_desktop_checks': {'touch_standard': 48, 'touch_wide': 48, 'mod_runtime': 33},
+    'exported_apk_desktop_checks': {'touch_standard': 49, 'touch_wide': 49, 'mod_runtime': 33},
     'runtime_asset_hashes_verified': len(manifest['files']),
     'original_assets_modified': False, 'personal_files_unchanged': True,
     'existing_share_zip_unchanged': True,
@@ -63,6 +63,8 @@ report['class_ten_exported_apk_checks']=read(root/'runtime/class_ten_apk_checks.
 report['current_configuration_font_coverage']=read(root/'runtime/v16_font_checks.json')
 report['fresh_content_checks_this_version']=read(root/'runtime/v16_fresh_content_checks.json')
 report['desktop_settings_checks_reused_from_v1_5_1']=True
+report['release_touch_gesture_checks']={name:read(root/'runtime'/(name+'_checks.json')) for name in ['touch_release','touch_release_wide','touch_release_apk','touch_release_apk_wide']}
+assert all(result['passed'] and result['checks']==37 for result in report['release_touch_gesture_checks'].values())
 assert report['class_ten_exported_apk_checks']['passed'] and report['current_configuration_font_coverage']['passed']
 assert all(report['fresh_content_checks_this_version'][name]==checks[name]['checks'] for name in ['campaign','campaign_behavior','campaign_save','sidequest','puzzle','campus_life','relationship','phone','story'])
 (root / '本版完成检查.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

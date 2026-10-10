@@ -1,9 +1,9 @@
 {
-  "game_version": "1.6.0",
+  "game_version": "1.6.1",
   "game_name": "gei子的冒险",
   "windows_launcher_passed": true,
-  "windows_pck_sha256": "35b7e6fe0e22152604f1be68e7b1e15baa90191d697469ce74ca43cd9853fba3",
-  "apk_sha256": "0f164030ddcf9219186d4aab54c381eb3297a296df56dd38c81d1df8ebba42ca",
+  "windows_pck_sha256": "1734e44c47c7a76a91ce7418e118ed3cc0d72d9c3fe03c461b95fd7d048903a2",
+  "apk_sha256": "0c5d77e3be5f2fc1f91637abe7b25838abbb44256faef1b63be1c4f70158fb8a",
   "checks": {
     "campaign": {
       "checks": 304,
@@ -6197,13 +6197,13 @@
       "separate_table_chair_collisions": true
     },
     "mobile": {
-      "checks": 48,
+      "checks": 49,
       "failures": [],
       "passed": true,
       "test": "actual ScreenTouch/ScreenDrag dispatch with simultaneous fingers"
     },
     "mobile_checks_wide": {
-      "checks": 48,
+      "checks": 49,
       "failures": [],
       "passed": true,
       "test": "actual ScreenTouch/ScreenDrag dispatch with simultaneous fingers"

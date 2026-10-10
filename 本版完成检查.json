@@ -1,12 +1,12 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.1",
   "content_audit": {
-    "version": "1.6.0",
+    "version": "1.6.1",
     "main": {
-      "lines": 959,
-      "unique_lines": 888,
-      "characters": 27230,
-      "chinese_characters": 23656
+      "lines": 960,
+      "unique_lines": 889,
+      "characters": 27286,
+      "chinese_characters": 23707
     },
     "main_chapters": [
       {
@@ -142,14 +142,14 @@
       "chinese_characters": 637
     },
     "total": {
-      "lines": 2000,
-      "unique_lines": 1915,
-      "characters": 61735,
-      "chinese_characters": 54054
+      "lines": 2001,
+      "unique_lines": 1916,
+      "characters": 61791,
+      "chinese_characters": 54105
     },
     "interactive_puzzles": 10,
-    "reading_minutes_at_300_cpm": 205.8,
-    "reading_minutes_at_220_cpm": 280.6,
+    "reading_minutes_at_300_cpm": 206.0,
+    "reading_minutes_at_220_cpm": 280.9,
     "method": "Unique authored dialogue strings only. Includes mutually exclusive endings and replayable daily dialogue, so total reading time is NOT a single-route playtime. Excludes menus, hints, descriptions, docs, duplicate sentences and travelling/waiting. Actual 4-hour playtime has not been measured.",
     "single_route": {
       "ending": "GE-H",
@@ -349,7 +349,7 @@
       "passed": true
     },
     "class_ten": {
-      "checks": 157,
+      "checks": 165,
       "passed": true
     },
     "update_save_restart": {
@@ -366,13 +366,13 @@
     "stream_recovery"
   ],
   "windows_launcher_passed": true,
-  "windows_pck_sha256": "35b7e6fe0e22152604f1be68e7b1e15baa90191d697469ce74ca43cd9853fba3",
-  "apk_sha256": "0f164030ddcf9219186d4aab54c381eb3297a296df56dd38c81d1df8ebba42ca",
-  "android_version_code": 11,
+  "windows_pck_sha256": "1734e44c47c7a76a91ce7418e118ed3cc0d72d9c3fe03c461b95fd7d048903a2",
+  "apk_sha256": "0c5d77e3be5f2fc1f91637abe7b25838abbb44256faef1b63be1c4f70158fb8a",
+  "android_version_code": 12,
   "original_android_identity_and_signature_verified": true,
   "exported_apk_desktop_checks": {
-    "touch_standard": 48,
-    "touch_wide": 48,
+    "touch_standard": 49,
+    "touch_wide": 49,
     "mod_runtime": 33
   },
   "runtime_asset_hashes_verified": 3791,
@@ -424,7 +424,7 @@
   ],
   "notes": "Playtime is an explicit content estimate. APK runtime checks use the exported payload on the desktop engine; they are not Android device tests.",
   "class_ten_exported_apk_checks": {
-    "checks": 157,
+    "checks": 165,
     "failures": [],
     "method": "Actual NPC and location quest UI, both puzzle boards, cancel/JSON resume/death archive; inventory gift atomicity, cooldown, refusals and paging; affinity/story-specific voices; real mouse and Android-mapped screen touch, excluding special buttons.",
     "passed": true,
@@ -457,7 +457,7 @@
   },
   "current_configuration_font_coverage": {
     "passed": true,
-    "characters": 1745,
+    "characters": 1744,
     "missing": []
   },
   "fresh_content_checks_this_version": {
@@ -471,5 +471,31 @@
     "phone": 44,
     "story": 379
   },
-  "desktop_settings_checks_reused_from_v1_5_1": true
+  "desktop_settings_checks_reused_from_v1_5_1": true,
+  "release_touch_gesture_checks": {
+    "touch_release": {
+      "checks": 37,
+      "failures": [],
+      "method": "Actual ScreenTouch/ScreenDrag on title/settings, story choices and blank dialogue, scroll buttons, modifier keypad, world Y, two-finger stick/sprint, cancellation and focus loss. Desktop engine; no Android device/emulator.",
+      "passed": true
+    },
+    "touch_release_wide": {
+      "checks": 37,
+      "failures": [],
+      "method": "Actual ScreenTouch/ScreenDrag on title/settings, story choices and blank dialogue, scroll buttons, modifier keypad, world Y, two-finger stick/sprint, cancellation and focus loss. Desktop engine; no Android device/emulator.",
+      "passed": true
+    },
+    "touch_release_apk": {
+      "checks": 37,
+      "failures": [],
+      "method": "Actual ScreenTouch/ScreenDrag on title/settings, story choices and blank dialogue, scroll buttons, modifier keypad, world Y, two-finger stick/sprint, cancellation and focus loss. Desktop engine; no Android device/emulator.",
+      "passed": true
+    },
+    "touch_release_apk_wide": {
+      "checks": 37,
+      "failures": [],
+      "method": "Actual ScreenTouch/ScreenDrag on title/settings, story choices and blank dialogue, scroll buttons, modifier keypad, world Y, two-finger stick/sprint, cancellation and focus loss. Desktop engine; no Android device/emulator.",
+      "passed": true
+    }
+  }
 }

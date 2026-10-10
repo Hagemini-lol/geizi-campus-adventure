@@ -4,6 +4,11 @@ var autoplay:=true
 func _process(delta: float) -> bool:
 	return super._process(delta) if autoplay else false
 func slot() -> int:return game.day_clock.slot(game.economy.day_serial)
+func earliest_index(id: String) -> int:
+	var spec: Dictionary=game.task_system.definitions[id]
+	var result: int=int(spec.get("side_story",{}).get("min_index",0))
+	for prerequisite: String in spec.get("prerequisites",[]):result=maxi(result,earliest_index(prerequisite))
+	return result
 func mouse(at: Vector2) -> void:
 	for down: bool in [true,false]:
 		var event:=InputEventMouseButton.new();event.position=at;event.button_index=MOUSE_BUTTON_LEFT;event.pressed=down
@@ -12,6 +17,13 @@ func run() -> void:
 	game=load("res://main.tscn").instantiate();root.add_child(game);await process_frame
 	game.start_new_game();await transition();game.story_system.stage=6;game.story_system.reward_given=true;game.campaign.index=3
 	check(game.task_system.definitions.size()==63,"old task IDs remain plus four optional memoirs")
+	for echo: Dictionary in game.campaign.data.get("memo_echoes",[]):
+		var at: int=-1
+		for n: int in range(game.campaign.data["nodes"].size()):
+			if game.campaign.data["nodes"][n]["id"]==echo["event"]:at=n
+		check(at>=earliest_index(echo["quest"]),"memo and all prerequisites unlock before callback "+echo["event"])
+		var cast: Array=game.campaign.data["nodes"][at]["cast"]
+		check(echo["dialogue"].all(func(line: Dictionary):return line["actor"] in cast+["hero","system"]),"callback speakers belong to actual scene cast "+echo["event"])
 	for actor: String in game.relationships.COMPANIONS:game.relationships.change(actor,20)
 	check(game.side_quests.unlocked(game.task_system.definitions["memo_yang_seat"]),"first memoir opens after Yang awakening")
 	check(not game.side_quests.unlocked(game.task_system.definitions["memo_yang_qq"]),"QQ memory requires the seating memory")
@@ -37,7 +49,7 @@ func run() -> void:
 	await finish_story("memo_yang_qq")
 	check(not game.campaign.memo_echo_lines("yang_frame").is_empty(),"QQ reconstruction echoes in frame-up without advancing main index")
 	await finish_story("memo_yang_industry")
-	check(not game.campaign.memo_echo_lines("handout").is_empty(),"reconstructed invention echoes in safety handout")
+	check(not game.campaign.memo_echo_lines("li_hearing").is_empty(),"reconstructed invention echoes in later hearing")
 	await finish_story("memo_fei_newcomers")
 	check(game.interior_state["building"]=="B07","last memoir actually takes place in cafeteria")
 	check(not game.campaign.memo_echo_lines("preparation").is_empty(),"newcomer promise echoes before finale")

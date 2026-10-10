@@ -78,9 +78,11 @@ func run() -> void:
 	var before_click: Vector2=game.player.position
 	var screen: Vector2=root.get_canvas_transform()*target
 	touch(0,screen,true)
+	check(game.player.path.is_empty(),"holding a world tap does not move before lift")
+	await frames();touch(0,screen,false)
 	var click_route: bool=not game.player.path.is_empty()
 	check(click_route and game.player.path[-1].distance_to(target)<24,"screen coordinates map to intended world destination")
-	await frames();touch(0,screen,false);await frames()
+	await frames()
 	print("TOUCH_NAV ",before_click," -> ",target," at ",screen," notice ",game.notice," end ",game.player.position)
 	check(click_route,"screen tap reaches existing click-to-move navigation")
 	game.player.path.clear()
