@@ -79,12 +79,13 @@ func start(record: Dictionary, key: String) -> bool:
 	base_pose=Assets.fetch("res://assets/characters/hero/battle/zhao_mugei_rear_quarter.png")
 	punch_pose=Assets.fetch("res://assets/characters/hero/battle/zhao_mugei_punch.png")
 	dodge_pose=Assets.fetch("res://assets/characters/hero/battle/zhao_mugei_dodge.png")
-	interface.ally_slot.set_combatant("赵慕gei",base_pose)
+	interface.ally_slot.set_combatant("赵慕gei",Motion.cropped(base_pose))
 	var enemy_texture: Texture2D=record["portrait"] if record.has("portrait") else record["sprite"].texture if record.has("sprite") else MonsterScene.portrait(game.battle_asset_root.path_join(game.combat_rules.data["monsters"][enemy["id"]]["art"]))
-	interface.enemy_slot.set_combatant(enemy["name"],enemy_texture)
+	interface.enemy_slot.set_combatant(enemy["name"],Motion.cropped(enemy_texture))
 	if enemy.get("rarity","")=="boss":interface.stage.set_composition(Vector2(.25,.90),Vector2(.73,.64),.91,.53)
 	enemy_motion=Motion.new();enemy_motion.configure(game.battle_asset_root,game.combat_rules.data["monsters"][enemy["id"]],interface.enemy_slot)
 	hero_motion=Motion.new();hero_motion.configure(game.battle_asset_root,{"portrait_atlas":"assets/characters/hero/battle/actions-v2/atlas.png"},interface.ally_slot)
+	hero_motion.toward=1;hero_motion.register_pose("evade",dodge_pose);hero_motion.register_pose("physical",punch_pose)
 	interface.ally_slot.portrait_view.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	interface.enemy_slot.portrait_view.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	interface.action_selected.connect(selected)
@@ -243,10 +244,10 @@ func perform(id: String) -> void:
 		if action.get("damage_kind","")=="physical":game.sounds.play("attack_swing")
 		if id=="shoulder_check":
 			message+=" 沉肩抢进；对本次物理反击减伤65%。" if action.has("reduction") else " 对手正在施法，贴身撞击无法截住法术。"
-			await hero_motion.play("guard",.16);await hero_motion.play("attack",.24)
+			await hero_motion.play("guard",.16);await hero_motion.play("physical",.24)
 		elif id=="short_combo":
-			interface.ally_slot.set_pose(punch_pose);await move_hero(Vector2(13,0));await hero_motion.play("attack",.2)
-		elif id=="physical":interface.ally_slot.set_pose(punch_pose);await move_hero(Vector2(20,0))
+			await hero_motion.play("combo",.52)
+		elif id=="physical":await hero_motion.play("physical",.40)
 		else:await hero_motion.play("attack")
 		if action.has("effect"):await spell_effect(action["effect"],interface.enemy_slot)
 		game.sounds.play("impact") if action.get("damage_kind","")=="physical" else game.sounds.effect(str(action.get("effect",action.get("element","light"))))
@@ -254,7 +255,7 @@ func perform(id: String) -> void:
 		await enemy_motion.play("hit");await flash_actor(interface.enemy_slot)
 	elif id in ["dodge","wind_step"]:
 		game.sounds.play("dodge")
-		interface.ally_slot.set_pose(dodge_pose);await move_hero(Vector2(-22,0))
+		await hero_motion.play("evade",.34)
 		if id=="wind_step":
 			cooldowns[id]=turn+3
 			message="蹬地撤步，爆发换位避开这次攻击及干扰；没有额外回复。"
@@ -341,14 +342,6 @@ func perform(id: String) -> void:
 func recover_energy() -> void:
 	var recovered: int=game.combat_rules.recover_turn_energy()
 	if recovered>0:history.append("回合结算：精力自然恢复 %d。" % recovered)
-
-func move_hero(offset: Vector2) -> void:
-	var actor: Control=interface.ally_slot
-	var at:=actor.position
-	var tween:=create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(actor,"position",at+offset,.15)
-	tween.tween_property(actor,"position",at,.15)
-	await tween.finished
 
 func flash_actor(actor: Control) -> void:
 	actor.modulate=Color(1,.35,.35)

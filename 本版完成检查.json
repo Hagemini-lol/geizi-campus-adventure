@@ -1,5 +1,5 @@
 {
-  "version": "1.8.0",
+  "version": "1.9.0",
   "content_audit": {
     "version": "1.8.0",
     "main": {
@@ -367,6 +367,10 @@
       "checks": 1020,
       "passed": true
     },
+    "animation_flow": {
+      "checks": 211,
+      "passed": true
+    },
     "update_save_restart": {
       "checks": 7,
       "passed": true
@@ -381,9 +385,9 @@
     "stream_recovery"
   ],
   "windows_launcher_passed": true,
-  "windows_pck_sha256": "d03696c5305ca88d6439258ecc47d1c74075cd2a0dadc1a81469a43e15c05e36",
-  "apk_sha256": "033ea658c7e58a36aa5566144ffe8745f9e0abeb231da58f33dfaa5cc758c4fa",
-  "android_version_code": 14,
+  "windows_pck_sha256": "3d12f2601ba49e5d53ffbbc7b1658de32483dac6be3f49d5532932bc2e56aba2",
+  "apk_sha256": "999f78b6195f7e9edd06f42c776566382e8c2ee98c2670f93230d1442942299f",
+  "android_version_code": 15,
   "original_android_identity_and_signature_verified": true,
   "exported_apk_desktop_checks": {
     "touch_standard": 49,
@@ -423,16 +427,17 @@
     "failures": [],
     "passed": true
   },
-  "unchanged_system_checks_reused_from_v1_5_0_or_v1_5_1": [
+  "source_checks_reused_from_preceding_release": [
+    "mod",
     "balance",
-    "stamina",
-    "expansion",
     "stream_recovery",
     "economy",
+    "lesson",
     "sound",
-    "presentation",
     "story_region",
-    "music_farming",
+    "class_ten",
+    "social",
+    "campus_rooms",
     "time"
   ],
   "notes": "Playtime is an explicit content estimate. APK runtime checks use the exported payload on the desktop engine; they are not Android device tests.",
@@ -444,7 +449,7 @@
     "passed": true,
     "rooms": 249
   },
-  "furniture_navigation_rechecked_this_version": {
+  "furniture_navigation_checks_reused_from_v1_8_0": {
     "actual_walk_targets": 8,
     "checks": 1786,
     "failures": [],
@@ -534,5 +539,20 @@
       "method": "Actual ScreenTouch/ScreenDrag on title/settings, story choices and blank dialogue, scroll buttons, modifier keypad, world Y, two-finger stick/sprint, cancellation and focus loss. Desktop engine; no Android device/emulator.",
       "passed": true
     }
-  }
+  },
+  "animation_flow_exported_apk_checks": {
+    "checks": 211,
+    "failures": [],
+    "method": "Actual hero/Leon/staff four-beat gait, 2400 cached region updates, real farming spawn/hysteresis/fixed feet/pause, real battle responsive 1280/960 layout anchored actions, forward attacks/backward evade, actual physical and evasion turns at 8fps. Desktop rendering; no Android device or emulator.",
+    "passed": true
+  },
+  "animation_pose_limits": {
+    "world_hero_walk": 4,
+    "world_hero_run": 8,
+    "pixel_leon_and_staff": 4,
+    "monster_pose_keys": 3,
+    "battle_idle_pose_keys": 3,
+    "extra_walk_frame_images": 0
+  },
+  "unchanged_seating_and_navigation_checks_reused_from_v1_8_0": true
 }

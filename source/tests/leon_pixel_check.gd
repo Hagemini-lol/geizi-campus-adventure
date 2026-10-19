@@ -24,7 +24,7 @@ func run() -> void:
 			check(record["sprite"].texture.region==Rect2(facing*128,0,128,160),"idle direction "+str(facing))
 			for step: int in range(10):
 				gait.advance(.13,1000)
-				check(gait.rate<=4 and record["sprite"].texture.region.position.y in [160.0,320.0],"walking alternates two actual poses and caps fps")
+				check(gait.rate<=4 and record["sprite"].texture.region.position.y in [0.0,160.0,320.0],"walking bridges actual step poses with planted feet and caps fps")
 			gait.stop();check(gait.rate==0,"standing stops animation")
 	check(game.npc_catalog.dialogue_portrait("fei_yan").get_height()>1000,"original full-size Leon dialogue render remains separate")
 	game.terrain.current_scene.npcs.set_process(false)

@@ -2,6 +2,7 @@ extends RefCounted
 
 const BASE_SPEED:=100.8 # 4.2 m/s in world pixels.
 const BASE_FPS:=4.0
+const STEP_CYCLE: Array[int]=[0,-1,1,-1] # step, planted feet, opposite step, planted feet.
 const DIRECTIONS: Array[String]=["front","back","left","right"]
 var ready:=false
 var sprite: Sprite2D
@@ -17,12 +18,19 @@ var displayed_frame:=-1
 var frames_advanced:=0.0
 var paint_key:=""
 var pixel_sheet: Texture2D
+var pixel_frames: Array[Array]=[]
 
 func configure(root: String, entry: Dictionary, target: Sprite2D, body_height: float, standing: Array[Texture2D], bias: float=0.0) -> bool:
-	ready=false;poses.clear();idle=standing;sprite=target;height=body_height;foot_bias=bias;pixel_sheet=null
+	ready=false;poses.clear();pixel_frames.clear();idle=standing;sprite=target;height=body_height;foot_bias=bias;pixel_sheet=null
 	var source:=Image.load_from_file(root.path_join(str(entry.get("source","")).trim_prefix("res://")))
 	if source!=null and entry.get("pixel_grid",false):
-		pixel_sheet=ImageTexture.create_from_image(source);ready=true;paint_key="";sprite.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST;stop();return true
+		pixel_sheet=ImageTexture.create_from_image(source)
+		for direction: int in range(4):
+			var cells: Array=[]
+			for row: int in range(3):
+				var cell:=AtlasTexture.new();cell.atlas=pixel_sheet;cell.region=Rect2(direction*128,row*160,128,160);cells.append(cell)
+			pixel_frames.append(cells)
+		ready=true;paint_key="";sprite.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST;stop();return true
 	if source==null or not entry.get("source_regions") is Dictionary or idle.size()!=4:return false
 	for direction: String in DIRECTIONS:
 		var reference:=Image.load_from_file(root.path_join("assets/characters/runtime/"+str(entry["id"])+"/"+direction+".png"))
@@ -46,22 +54,25 @@ func head_center(image: Image) -> float:
 	return head.get_center().x
 
 func face(direction: int) -> void:
-	facing=clampi(direction,0,3)
-	paint()
+	var next:=clampi(direction,0,3)
+	if next==facing:return
+	facing=next;paint()
 
 func stop() -> void:
+	if not paint_key.is_empty() and not moving and displayed_frame== -1 and rate==0:return
 	phase=0;rate=0;moving=false;displayed_frame=-1
 	paint()
 
 func advance(delta: float, actual_speed: float) -> void:
 	if not ready:return
-	if actual_speed<=.01 or delta<=0:
+	if delta<=0:return
+	if actual_speed<=.01:
 		stop();return
 	moving=true;rate=minf(4.0 if pixel_sheet!=null else 8.0,BASE_FPS*actual_speed/BASE_SPEED)
 	var advance_by:=rate*delta
 	frames_advanced+=advance_by
-	phase=fposmod(phase+advance_by,2.0)
-	displayed_frame=int(floor(phase))
+	phase=fposmod(phase+advance_by,4.0)
+	displayed_frame=STEP_CYCLE[int(floor(phase))]
 	paint()
 
 func paint() -> void:
@@ -70,8 +81,7 @@ func paint() -> void:
 	if key==paint_key:return
 	paint_key=key
 	if pixel_sheet!=null:
-		var cell:=AtlasTexture.new();cell.atlas=pixel_sheet;cell.region=Rect2(facing*128,(1+displayed_frame if moving and displayed_frame>=0 else 0)*160,128,160)
-		sprite.texture=cell;sprite.centered=false;sprite.rotation=0;sprite.scale=Vector2.ONE*height/140
+		sprite.texture=pixel_frames[facing][1+displayed_frame if moving and displayed_frame>=0 else 0];sprite.centered=false;sprite.rotation=0;sprite.scale=Vector2.ONE*height/140
 		sprite.offset=Vector2(-64,-156+foot_bias*140/height);return
 	var texture: Texture2D=idle[facing]
 	var anchor:=Vector2(texture.get_width()*.5,texture.get_height())

@@ -8,6 +8,7 @@ var textures: Dictionary={}
 var idle_frames: Dictionary={}
 var animation_clock:=0.0
 var animation_step:=0
+var breath_clock:=0.0
 
 static func portrait(path: String) -> Texture2D:
 	var image:=Image.load_from_file(path)
@@ -38,14 +39,15 @@ func refresh() -> void:
 		if not textures.has(monster["id"]):
 			textures[monster["id"]]=portrait(game.battle_asset_root.path_join(spec["art"]))
 			load_idle_frames(str(monster["id"]),spec)
-		var texture: Texture2D=textures[monster["id"]]
+		var small: Array=idle_frames.get(monster["id"],[])
+		var texture: Texture2D=small[0] if not small.is_empty() else textures[monster["id"]]
 		if texture==null:continue
 		var sprite:=Sprite2D.new();sprite.texture=texture;sprite.z_index=10
 		sprite.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		var height:=float(spec.get("world_height",40.8))
 		sprite.scale=Vector2.ONE*height/texture.get_height();sprite.offset=Vector2(0,-texture.get_height()*.5)
 		sprite.position=at;add_child(sprite)
-		records.append({"uid":monster["uid"],"name":spec["name"],"at":at,"height":height,"width":texture.get_width()*sprite.scale.x,"monster":monster,"sprite":sprite})
+		records.append({"uid":monster["uid"],"name":spec["name"],"at":at,"height":height,"width":texture.get_width()*sprite.scale.x,"monster":monster,"sprite":sprite,"alert":false,"pose":0})
 	set_process(not records.is_empty())
 
 func load_idle_frames(id: String, spec: Dictionary) -> void:
@@ -63,16 +65,23 @@ func load_idle_frames(id: String, spec: Dictionary) -> void:
 
 func _process(delta: float) -> void:
 	if game.player.frozen or game.transition_busy:return
-	animation_clock+=delta
-	if animation_clock<1.0/3.0:return
-	animation_clock=fmod(animation_clock,1.0/3.0);animation_step=(animation_step+1)%2
-	for record: Dictionary in records:
+	breath_clock+=delta;animation_clock+=delta
+	var change_pose:=animation_clock>=1.0/3.0
+	if change_pose:
+		animation_step=(animation_step+int(animation_clock*3))%2;animation_clock=fmod(animation_clock,1.0/3.0)
+	for i: int in range(records.size()):
+		var record: Dictionary=records[i]
 		var frames: Array=idle_frames.get(record["monster"]["id"],[])
 		if frames.is_empty():continue
 		var sprite: Sprite2D=record["sprite"]
-		var alert: bool=game.player.position.distance_squared_to(record["at"])<1600
-		sprite.texture=frames[2 if alert else animation_step]
-		sprite.scale=Vector2.ONE*float(record["height"])/120.0;sprite.offset=Vector2(0,-60)
+		# The feet stay fixed, including the first frame after spawning.
+		var factor:=float(record["height"])/120.0
+		sprite.scale=Vector2(factor,factor*(1+sin(breath_clock*2.1+i*.7)*.008))
+		if not change_pose:continue
+		var distance: float=game.player.position.distance_squared_to(record["at"])
+		record["alert"]=distance<2304 if record["alert"] else distance<1600
+		var next: int=2 if record["alert"] else animation_step
+		if next!=int(record["pose"]):sprite.texture=frames[next];record["pose"]=next
 
 func spawn_point(monster: Dictionary, rule: Dictionary) -> Vector2:
 	var limits:=Rect2(Vector2.ZERO,scene.dimensions)
