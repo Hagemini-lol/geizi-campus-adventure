@@ -28,8 +28,9 @@ func run() -> void:
 			gait.stop();check(gait.rate==0,"standing stops animation")
 	check(game.npc_catalog.dialogue_portrait("fei_yan").get_height()>1000,"original full-size Leon dialogue render remains separate")
 	game.terrain.current_scene.npcs.set_process(false)
-	await RenderingServer.frame_post_draw
-	root.get_texture().get_image().save_png(game.package_root.path_join("runtime/v15-leon-world.png"))
+	if DisplayServer.get_name()!="headless":
+		await RenderingServer.frame_post_draw
+		root.get_texture().get_image().save_png(game.package_root.path_join("runtime/v15-leon-world.png"))
 	game.day_clock.current_period=1;game.sync_classroom_period();await process_frame
 	check(game.terrain.current_scene.npcs.records.size()==32,"pixel replacement preserves seated class and collision occupants")
 	var f:=FileAccess.open(game.package_root.path_join("runtime/leon_pixel_checks.json"),FileAccess.WRITE)

@@ -239,7 +239,11 @@ func _ready() -> void:
 		player.hide();gameplay_hud.hide()
 		front_end.show_title()
 	DisplayServer.window_set_title("gei子的冒险")
-	print("CAMPUS_READY: 20 districts, viewport HD tiles, 17 corridors, 150 rooms, one active scene")
+	var floor_count:=0;var room_count:=0
+	for entry: Dictionary in interior_info["entrances"]:
+		for row: Dictionary in interior_info["buildings"][entry["id"]]["floors"]:
+			floor_count+=1;room_count+=row["rooms"].size()
+	print("CAMPUS_READY: %d districts, %d campus buildings, %d floors, %d rooms, one active scene" % [model["regions"].size(),interior_info["entrances"].size(),floor_count,room_count])
 
 func resolve_path(value: String) -> String:
 	return value if value.is_absolute_path() else package_root.path_join(value).simplify_path()
@@ -1007,6 +1011,10 @@ func approach_interaction(at: Vector2) -> PackedVector2Array:
 			if not nav.walkable(target):continue
 			var route: PackedVector2Array=nav.route(player.position,target)
 			if route.is_empty():continue
+			# Outdoor grid paths may stop at a cell centre rather than the
+			# requested nearby point. Only accept a usable interaction endpoint.
+			if not route[-1].is_equal_approx(target) and nav.segment_clear(route[-1],target):route.append(target)
+			if route[-1].distance_to(at)>INTERACTION_RADIUS:continue
 			var distance:=0.0
 			var previous:=player.position
 			for point: Vector2 in route:distance+=previous.distance_to(point);previous=point
@@ -1035,6 +1043,7 @@ func maximum_clear_zoom() -> float:
 func interactions() -> Array[Dictionary]:
 	if not interior_state.is_empty():
 		var result: Array[Dictionary]=terrain.current_scene.portals.duplicate()
+		result.append_array(campus_life.rooms.interactions())
 		if terrain.current_scene.npcs!=null:result.append_array(terrain.current_scene.npcs.interactions())
 		if active_monsters()!=null:result.append_array(active_monsters().interactions())
 		if lesson_view.available() and not story_system.seat_active():
@@ -1098,6 +1107,10 @@ func click_interaction(at: Vector2) -> bool:
 			else:
 				player.path=approach_interaction(item["at"])
 				show_notice("走到自己的座位后，按 E 上课")
+		elif item["action"] in ["campus_sleep","campus_dine","entrance"]:
+			if within_interaction(item["at"]):execute_interaction(item)
+			else:
+				player.path=approach_interaction(item["at"]);show_notice("走近后按 E / X，"+interaction_text(item))
 		elif item["action"]=="board":
 			if within_interaction(item["at"]):
 				execute_interaction(item)
@@ -1115,6 +1128,8 @@ func interaction_text(item: Dictionary) -> String:
 	match str(item.get("action","")):
 		"lesson":return "坐到自己的座位上课"
 		"monster":return "与"+str(item["name"])+"战斗"
+		"campus_sleep":return "在自己的床位休息"
+		"campus_dine":return "就座用餐"
 		"npc":return "和"+str(item["name"])+"打招呼"
 		"board": return "查看校园全图并传送"
 		"entrance": return "进入"+str(interior_info["buildings"][item["building"]]["name"])
@@ -1123,7 +1138,7 @@ func interaction_text(item: Dictionary) -> String:
 		"outside": return "返回校园"
 		"room":
 			var room: Dictionary=interior_info["buildings"][interior_state["building"]]["floors"][int(interior_state["floor"])-1]["rooms"][int(item["room"])]
-			return "进入办公室" if room.get("office",false) else "进入教室"
+			return "进入"+str(room.get("name","房间"))
 		"corridor": return "返回走廊"
 	return ""
 

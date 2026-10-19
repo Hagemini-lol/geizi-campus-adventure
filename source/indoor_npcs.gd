@@ -43,7 +43,7 @@ func setup(owner_scene: Node2D, owner_game: Node2D, image: Image) -> void:
 			record["role"]="office_student";records.append(record)
 		bake_ordinary(image)
 		return
-	var ten_class: bool=scene.state["kind"]=="classroom" and int(scene.state["floor"])==3 and int(scene.state.get("room",-1))==0
+	var ten_class: bool=scene.is_ten_class
 	if ten_class and game.day_clock.current_period in [1,2]:
 		lesson_active=true
 		var named_index:=0
@@ -55,8 +55,8 @@ func setup(owner_scene: Node2D, owner_game: Node2D, image: Image) -> void:
 			var name: String=game.npc_catalog.characters[id]["display_name"] if named else "同学"
 			var record:=make_record(identity+"/seat/"+str(seat),id,name,scene.seat_position(seat),1,named)
 			record["seat_index"]=seat;record["seated"]=true;record["height"]*=.68
-			# Raise the seated torso above the desktop while its interaction point
-			# remains at the chair. The desk foreground masks the lower torso.
+			# Interaction stays at the chair; bake_ordinary assigns the shared
+			# static sitting sprite and aligns its waist independently.
 			record["art_offset"]=Vector2(0,-scene.furniture_footprints[seat].size.y*.30)
 			records.append(record)
 		var teacher_id: String=game.campus_life.teacher_for(scene.state["building"],game.day_clock.current_period)
@@ -75,7 +75,7 @@ func setup(owner_scene: Node2D, owner_game: Node2D, image: Image) -> void:
 			var footprint: Rect2=scene.furniture_footprints[seats[i]]
 			var at:=footprint.get_center()+Vector2(0,footprint.size.y*.22)
 			var id: String=game.npc_catalog.ORDINARY_IDS[(seed_value+i)%6]
-			var facing:=1 if i%3!=0 else 0
+			var facing:=1
 			var name_value: String="同学"
 			var named:=i<static_named.size()
 			if named:id=static_named[i];name_value=game.npc_catalog.characters[id]["display_name"];facing=0
@@ -146,26 +146,31 @@ func bake_ordinary(image: Image) -> void:
 			if seated:
 				crop=crop.get_region(Rect2i(0,0,crop.get_width(),maxi(1,roundi(crop.get_height()*.68))))
 			frame_cache[id+str(direction)]=crop
-	var desk_patches: Array[Dictionary]=[]
-	if scene.state["kind"]=="classroom" and not scene.is_office:
-		var ten: bool=scene.building["floors"][int(scene.state["floor"])-1]["rooms"][int(scene.state["room"])] ["class10"]
-		var factor:=.265 if ten else .2
-		var rows: Array=[320,428,538,651] if ten else [365,485,612]
-		for i: int in range(records.size()):
-			if records[i].get("teacher",false):continue
-			var seat: int=int(records[i]["seat_index"]) if lesson_active else [0,2,4,6,9,11,13,15,16,18,20,22][i]
-			var footprint: Rect2=scene.furniture_footprints[seat]
-			var desk:=Rect2(footprint.position.x,float(rows[int(seat/8)])*factor,footprint.size.x,(35 if ten else 45)*factor)
-			var rect:=Rect2i((desk.position*density).round(),(desk.size*density).ceil())
-			desk_patches.append({"at":rect.position,"image":image.get_region(rect)})
+	# Furniture foreground must never contain pieces of seated actors. Keep
+	# these small upper-body textures separate and share them by appearance.
+	var seated_textures: Dictionary={}
 	for record: Dictionary in records:
-		var crop: Image=frame_cache[record["character"]+str(record["facing"])]
-		record["width"]=float(crop.get_width())/density.x
-		var at: Vector2=(Vector2(record["at"])+Vector2(record.get("art_offset",Vector2.ZERO)))*density-Vector2(crop.get_width()*.5,crop.get_height())
-		image.blend_rect(crop,Rect2i(Vector2i.ZERO,crop.get_size()),Vector2i(at.round()))
-	for patch: Dictionary in desk_patches:
-		var crop: Image=patch["image"]
-		image.blit_rect(crop,Rect2i(Vector2i.ZERO,crop.get_size()),patch["at"])
+		var crop: Image=frame_cache[record["character"]+str(record["facing"]) ]
+		if record.get("seated",false):
+			var key: String=record["character"]+str(record["facing"])
+			if not seated_textures.has(key):
+				crop=crop.duplicate()
+				crop.resize(maxi(1,roundi(crop.get_width()*.62)),maxi(1,roundi(crop.get_height()*.62)),Image.INTERPOLATE_NEAREST if record["character"]=="fei_yan" else Image.INTERPOLATE_LANCZOS)
+				crop.generate_mipmaps();seated_textures[key]=ImageTexture.create_from_image(crop);texture_bytes+=crop.get_data_size()
+			var sprite:=Sprite2D.new();sprite.centered=false;sprite.z_index=10
+			sprite.texture=seated_textures[key];sprite.scale=Vector2.ONE/density
+			sprite.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST if record["character"]=="fei_yan" else CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+			var footprint: Rect2=scene.furniture_footprints[int(record["seat_index"])]
+			sprite.position=Vector2(footprint.get_center().x,footprint.end.y+.05)
+			# The waist meets the chair seat, while the chair legs remain visible.
+			sprite.offset=Vector2(-sprite.texture.get_width()*.5,-sprite.texture.get_height()-5*density.y)
+			record["sprite"]=sprite;record["width"]=sprite.texture.get_width()/density.x
+			record["height"]=sprite.texture.get_height()/density.y;record["art_offset"]=Vector2.ZERO
+			add_child(sprite)
+		else:
+			record["width"]=float(crop.get_width())/density.x
+			var at: Vector2=Vector2(record["at"])*density-Vector2(crop.get_width()*.5,crop.get_height())
+			image.blend_rect(crop,Rect2i(Vector2i.ZERO,crop.get_size()),Vector2i(at.round()))
 
 func valid_point(at: Vector2, box: Rect2) -> Vector2:
 	if box.has_point(at) and scene.navigation.walkable(at):return at

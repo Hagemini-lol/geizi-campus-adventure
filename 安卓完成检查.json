@@ -1,13 +1,13 @@
 {
   "version": 6,
-  "game_version": "1.7.0",
+  "game_version": "1.8.0",
   "game_name": "gei子的冒险",
   "apk": {
     "apk": "D:\\Godot\\校园自由漫游\\gei子的冒险.apk",
-    "bytes": 432270774,
-    "sha256": "4bc74b219298db1bd7262649b6022facffe4798f267fe9869f292926b209d259",
+    "bytes": 438202223,
+    "sha256": "033ea658c7e58a36aa5566144ffe8745f9e0abeb231da58f33dfaa5cc758c4fa",
     "signature_verified": true,
-    "asset_hashes_checked": 3791,
+    "asset_hashes_checked": 3794,
     "configuration_files_checked": 7,
     "saves_settings_signing_keys_excluded": true,
     "native_abis": [
@@ -38,14 +38,14 @@
   },
   "furniture_checks": {
     "actual_walk_targets": 8,
-    "checks": 2266,
+    "checks": 1786,
     "failures": [],
     "foreground_occlusion": true,
     "passed": true,
     "scene_types": 4,
     "separate_table_chair_collisions": true
   },
-  "furniture_checks_reused_from_preceding_version": true,
+  "furniture_checks_reused_from_preceding_version": false,
   "campaign_checks": {
     "checks": 304,
     "failures": [],
@@ -6223,7 +6223,7 @@
     "motion_steps": 450,
     "passed": true
   },
-  "windows_pck_sha256": "450b5240fdeafb7d60102ea3787bd860f7ec3d61b8992168ffc94299d8eda752",
+  "windows_pck_sha256": "d03696c5305ca88d6439258ecc47d1c74075cd2a0dadc1a81469a43e15c05e36",
   "android_minimum": "7.0 / API 24",
   "orientation": "landscape",
   "original_assets_edited": false,
@@ -7048,7 +7048,7 @@
     "puzzles": 10
   },
   "content_audit": {
-    "version": "1.7.0",
+    "version": "1.8.0",
     "main": {
       "lines": 960,
       "unique_lines": 889,

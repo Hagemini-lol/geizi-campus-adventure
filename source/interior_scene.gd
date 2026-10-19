@@ -83,7 +83,7 @@ func setup(value: Dictionary, context: Dictionary, directory: String, game: Node
 		add_child(npcs)
 		npcs.setup(self,game,image)
 		npc_stamp="%d/%d/%d/%d/%d/%d" % [game.economy.day_serial,game.day_clock.current_period,game.campaign.index,game.story_system.stage,game.campaign.ao_until,game.relationships.revision]
-	# Preserve the seated students already baked into the room image.
+	# Furniture stays separate from the depth-sorted static seated actors.
 	build_foreground(image,factor)
 	image.generate_mipmaps()
 	texture_bytes=foreground_bytes+image.get_data_size()+(npcs.texture_bytes if npcs!=null else 0)
@@ -214,7 +214,7 @@ func configure_corridor(row: Dictionary, level: int) -> void:
 			var x:=float(raw)*24
 			var width:=45.6 if room["class10"] else 24.0
 			portal(Vector2(x,97),Rect2(x-13,85.5,26,16),"room",{"room":int(room["index"]),"side":side,"art_rect":Rect2(x-width*.5,21.88,width,50.4)})
-			if room.get("office",false) or room.has("life_layout"):
+			if room.get("office",false) or room.has("life_layout") or state["building"] in ["B06","B13"]:
 				var sign:=PanelContainer.new();sign.position=Vector2(x-48,1);sign.size=Vector2(96,23)
 				var plate:=StyleBoxFlat.new();plate.bg_color=Color("435d52");plate.border_color=Color("9cae9a")
 				plate.set_border_width_all(1);sign.add_theme_stylebox_override("panel",plate)

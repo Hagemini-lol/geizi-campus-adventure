@@ -1,7 +1,7 @@
 {
-  "version": "1.7.0",
+  "version": "1.8.0",
   "content_audit": {
-    "version": "1.7.0",
+    "version": "1.8.0",
     "main": {
       "lines": 960,
       "unique_lines": 889,
@@ -363,6 +363,10 @@
       "checks": 575,
       "passed": true
     },
+    "campus_rooms": {
+      "checks": 1020,
+      "passed": true
+    },
     "update_save_restart": {
       "checks": 7,
       "passed": true
@@ -377,16 +381,16 @@
     "stream_recovery"
   ],
   "windows_launcher_passed": true,
-  "windows_pck_sha256": "450b5240fdeafb7d60102ea3787bd860f7ec3d61b8992168ffc94299d8eda752",
-  "apk_sha256": "4bc74b219298db1bd7262649b6022facffe4798f267fe9869f292926b209d259",
-  "android_version_code": 13,
+  "windows_pck_sha256": "d03696c5305ca88d6439258ecc47d1c74075cd2a0dadc1a81469a43e15c05e36",
+  "apk_sha256": "033ea658c7e58a36aa5566144ffe8745f9e0abeb231da58f33dfaa5cc758c4fa",
+  "android_version_code": 14,
   "original_android_identity_and_signature_verified": true,
   "exported_apk_desktop_checks": {
     "touch_standard": 49,
     "touch_wide": 49,
     "mod_runtime": 33
   },
-  "runtime_asset_hashes_verified": 3791,
+  "runtime_asset_hashes_verified": 3794,
   "original_assets_modified": false,
   "personal_files_unchanged": true,
   "existing_share_zip_unchanged": true,
@@ -425,19 +429,34 @@
     "expansion",
     "stream_recovery",
     "economy",
-    "lesson",
     "sound",
     "presentation",
     "story_region",
     "music_farming",
-    "leon_pixel",
     "time"
   ],
   "notes": "Playtime is an explicit content estimate. APK runtime checks use the exported payload on the desktop engine; they are not Android device tests.",
+  "campus_rooms_exported_apk_checks": {
+    "checks": 1020,
+    "failures": [],
+    "mapped_buildings": 14,
+    "method": "Actual rooms, exits, furniture navigation, shared seated sprites, nap and overnight, midnight allowance, paid and packed dining, cancellation/funds/death/full caps, actual save and load; screenshots on desktop, no emulator.",
+    "passed": true,
+    "rooms": 249
+  },
+  "furniture_navigation_rechecked_this_version": {
+    "actual_walk_targets": 8,
+    "checks": 1786,
+    "failures": [],
+    "foreground_occlusion": true,
+    "passed": true,
+    "scene_types": 4,
+    "separate_table_chair_collisions": true
+  },
   "social_exported_apk_checks": {
     "checks": 575,
     "failures": [],
-    "method": "25 authored voices at exact thresholds; real confession/date/breakup UI and post-event chat, legacy and actual save/reload; real current-room NPC warning, modal and distance cancellation, autonomous battle, real guard turn and attack speech, daily/grace and no reward/death farming; massacre survivors and resting/dead exclusions.",
+    "method": "25 authored voices at exact thresholds; real confession/date/breakup UI and post-event chat, legacy and actual save/reload; real current-room NPC warning, modal and distance cancellation, autonomous battle, real guard turn and attack speech, defeat recovery and escape dialogue, daily/grace and no reward/death farming; 200 level/attack damage cases; massacre survivors and resting/dead exclusions.",
     "passed": true
   },
   "class_ten_exported_apk_checks": {
@@ -486,7 +505,8 @@
     "campus_life": 374,
     "relationship": 174,
     "phone": 44,
-    "story": 379
+    "story": 379,
+    "leon_pixel": 53
   },
   "desktop_settings_checks_reused_from_v1_5_1": true,
   "release_touch_gesture_checks": {

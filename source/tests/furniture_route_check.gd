@@ -62,7 +62,7 @@ func run() -> void:
 				for record: Dictionary in scene.npcs.records:check(record.get("seated",false),"ordinary classroom students use seated appearance")
 		if scene.is_ten_class:
 			game.day_clock.current_period=1;game.sync_classroom_period();await frames()
-			check(scene.npcs.lesson_active and scene.seat_marker.visible,"morning class seat marker remains above furniture")
+			check(scene.npcs.lesson_active and game.lesson_view.available() and (scene.seat_marker==null or not scene.seat_marker.visible),"morning class remains interactable without removed white-circle marker")
 			var route: PackedVector2Array=game.approach_interaction(scene.hero_seat)
 			check(not route.is_empty(),"hero class seat approachable")
 			if not route.is_empty():check(await travel(route[-1]),"hero walks to own seat while avoiding furniture")

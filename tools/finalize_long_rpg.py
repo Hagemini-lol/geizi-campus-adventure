@@ -9,7 +9,7 @@ sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
 names = ['campaign', 'sidequest', 'puzzle', 'mod', 'campaign_behavior', 'campaign_save',
          'update_save', 'balance', 'stamina', 'expansion', 'stream_recovery', 'economy',
          'campus_life', 'lesson', 'sound', 'presentation', 'story_region',
-         'music_farming', 'relationship', 'leon_pixel', 'phone', 'story', 'class_ten', 'social']
+         'music_farming', 'relationship', 'leon_pixel', 'phone', 'story', 'class_ten', 'social', 'campus_rooms']
 checks = {}
 for name in names:
     checks[name] = read(root / 'runtime' / (name + '_checks.json'))
@@ -42,7 +42,7 @@ report = {
     'unchanged_base_formula_and_stream_checks_reused': ['balance', 'stream_recovery'],
     'windows_launcher_passed': True,
     'windows_pck_sha256': sha(root / 'runtime/campus.pck'),
-    'apk_sha256': apk['sha256'], 'android_version_code': 13,
+    'apk_sha256': apk['sha256'], 'android_version_code': 14,
     'original_android_identity_and_signature_verified': True,
     'exported_apk_desktop_checks': {'touch_standard': 49, 'touch_wide': 49, 'mod_runtime': 33},
     'runtime_asset_hashes_verified': len(manifest['files']),
@@ -54,11 +54,15 @@ report = {
     'mobile_ui_fix_checks': read(root / 'runtime/mobile_ui_fix_checks.json'),
     'mobile_ui_fix_exported_standard': read(root / 'runtime/mobile_ui_fix_apk_checks.json'),
     'mobile_ui_fix_exported_wide': read(root / 'runtime/mobile_ui_fix_apk_wide_checks.json'),
-    'unchanged_system_checks_reused_from_v1_5_0_or_v1_5_1': [name for name in names if name not in ['campaign','sidequest','puzzle','campaign_behavior','campaign_save','campus_life','relationship','phone','story','mod','update_save','class_ten','social']]+['time'],
+    'unchanged_system_checks_reused_from_v1_5_0_or_v1_5_1': [name for name in names if name not in ['campaign','sidequest','puzzle','campaign_behavior','campaign_save','campus_life','relationship','phone','story','mod','update_save','class_ten','social','campus_rooms','lesson','leon_pixel']]+['time'],
     'notes': 'Playtime is an explicit content estimate. APK runtime checks use the exported payload on the desktop engine; they are not Android device tests.'
 }
 assert not report['desktop_settings_and_save_checks']['failures']
 assert all(report[key]['passed'] for key in ['mobile_ui_fix_checks','mobile_ui_fix_exported_standard','mobile_ui_fix_exported_wide'])
+report['campus_rooms_exported_apk_checks']=read(root/'runtime/campus_rooms_apk_checks.json')
+assert report['campus_rooms_exported_apk_checks']['passed'] and report['campus_rooms_exported_apk_checks']['checks']==checks['campus_rooms']['checks'] and checks['campus_rooms']['mapped_buildings']==14
+report['furniture_navigation_rechecked_this_version']=read(root/'runtime/furniture_route_checks.json')
+assert report['furniture_navigation_rechecked_this_version']['passed']
 report['social_exported_apk_checks']=read(root/'runtime/social_apk_checks.json')
 assert report['social_exported_apk_checks']['passed'] and report['social_exported_apk_checks']['checks']==checks['social']['checks'] and checks['social']['checks']>=575
 report['class_ten_exported_apk_checks']=read(root/'runtime/class_ten_apk_checks.json')

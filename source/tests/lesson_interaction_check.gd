@@ -30,7 +30,7 @@ func seat_check(period: int) -> void:
 	var npcs: Node2D=scene.npcs
 	var has_teacher: bool=true
 	check(npcs.lesson_active and npcs.records.size()==31+int(has_teacher),"31 seated students and only the scheduled teacher")
-	check(npcs.movers.is_empty() and npcs.get_child_count()==0 and not npcs.is_processing(),"seated NPCs are baked without sprite/AI nodes")
+	check(npcs.movers.is_empty() and npcs.get_child_count()==31 and not npcs.is_processing(),"31 shared static seated sprites have no animation or AI processing")
 	var seats: Dictionary={};var named:=0;var ordinary:=0;var teacher:=0
 	for record: Dictionary in npcs.records:
 		if record.get("teacher",false):

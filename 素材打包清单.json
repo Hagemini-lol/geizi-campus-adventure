@@ -18956,13 +18956,28 @@
       "file": "资源/字体/来源.txt",
       "bytes": 292,
       "sha256": "1b9b2acbebafc2344923a7158ea97f7a07e2a8a00ecc5103228d9316083b184c"
+    },
+    {
+      "file": "资源/新增内景/v1.8/auditorium.png",
+      "bytes": 1883788,
+      "sha256": "d0f9b65844eb621cd1abd889f281754da3be3f6b2c7ac1df5aa13c9d0e3aea7f"
+    },
+    {
+      "file": "资源/新增内景/v1.8/equipment.png",
+      "bytes": 2059948,
+      "sha256": "d6d3e228ec794b440478599f4a7149b93fad75a39d86b28d81cc688fe51faeb4"
+    },
+    {
+      "file": "资源/新增内景/v1.8/warehouse.png",
+      "bytes": 1975995,
+      "sha256": "3861e8f3f7d43fd0453b56e469484517884511600b38d070c934438804fa7fb0"
     }
   ],
-  "total_bytes": 383146696,
+  "total_bytes": 389066427,
   "source_files_preserved": true,
   "zip_frozen": true,
   "local_sports_background_repair": "runtime/stadium_repair.json",
-  "file_count": 3791,
-  "original_entries_verified_unchanged": 3720,
-  "runtime_asset_total": 3788
+  "file_count": 3794,
+  "original_entries_verified_unchanged": 3791,
+  "runtime_asset_total": 3794
 }

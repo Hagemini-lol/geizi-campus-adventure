@@ -3,11 +3,15 @@ extends RefCounted
 # Schedules are sampled once from day/period/identity, never from frame time.
 var game: Node2D
 var print_room:=2
+var rooms:=preload("res://campus_rooms.gd").new()
 const STAFF={"cook_hu":"胡师傅","clerk_qiu":"邱姐","worker_hou":"侯师傅","warden_chen":"陈阿姨","warden_zhou":"周叔","print_luo":"罗老师","sports_du":"杜老师","history_tian":"田老师","chemistry_he":"何老师","math_feng":"冯老师","chinese_xu":"许老师"}
 const LAYOUTS={
 	"cafeteria":{"floor":[60,270,1420,680],"boxes":[[435,175,625,130],[315,375,210,145],[665,375,210,145],[1010,375,210,145],[295,570,215,145],[660,570,215,145],[1020,570,220,145],[100,550,80,185]]},
 	"dorm":{"floor":[60,80,1420,870],"boxes":[[315,166,165,312],[582,166,165,312],[846,166,166,312],[235,665,198,180],[635,665,200,180],[1080,665,200,180],[160,90,95,270],[1340,440,100,270],[1070,80,18,340],[1080,350,115,35],[1280,350,190,35],[1100,90,80,120],[1340,90,100,140]]},
 	"gym":{"floor":[60,190,1420,760],"boxes":[[324,420,61,105],[1150,420,65,105],[420,190,220,45],[900,190,240,45]]},
+	"warehouse":{"floor":[95,295,1335,615],"boxes":[[215,125,875,260],[125,390,145,310],[500,450,200,160],[830,455,180,155]]},
+	"equipment":{"floor":[95,310,1335,620],"boxes":[[70,290,130,315],[160,200,190,295],[365,100,345,220],[1150,150,225,205],[455,345,300,220],[815,345,295,220]]},
+	"auditorium":{"floor":[95,290,1335,620],"boxes":[[385,195,765,140],[125,325,65,145],[98,545,85,185],[340,385,350,95],[330,510,355,95],[315,640,365,95],[830,385,345,95],[825,510,355,95],[830,640,360,95]]},
 	"print":{"floor":[60,270,1420,680],"boxes":[[520,80,455,210],[330,375,380,190],[840,375,420,190],[545,620,455,200],[90,600,120,180]]}
 }
 
@@ -22,12 +26,13 @@ func configure(owner_game: Node2D) -> void:
 			for d: int in range(4):entry["source_regions"][["front","back","left","right"][d]]=[128*d,0,128,160]
 		entry["id"]=id;entry["display_name"]=STAFF[id];game.npc_catalog.characters[id]=entry
 	install_interiors()
+	rooms.configure(game)
 
 func install_interiors() -> void:
 	for spec: Array in [["B07","食堂","cafeteria"],["B08","小食堂","cafeteria"],["B03","体育馆","gym"],["B16","宿舍","dorm"]]:
 		var building: Dictionary=game.interior_info["buildings"]["B02"].duplicate(true)
 		building["id"]=spec[0];building["name"]=spec[1]
-		building["floor_count"]=3 if spec[0]=="B16" else 1
+		building["floor_count"]=3 if spec[0]=="B16" else 2 if spec[0] in ["B07","B08"] else 1
 		building["floors"].resize(building["floor_count"])
 		for row: Dictionary in building["floors"]:
 			if spec[0]!="B16":row["rooms"].resize(1)
@@ -91,17 +96,17 @@ func polygon(name: String) -> PackedVector2Array:
 	return PackedVector2Array([Vector2(r[0],r[1])*.3,Vector2(r[0]+r[2],r[1])*.3,Vector2(r[0]+r[2],r[1]+r[3])*.3,Vector2(r[0],r[1]+r[3])*.3])
 
 func source(name: String) -> String:
-	return game.package_root.path_join("资源/新增内景/v1.5/"+name+".png")
+	return game.package_root.path_join("资源/新增内景/"+("v1.8/" if name in ["warehouse","equipment","auditorium"] else "v1.5/")+name+".png")
 
 func configure_room(scene: Node2D, name: String) -> void:
 	for value: Array in LAYOUTS[name]["boxes"]:
 		var box:=Rect2(value[0]*.3,value[1]*.3,value[2]*.3,value[3]*.3)
 		scene.blockers.append(box)
 		scene.furniture_art.append({"rect":box,"edge":box.end.y})
-	var direct: bool=scene.state["building"] in ["B03","B07","B08"]
+	var direct: bool=scene.state["building"] in rooms.DIRECT
 	for side: String in ["front","rear"]:
 		var at:=Vector2(1400,350 if side=="front" else 885)*.3
-		if name=="dorm" and side=="front":continue # One private room entrance.
+		if name in ["dorm","warehouse","equipment","auditorium"] and side=="front":continue # One private room entrance.
 		scene.portal(at,Rect2(at-Vector2(10,7),Vector2(20,14)),"outside" if direct else "corridor",{"side":side,"art_rect":Rect2(at-Vector2(12,55),Vector2(24,65))})
 
 func populate(manager: Node2D, image: Image) -> bool:
@@ -153,7 +158,9 @@ func add_actor(manager: Node2D, id: String, proposed: Vector2, bounds: Rect2, na
 		manager.movers.append(record);manager.set_process(true)
 
 func handle(item: Dictionary) -> bool:
-	if item["action"]=="entrance" and item.get("building","") in ["B03","B07","B08"]:
+	if item["action"] in ["campus_sleep","campus_dine"]:
+		rooms.open("sleep" if item["action"]=="campus_sleep" else "dine");return true
+	if item["action"]=="entrance" and item.get("building","") in rooms.DIRECT:
 		game.change_interior({"building":item["building"],"floor":1,"kind":"classroom","room":0});return true
 	if item["action"]=="room" and game.interior_state.get("building","")=="B16" and int(game.interior_state.get("floor",1))==3:
 		game.show_notice("女生寝室是私人空间。请到一楼女生宿管接待室登记、会面或报修。");return true
