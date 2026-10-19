@@ -68,7 +68,7 @@ func advance(delta: float, actual_speed: float) -> void:
 	if delta<=0:return
 	if actual_speed<=.01:
 		stop();return
-	moving=true;rate=minf(4.0 if pixel_sheet!=null else 8.0,BASE_FPS*actual_speed/BASE_SPEED)
+	moving=true;rate=minf(4.0 if pixel_sheet!=null else 8.0,maxf(2.0,BASE_FPS*actual_speed/BASE_SPEED))
 	var advance_by:=rate*delta
 	frames_advanced+=advance_by
 	phase=fposmod(phase+advance_by,4.0)

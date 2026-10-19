@@ -1,7 +1,7 @@
 {
-  "version": "1.9.0",
+  "version": "1.9.1",
   "content_audit": {
-    "version": "1.8.0",
+    "version": "1.9.1",
     "main": {
       "lines": 960,
       "unique_lines": 889,
@@ -368,7 +368,7 @@
       "passed": true
     },
     "animation_flow": {
-      "checks": 211,
+      "checks": 221,
       "passed": true
     },
     "update_save_restart": {
@@ -385,9 +385,9 @@
     "stream_recovery"
   ],
   "windows_launcher_passed": true,
-  "windows_pck_sha256": "3d12f2601ba49e5d53ffbbc7b1658de32483dac6be3f49d5532932bc2e56aba2",
-  "apk_sha256": "999f78b6195f7e9edd06f42c776566382e8c2ee98c2670f93230d1442942299f",
-  "android_version_code": 15,
+  "windows_pck_sha256": "7fd0f383d55ac35d35eb401d4627df43b9f24678e86eb18ba921d1ed9af4083e",
+  "apk_sha256": "f01956e9ce324d5b4fa70ed2ad33533818de2b099db3160501c1551d838d9454",
+  "android_version_code": 16,
   "original_android_identity_and_signature_verified": true,
   "exported_apk_desktop_checks": {
     "touch_standard": 49,
@@ -541,12 +541,13 @@
     }
   },
   "animation_flow_exported_apk_checks": {
-    "checks": 211,
+    "checks": 221,
     "failures": [],
     "method": "Actual hero/Leon/staff four-beat gait, 2400 cached region updates, real farming spawn/hysteresis/fixed feet/pause, real battle responsive 1280/960 layout anchored actions, forward attacks/backward evade, actual physical and evasion turns at 8fps. Desktop rendering; no Android device or emulator.",
     "passed": true
   },
   "animation_pose_limits": {
+    "world_slow_walk_minimum": 2,
     "world_hero_walk": 4,
     "world_hero_run": 8,
     "pixel_leon_and_staff": 4,

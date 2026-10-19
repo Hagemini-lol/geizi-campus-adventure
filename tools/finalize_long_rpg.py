@@ -42,7 +42,7 @@ report = {
     'unchanged_base_formula_and_stream_checks_reused': ['balance', 'stream_recovery'],
     'windows_launcher_passed': True,
     'windows_pck_sha256': sha(root / 'runtime/campus.pck'),
-    'apk_sha256': apk['sha256'], 'android_version_code': 15,
+    'apk_sha256': apk['sha256'], 'android_version_code': 16,
     'original_android_identity_and_signature_verified': True,
     'exported_apk_desktop_checks': {'touch_standard': 49, 'touch_wide': 49, 'mod_runtime': 33},
     'runtime_asset_hashes_verified': len(manifest['files']),
@@ -77,7 +77,7 @@ assert all(report['fresh_content_checks_this_version'][name]==checks[name]['chec
 # Animation checks must run against both final common source and exported APK.
 report['animation_flow_exported_apk_checks']=read(root/'runtime/animation_flow_apk_checks.json')
 assert report['animation_flow_exported_apk_checks']['passed'] and report['animation_flow_exported_apk_checks']['checks']==checks['animation_flow']['checks']
-report['animation_pose_limits']={'world_hero_walk':4,'world_hero_run':8,'pixel_leon_and_staff':4,'monster_pose_keys':3,'battle_idle_pose_keys':3,'extra_walk_frame_images':0}
+report['animation_pose_limits']={'world_slow_walk_minimum':2,'world_hero_walk':4,'world_hero_run':8,'pixel_leon_and_staff':4,'monster_pose_keys':3,'battle_idle_pose_keys':3,'extra_walk_frame_images':0}
 report['unchanged_seating_and_navigation_checks_reused_from_v1_8_0']=True
 (root/'本版完成检查.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({key:report[key] for key in ['version','checks','exported_apk_desktop_checks','personal_files_unchanged']},ensure_ascii=False))

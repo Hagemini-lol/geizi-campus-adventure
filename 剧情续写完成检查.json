@@ -1,9 +1,9 @@
 {
-  "game_version": "1.9.0",
+  "game_version": "1.9.1",
   "game_name": "gei子的冒险",
   "windows_launcher_passed": true,
-  "windows_pck_sha256": "3d12f2601ba49e5d53ffbbc7b1658de32483dac6be3f49d5532932bc2e56aba2",
-  "apk_sha256": "999f78b6195f7e9edd06f42c776566382e8c2ee98c2670f93230d1442942299f",
+  "windows_pck_sha256": "7fd0f383d55ac35d35eb401d4627df43b9f24678e86eb18ba921d1ed9af4083e",
+  "apk_sha256": "f01956e9ce324d5b4fa70ed2ad33533818de2b099db3160501c1551d838d9454",
   "checks": {
     "campaign": {
       "checks": 304,

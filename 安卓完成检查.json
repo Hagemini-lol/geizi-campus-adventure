@@ -1,11 +1,11 @@
 {
   "version": 6,
-  "game_version": "1.9.0",
+  "game_version": "1.9.1",
   "game_name": "gei子的冒险",
   "apk": {
     "apk": "D:\\Godot\\校园自由漫游\\gei子的冒险.apk",
     "bytes": 438202223,
-    "sha256": "999f78b6195f7e9edd06f42c776566382e8c2ee98c2670f93230d1442942299f",
+    "sha256": "f01956e9ce324d5b4fa70ed2ad33533818de2b099db3160501c1551d838d9454",
     "signature_verified": true,
     "asset_hashes_checked": 3794,
     "configuration_files_checked": 7,
@@ -6223,7 +6223,7 @@
     "motion_steps": 450,
     "passed": true
   },
-  "windows_pck_sha256": "3d12f2601ba49e5d53ffbbc7b1658de32483dac6be3f49d5532932bc2e56aba2",
+  "windows_pck_sha256": "7fd0f383d55ac35d35eb401d4627df43b9f24678e86eb18ba921d1ed9af4083e",
   "android_minimum": "7.0 / API 24",
   "orientation": "landscape",
   "original_assets_edited": false,
@@ -7048,7 +7048,7 @@
     "puzzles": 10
   },
   "content_audit": {
-    "version": "1.8.0",
+    "version": "1.9.1",
     "main": {
       "lines": 960,
       "unique_lines": 889,

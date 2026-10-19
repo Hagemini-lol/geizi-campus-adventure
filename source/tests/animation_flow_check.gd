@@ -27,6 +27,14 @@ func verify_gait(gait: RefCounted, sprite: Sprite2D, label: String) -> void:
 		gait.advance(20.125,10000)
 		check(gait.rate<=8 and is_finite(gait.phase),label+" bounded fast-forward after frame stall")
 		gait.stop();check(not gait.moving and gait.rate==0,label+" stopping restores idle")
+	# Actual named students move at 12 px/s. A planted bridge must not hold
+	# for two seconds at that speed, even though physical movement stays slow.
+	gait.stop();var slow: Array=[]
+	for beat: int in range(4):
+		gait.advance(.001 if beat==0 else 1.0/gait.rate,12);slow.append(sprite.texture)
+	check(is_equal_approx(gait.rate,3 if label=="staff" else 2),label+" slow walk uses bounded natural cadence")
+	check(slow[0]!=slow[1] and slow[0]!=slow[2] and slow[1]==slow[3],label+" actual 12px/s cadence reaches both feet without long planted pause")
+	gait.stop()
 func clip(motion: RefCounted, action: String, side: float) -> void:
 	var slot: Control=motion.view;var body: Control=slot.portrait_view
 	var anchor:=slot.position;var label_at: Vector2=slot.name_label.position
